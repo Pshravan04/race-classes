@@ -1,185 +1,214 @@
 import { Link } from 'react-router-dom'
-import { MapPin, Phone, ArrowRight, CheckCircle } from 'lucide-react'
+import { MapPin, Phone, ArrowRight, Laptop, Target, Users } from 'lucide-react'
 import SEO from '../components/SEO'
-import { useReveal } from '../hooks/useReveal'
 import { SITE_CONFIG } from '../data/config'
-
-function Reveal({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
-  const { ref, visible } = useReveal()
-  return (
-    <div ref={ref} className={`reveal ${visible ? 'visible' : ''}`} style={{ transitionDelay: `${delay}ms` }}>
-      {children}
-    </div>
-  )
-}
 
 export default function About() {
   return (
     <>
       <SEO
-        title="About the Institute"
-        description="Learn about Race Reddys Advanced Computer Education in Virar East — our mission, approach to practical IT training, and commitment to student growth."
+        title="About Our Institute"
+        description="Learn about Race Reddys Advanced Computer Education in Virar East — our practical learning philosophy, dedicated computer labs, and skills-focused curricula."
         canonical="/about"
       />
 
-      {/* Page Hero */}
-      <section style={{ background: 'var(--navy)', padding: 'clamp(2.5rem, 6vw, 4.5rem) 0' }}>
+      {/* Header Banner */}
+      <section className="bg-slate-50 border-b border-slate-200 py-12 md:py-16">
         <div className="container-rr">
-          <span className="section-chip" style={{ background: 'rgba(217,174,82,0.12)', color: 'var(--gold)', borderColor: 'rgba(217,174,82,0.3)' }}>
-            About the Institute
-          </span>
-          <h1 style={{ color: '#fff', fontSize: 'clamp(2rem, 5vw, 3rem)', marginTop: '0.75rem', marginBottom: '0.75rem' }}>
-            Race Reddys Advanced Computer Education
-          </h1>
-          <p style={{ color: 'rgba(255,255,255,0.75)', maxWidth: 560, lineHeight: 1.7, fontSize: '1.0625rem' }}>
-            A dedicated computer training centre in the heart of Virar East, committed to helping every learner build practical, career-ready skills.
-          </p>
-        </div>
-      </section>
-
-      {/* About content */}
-      <section style={{ background: '#fff' }} className="section-py">
-        <div className="container-rr">
-          <Reveal>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '3rem', alignItems: 'center' }}>
-              <div>
-                <span className="section-chip">Who We Are</span>
-                <h2 style={{ fontSize: 'clamp(1.625rem, 3.5vw, 2.25rem)', color: 'var(--navy)', marginTop: '0.75rem', marginBottom: '1rem' }}>
-                  Training the Next Generation of IT Professionals
-                </h2>
-                <div className="divider" />
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '1rem', color: 'var(--charcoal)', lineHeight: 1.8 }}>
-                  <p>
-                    Race Reddys Advanced Computer Education is a professional computer training institute located at Raut Arcade, near Virar East Railway Station. We serve students, working professionals, homemakers, and job seekers across the Virar region with practical, skills-first computer education.
-                  </p>
-                  <p>
-                    Our courses range from introductory computer literacy to advanced career programmes in Software Development, AI & Machine Learning, Digital Marketing, Cyber Security, and more. We believe that the best way to learn technology is to use it — every session involves direct, hands-on work.
-                  </p>
-                  <p>
-                    We are committed to making quality IT education accessible to the community of Virar East and the surrounding areas, with practical training, career guidance, and placement support.
-                  </p>
-                </div>
-              </div>
-
-              <div style={{ borderRadius: 14, overflow: 'hidden' }}>
-                <img
-                  src="/instructor-teaching.jpg"
-                  alt="An instructor teaching software concepts at Race Reddys computer education centre"
-                  style={{ width: '100%', height: 420, objectFit: 'cover' }}
-                  loading="lazy"
-                />
-                <p style={{ fontSize: '0.75rem', color: 'var(--muted)', padding: '0.5rem', background: 'var(--off-white)', textAlign: 'center', fontStyle: 'italic' }}>
-                  Illustrative photo representing our teaching environment.
-                </p>
-              </div>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* Our approach */}
-      <section style={{ background: 'var(--off-white)' }} className="section-py">
-        <div className="container-rr">
-          <Reveal>
-            <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
-              <span className="section-chip">Our Approach</span>
-              <h2 style={{ fontSize: 'clamp(1.625rem, 3.5vw, 2.25rem)', color: 'var(--navy)', marginTop: '0.75rem' }}>
-                What Makes Our Training Different
-              </h2>
-            </div>
-          </Reveal>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '1.25rem' }}>
-            {[
-              { title: 'Practical First', desc: 'Every course is structured around hands-on practice. Students work on computers throughout the programme — not just in designated "lab sessions".' },
-              { title: 'Real-World Tools', desc: 'We teach industry-standard software and tools used in actual workplaces — Tally, MS Office, Adobe Creative Suite, VS Code, and more.' },
-              { title: 'Structured Learning', desc: 'Courses are carefully sequenced so you build confidence step by step, from basics to advanced applications.' },
-              { title: 'Beginner-Friendly', desc: 'Our Basic Computer course starts from the very beginning. You don\'t need any prior experience to join.' },
-              { title: 'Career Guidance', desc: 'We provide support and guidance to help students understand career paths and opportunities in their chosen field.' },
-              { title: 'Accessible Location', desc: 'Just steps from Virar East Railway Station — easily reachable by local train, bus, or auto.' },
-            ].map((item, i) => (
-              <Reveal key={i} delay={i * 60}>
-                <div className="card" style={{ padding: '1.5rem' }}>
-                  <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'flex-start', marginBottom: '0.625rem' }}>
-                    <CheckCircle size={18} style={{ color: 'var(--royal)', marginTop: 2, flexShrink: 0 }} />
-                    <h3 style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--navy)' }}>{item.title}</h3>
-                  </div>
-                  <p style={{ fontSize: '0.875rem', color: 'var(--muted)', lineHeight: 1.7, paddingLeft: '1.75rem' }}>{item.desc}</p>
-                </div>
-              </Reveal>
-            ))}
+          <div className="max-w-2xl">
+            <span className="section-eyebrow">ABOUT RACE REDDYS</span>
+            <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-3">
+              A Practical Approach to Computer Education
+            </h1>
+            <p className="text-base text-slate-600 leading-relaxed">
+              Situated in Virar East, Race Reddys Advanced Computer Education is dedicated to empowering students, job seekers, and working professionals with industry-relevant digital competencies.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Location */}
-      <section style={{ background: '#fff' }} className="section-py">
+      {/* Who We Are & Narrative */}
+      <section className="bg-white section-py border-b border-slate-100">
         <div className="container-rr">
-          <Reveal>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '3rem', alignItems: 'start' }}>
-              <div>
-                <span className="section-chip">Location</span>
-                <h2 style={{ fontSize: 'clamp(1.625rem, 3.5vw, 2.25rem)', color: 'var(--navy)', marginTop: '0.75rem', marginBottom: '1.25rem' }}>
-                  Conveniently Located in Virar East
-                </h2>
-                <address style={{ fontStyle: 'normal', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                  <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start', color: 'var(--charcoal)', lineHeight: 1.7 }}>
-                    <MapPin size={18} style={{ color: 'var(--royal)', marginTop: 2, flexShrink: 0 }} />
-                    <div>
-                      <strong style={{ display: 'block', marginBottom: '0.2rem' }}>{SITE_CONFIG.fullName}</strong>
-                      {SITE_CONFIG.address.line1},<br />
-                      {SITE_CONFIG.address.line2},<br />
-                      {SITE_CONFIG.address.city}, {SITE_CONFIG.address.state} {SITE_CONFIG.address.pin}
-                    </div>
-                  </div>
-                  <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center', color: 'var(--charcoal)' }}>
-                    <Phone size={16} style={{ color: 'var(--royal)', flexShrink: 0 }} />
-                    <a href={`tel:${SITE_CONFIG.contact.phoneRaw}`} style={{ fontWeight: 600 }}>
-                      {SITE_CONFIG.contact.phone}
-                    </a>
-                  </div>
-                </address>
-                <a
-                  href={SITE_CONFIG.address.googleMapsSearch}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary"
-                  style={{ marginTop: '1.5rem', display: 'inline-flex' }}
-                >
-                  <MapPin size={15} />
-                  Get Directions on Google Maps
-                </a>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+
+            <div className="lg:col-span-7 flex flex-col items-start">
+              <span className="section-eyebrow">OUR MISSION</span>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-4">
+                Skills-First Learning for Academic & Career Growth
+              </h2>
+              <div className="flex flex-col gap-3.5 text-base text-slate-600 leading-relaxed">
+                <p>
+                  Race Reddys Advanced Computer Education was established with a singular objective: to bridge the gap between classroom theory and real workplace software applications in the Virar and Palghar district region.
+                </p>
+                <p>
+                  Whether learning foundational keyboarding and MS Office, commercial accounting in Tally with GST, modern creative workflows in Photoshop and Illustrator, or software programming and AI prompt engineering, every student practices on dedicated computer workstations.
+                </p>
+                <p>
+                  We prioritize individual pacing, direct instructor interaction, and practical exercises designed to prepare candidates for job roles and certification exams.
+                </p>
               </div>
-              <div>
-                <div style={{ background: 'var(--off-white)', border: '1px solid var(--border)', borderRadius: 12, padding: '1.5rem' }}>
-                  <h3 style={{ color: 'var(--navy)', marginBottom: '1rem', fontSize: '1.0625rem' }}>How to Reach Us</h3>
-                  <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.75rem', color: 'var(--charcoal)', fontSize: '0.9375rem', lineHeight: 1.6 }}>
-                    <li>🚂 <strong>By Train:</strong> Virar East station (Western Railway) — 2-minute walk</li>
-                    <li>🚌 <strong>By Bus:</strong> Virar East bus stand — nearby</li>
-                    <li>🛺 <strong>By Auto:</strong> Ask for Raut Arcade, near Subway, Virar East</li>
-                  </ul>
-                  <div style={{ marginTop: '1.25rem', paddingTop: '1.25rem', borderTop: '1px solid var(--border)' }}>
-                    <p style={{ color: 'var(--muted)', fontSize: '0.875rem', marginBottom: '0.5rem' }}>Landmark: Opposite Subway restaurant</p>
-                    <p style={{ color: 'var(--muted)', fontSize: '0.875rem' }}>Building: Raut Arcade, 2nd Floor, Room 202</p>
-                  </div>
-                </div>
+
+              <div className="mt-6 flex flex-wrap items-center gap-3">
+                <Link to="/courses" className="btn-primary text-sm">
+                  <span>Browse Our Courses</span>
+                  <ArrowRight size={14} />
+                </Link>
+                <Link to="/contact" className="btn-secondary text-sm">
+                  <span>Visit Our Lab</span>
+                </Link>
               </div>
             </div>
-          </Reveal>
+
+            <div className="lg:col-span-5">
+              <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm aspect-[4/3] bg-slate-100">
+                <img
+                  src="/instructor-teaching.jpg"
+                  alt="Faculty providing individual guidance to a computer student at Race Reddys"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+
+          </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section style={{ background: 'linear-gradient(135deg, var(--navy) 0%, var(--royal) 100%)', padding: 'clamp(2.5rem, 5vw, 4rem) 0' }}>
-        <div className="container-rr" style={{ textAlign: 'center' }}>
-          <h2 style={{ color: '#fff', fontSize: 'clamp(1.625rem, 3.5vw, 2.25rem)', marginBottom: '1rem' }}>
-            Ready to Start Learning?
+      {/* Learning Philosophy Grid */}
+      <section className="bg-alt section-py border-b border-slate-200">
+        <div className="container-rr">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <span className="section-eyebrow">OUR TEACHING PHILOSOPHY</span>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+              What Defines Training at Race Reddys
+            </h2>
+            <p className="text-base text-slate-600 mt-2">
+              Our principles are grounded in transparent education, active practice, and supportive guidance.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="card-rr p-6 bg-white border border-slate-200">
+              <div className="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 text-blue-600 flex items-center justify-center mb-3.5">
+                <Laptop size={20} />
+              </div>
+              <h3 className="text-base font-bold text-slate-900 mb-2">Dedicated Lab Practice</h3>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                Learners receive dedicated time on desktop computers to complete practical modules, assignments, and sample projects.
+              </p>
+            </div>
+
+            <div className="card-rr p-6 bg-white border border-slate-200">
+              <div className="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 text-blue-600 flex items-center justify-center mb-3.5">
+                <Users size={20} />
+              </div>
+              <h3 className="text-base font-bold text-slate-900 mb-2">Personalized Faculty Attention</h3>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                Small batch sizes ensure our instructors can answer doubts individually and assist beginners who have never touched a computer.
+              </p>
+            </div>
+
+            <div className="card-rr p-6 bg-white border border-slate-200">
+              <div className="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 text-blue-600 flex items-center justify-center mb-3.5">
+                <Target size={20} />
+              </div>
+              <h3 className="text-base font-bold text-slate-900 mb-2">Workplace Relevance</h3>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                Training curricula are structured around software and practices commonly required by offices, businesses, and IT firms.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Location & Accessibility Details */}
+      <section className="bg-white section-py border-b border-slate-100">
+        <div className="container-rr">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+
+            <div className="lg:col-span-6">
+              <span className="section-eyebrow">CAMPUS ACCESSIBILITY</span>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-4">
+                Conveniently Located in Virar East
+              </h2>
+              <p className="text-sm text-slate-600 leading-relaxed mb-6">
+                Our centre is located directly opposite the Virar East railway subway at Raut Arcade, providing seamless access for daily commuters across the Western line.
+              </p>
+
+              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 flex flex-col gap-3 text-xs sm:text-sm text-slate-700 mb-6">
+                <div className="flex items-start gap-2.5">
+                  <MapPin size={18} className="text-blue-600 shrink-0 mt-0.5" />
+                  <span>
+                    <strong>Address: </strong>
+                    {SITE_CONFIG.address.line1}, {SITE_CONFIG.address.line2}, {SITE_CONFIG.address.city}, {SITE_CONFIG.address.state} {SITE_CONFIG.address.pin}
+                  </span>
+                </div>
+                <div className="flex items-center gap-2.5">
+                  <Phone size={16} className="text-blue-600 shrink-0" />
+                  <span>
+                    <strong>Phone / WhatsApp: </strong>
+                    <a href={`tel:${SITE_CONFIG.contact.phoneRaw}`} className="text-blue-600 font-semibold">
+                      {SITE_CONFIG.contact.phone}
+                    </a>
+                  </span>
+                </div>
+              </div>
+
+              <a
+                href={SITE_CONFIG.address.googleMapsSearch}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-secondary text-xs"
+              >
+                <span>Open Google Maps Directions</span>
+                <ArrowRight size={13} />
+              </a>
+            </div>
+
+            <div className="lg:col-span-6">
+              <div className="card-rr p-6 md:p-8 bg-slate-50 border border-slate-200">
+                <h3 className="text-base font-bold text-slate-900 mb-4">
+                  Transit & Commute Guide
+                </h3>
+                <ul className="flex flex-col gap-3 list-none p-0 m-0 text-xs sm:text-sm text-slate-700">
+                  <li className="flex items-start gap-2.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-blue-600 shrink-0 mt-2" />
+                    <span><strong>By Local Train:</strong> Alight at Virar station (East side). Walk through or opposite the pedestrian subway to Raut Arcade (approx. 2 minutes).</span>
+                  </li>
+                  <li className="flex items-start gap-2.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-blue-600 shrink-0 mt-2" />
+                    <span><strong>By Auto Rickshaw:</strong> Direct the driver to Raut Arcade near the Subway, Virar East.</span>
+                  </li>
+                  <li className="flex items-start gap-2.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-blue-600 shrink-0 mt-2" />
+                    <span><strong>Floor Location:</strong> Second floor, Suite 202. Our office sign is visible upon entering the arcade.</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* Bottom CTA Banner */}
+      <section className="bg-slate-900 text-white py-12">
+        <div className="container-rr text-center max-w-2xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-3">
+            Ready to Begin Your Computer Training?
           </h2>
-          <p style={{ color: 'rgba(255,255,255,0.8)', maxWidth: 480, margin: '0 auto 2rem', lineHeight: 1.7 }}>
-            Explore our courses and enquire about the current batch schedule and admission offers.
+          <p className="text-sm text-slate-300 leading-relaxed mb-6">
+            Contact us today to schedule a lab visit, discuss current admission offers, and select the right batch.
           </p>
-          <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '0.875rem' }}>
-            <Link to="/courses" className="btn-primary">Explore Courses <ArrowRight size={16} /></Link>
-            <Link to="/contact" className="btn-outline">Enquire About Admissions</Link>
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <Link to="/courses" className="btn-primary text-sm">
+              <span>Explore Courses</span>
+              <ArrowRight size={14} />
+            </Link>
+            <Link to="/contact" className="btn-secondary text-sm">
+              <span>Contact Admissions</span>
+            </Link>
           </div>
         </div>
       </section>

@@ -77,11 +77,11 @@ export interface Course {
 }
 
 export const COURSE_CATEGORIES: Record<CourseCategory, { label: string; emoji: string }> = {
-  fundamentals: { label: 'Computer Fundamentals', emoji: '💻' },
-  'office-accounting': { label: 'Office, Accounting & Business Tools', emoji: '📊' },
-  'design-creative': { label: 'Design & Creative Skills', emoji: '🎨' },
-  'software-web': { label: 'Software & Web Development', emoji: '🛠️' },
-  'ai-data': { label: 'AI, Data Science & Machine Learning', emoji: '🤖' },
+  fundamentals: { label: 'Computer Basics', emoji: '💻' },
+  'office-accounting': { label: 'Office & Accounting', emoji: '📊' },
+  'design-creative': { label: 'Design & Creative', emoji: '🎨' },
+  'software-web': { label: 'Software & Web', emoji: '🛠️' },
+  'ai-data': { label: 'AI & Data', emoji: '🤖' },
   'digital-marketing': { label: 'Digital Marketing', emoji: '📣' },
   'cyber-networking': { label: 'Cyber Security & Networking', emoji: '🔐' },
 };
@@ -442,47 +442,43 @@ export interface FAQ {
 
 export const FAQS: FAQ[] = [
   {
-    q: 'I have never used a computer before. Can I still join?',
-    a: 'Absolutely. Our Basic Computer course is designed specifically for complete beginners. Many of our learners start with zero prior experience. Contact us and we will guide you to the right starting point.',
+    q: 'Which courses are available?',
+    a: 'We offer a wide spectrum of short-term and career-oriented courses including Computer Basics, MS Office, Advanced Tally with GST, CCC, English & Marathi Typing, Adobe Illustrator, Photoshop, HTML/CSS, Hardware & Networking (A+ and N+), Graphic Design, Software Development, DFA, Animation, AI & Machine Learning, Digital Marketing, Web & App Development, Ethical Hacking, AI Prompt Engineering, Data Science, and Cyber Security.',
   },
   {
-    q: 'How do I know which course is right for me?',
-    a: 'Speak with our team — call or WhatsApp us on +91 97943 23963 and we will understand your background, interests, and goals before recommending a suitable course.',
+    q: 'Can beginners join?',
+    a: 'Yes, absolutely. Our foundational courses such as Basic Computer, MS Office, CCC, and Typing require zero prior computer knowledge. We provide patient, guided instruction for complete beginners of all age groups.',
   },
   {
-    q: 'What are the batch timings?',
-    a: 'Batch timings vary by course and are updated regularly. Please contact the institute directly for current available batches.',
+    q: 'How do I choose a suitable course?',
+    a: 'You can visit our centre in Virar East or contact us via call or WhatsApp at +91 97943 23963. Our team will understand your educational background, career aspirations, and current skill level to recommend the most suitable course or learning pathway.',
   },
   {
     q: 'What are the course fees?',
-    a: 'Fees depend on the course you choose. A 50% discount offer may be available — please contact us to confirm current pricing and eligibility.',
+    a: 'Course fees vary based on the program and duration. An advertised 50% discount offer is currently available for eligible admissions. Please contact the institute directly to confirm the exact fee schedule and payment installment options.',
   },
   {
     q: 'How long does each course take?',
-    a: 'Course duration varies depending on the subject. Please contact the institute for the duration of your specific course of interest.',
+    a: 'Duration varies by course type — short-term skill modules take a few weeks, while comprehensive career programs take a few months. Please contact the institute for the specific duration and fast-track options for your course of interest.',
   },
   {
-    q: 'Do I get a certificate after completing the course?',
-    a: 'Contact the institute for details on certificates and their recognition for your chosen course.',
+    q: 'What are the batch timings?',
+    a: 'We offer flexible batch timings across morning, afternoon, and evening sessions to accommodate school and college students, job seekers, and working professionals. Contact our Virar East office to check currently available batch slots.',
   },
   {
-    q: 'Is there practical training or is it only theory?',
-    a: 'We emphasise hands-on, practical training. Learners work directly on computers throughout the course, not just through lectures.',
+    q: 'Is practical training included?',
+    a: 'Yes. Practical, hands-on training is the foundation of Race Reddys. Every student practices on dedicated computers with real exercises, business scenarios, and guided instructor assistance rather than pure classroom lectures.',
   },
   {
-    q: 'What is the free Basic Computer Course offer?',
-    a: 'When you enrol in an eligible career course, you may receive a free Basic Computer Course. Eligibility and terms must be confirmed with the institute at the time of enquiry.',
+    q: 'What are the eligibility conditions for offers?',
+    a: 'The advertised 50% discount and the Free Basic Computer Course offer with eligible career course enrolment are subject to institute terms, batch availability, and admission verification. Please speak with our administration team to confirm current eligibility.',
   },
   {
-    q: 'Where is Race Reddys Advanced Computer Education located?',
-    a: '202, 2nd Floor, Raut Arcade, Opposite Subway, near Virar East Railway Station, Virar East, Maharashtra 401305. We are very easy to reach by train or auto.',
+    q: 'Where is the institute located?',
+    a: 'We are conveniently located at 202, 2nd Floor, Raut Arcade, Opposite Subway, near Virar East railway station, Virar East, Maharashtra 401305 — just a 2-minute walk from the station.',
   },
   {
-    q: 'Do you offer placement assistance?',
-    a: 'We provide placement support to our learners. Contact us for current details on how we assist students in their job search. We do not guarantee employment.',
-  },
-  {
-    q: 'Can I visit the institute before enrolling?',
-    a: 'Yes, please call or WhatsApp us to schedule a visit. We welcome prospective students to see the facility and speak with our team.',
+    q: 'How do I enquire about admission?',
+    a: 'You can enquire by calling +91 97943 23963, sending a WhatsApp message directly from the website, submitting the online admission enquiry form, or walking directly into our Virar East centre during working hours.',
   },
 ];

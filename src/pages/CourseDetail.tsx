@@ -1,25 +1,35 @@
 import { useParams, Link, Navigate } from 'react-router-dom'
-import { ArrowLeft, CheckCircle, Users, Target, Clock, Award, MessageCircle, ChevronDown, ChevronUp } from 'lucide-react'
+import {
+  ArrowLeft,
+  CheckCircle,
+  Users,
+  Target,
+  Clock,
+  Award,
+  MessageCircle,
+  ChevronDown,
+  ChevronUp,
+  Phone,
+  Sparkles,
+} from 'lucide-react'
 import { useState } from 'react'
 import SEO from '../components/SEO'
 import EnquiryForm from '../components/EnquiryForm'
-import { useReveal } from '../hooks/useReveal'
 import { COURSES, COURSE_CATEGORIES, SITE_CONFIG } from '../data/config'
-
-function Reveal({ children }: { children: React.ReactNode }) {
-  const { ref, visible } = useReveal()
-  return <div ref={ref} className={`reveal ${visible ? 'visible' : ''}`}>{children}</div>
-}
 
 function InfoBlock({ icon, label, content }: { icon: React.ReactNode; label: string; content: string }) {
   return (
-    <div style={{ background: 'var(--off-white)', border: '1px solid var(--border)', borderRadius: 10, padding: '1.125rem', display: 'flex', gap: '0.875rem', alignItems: 'flex-start' }}>
-      <div style={{ width: 36, height: 36, background: 'rgba(21,86,166,0.08)', borderRadius: 8, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--royal)', flexShrink: 0 }}>
+    <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 flex gap-3.5 items-start">
+      <div className="w-9 h-9 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center text-blue-600 shrink-0">
         {icon}
       </div>
       <div>
-        <p style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '0.2rem' }}>{label}</p>
-        <p style={{ fontSize: '0.9rem', color: 'var(--charcoal)', lineHeight: 1.55 }}>{content}</p>
+        <p className="text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-0.5">
+          {label}
+        </p>
+        <p className="text-xs sm:text-sm text-slate-800 leading-relaxed font-medium">
+          {content}
+        </p>
       </div>
     </div>
   )
@@ -36,229 +46,234 @@ export default function CourseDetail() {
   const [faqOpen, setFaqOpen] = useState<number | null>(null)
 
   const courseFAQs = [
-    { q: `Who should do the ${course.name} course?`, a: course.whoFor },
-    { q: 'Do I need prior experience?', a: course.prerequisites },
+    { q: `Who should enrol in ${course.name}?`, a: course.whoFor },
+    { q: 'Do I need prior computer experience?', a: course.prerequisites },
     { q: 'How long is this course?', a: course.durationNote },
-    { q: 'What are the course fees?', a: course.feeNote },
-    { q: 'Will I get a certificate?', a: course.certificateNote },
-    { q: 'What will I actually learn?', a: course.topicsNote },
+    { q: 'What are the fees and payment options?', a: course.feeNote },
+    { q: 'Will I get an institute certificate upon completion?', a: course.certificateNote },
+    { q: 'What specific topics and software will I learn?', a: course.topicsNote },
   ]
 
   const whatsappMsg = encodeURIComponent(
-    `Hi! I would like to enquire about the ${course.name} course at Race Reddys Advanced Computer Education. Please share details about batches and fees.`
+    `Hello! I would like to enquire about the ${course.name} course at Race Reddys Advanced Computer Education, Virar East. Please share details regarding fees and upcoming batch timings.`
   )
 
   return (
     <>
       <SEO
-        title={course.name}
+        title={`${course.name} Course in Virar East`}
         description={`${course.name} at Race Reddys Advanced Computer Education, Virar East. ${course.shortDesc}`}
         canonical={`/courses/${course.id}`}
       />
 
-      {/* Breadcrumb */}
-      <div style={{ background: '#fff', borderBottom: '1px solid var(--border)', padding: '0.75rem 0' }}>
+      {/* Breadcrumb Navigation */}
+      <div className="bg-slate-50 border-b border-slate-200 py-3 text-xs text-slate-500">
         <div className="container-rr">
           <nav aria-label="Breadcrumb">
-            <ol style={{ display: 'flex', gap: '0.5rem', alignItems: 'center', listStyle: 'none', padding: 0, margin: 0, fontSize: '0.875rem', color: 'var(--muted)' }}>
-              <li><Link to="/" style={{ color: 'var(--royal)' }}>Home</Link></li>
-              <li>›</li>
-              <li><Link to="/courses" style={{ color: 'var(--royal)' }}>Courses</Link></li>
-              <li>›</li>
-              <li aria-current="page" style={{ color: 'var(--charcoal)', fontWeight: 600 }}>{course.name}</li>
+            <ol className="flex items-center gap-2 list-none p-0 m-0">
+              <li>
+                <Link to="/" className="text-blue-600 hover:text-blue-700">Home</Link>
+              </li>
+              <li>/</li>
+              <li>
+                <Link to="/courses" className="text-blue-600 hover:text-blue-700">Courses</Link>
+              </li>
+              <li>/</li>
+              <li className="text-slate-800 font-semibold truncate max-w-xs" aria-current="page">
+                {course.name}
+              </li>
             </ol>
           </nav>
         </div>
       </div>
 
-      {/* Course Hero */}
-      <section style={{ background: 'var(--navy)', padding: 'clamp(2.5rem, 6vw, 4rem) 0' }}>
+      {/* Course Hero Header */}
+      <section className="bg-white border-b border-slate-200 py-10 md:py-14">
         <div className="container-rr">
-          <Link to="/courses" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', color: 'rgba(255,255,255,0.6)', fontSize: '0.875rem', marginBottom: '1.25rem' }}>
-            <ArrowLeft size={14} />
-            All Courses
-          </Link>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', background: 'rgba(217,174,82,0.12)', border: '1px solid rgba(217,174,82,0.3)', borderRadius: 999, padding: '0.25rem 0.75rem', marginBottom: '1rem', color: 'var(--gold)', fontSize: '0.8125rem', fontWeight: 600 }}>
-            {category.emoji} {category.label}
-          </div>
-          <h1 style={{ color: '#fff', fontSize: 'clamp(1.75rem, 4vw, 2.75rem)', marginBottom: '0.875rem' }}>
-            {course.name}
-          </h1>
-          <p style={{ color: 'rgba(255,255,255,0.78)', maxWidth: 560, lineHeight: 1.7, fontSize: '1.0625rem', marginBottom: '2rem' }}>
-            {course.shortDesc}
-          </p>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem' }}>
-            <Link to="/contact" className="btn-primary">
-              Enquire About This Course
-            </Link>
-            <a
-              href={`${SITE_CONFIG.contact.whatsapp}?text=${whatsappMsg}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-outline"
+          <div className="max-w-3xl">
+            <Link
+              to="/courses"
+              className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-blue-600 mb-4 transition-colors"
             >
-              <MessageCircle size={15} />
-              WhatsApp Us
-            </a>
+              <ArrowLeft size={14} />
+              <span>Back to All Courses</span>
+            </Link>
+
+            <div className="flex items-center gap-2 mb-3">
+              <span className="badge-blue text-xs">
+                {category?.label || 'Computer Course'}
+              </span>
+              <span className="badge-gold text-xs">
+                <Sparkles size={11} />
+                Practical Lab
+              </span>
+            </div>
+
+            <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">
+              {course.name}
+            </h1>
+
+            <p className="text-base text-slate-600 leading-relaxed mb-6">
+              {course.shortDesc}
+            </p>
+
+            <div className="flex flex-wrap items-center gap-3">
+              <a
+                href="#enquiry-section"
+                className="btn-primary text-sm"
+              >
+                Enquire for Admission
+              </a>
+              <a
+                href={`${SITE_CONFIG.contact.whatsapp}?text=${whatsappMsg}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-secondary text-sm flex items-center gap-1.5"
+              >
+                <MessageCircle size={15} className="text-emerald-600" />
+                <span>WhatsApp Query</span>
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Main content */}
-      <section style={{ background: 'var(--off-white)' }} className="section-py">
+      {/* Main Course Content & Sidebar Grid */}
+      <section className="bg-alt section-py">
         <div className="container-rr">
-          <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) 340px', gap: '2.5rem', alignItems: 'start' }}
-            className="course-detail-grid">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
 
-            {/* Left: Details */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+            {/* Left Column (8 cols): Details, Highlights, Skills */}
+            <div className="lg:col-span-8 flex flex-col gap-6">
 
-              {/* Quick info */}
-              <Reveal>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '0.875rem' }}>
-                  <InfoBlock icon={<Users size={16} />} label="Who Is It For" content={course.whoFor} />
-                  <InfoBlock icon={<Target size={16} />} label="Prerequisites" content={course.prerequisites} />
-                  <InfoBlock icon={<Clock size={16} />} label="Duration" content={course.durationNote} />
-                  <InfoBlock icon={<Award size={16} />} label="Certificate" content={course.certificateNote} />
+              {/* Quick Info Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <InfoBlock icon={<Users size={18} />} label="Intended For" content={course.whoFor} />
+                <InfoBlock icon={<Target size={18} />} label="Prerequisites" content={course.prerequisites} />
+                <InfoBlock icon={<Clock size={18} />} label="Course Duration" content={course.durationNote} />
+                <InfoBlock icon={<Award size={18} />} label="Certification" content={course.certificateNote} />
+              </div>
+
+              {/* Course Highlights */}
+              <div className="card-rr p-6 md:p-8 bg-white border border-slate-200">
+                <h2 className="text-lg font-bold text-slate-900 mb-4">
+                  Key Course Topics & Highlights
+                </h2>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 list-none p-0 m-0">
+                  {course.highlights.map((highlight, idx) => (
+                    <li key={idx} className="flex items-start gap-2.5 text-sm text-slate-700">
+                      <CheckCircle size={16} className="text-blue-600 shrink-0 mt-0.5" aria-hidden="true" />
+                      <span>{highlight}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Skills Gained */}
+              <div className="card-rr p-6 md:p-8 bg-white border border-slate-200">
+                <h2 className="text-lg font-bold text-slate-900 mb-4">
+                  Practical Skills You Will Develop
+                </h2>
+                <ul className="flex flex-col gap-3 list-none p-0 m-0 mb-4">
+                  {course.skillsGained.map((skill, idx) => (
+                    <li key={idx} className="flex items-start gap-3 text-sm text-slate-700">
+                      <span className="w-1.5 h-1.5 rounded-full bg-blue-600 shrink-0 mt-2" />
+                      <span>{skill}</span>
+                    </li>
+                  ))}
+                </ul>
+                <div className="p-3.5 bg-slate-50 rounded-lg border border-slate-200 text-xs text-slate-500">
+                  <span className="font-semibold text-slate-700">Syllabus Confirmation: </span>
+                  {course.topicsNote}
                 </div>
-              </Reveal>
+              </div>
 
-              {/* Highlights */}
-              <Reveal>
-                <div style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: 12, padding: '1.5rem' }}>
-                  <h2 style={{ fontSize: '1.125rem', fontWeight: 700, color: 'var(--navy)', marginBottom: '1.125rem' }}>
-                    Course Highlights
-                  </h2>
-                  <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '0.625rem' }}>
-                    {course.highlights.map((h, i) => (
-                      <li key={i} style={{ display: 'flex', gap: '0.5rem', alignItems: 'flex-start', color: 'var(--charcoal)', fontSize: '0.9rem', lineHeight: 1.6 }}>
-                        <CheckCircle size={15} style={{ color: 'var(--royal)', flexShrink: 0, marginTop: 3 }} />
-                        {h}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </Reveal>
+              {/* Course Specific FAQs */}
+              <div className="card-rr p-6 md:p-8 bg-white border border-slate-200">
+                <h2 className="text-lg font-bold text-slate-900 mb-2">
+                  Frequently Asked Questions on {course.name}
+                </h2>
+                <p className="text-xs text-slate-500 mb-4">
+                  Everything you need to know about joining this course at our Virar East centre.
+                </p>
 
-              {/* Skills gained */}
-              <Reveal>
-                <div style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: 12, padding: '1.5rem' }}>
-                  <h2 style={{ fontSize: '1.125rem', fontWeight: 700, color: 'var(--navy)', marginBottom: '1.125rem' }}>
-                    Skills You Will Develop
-                  </h2>
-                  <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.625rem' }}>
-                    {course.skillsGained.map((s, i) => (
-                      <li key={i} style={{ display: 'flex', gap: '0.625rem', alignItems: 'flex-start', color: 'var(--charcoal)', fontSize: '0.9rem', lineHeight: 1.6 }}>
-                        <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--gold)', flexShrink: 0, marginTop: 8 }} />
-                        {s}
-                      </li>
-                    ))}
-                  </ul>
-                  <p style={{ fontSize: '0.8125rem', color: 'var(--muted)', marginTop: '1rem', fontStyle: 'italic' }}>
-                    {course.topicsNote}
-                  </p>
-                </div>
-              </Reveal>
-
-              {/* Course FAQs */}
-              <Reveal>
-                <div style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: 12, padding: '1.5rem 1.5rem 0' }}>
-                  <h2 style={{ fontSize: '1.125rem', fontWeight: 700, color: 'var(--navy)', marginBottom: '0.5rem' }}>
-                    Common Questions About This Course
-                  </h2>
+                <div className="divide-y divide-slate-100">
                   {courseFAQs.map((faq, i) => (
-                    <div key={i} className="faq-item">
+                    <div key={i} className="py-3">
                       <button
-                        className="faq-btn"
+                        type="button"
                         onClick={() => setFaqOpen(faqOpen === i ? null : i)}
                         aria-expanded={faqOpen === i}
+                        className="w-full flex items-center justify-between text-left gap-4 font-semibold text-slate-800 text-sm hover:text-blue-600 transition-colors py-1"
                       >
                         <span>{faq.q}</span>
-                        {faqOpen === i
-                          ? <ChevronUp size={16} style={{ flexShrink: 0, color: 'var(--royal)' }} />
-                          : <ChevronDown size={16} style={{ flexShrink: 0, color: 'var(--muted)' }} />
-                        }
+                        <span className="text-slate-400 shrink-0">
+                          {faqOpen === i ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+                        </span>
                       </button>
-                      <div className={`faq-answer ${faqOpen === i ? 'open' : ''}`} aria-hidden={faqOpen !== i}>
-                        <div className="faq-answer-inner">{faq.a}</div>
-                      </div>
+                      {faqOpen === i && (
+                        <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mt-2 pl-1">
+                          {faq.a}
+                        </p>
+                      )}
                     </div>
                   ))}
                 </div>
-              </Reveal>
+              </div>
 
-              {/* Related courses */}
+              {/* Related Courses */}
               {relatedCourses.length > 0 && (
-                <Reveal>
-                  <div>
-                    <h2 style={{ fontSize: '1.125rem', fontWeight: 700, color: 'var(--navy)', marginBottom: '1rem' }}>
-                      Related Courses in {category.label}
-                    </h2>
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: '1rem' }}>
-                      {relatedCourses.map((c) => (
-                        <Link
-                          key={c.id}
-                          to={`/courses/${c.id}`}
-                          style={{
-                            background: '#fff', border: '1px solid var(--border)', borderRadius: 10,
-                            padding: '1rem', textDecoration: 'none', color: 'var(--navy)',
-                            fontWeight: 600, fontSize: '0.9rem',
-                            display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-                            transition: 'box-shadow 0.2s',
-                          }}
-                        >
-                          {c.name}
-                          <ChevronDown size={14} style={{ transform: 'rotate(-90deg)', color: 'var(--royal)' }} />
-                        </Link>
-                      ))}
-                    </div>
+                <div>
+                  <h3 className="text-base font-bold text-slate-900 mb-4">
+                    Other Recommended Courses in {category.label}
+                  </h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    {relatedCourses.map((rel) => (
+                      <Link
+                        key={rel.id}
+                        to={`/courses/${rel.id}`}
+                        className="card-rr p-4 bg-white border border-slate-200 block hover:border-blue-400 transition-colors"
+                      >
+                        <p className="text-xs text-blue-600 font-semibold mb-1">{category.label}</p>
+                        <p className="text-sm font-bold text-slate-900">{rel.name}</p>
+                      </Link>
+                    ))}
                   </div>
-                </Reveal>
+                </div>
               )}
+
             </div>
 
-            {/* Right: Sidebar */}
-            <aside style={{ position: 'sticky', top: '80px' }}>
-              <div style={{
-                background: '#fff', border: '1px solid var(--border)', borderRadius: 14,
-                padding: '1.75rem', boxShadow: '0 8px 32px rgba(7,27,58,0.07)',
-              }}>
-                <h3 style={{ fontSize: '1.125rem', fontWeight: 700, color: 'var(--navy)', marginBottom: '0.375rem' }}>
-                  Enquire About {course.name}
-                </h3>
-                <p style={{ color: 'var(--muted)', fontSize: '0.875rem', marginBottom: '1.25rem', lineHeight: 1.5 }}>
-                  Get batch timings, fees, and availability — sent directly via WhatsApp.
-                </p>
-                <EnquiryForm preselectedCourse={course.id} compact />
-                <div style={{ marginTop: '1.25rem', paddingTop: '1.25rem', borderTop: '1px solid var(--border)', textAlign: 'center' }}>
+            {/* Right Column (4 cols): Sticky Enquiry Sidebar */}
+            <aside id="enquiry-section" className="lg:col-span-4 sticky top-20">
+              <div className="card-rr p-6 bg-white border border-slate-200 shadow-sm flex flex-col gap-4">
+                <div>
+                  <h3 className="text-base font-bold text-slate-900">
+                    Enquire About {course.name}
+                  </h3>
+                  <p className="text-xs text-slate-500 mt-1">
+                    Check batch timings, seat availability, and current fees.
+                  </p>
+                </div>
+
+                <EnquiryForm preselectedCourse={course.name} compact />
+
+                <div className="pt-3 border-t border-slate-100 text-center">
+                  <p className="text-xs text-slate-500 mb-1">Prefer to talk right away?</p>
                   <a
                     href={`tel:${SITE_CONFIG.contact.phoneRaw}`}
-                    style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', color: 'var(--royal)', fontWeight: 700, fontSize: '1rem' }}
+                    className="text-sm font-bold text-blue-600 hover:text-blue-700 flex items-center justify-center gap-1.5"
                   >
-                    📞 {SITE_CONFIG.contact.phone}
+                    <Phone size={14} />
+                    <span>{SITE_CONFIG.contact.phone}</span>
                   </a>
-                  <p style={{ fontSize: '0.8rem', color: 'var(--muted)', marginTop: '0.25rem' }}>Call or WhatsApp us directly</p>
                 </div>
               </div>
-
-              {/* Fee/Duration note */}
-              <div style={{ background: 'rgba(21,86,166,0.05)', border: '1px solid rgba(21,86,166,0.15)', borderRadius: 10, padding: '1rem', marginTop: '1rem' }}>
-                <p style={{ fontSize: '0.8125rem', color: 'var(--royal)', lineHeight: 1.6 }}>
-                  <strong>💡 Note:</strong> {course.feeNote}
-                </p>
-              </div>
             </aside>
+
           </div>
         </div>
       </section>
-
-      <style>{`
-        @media (max-width: 900px) {
-          .course-detail-grid {
-            grid-template-columns: 1fr !important;
-          }
-        }
-      `}</style>
     </>
   )
 }

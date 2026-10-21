@@ -1,164 +1,179 @@
 import { Link } from 'react-router-dom'
-import { Phone, MapPin, MessageCircle } from 'lucide-react'
-import { SITE_CONFIG, COURSE_CATEGORIES } from '../data/config'
-
-const YEAR = new Date().getFullYear()
+import { Phone, MapPin, Clock, ArrowUpRight } from 'lucide-react'
+import { SITE_CONFIG } from '../data/config'
 
 export default function Footer() {
+  const currentYear = new Date().getFullYear()
+
   return (
-    <footer className="footer-bg text-white" role="contentinfo">
-      <div className="container-rr section-py-sm">
-        {/* Top row */}
-        <div className="grid gap-10" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))' }}>
-
-          {/* Brand */}
-          <div>
-            <div className="mb-4">
+    <footer className="bg-white border-t border-gray-200 pt-16 pb-12 text-sm text-gray-600" role="contentinfo">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
+          
+          {/* Brand Info Column */}
+          <div className="lg:col-span-2">
+            <Link to="/" className="flex items-center gap-3 mb-4 group" aria-label="Race Reddys Home">
               <img
-                src="/logo-wordmark.jpg"
-                alt="Race Reddys Advanced Computer Education"
-                style={{ height: 60, width: 'auto', objectFit: 'contain', filter: 'brightness(0) invert(1)', opacity: 0.9 }}
-                loading="lazy"
+                src="/stitch-logo.png"
+                alt="Race Reddys Monogram Logo"
+                className="h-10 w-10 object-contain rounded-full shadow-inner border border-gray-200"
               />
-            </div>
-            <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem', lineHeight: 1.7 }}>
-              Practical IT and computer skills training in Virar East, Maharashtra.
-            </p>
-            <div className="flex gap-3 mt-4">
-              <a
-                href={`${SITE_CONFIG.contact.whatsapp}?text=${SITE_CONFIG.contact.whatsappDefaultMessage}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  background: '#25D366',
-                  color: '#fff',
-                  padding: '0.4rem 0.9rem',
-                  borderRadius: '6px',
-                  fontSize: '0.8125rem',
-                  fontWeight: 600,
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.375rem',
-                }}
-                aria-label="Chat on WhatsApp"
-              >
-                <MessageCircle size={14} />
-                WhatsApp
-              </a>
-              <a
-                href={`tel:${SITE_CONFIG.contact.phoneRaw}`}
-                style={{
-                  border: '1px solid rgba(255,255,255,0.3)',
-                  color: '#fff',
-                  padding: '0.4rem 0.9rem',
-                  borderRadius: '6px',
-                  fontSize: '0.8125rem',
-                  fontWeight: 600,
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.375rem',
-                }}
-                aria-label={`Call ${SITE_CONFIG.contact.phone}`}
-              >
-                <Phone size={14} />
-                Call Us
-              </a>
-            </div>
-          </div>
-
-          {/* Navigation */}
-          <div>
-            <h3 style={{ fontSize: '0.875rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--gold)', marginBottom: '1rem' }}>
-              Navigate
-            </h3>
-            <ul style={{ listStyle: 'none', margin: 0, padding: 0, display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
-              {[
-                { label: 'Home', to: '/' },
-                { label: 'About the Institute', to: '/about' },
-                { label: 'All Courses', to: '/courses' },
-                { label: 'Admissions & Offers', to: '/admissions' },
-                { label: 'Contact Us', to: '/contact' },
-                { label: 'Privacy Policy', to: '/privacy' },
-              ].map((l) => (
-                <li key={l.to}>
-                  <Link
-                    to={l.to}
-                    style={{ color: 'rgba(255,255,255,0.72)', fontSize: '0.9rem', transition: 'color 0.15s' }}
-                    onMouseEnter={(e) => (e.currentTarget.style.color = '#fff')}
-                    onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(255,255,255,0.72)')}
-                  >
-                    {l.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Course categories */}
-          <div>
-            <h3 style={{ fontSize: '0.875rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--gold)', marginBottom: '1rem' }}>
-              Course Categories
-            </h3>
-            <ul style={{ listStyle: 'none', margin: 0, padding: 0, display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
-              {Object.entries(COURSE_CATEGORIES).map(([key, val]) => (
-                <li key={key}>
-                  <Link
-                    to={`/courses?cat=${key}`}
-                    style={{ color: 'rgba(255,255,255,0.72)', fontSize: '0.9rem', transition: 'color 0.15s' }}
-                    onMouseEnter={(e) => (e.currentTarget.style.color = '#fff')}
-                    onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(255,255,255,0.72)')}
-                  >
-                    {val.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <h3 style={{ fontSize: '0.875rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--gold)', marginBottom: '1rem' }}>
-              Visit Us
-            </h3>
-            <address style={{ fontStyle: 'normal', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-              <div style={{ display: 'flex', gap: '0.625rem', alignItems: 'flex-start', color: 'rgba(255,255,255,0.75)', fontSize: '0.9rem', lineHeight: 1.6 }}>
-                <MapPin size={16} style={{ flexShrink: 0, marginTop: 2, color: 'var(--gold)' }} />
-                <span>
-                  {SITE_CONFIG.address.line1},<br />
-                  {SITE_CONFIG.address.line2},<br />
-                  {SITE_CONFIG.address.city}, {SITE_CONFIG.address.state} {SITE_CONFIG.address.pin}
+              <div>
+                <span className="block font-black text-base text-[#0F1E36] group-hover:text-[#1556A6] transition-colors">
+                  RACE REDDYS
+                </span>
+                <span className="text-xs font-semibold text-gray-500 uppercase tracking-wider block">
+                  Advanced Computer Education
                 </span>
               </div>
-              <div style={{ display: 'flex', gap: '0.625rem', alignItems: 'center', color: 'rgba(255,255,255,0.75)', fontSize: '0.9rem' }}>
-                <Phone size={14} style={{ flexShrink: 0, color: 'var(--gold)' }} />
-                <a
-                  href={`tel:${SITE_CONFIG.contact.phoneRaw}`}
-                  style={{ color: 'rgba(255,255,255,0.75)' }}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = '#fff')}
-                  onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(255,255,255,0.75)')}
-                >
-                  {SITE_CONFIG.contact.phone}
-                </a>
+            </Link>
+
+            <p className="text-xs text-gray-500 max-w-sm mb-4 leading-relaxed">
+              Empowering students, fresh graduates, and career changers across Virar East, Vasai, and Palghar with industry-standard IT credentials and authentic practical lab training.
+            </p>
+
+            <div className="text-xs font-medium text-gray-700 space-y-2">
+              <div className="flex items-start gap-2">
+                <MapPin size={14} className="text-[#1556A6] shrink-0 mt-0.5" />
+                <span>
+                  {SITE_CONFIG.address.line1}, {SITE_CONFIG.address.line2}, {SITE_CONFIG.address.city}, {SITE_CONFIG.address.state} - {SITE_CONFIG.address.pin}
+                </span>
               </div>
+              <div className="flex items-center gap-2">
+                <Phone size={14} className="text-[#1556A6] shrink-0" />
+                <span>
+                  Direct Phone:{' '}
+                  <a href={`tel:${SITE_CONFIG.contact.phoneRaw}`} className="text-[#1556A6] font-bold hover:underline">
+                    {SITE_CONFIG.contact.phone}
+                  </a>
+                </span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Clock size={14} className="text-[#1556A6] shrink-0" />
+                <span>Mon – Sat: 8:00 AM – 9:00 PM | Sun: 9:00 AM – 2:00 PM</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h4 className="font-bold text-xs uppercase tracking-wider text-gray-900 mb-4">
+              Quick Links
+            </h4>
+            <ul className="space-y-2 text-xs">
+              <li>
+                <Link to="/" className="hover:text-black transition-colors">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link to="/about" className="hover:text-black transition-colors">
+                  About Institute
+                </Link>
+              </li>
+              <li>
+                <Link to="/courses" className="hover:text-black transition-colors">
+                  All Courses Catalog
+                </Link>
+              </li>
+              <li>
+                <Link to="/admissions" className="hover:text-black transition-colors">
+                  Admission Offers (50% Off)
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="hover:text-black transition-colors">
+                  Contact &amp; Location
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Programs Column */}
+          <div>
+            <h4 className="font-bold text-xs uppercase tracking-wider text-gray-900 mb-4">
+              Our Programs
+            </h4>
+            <ul className="space-y-2 text-xs">
+              <li>
+                <Link to="/courses/tally-gst" className="hover:text-black transition-colors">
+                  TallyPrime + GST Expert
+                </Link>
+              </li>
+              <li>
+                <Link to="/courses/basic-computer" className="hover:text-black transition-colors">
+                  Basic Computer &amp; Typing
+                </Link>
+              </li>
+              <li>
+                <Link to="/courses/full-stack-python" className="hover:text-black transition-colors">
+                  Full Stack Web Dev (Python)
+                </Link>
+              </li>
+              <li>
+                <Link to="/courses/graphic-design" className="hover:text-black transition-colors">
+                  Graphic Design (Photoshop)
+                </Link>
+              </li>
+              <li>
+                <Link to="/courses/ai-prompt-engineering" className="hover:text-black transition-colors">
+                  AI Prompting &amp; Automation
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Accreditations / Certifications */}
+          <div>
+            <h4 className="font-bold text-xs uppercase tracking-wider text-gray-900 mb-4">
+              Accreditations
+            </h4>
+            <p className="text-xs text-gray-500 mb-3 leading-relaxed">
+              Recognized frameworks ensuring all course certificates are valid for government employment and private sector jobs.
+            </p>
+            <div className="flex flex-wrap gap-1.5">
+              <span className="bg-gray-100 text-[10px] font-semibold px-2 py-1 rounded text-gray-700">
+                ISO 9001:2015
+              </span>
+              <span className="bg-gray-100 text-[10px] font-semibold px-2 py-1 rounded text-gray-700">
+                GCC-TBC
+              </span>
+              <span className="bg-gray-100 text-[10px] font-semibold px-2 py-1 rounded text-gray-700">
+                MSBTE Pattern
+              </span>
+              <span className="bg-gray-100 text-[10px] font-semibold px-2 py-1 rounded text-gray-700">
+                NSDC Aligned
+              </span>
+            </div>
+            <div className="mt-4">
               <a
                 href={SITE_CONFIG.address.googleMapsSearch}
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{ color: 'var(--gold)', fontSize: '0.875rem', fontWeight: 600, marginTop: '0.25rem' }}
+                className="inline-flex items-center gap-1 text-xs text-[#1556A6] font-bold hover:underline"
               >
-                Get Directions →
+                <span>Find Us on Google Maps</span>
+                <ArrowUpRight size={13} />
               </a>
-            </address>
+            </div>
           </div>
+
         </div>
 
-        {/* Bottom bar */}
-        <div
-          className="mt-10 pt-6 flex flex-wrap gap-3 justify-between items-center"
-          style={{ borderTop: '1px solid rgba(255,255,255,0.1)', fontSize: '0.8125rem', color: 'rgba(255,255,255,0.5)' }}
-        >
-          <p>© {YEAR} {SITE_CONFIG.fullName}. All rights reserved.</p>
-          <p>202, Raut Arcade, Virar East, Maharashtra 401305</p>
+        {/* Copyright Bottom Bar */}
+        <div className="border-t border-gray-200 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-3">
+          <p>© {currentYear} Race Reddys Advanced Computer Education. All rights reserved. Virar East, Maharashtra.</p>
+          <div className="flex items-center gap-4">
+            <Link to="/privacy" className="hover:underline">
+              Privacy Policy
+            </Link>
+            <Link to="/admissions" className="hover:underline">
+              Terms of Admission
+            </Link>
+            <Link to="/contact" className="hover:underline">
+              Virar East Campus
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

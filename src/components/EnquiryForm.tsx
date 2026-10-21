@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import type { FormEvent } from 'react'
-import { CheckCircle, Send } from 'lucide-react'
+import { MessageCircle, Phone, ArrowRight, ShieldCheck, AlertCircle } from 'lucide-react'
 import { COURSES, SITE_CONFIG } from '../data/config'
 
 interface EnquiryFormProps {
@@ -31,32 +31,40 @@ export default function EnquiryForm({ preselectedCourse = '', compact = false }:
     course: preselectedCourse,
     batch: '',
     message: '',
-    consent: false,
+    consent: true,
   })
   const [errors, setErrors] = useState<FormErrors>({})
-  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'whatsapp_opened'>('idle')
 
   const validate = (): FormErrors => {
-    const e: FormErrors = {}
-    if (!form.name.trim() || form.name.trim().length < 2)
-      e.name = 'Please enter your full name.'
-    const phoneClean = form.phone.replace(/\s/g, '')
-    if (!phoneClean || !/^[6-9]\d{9}$/.test(phoneClean))
-      e.phone = 'Please enter a valid 10-digit Indian mobile number.'
-    if (!form.course) e.course = 'Please select a course you are interested in.'
-    if (!form.consent) e.consent = 'Please confirm your consent to be contacted.'
-    return e
+    const errs: FormErrors = {}
+    if (!form.name.trim() || form.name.trim().length < 2) {
+      errs.name = 'Please enter your full name.'
+    }
+    const cleanPhone = form.phone.replace(/[\s-]/g, '')
+    if (!cleanPhone || !/^[6-9]\d{9}$/.test(cleanPhone)) {
+      errs.phone = 'Please enter a valid 10-digit Indian mobile number.'
+    }
+    if (!form.course) {
+      errs.course = 'Please select a course of interest.'
+    }
+    if (!form.consent) {
+      errs.consent = 'Please confirm consent to be contacted regarding admission details.'
+    }
+    return errs
   }
 
   const buildWhatsAppMessage = () => {
-    const courseName = COURSES.find((c) => c.id === form.course)?.name || form.course
+    const selectedCourseObj = COURSES.find((c) => c.id === form.course || c.name === form.course)
+    const courseTitle = selectedCourseObj ? selectedCourseObj.name : form.course
     const parts = [
-      `Hi! I'd like to enquire about admissions at Race Reddys.`,
-      `Name: ${form.name}`,
-      `Phone: ${form.phone}`,
-      form.course ? `Course of Interest: ${courseName}` : '',
-      form.batch ? `Preferred Batch: ${form.batch}` : '',
-      form.message ? `Message: ${form.message}` : '',
+      `Hello Race Reddys, I would like to enquire about admission.`,
+      `• Name: ${form.name}`,
+      `• Mobile: ${form.phone}`,
+      `• Course of Interest: ${courseTitle}`,
+      form.batch ? `• Preferred Batch: ${form.batch}` : '',
+      form.message ? `• Note: ${form.message}` : '',
+      `Location: Virar East Centre`,
     ].filter(Boolean)
     return encodeURIComponent(parts.join('\n'))
   }
@@ -74,215 +82,260 @@ export default function EnquiryForm({ preselectedCourse = '', compact = false }:
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault()
-    const errs = validate()
-    if (Object.keys(errs).length) {
-      setErrors(errs)
+    const validationErrors = validate()
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors)
       return
     }
+
     setStatus('submitting')
-    // No backend configured — open WhatsApp with pre-filled message
     const waUrl = `${SITE_CONFIG.contact.whatsapp}?text=${buildWhatsAppMessage()}`
+
+    // Direct WhatsApp routing
     setTimeout(() => {
       window.open(waUrl, '_blank', 'noopener,noreferrer')
-      setStatus('success')
-    }, 600)
+      setStatus('whatsapp_opened')
+    }, 400)
   }
 
-  if (status === 'success') {
+  if (status === 'whatsapp_opened') {
     return (
       <div
-        style={{
-          background: '#f0fdf4',
-          border: '1.5px solid #86efac',
-          borderRadius: 10,
-          padding: '2rem',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          gap: '0.75rem',
-          textAlign: 'center',
-        }}
-        role="alert"
+        className="card-rr p-6 md:p-8 bg-slate-50 border border-slate-200 text-center flex flex-col items-center gap-3"
+        role="status"
         aria-live="polite"
       >
-        <CheckCircle size={48} color="#16a34a" />
-        <h3 style={{ fontSize: '1.25rem', color: '#14532d', fontWeight: 700 }}>
-          WhatsApp Opened!
+        <div className="w-12 h-12 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center">
+          <MessageCircle size={26} aria-hidden="true" />
+        </div>
+        <h3 className="text-lg font-bold text-slate-900">
+          WhatsApp Consultation Initiated
         </h3>
-        <p style={{ color: '#166534', maxWidth: 340 }}>
-          Your enquiry details have been prefilled. Send the message on WhatsApp to connect with our team.
+        <p className="text-sm text-slate-600 max-w-sm">
+          Your course enquiry has been pre-formatted for our Virar East admissions team at{' '}
+          <strong className="text-slate-900">{SITE_CONFIG.contact.phone}</strong>.
         </p>
-        <p style={{ fontSize: '0.85rem', color: '#4b7c59' }}>
-          If WhatsApp did not open,{' '}
+
+        <div className="my-2 p-3 bg-white rounded-lg border border-slate-200 text-xs text-slate-500 text-left w-full max-w-sm">
+          <p className="font-semibold text-slate-700 mb-1 flex items-center gap-1">
+            <AlertCircle size={13} className="text-blue-500" />
+            Live Channel Note:
+          </p>
+          Enquiries are processed directly through WhatsApp & Phone consultation so you get instant answers on batch timings and fees.
+        </div>
+
+        <div className="flex flex-col sm:flex-row gap-2 mt-2 w-full max-w-sm">
+          <a
+            href={`${SITE_CONFIG.contact.whatsapp}?text=${buildWhatsAppMessage()}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary flex-1 text-xs py-2.5"
+          >
+            Re-open WhatsApp
+          </a>
           <a
             href={`tel:${SITE_CONFIG.contact.phoneRaw}`}
-            style={{ color: 'var(--royal)', fontWeight: 600 }}
+            className="btn-secondary flex-1 text-xs py-2.5"
           >
-            call us directly
+            <Phone size={13} />
+            Call Instantly
           </a>
-          .
-        </p>
+        </div>
+
         <button
-          className="btn-outline-navy"
+          type="button"
           onClick={() => {
             setStatus('idle')
-            setForm({ name: '', phone: '', course: preselectedCourse, batch: '', message: '', consent: false })
+            setForm({
+              name: '',
+              phone: '',
+              course: preselectedCourse,
+              batch: '',
+              message: '',
+              consent: true,
+            })
           }}
-          style={{ marginTop: '0.5rem' }}
+          className="text-xs text-slate-500 hover:text-slate-800 underline mt-2"
         >
-          Send Another Enquiry
+          Submit another inquiry
         </button>
       </div>
     )
   }
 
   return (
-    <form onSubmit={handleSubmit} noValidate aria-label="Admission enquiry form">
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '1.125rem' }}>
+    <form
+      onSubmit={handleSubmit}
+      noValidate
+      aria-label="Admission enquiry form"
+      className={`card-rr p-6 md:p-8 bg-white border border-slate-200 flex flex-col gap-4 ${
+        compact ? 'shadow-none' : 'shadow-xs'
+      }`}
+    >
+      <div>
+        <h3 className="text-lg font-bold text-slate-900">
+          Admission & Course Enquiry
+        </h3>
+        <p className="text-xs text-slate-500 mt-0.5">
+          Get direct information on upcoming batches, fees, and the 50% discount offer.
+        </p>
+      </div>
 
-        {/* Name */}
-        <div className="form-field">
-          <label className="form-label" htmlFor="enq-name">Full Name <span aria-hidden>*</span></label>
-          <input
-            id="enq-name"
-            name="name"
-            type="text"
-            className={`form-input ${errors.name ? 'error' : ''}`}
-            placeholder="e.g. Priya Sharma"
-            value={form.name}
-            onChange={handleChange}
-            autoComplete="name"
-            required
-            aria-required="true"
-            aria-describedby={errors.name ? 'enq-name-err' : undefined}
-          />
-          {errors.name && <p className="form-error" id="enq-name-err" role="alert">{errors.name}</p>}
-        </div>
+      {/* Name */}
+      <div className="form-group">
+        <label htmlFor="enquiry-name" className="form-label">
+          Full Name <span className="text-rose-500" aria-hidden="true">*</span>
+        </label>
+        <input
+          id="enquiry-name"
+          name="name"
+          type="text"
+          value={form.name}
+          onChange={handleChange}
+          placeholder="e.g. Rahul Sharma"
+          autoComplete="name"
+          required
+          aria-required="true"
+          aria-invalid={!!errors.name}
+          aria-describedby={errors.name ? 'err-enquiry-name' : undefined}
+          className={`form-control ${errors.name ? 'error' : ''}`}
+        />
+        {errors.name && (
+          <p id="err-enquiry-name" className="form-error-msg" role="alert">
+            {errors.name}
+          </p>
+        )}
+      </div>
 
-        {/* Phone */}
-        <div className="form-field">
-          <label className="form-label" htmlFor="enq-phone">Mobile Number <span aria-hidden>*</span></label>
+      {/* Mobile Number */}
+      <div className="form-group">
+        <label htmlFor="enquiry-phone" className="form-label">
+          Mobile Number <span className="text-rose-500" aria-hidden="true">*</span>
+        </label>
+        <div className="relative">
           <input
-            id="enq-phone"
+            id="enquiry-phone"
             name="phone"
             type="tel"
-            className={`form-input ${errors.phone ? 'error' : ''}`}
-            placeholder="10-digit mobile number"
             value={form.phone}
             onChange={handleChange}
+            placeholder="10-digit mobile number"
             autoComplete="tel"
             required
             aria-required="true"
-            inputMode="numeric"
-            maxLength={10}
-            aria-describedby={errors.phone ? 'enq-phone-err' : undefined}
+            aria-invalid={!!errors.phone}
+            aria-describedby={errors.phone ? 'err-enquiry-phone' : undefined}
+            className={`form-control ${errors.phone ? 'error' : ''}`}
           />
-          {errors.phone && <p className="form-error" id="enq-phone-err" role="alert">{errors.phone}</p>}
         </div>
-
-        {/* Course */}
-        <div className="form-field">
-          <label className="form-label" htmlFor="enq-course">Course of Interest <span aria-hidden>*</span></label>
-          <select
-            id="enq-course"
-            name="course"
-            className={`form-input ${errors.course ? 'error' : ''}`}
-            value={form.course}
-            onChange={handleChange}
-            required
-            aria-required="true"
-            aria-describedby={errors.course ? 'enq-course-err' : undefined}
-          >
-            <option value="">Select a course…</option>
-            {COURSES.map((c) => (
-              <option key={c.id} value={c.id}>{c.name}</option>
-            ))}
-            <option value="not-sure">Not sure — need guidance</option>
-          </select>
-          {errors.course && <p className="form-error" id="enq-course-err" role="alert">{errors.course}</p>}
-        </div>
-
-        {/* Batch preference (optional) */}
-        {!compact && (
-          <div className="form-field">
-            <label className="form-label" htmlFor="enq-batch">Preferred Batch Timing <span style={{ fontWeight: 400, color: 'var(--muted)' }}>(optional)</span></label>
-            <input
-              id="enq-batch"
-              name="batch"
-              type="text"
-              className="form-input"
-              placeholder="e.g. Morning, Evening, Weekend"
-              value={form.batch}
-              onChange={handleChange}
-            />
-          </div>
+        {errors.phone && (
+          <p id="err-enquiry-phone" className="form-error-msg" role="alert">
+            {errors.phone}
+          </p>
         )}
+      </div>
 
-        {/* Message (optional) */}
-        {!compact && (
-          <div className="form-field">
-            <label className="form-label" htmlFor="enq-message">Message <span style={{ fontWeight: 400, color: 'var(--muted)' }}>(optional)</span></label>
-            <textarea
-              id="enq-message"
-              name="message"
-              className="form-input"
-              placeholder="Any questions or additional details…"
-              value={form.message}
-              onChange={handleChange}
-              rows={3}
-              style={{ resize: 'vertical' }}
-            />
-          </div>
+      {/* Course Selection */}
+      <div className="form-group">
+        <label htmlFor="enquiry-course" className="form-label">
+          Course of Interest <span className="text-rose-500" aria-hidden="true">*</span>
+        </label>
+        <select
+          id="enquiry-course"
+          name="course"
+          value={form.course}
+          onChange={handleChange}
+          required
+          aria-required="true"
+          aria-invalid={!!errors.course}
+          aria-describedby={errors.course ? 'err-enquiry-course' : undefined}
+          className={`form-control ${errors.course ? 'error' : ''}`}
+        >
+          <option value="">Select a course</option>
+          {COURSES.map((c) => (
+            <option key={c.id} value={c.name}>
+              {c.name}
+            </option>
+          ))}
+        </select>
+        {errors.course && (
+          <p id="err-enquiry-course" className="form-error-msg" role="alert">
+            {errors.course}
+          </p>
         )}
+      </div>
 
-        {/* Consent */}
-        <div style={{ display: 'flex', gap: '0.625rem', alignItems: 'flex-start' }}>
-          <input
-            id="enq-consent"
-            name="consent"
-            type="checkbox"
-            checked={form.consent}
-            onChange={handleChange}
-            required
-            aria-required="true"
-            aria-describedby={errors.consent ? 'enq-consent-err' : undefined}
-            style={{ marginTop: 3, flexShrink: 0, accentColor: 'var(--royal)', width: 16, height: 16 }}
-          />
-          <div>
-            <label
-              htmlFor="enq-consent"
-              style={{ fontSize: '0.875rem', color: 'var(--charcoal)', lineHeight: 1.5, cursor: 'pointer' }}
-            >
-              I consent to Race Reddys contacting me regarding admissions and course information via phone or WhatsApp.
-            </label>
-            {errors.consent && <p className="form-error" id="enq-consent-err" role="alert">{errors.consent}</p>}
-          </div>
-        </div>
+      {/* Preferred Batch */}
+      <div className="form-group">
+        <label htmlFor="enquiry-batch" className="form-label">
+          Preferred Batch <span className="text-xs text-slate-400 font-normal">(Optional)</span>
+        </label>
+        <select
+          id="enquiry-batch"
+          name="batch"
+          value={form.batch}
+          onChange={handleChange}
+          className="form-control"
+        >
+          <option value="">Any batch / To be discussed</option>
+          <option value="Morning (8:00 AM - 12:00 PM)">Morning (8:00 AM - 12:00 PM)</option>
+          <option value="Afternoon (12:00 PM - 4:00 PM)">Afternoon (12:00 PM - 4:00 PM)</option>
+          <option value="Evening (4:00 PM - 8:30 PM)">Evening (4:00 PM - 8:30 PM)</option>
+          <option value="Weekend Special">Weekend Special</option>
+        </select>
+      </div>
 
-        {/* Submit */}
+      {/* Optional Message */}
+      <div className="form-group">
+        <label htmlFor="enquiry-msg" className="form-label">
+          Questions or Notes <span className="text-xs text-slate-400 font-normal">(Optional)</span>
+        </label>
+        <textarea
+          id="enquiry-msg"
+          name="message"
+          rows={compact ? 2 : 3}
+          value={form.message}
+          onChange={handleChange}
+          placeholder="Ask about batch timings, syllabus, or payment options..."
+          className="form-control resize-none"
+        />
+      </div>
+
+      {/* Consent Checkbox */}
+      <div className="flex items-start gap-2 pt-1">
+        <input
+          id="enquiry-consent"
+          name="consent"
+          type="checkbox"
+          checked={form.consent}
+          onChange={handleChange}
+          className="mt-1 h-4 w-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500"
+        />
+        <label htmlFor="enquiry-consent" className="text-xs text-slate-600 leading-snug">
+          I agree to be contacted by Race Reddys team via phone/WhatsApp regarding this admission enquiry.
+        </label>
+      </div>
+      {errors.consent && (
+        <p className="form-error-msg -mt-2" role="alert">
+          {errors.consent}
+        </p>
+      )}
+
+      {/* Submit Button */}
+      <div className="pt-2">
         <button
           type="submit"
-          className="btn-primary w-full justify-center"
           disabled={status === 'submitting'}
-          aria-disabled={status === 'submitting'}
-          style={{ marginTop: '0.25rem' }}
+          className="btn-primary w-full py-3 text-sm flex items-center justify-center gap-2"
         >
-          {status === 'submitting' ? (
-            'Opening WhatsApp…'
-          ) : (
-            <>
-              <Send size={16} />
-              Send Enquiry via WhatsApp
-            </>
-          )}
+          <MessageCircle size={17} aria-hidden="true" />
+          <span>{status === 'submitting' ? 'Connecting...' : 'Enquire via WhatsApp'}</span>
+          <ArrowRight size={15} aria-hidden="true" />
         </button>
 
-        <p style={{ fontSize: '0.8125rem', color: 'var(--muted)', textAlign: 'center', lineHeight: 1.5 }}>
-          This will open WhatsApp with your details pre-filled. Alternatively,{' '}
-          <a href={`tel:${SITE_CONFIG.contact.phoneRaw}`} style={{ color: 'var(--royal)', fontWeight: 600 }}>
-            call {SITE_CONFIG.contact.phone}
-          </a>
-          .
+        <p className="text-[11px] text-slate-400 text-center mt-2.5 flex items-center justify-center gap-1">
+          <ShieldCheck size={13} className="text-emerald-500" />
+          Zero spam. Direct conversation with Virar East counsellors.
         </p>
       </div>
     </form>

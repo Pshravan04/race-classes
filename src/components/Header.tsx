@@ -1,23 +1,18 @@
 import { useState, useEffect } from 'react'
-import { Link, useLocation } from 'react-router-dom'
-import { Menu, X, Phone } from 'lucide-react'
-import { SITE_CONFIG, ACTIVE_OFFER } from '../data/config'
-
-const NAV_LINKS = [
-  { label: 'Home', to: '/' },
-  { label: 'About', to: '/about' },
-  { label: 'Courses', to: '/courses' },
-  { label: 'Admissions', to: '/admissions' },
-  { label: 'Contact', to: '/contact' },
-]
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { Menu, X, Phone, ArrowUpRight } from 'lucide-react'
+import { SITE_CONFIG } from '../data/config'
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const location = useLocation()
+  const navigate = useNavigate()
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 24)
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20)
+    }
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
@@ -26,153 +21,249 @@ export default function Header() {
     setMenuOpen(false)
   }, [location.pathname])
 
-  const isActive = (to: string) =>
-    to === '/' ? location.pathname === '/' : location.pathname.startsWith(to)
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string, routeFallback: string) => {
+    if (location.pathname === '/') {
+      e.preventDefault()
+      const element = document.getElementById(targetId)
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' })
+      }
+    } else {
+      e.preventDefault()
+      navigate(routeFallback)
+    }
+  }
 
   return (
     <>
-      {/* Admission Announcement Strip */}
-      {ACTIVE_OFFER.active && (
-        <div className="offer-banner" role="banner" aria-label="Current offer">
-          🎓 <strong>{ACTIVE_OFFER.headline}</strong>
-          <span>— {ACTIVE_OFFER.badge}: {ACTIVE_OFFER.tagline}</span>
-          <Link
-            to="/admissions"
-            style={{
-              marginLeft: '0.75rem',
-              color: 'var(--gold)',
-              fontWeight: 700,
-              textDecoration: 'underline',
-              fontSize: '0.8125rem',
-            }}
+      {/* ─── Announcement Bar (Exact Stitch Spec) ─── */}
+      <aside aria-label="Announcement" className="bg-[#0b1728] text-white py-2 px-4 text-xs font-medium text-center border-b border-slate-800">
+        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+          <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-[#B7EB38] text-black">
+            ADMISSIONS OPEN
+          </span>
+          <span className="text-slate-200">
+            Summer &amp; Weekend Batches Starting at Virar East Branch • Avail{' '}
+            <strong className="text-white font-bold">50% Concession</strong> for early registrations!
+          </span>
+          <a
+            href="#enquiry-section"
+            onClick={(e) => handleNavClick(e, 'enquiry-section', '/admissions')}
+            className="underline text-[#B7EB38] hover:text-white font-semibold ml-1 cursor-pointer transition-colors"
           >
-            Learn more
-          </Link>
+            Reserve Seat ↗
+          </a>
         </div>
-      )}
+      </aside>
 
-      {/* Navigation */}
-      <header
-        className={`sticky top-0 z-50 bg-white transition-shadow duration-200 ${
-          scrolled ? 'shadow-md' : 'border-b border-gray-100'
-        }`}
-        role="banner"
-      >
-        <div className="container-rr">
-          <nav
-            className="flex items-center justify-between gap-4 py-3"
-            aria-label="Primary navigation"
-          >
-            {/* Logo */}
+      {/* ─── Floating Navbar (Exact Stitch Spec) ─── */}
+      <div className={`w-full px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto pt-3 sm:pt-4 z-50 transition-all ${
+        scrolled ? 'sticky top-3' : 'relative'
+      }`}>
+        <header className="bg-white/95 backdrop-blur-md rounded-full border border-gray-200/90 shadow-sm px-4 sm:px-6 py-2.5 flex items-center justify-between transition-all">
+          
+          {/* Brand Logo Container */}
+          <Link to="/" className="flex items-center gap-3 group shrink-0" aria-label="Race Reddys Home">
+            <img
+              src="/stitch-logo.png"
+              alt="Race Reddys Advanced Computer Education Monogram"
+              className="h-10 w-10 sm:h-11 sm:w-11 object-contain rounded-full shadow-inner border border-slate-100"
+            />
+            <div className="leading-tight">
+              <span className="block font-black text-sm sm:text-base tracking-tight text-[#0F1E36] group-hover:text-[#1556A6] transition-colors">
+                RACE REDDYS
+              </span>
+              <span className="text-[10px] sm:text-[11px] font-semibold text-gray-500 uppercase tracking-wider block">
+                Advanced Computer Education
+              </span>
+            </div>
+          </Link>
+
+          {/* Center Navigation Pills */}
+          <nav className="hidden lg:flex items-center gap-1 text-sm font-medium text-gray-700" aria-label="Main Navigation">
             <Link
               to="/"
-              className="flex items-center gap-3 flex-shrink-0"
-              aria-label="Race Reddys — Home"
+              className={`px-4 py-1.5 rounded-full font-semibold transition-all ${
+                location.pathname === '/'
+                  ? 'bg-[#B7EB38] text-black shadow-xs'
+                  : 'hover:bg-gray-100 hover:text-black'
+              }`}
             >
-              <img
-                src="/logo-wordmark.jpg"
-                alt="Race Reddys Advanced Computer Education"
-                style={{ height: 52, width: 'auto', objectFit: 'contain' }}
-                loading="eager"
-              />
+              Home
             </Link>
 
-            {/* Desktop nav links */}
-            <div className="hidden md:flex items-center gap-6" role="list">
-              {NAV_LINKS.map((link) => (
-                <Link
-                  key={link.to}
-                  to={link.to}
-                  role="listitem"
-                  className={`nav-link ${isActive(link.to) ? 'active' : ''}`}
-                  aria-current={isActive(link.to) ? 'page' : undefined}
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </div>
+            <a
+              href="#about"
+              onClick={(e) => handleNavClick(e, 'about', '/about')}
+              className={`px-3.5 py-1.5 rounded-full transition-colors ${
+                location.pathname === '/about'
+                  ? 'bg-[#B7EB38] text-black font-semibold'
+                  : 'hover:bg-gray-100 hover:text-black'
+              }`}
+            >
+              About Us
+            </a>
 
-            {/* Desktop CTA + Call */}
-            <div className="hidden md:flex items-center gap-3">
-              <a
-                href={`tel:${SITE_CONFIG.contact.phoneRaw}`}
-                className="flex items-center gap-1.5 text-sm font-medium"
-                style={{ color: 'var(--muted)' }}
-                aria-label={`Call ${SITE_CONFIG.contact.phone}`}
-              >
-                <Phone size={14} />
-                <span>{SITE_CONFIG.contact.phone}</span>
-              </a>
-              <Link to="/contact" className="btn-primary" style={{ padding: '0.55rem 1.2rem', fontSize: '0.875rem' }}>
-                Enquire Now
-              </Link>
-            </div>
+            <a
+              href="#courses"
+              onClick={(e) => handleNavClick(e, 'courses', '/courses')}
+              className={`px-3.5 py-1.5 rounded-full transition-colors ${
+                location.pathname.startsWith('/courses')
+                  ? 'bg-[#B7EB38] text-black font-semibold'
+                  : 'hover:bg-gray-100 hover:text-black'
+              }`}
+            >
+              Courses
+            </a>
 
-            {/* Mobile: Call + Hamburger */}
-            <div className="flex md:hidden items-center gap-2">
-              <a
-                href={`tel:${SITE_CONFIG.contact.phoneRaw}`}
-                style={{ color: 'var(--royal)' }}
-                aria-label={`Call ${SITE_CONFIG.contact.phone}`}
-              >
-                <Phone size={20} />
-              </a>
-              <button
-                onClick={() => setMenuOpen((v) => !v)}
-                aria-expanded={menuOpen}
-                aria-controls="mobile-menu"
-                aria-label={menuOpen ? 'Close menu' : 'Open menu'}
-                style={{
-                  background: 'none',
-                  border: 'none',
-                  cursor: 'pointer',
-                  padding: '0.25rem',
-                  color: 'var(--navy)',
-                  display: 'flex',
-                  alignItems: 'center',
-                }}
-              >
-                {menuOpen ? <X size={24} /> : <Menu size={24} />}
-              </button>
-            </div>
+            <a
+              href="#process"
+              onClick={(e) => handleNavClick(e, 'process', '/#process')}
+              className="px-3.5 py-1.5 rounded-full hover:bg-gray-100 hover:text-black transition-colors"
+            >
+              Training Process
+            </a>
+
+            <a
+              href="#enquiry-section"
+              onClick={(e) => handleNavClick(e, 'enquiry-section', '/admissions')}
+              className={`px-3.5 py-1.5 rounded-full transition-colors ${
+                location.pathname === '/admissions'
+                  ? 'bg-[#B7EB38] text-black font-semibold'
+                  : 'hover:bg-gray-100 hover:text-black'
+              }`}
+            >
+              Admissions
+            </a>
+
+            <a
+              href="#contact"
+              onClick={(e) => handleNavClick(e, 'contact', '/contact')}
+              className={`px-3.5 py-1.5 rounded-full transition-colors ${
+                location.pathname === '/contact'
+                  ? 'bg-[#B7EB38] text-black font-semibold'
+                  : 'hover:bg-gray-100 hover:text-black'
+              }`}
+            >
+              Contact
+            </a>
           </nav>
-        </div>
 
-        {/* Mobile Menu */}
-        <div
-          id="mobile-menu"
-          className={`mobile-menu md:hidden bg-white border-t`}
-          style={{ borderColor: 'var(--border)' }}
-          aria-hidden={!menuOpen}
-        >
-          <div className="container-rr py-3 flex flex-col gap-1">
-            {NAV_LINKS.map((link) => (
-              <Link
-                key={link.to}
-                to={link.to}
-                className={`block py-2.5 px-3 rounded-lg text-sm font-medium transition-colors ${
-                  isActive(link.to)
-                    ? 'bg-blue-50 text-blue-800 font-semibold'
-                    : 'text-gray-700 hover:bg-gray-50'
-                }`}
-                aria-current={isActive(link.to) ? 'page' : undefined}
-                tabIndex={menuOpen ? 0 : -1}
+          {/* Right CTAs */}
+          <div className="flex items-center gap-2 sm:gap-3">
+            {/* Call Us Pill */}
+            <a
+              href={`tel:${SITE_CONFIG.contact.phoneRaw}`}
+              className="hidden md:inline-flex items-center gap-2 text-xs font-semibold px-3.5 py-2 rounded-full border border-gray-200 bg-gray-50 hover:bg-gray-100 text-gray-800 transition-colors"
+              aria-label={`Call ${SITE_CONFIG.contact.phone}`}
+            >
+              <span className="w-5 h-5 rounded-full bg-[#B7EB38] flex items-center justify-center text-black">
+                <Phone size={11} className="fill-current text-black" />
+              </span>
+              <span className="text-gray-500 font-normal">Call Now</span>
+              <span className="font-bold">{SITE_CONFIG.contact.phone}</span>
+            </a>
+
+            {/* High Contrast Free Brochure / Enquire Now Button with Circle Arrow */}
+            <a
+              href="#enquiry-section"
+              onClick={(e) => handleNavClick(e, 'enquiry-section', '/contact')}
+              className="inline-flex items-center gap-2 bg-[#121c2d] hover:bg-black text-white text-xs sm:text-sm font-semibold pl-4 pr-1.5 py-1.5 rounded-full transition-transform active:scale-95 shadow group"
+            >
+              <span>Get Free Brochure</span>
+              <span className="w-7 h-7 rounded-full bg-[#B7EB38] text-black flex items-center justify-center font-bold text-sm transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                <ArrowUpRight size={15} />
+              </span>
+            </a>
+
+            {/* Mobile Hamburger Toggle */}
+            <button
+              type="button"
+              className="lg:hidden w-9 h-9 rounded-full bg-gray-100 hover:bg-gray-200 text-[#0F1E36] flex items-center justify-center transition-colors border border-gray-200"
+              onClick={() => setMenuOpen(!menuOpen)}
+              aria-label="Toggle navigation menu"
+              aria-expanded={menuOpen}
+            >
+              {menuOpen ? <X size={18} /> : <Menu size={18} />}
+            </button>
+          </div>
+
+        </header>
+
+        {/* Mobile Navigation Drawer */}
+        {menuOpen && (
+          <div className="lg:hidden mt-2 bg-white rounded-3xl border border-gray-200 p-4 shadow-xl flex flex-col gap-1.5 animate-in fade-in slide-in-from-top-2 duration-150">
+            <Link
+              to="/"
+              onClick={() => setMenuOpen(false)}
+              className="px-4 py-2.5 rounded-xl text-sm font-bold bg-[#B7EB38] text-black"
+            >
+              Home
+            </Link>
+            <a
+              href="#about"
+              onClick={(e) => {
+                setMenuOpen(false)
+                handleNavClick(e, 'about', '/about')
+              }}
+              className="px-4 py-2 rounded-xl text-sm font-medium text-gray-700 hover:bg-gray-100"
+            >
+              About Us
+            </a>
+            <a
+              href="#courses"
+              onClick={(e) => {
+                setMenuOpen(false)
+                handleNavClick(e, 'courses', '/courses')
+              }}
+              className="px-4 py-2 rounded-xl text-sm font-medium text-gray-700 hover:bg-gray-100"
+            >
+              Courses
+            </a>
+            <a
+              href="#process"
+              onClick={(e) => {
+                setMenuOpen(false)
+                handleNavClick(e, 'process', '/#process')
+              }}
+              className="px-4 py-2 rounded-xl text-sm font-medium text-gray-700 hover:bg-gray-100"
+            >
+              Training Process
+            </a>
+            <a
+              href="#enquiry-section"
+              onClick={(e) => {
+                setMenuOpen(false)
+                handleNavClick(e, 'enquiry-section', '/admissions')
+              }}
+              className="px-4 py-2 rounded-xl text-sm font-medium text-gray-700 hover:bg-gray-100"
+            >
+              Admissions (50% Off)
+            </a>
+            <a
+              href="#contact"
+              onClick={(e) => {
+                setMenuOpen(false)
+                handleNavClick(e, 'contact', '/contact')
+              }}
+              className="px-4 py-2 rounded-xl text-sm font-medium text-gray-700 hover:bg-gray-100"
+            >
+              Contact
+            </a>
+
+            <div className="pt-2 mt-2 border-t border-gray-100 flex flex-col gap-2">
+              <a
+                href={`tel:${SITE_CONFIG.contact.phoneRaw}`}
+                className="flex items-center justify-center gap-2 text-xs font-bold py-2.5 rounded-xl bg-gray-100 text-gray-900"
               >
-                {link.label}
-              </Link>
-            ))}
-            <div className="mt-2 pt-2" style={{ borderTop: '1px solid var(--border)' }}>
-              <Link
-                to="/contact"
-                className="btn-primary w-full justify-center"
-                tabIndex={menuOpen ? 0 : -1}
-              >
-                Enquire Now
-              </Link>
+                <Phone size={13} />
+                <span>Call +91 97943 23963</span>
+              </a>
             </div>
           </div>
-        </div>
-      </header>
+        )}
+
+      </div>
     </>
   )
 }

@@ -1,209 +1,184 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, CheckCircle, AlertCircle } from 'lucide-react'
+import { ArrowRight, CheckCircle, AlertCircle, Sparkles } from 'lucide-react'
 import SEO from '../components/SEO'
 import EnquiryForm from '../components/EnquiryForm'
-import { useReveal } from '../hooks/useReveal'
 import { ACTIVE_OFFER, COURSES } from '../data/config'
 
-function Reveal({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
-  const { ref, visible } = useReveal()
-  return (
-    <div ref={ref} className={`reveal ${visible ? 'visible' : ''}`} style={{ transitionDelay: `${delay}ms` }}>
-      {children}
-    </div>
-  )
-}
-
 export default function Admissions() {
+  const careerCourses = COURSES.filter((c) =>
+    ['software-web', 'ai-data', 'digital-marketing', 'cyber-networking', 'design-creative', 'office-accounting'].includes(c.category)
+  )
+
   return (
     <>
       <SEO
-        title="Admissions & Offers"
-        description="Admissions open at Race Reddys Advanced Computer Education, Virar East. Learn about current offers including 50% discount and free Basic Computer Course with eligible career course enrolment."
+        title="Admissions & Special Offers"
+        description="Admissions open at Race Reddys Advanced Computer Education, Virar East. Check details on the advertised 50% discount and Free Basic Computer Course offer with eligible career enrolment."
         canonical="/admissions"
       />
 
-      {/* Hero */}
-      <section style={{ background: 'var(--navy)', padding: 'clamp(2.5rem, 6vw, 4.5rem) 0' }}>
+      {/* Header Banner */}
+      <section className="bg-slate-50 border-b border-slate-200 py-12 md:py-16">
         <div className="container-rr">
-          <span className="section-chip" style={{ background: 'rgba(217,174,82,0.12)', color: 'var(--gold)', borderColor: 'rgba(217,174,82,0.3)' }}>
-            Admissions Open
-          </span>
-          <h1 style={{ color: '#fff', fontSize: 'clamp(2rem, 5vw, 3rem)', marginTop: '0.75rem', marginBottom: '0.75rem' }}>
-            Join Race Reddys
-          </h1>
-          <p style={{ color: 'rgba(255,255,255,0.75)', maxWidth: 520, lineHeight: 1.7 }}>
-            Enrol in a practical computer or IT course. Limited seats are available per batch — enquire early to secure your place.
-          </p>
+          <div className="max-w-2xl">
+            <span className="section-eyebrow">ADMISSIONS & BATCHES</span>
+            <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-3">
+              Join Race Reddys Computer Education
+            </h1>
+            <p className="text-base text-slate-600 leading-relaxed">
+              Enrol in practical, career-oriented computer training in Virar East. Morning, afternoon, and evening batches available with dedicated lab access.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* Offer Section */}
+      {/* Special Offer Card Section */}
       {ACTIVE_OFFER.active && (
-        <section style={{ background: 'linear-gradient(135deg, #0A2358 0%, var(--royal) 100%)' }} className="section-py-sm">
+        <section className="bg-white section-py border-b border-slate-100">
           <div className="container-rr">
-            <Reveal>
-              <div style={{
-                background: 'rgba(255,255,255,0.06)',
-                border: '1.5px solid rgba(217,174,82,0.4)',
-                borderRadius: 16,
-                padding: 'clamp(1.5rem, 4vw, 2.5rem)',
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-                gap: '2rem',
-                alignItems: 'center',
-              }}>
-                <div>
-                  <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center', marginBottom: '0.875rem', flexWrap: 'wrap' }}>
-                    <span style={{
-                      background: 'var(--gold)', color: 'var(--navy)',
-                      fontWeight: 800, padding: '0.25rem 1rem',
-                      borderRadius: 999, fontSize: '1rem', letterSpacing: '-0.01em',
-                    }}>
-                      {ACTIVE_OFFER.badge}
-                    </span>
-                    <h2 style={{ color: '#fff', fontSize: 'clamp(1.25rem, 3vw, 1.75rem)', fontWeight: 800, margin: 0 }}>
-                      {ACTIVE_OFFER.headline}
-                    </h2>
+            <div className="rounded-2xl bg-[#102B50] text-white p-8 md:p-12 border border-[#C9A04F]/40 shadow-sm">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+
+                <div className="lg:col-span-7 flex flex-col items-start">
+                  <div className="inline-flex items-center gap-1.5 bg-[#C9A04F]/20 text-[#D9AE52] border border-[#C9A04F]/40 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4">
+                    <Sparkles size={13} />
+                    <span>Special Promotional Offer</span>
                   </div>
 
-                  <p style={{ color: 'rgba(255,255,255,0.87)', fontSize: '1.0625rem', lineHeight: 1.7, marginBottom: '1rem' }}>
+                  <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-3">
+                    {ACTIVE_OFFER.badge}: {ACTIVE_OFFER.headline}
+                  </h2>
+
+                  <p className="text-base text-slate-200 leading-relaxed mb-6">
                     {ACTIVE_OFFER.tagline}
                   </p>
 
-                  <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.625rem', marginBottom: '1.25rem' }}>
-                    {[
-                      '50% discount on selected courses',
-                      'Free Basic Computer Course with eligible career course enrolment',
-                      'Limited seats per batch — early enquiry recommended',
-                      'Placement assistance for career programme learners',
-                    ].map((point, i) => (
-                      <li key={i} style={{ display: 'flex', gap: '0.5rem', alignItems: 'flex-start', color: 'rgba(255,255,255,0.82)', fontSize: '0.9375rem' }}>
-                        <CheckCircle size={16} style={{ color: 'var(--gold)', marginTop: 3, flexShrink: 0 }} />
-                        {point}
-                      </li>
-                    ))}
+                  <ul className="flex flex-col gap-2.5 mb-6 text-sm text-slate-200 list-none p-0 m-0">
+                    <li className="flex items-start gap-2.5">
+                      <CheckCircle size={16} className="text-[#C9A04F] shrink-0 mt-0.5" />
+                      <span><strong>50% Discount:</strong> Applicable to advertised course admissions.</span>
+                    </li>
+                    <li className="flex items-start gap-2.5">
+                      <CheckCircle size={16} className="text-[#C9A04F] shrink-0 mt-0.5" />
+                      <span><strong>Free Basic Computer Course:</strong> Included when enrolling in eligible career programs.</span>
+                    </li>
+                    <li className="flex items-start gap-2.5">
+                      <CheckCircle size={16} className="text-[#C9A04F] shrink-0 mt-0.5" />
+                      <span><strong>Hands-On Practical Training:</strong> Dedicated computer workstation for every student.</span>
+                    </li>
                   </ul>
 
-                  <div style={{ background: 'rgba(255,255,255,0.08)', borderRadius: 8, padding: '0.875rem 1rem', display: 'flex', gap: '0.5rem', alignItems: 'flex-start' }}>
-                    <AlertCircle size={16} style={{ color: 'var(--gold)', flexShrink: 0, marginTop: 2 }} />
-                    <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '0.85rem', lineHeight: 1.6 }}>
-                      <strong style={{ color: 'rgba(255,255,255,0.85)' }}>Important:</strong> {ACTIVE_OFFER.disclaimer}
-                    </p>
+                  <div className="p-3.5 rounded-lg bg-white/10 border border-white/15 text-xs text-slate-300 flex items-start gap-2">
+                    <AlertCircle size={15} className="text-[#C9A04F] shrink-0 mt-0.5" />
+                    <span>
+                      <strong>Important Notice: </strong> {ACTIVE_OFFER.disclaimer}
+                    </span>
                   </div>
                 </div>
 
-                <div>
-                  <div style={{ background: '#fff', borderRadius: 12, padding: '1.75rem' }}>
-                    <h3 style={{ fontSize: '1.125rem', fontWeight: 700, color: 'var(--navy)', marginBottom: '1.25rem' }}>
-                      Enquire About the Offer
-                    </h3>
-                    <EnquiryForm compact />
-                  </div>
+                <div className="lg:col-span-5 bg-white text-slate-900 rounded-xl p-6 border border-slate-200">
+                  <h3 className="text-base font-bold text-slate-900 mb-1">
+                    Ask About This Offer
+                  </h3>
+                  <p className="text-xs text-slate-500 mb-4">
+                    Confirm current seat availability and fee discounts for your course.
+                  </p>
+                  <EnquiryForm compact />
                 </div>
+
               </div>
-            </Reveal>
+            </div>
           </div>
         </section>
       )}
 
-      {/* How it works */}
-      <section style={{ background: 'var(--off-white)' }} className="section-py" aria-labelledby="steps-heading">
+      {/* 3-Step Admission Process */}
+      <section className="bg-alt section-py border-b border-slate-200">
         <div className="container-rr">
-          <Reveal>
-            <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-              <span className="section-chip">Admission Process</span>
-              <h2 id="steps-heading" style={{ fontSize: 'clamp(1.625rem, 3.5vw, 2.25rem)', color: 'var(--navy)', marginTop: '0.75rem' }}>
-                Three Simple Steps to Enrol
-              </h2>
-            </div>
-          </Reveal>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1.5rem' }}>
-            {[
-              {
-                num: '01', title: 'Browse and Choose',
-                desc: 'Explore the course catalogue and select the programme that matches your goals and skill level.',
-              },
-              {
-                num: '02', title: 'Contact and Confirm',
-                desc: 'Call or WhatsApp us to discuss the course, check batch timings, confirm current offers, and discuss fees.',
-              },
-              {
-                num: '03', title: 'Visit and Enrol',
-                desc: 'Visit our centre at Raut Arcade, Virar East to complete your enrolment and begin your learning journey.',
-              },
-            ].map((step, i) => (
-              <Reveal key={i} delay={i * 100}>
-                <div style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: 12, padding: '2rem 1.5rem', textAlign: 'center' }}>
-                  <div style={{ width: 52, height: 52, borderRadius: '50%', background: 'var(--navy)', color: 'var(--gold)', fontWeight: 800, fontSize: '1.125rem', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.25rem' }}>
-                    {step.num}
-                  </div>
-                  <h3 style={{ fontSize: '1.0625rem', fontWeight: 700, color: 'var(--navy)', marginBottom: '0.625rem' }}>{step.title}</h3>
-                  <p style={{ color: 'var(--muted)', fontSize: '0.9rem', lineHeight: 1.7 }}>{step.desc}</p>
-                </div>
-              </Reveal>
-            ))}
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <span className="section-eyebrow">STEP-BY-STEP</span>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+              How Admission Works
+            </h2>
+            <p className="text-base text-slate-600 mt-2">
+              Three simple, transparent steps to secure your batch at our Virar East centre.
+            </p>
           </div>
 
-          <Reveal>
-            <div style={{ textAlign: 'center', marginTop: '2.5rem' }}>
-              <p style={{ color: 'var(--muted)', fontSize: '0.9rem', marginBottom: '1.25rem', fontStyle: 'italic' }}>
-                ℹ️ There is no online payment system. Enrolment is completed in person at the institute.
-              </p>
-              <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '0.875rem' }}>
-                <Link to="/courses" className="btn-outline-navy">
-                  Browse Courses <ArrowRight size={16} />
-                </Link>
-                <Link to="/contact" className="btn-primary">
-                  Enquire Now <ArrowRight size={16} />
-                </Link>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div className="card-rr p-6 md:p-8 bg-white border border-slate-200 flex flex-col justify-between">
+              <div>
+                <span className="text-3xl font-black text-blue-600 font-mono">01</span>
+                <h3 className="text-base font-bold text-slate-900 mt-3 mb-2">Explore & Select Course</h3>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  Browse our course catalog or speak with our counsellors to select the program matching your career aspirations.
+                </p>
               </div>
             </div>
-          </Reveal>
+
+            <div className="card-rr p-6 md:p-8 bg-white border border-slate-200 flex flex-col justify-between">
+              <div>
+                <span className="text-3xl font-black text-blue-600 font-mono">02</span>
+                <h3 className="text-base font-bold text-slate-900 mt-3 mb-2">Confirm Fees & Batch</h3>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  Contact us via WhatsApp or Phone to verify the fee structure, available installment plans, and morning/evening batch slots.
+                </p>
+              </div>
+            </div>
+
+            <div className="card-rr p-6 md:p-8 bg-white border border-slate-200 flex flex-col justify-between">
+              <div>
+                <span className="text-3xl font-black text-blue-600 font-mono">03</span>
+                <h3 className="text-base font-bold text-slate-900 mt-3 mb-2">Visit Centre & Enrol</h3>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  Complete your registration in person at our Virar East centre (Raut Arcade, Opp. Subway) and start your practical training.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="p-4 rounded-xl bg-blue-50 border border-blue-100 text-xs text-blue-900 text-center max-w-xl mx-auto">
+            <p>
+              <strong>Payment Policy: </strong> Enrolments and fee payments are handled in person at our centre. We do not process unsolicited online payments or automated card charges.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* Career courses highlight */}
-      <section style={{ background: '#fff' }} className="section-py">
+      {/* Eligible Career Programs */}
+      <section className="bg-white section-py">
         <div className="container-rr">
-          <Reveal>
-            <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-              <span className="section-chip">Career Courses</span>
-              <h2 style={{ fontSize: 'clamp(1.625rem, 3.5vw, 2.25rem)', color: 'var(--navy)', marginTop: '0.75rem' }}>
-                Our Career-Oriented Programmes
-              </h2>
-              <p style={{ color: 'var(--muted)', maxWidth: 480, margin: '0.75rem auto 0', lineHeight: 1.7, fontSize: '0.9375rem' }}>
-                These longer programmes are designed for learners seeking to build a career in technology. Contact us for current batch and fee details.
-              </p>
-            </div>
-          </Reveal>
+          <div className="text-center max-w-2xl mx-auto mb-10">
+            <span className="section-eyebrow">CURRICULUM HIGHLIGHTS</span>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+              Featured Career Courses
+            </h2>
+            <p className="text-base text-slate-600 mt-2">
+              Explore in-demand career programs with comprehensive practical lab training.
+            </p>
+          </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '0.875rem' }}>
-            {COURSES.filter(c => ['software-web', 'ai-data', 'digital-marketing', 'cyber-networking', 'design-creative'].includes(c.category)).map((c, i) => (
-              <Reveal key={c.id} delay={i * 40}>
-                <Link
-                  to={`/courses/${c.id}`}
-                  style={{
-                    background: 'var(--off-white)',
-                    border: '1px solid var(--border)',
-                    borderRadius: 10,
-                    padding: '1rem 1.125rem',
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    textDecoration: 'none',
-                    color: 'var(--navy)',
-                    fontWeight: 600,
-                    fontSize: '0.9rem',
-                    transition: 'background 0.15s, border-color 0.15s',
-                  }}
-                >
-                  {c.name}
-                  <ArrowRight size={14} style={{ color: 'var(--royal)', flexShrink: 0 }} />
-                </Link>
-              </Reveal>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {careerCourses.map((c) => (
+              <Link
+                key={c.id}
+                to={`/courses/${c.id}`}
+                className="card-rr p-4 bg-white border border-slate-200 hover:border-blue-400 transition-colors flex items-center justify-between group"
+              >
+                <div>
+                  <p className="text-[11px] text-blue-600 font-semibold mb-0.5">Practical Course</p>
+                  <p className="text-sm font-bold text-slate-900 group-hover:text-blue-600 transition-colors">{c.name}</p>
+                </div>
+                <ArrowRight size={14} className="text-slate-400 group-hover:text-blue-600 transition-colors shrink-0" />
+              </Link>
             ))}
+          </div>
+
+          <div className="mt-10 text-center">
+            <Link to="/courses" className="btn-secondary text-sm">
+              <span>View All {COURSES.length} Courses</span>
+              <ArrowRight size={14} />
+            </Link>
           </div>
         </div>
       </section>

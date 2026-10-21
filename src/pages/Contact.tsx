@@ -1,157 +1,128 @@
-import { MapPin, Phone, MessageCircle, Clock, ArrowRight } from 'lucide-react'
+import { MapPin, Phone, MessageCircle, Clock, ExternalLink } from 'lucide-react'
 import SEO from '../components/SEO'
 import EnquiryForm from '../components/EnquiryForm'
-import { useReveal } from '../hooks/useReveal'
 import { SITE_CONFIG } from '../data/config'
-
-function Reveal({ children }: { children: React.ReactNode }) {
-  const { ref, visible } = useReveal()
-  return <div ref={ref} className={`reveal ${visible ? 'visible' : ''}`}>{children}</div>
-}
 
 export default function Contact() {
   return (
     <>
       <SEO
-        title="Contact Us"
-        description="Contact Race Reddys Advanced Computer Education in Virar East. Call or WhatsApp +91 97943 23963. Located at 202 Raut Arcade, near Virar East Railway Station."
+        title="Contact & Location in Virar East"
+        description="Contact Race Reddys Advanced Computer Education, Virar East. Direct phone & WhatsApp: +91 97943 23963. Located at 202, 2nd Floor, Raut Arcade, Opp. Subway."
         canonical="/contact"
       />
 
-      {/* Hero */}
-      <section style={{ background: 'var(--navy)', padding: 'clamp(2.5rem, 6vw, 4.5rem) 0' }}>
+      {/* Header Banner */}
+      <section className="bg-slate-50 border-b border-slate-200 py-12 md:py-16">
         <div className="container-rr">
-          <span className="section-chip" style={{ background: 'rgba(217,174,82,0.12)', color: 'var(--gold)', borderColor: 'rgba(217,174,82,0.3)' }}>
-            Get in Touch
-          </span>
-          <h1 style={{ color: '#fff', fontSize: 'clamp(2rem, 5vw, 3rem)', marginTop: '0.75rem', marginBottom: '0.75rem' }}>
-            Contact Race Reddys
-          </h1>
-          <p style={{ color: 'rgba(255,255,255,0.75)', maxWidth: 480, lineHeight: 1.7 }}>
-            Have questions about courses, admissions, or our current offers? We are here to help. Reach out by phone, WhatsApp, or visit us in person.
-          </p>
+          <div className="max-w-2xl">
+            <span className="section-eyebrow">GET IN TOUCH</span>
+            <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-3">
+              Contact & Visit Our Centre
+            </h1>
+            <p className="text-base text-slate-600 leading-relaxed">
+              We welcome students, parents, and working professionals to connect with us or visit our computer lab in Virar East.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* Contact content */}
-      <section style={{ background: 'var(--off-white)' }} className="section-py">
+      {/* Main Contact Grid */}
+      <section className="bg-white section-py">
         <div className="container-rr">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2.5rem', alignItems: 'start' }}>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
 
-            {/* Contact info */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+            {/* Left Column (5 cols): Direct Contact Cards */}
+            <div className="lg:col-span-5 flex flex-col gap-6">
 
-              {/* Phone */}
-              <Reveal>
-                <div style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: 12, padding: '1.5rem' }}>
-                  <div style={{ display: 'flex', gap: '0.875rem', alignItems: 'center', marginBottom: '0.75rem' }}>
-                    <div style={{ width: 44, height: 44, background: 'rgba(21,86,166,0.08)', borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--royal)' }}>
-                      <Phone size={20} />
-                    </div>
-                    <h2 style={{ fontSize: '1.0625rem', fontWeight: 700, color: 'var(--navy)' }}>Call or WhatsApp</h2>
+              {/* Phone & WhatsApp Card */}
+              <div className="card-rr p-6 md:p-8 bg-white border border-slate-200">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center text-blue-600">
+                    <Phone size={20} />
                   </div>
+                  <div>
+                    <h2 className="text-base font-bold text-slate-900">Direct Telephone & WhatsApp</h2>
+                    <p className="text-xs text-slate-500">Fastest response for admissions and batch timings</p>
+                  </div>
+                </div>
+
+                <a
+                  href={`tel:${SITE_CONFIG.contact.phoneRaw}`}
+                  className="text-xl sm:text-2xl font-black text-slate-900 hover:text-blue-600 transition-colors block mb-4"
+                >
+                  {SITE_CONFIG.contact.phone}
+                </a>
+
+                <div className="flex flex-wrap gap-2.5">
                   <a
                     href={`tel:${SITE_CONFIG.contact.phoneRaw}`}
-                    style={{ display: 'block', fontSize: '1.375rem', fontWeight: 800, color: 'var(--navy)', marginBottom: '0.375rem', textDecoration: 'none' }}
+                    className="btn-primary text-xs py-2 px-3.5 flex items-center gap-1.5"
                   >
-                    {SITE_CONFIG.contact.phone}
+                    <Phone size={13} />
+                    <span>Click to Call</span>
                   </a>
-                  <p style={{ color: 'var(--muted)', fontSize: '0.875rem', marginBottom: '1rem' }}>
-                    Available during institute hours. WhatsApp preferred for quick responses.
-                  </p>
-                  <div style={{ display: 'flex', gap: '0.625rem', flexWrap: 'wrap' }}>
-                    <a
-                      href={`tel:${SITE_CONFIG.contact.phoneRaw}`}
-                      className="btn-primary"
-                      style={{ padding: '0.55rem 1rem', fontSize: '0.875rem' }}
-                    >
-                      <Phone size={14} />
-                      Click to Call
-                    </a>
-                    <a
-                      href={`${SITE_CONFIG.contact.whatsapp}?text=${SITE_CONFIG.contact.whatsappDefaultMessage}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{
-                        background: '#25D366', color: '#fff',
-                        padding: '0.55rem 1rem', borderRadius: 6, fontSize: '0.875rem', fontWeight: 700,
-                        display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
-                        textDecoration: 'none',
-                      }}
-                    >
-                      <MessageCircle size={14} />
-                      WhatsApp
-                    </a>
-                  </div>
-                </div>
-              </Reveal>
-
-              {/* Address */}
-              <Reveal>
-                <div style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: 12, padding: '1.5rem' }}>
-                  <div style={{ display: 'flex', gap: '0.875rem', alignItems: 'center', marginBottom: '0.75rem' }}>
-                    <div style={{ width: 44, height: 44, background: 'rgba(21,86,166,0.08)', borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--royal)' }}>
-                      <MapPin size={20} />
-                    </div>
-                    <h2 style={{ fontSize: '1.0625rem', fontWeight: 700, color: 'var(--navy)' }}>Visit Us</h2>
-                  </div>
-                  <address style={{ fontStyle: 'normal', color: 'var(--charcoal)', lineHeight: 1.75, marginBottom: '1rem' }}>
-                    <strong>{SITE_CONFIG.fullName}</strong><br />
-                    {SITE_CONFIG.address.line1},<br />
-                    {SITE_CONFIG.address.line2},<br />
-                    {SITE_CONFIG.address.city}, {SITE_CONFIG.address.state} — {SITE_CONFIG.address.pin}
-                  </address>
                   <a
-                    href={SITE_CONFIG.address.googleMapsSearch}
+                    href={`${SITE_CONFIG.contact.whatsapp}?text=${SITE_CONFIG.contact.whatsappDefaultMessage}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn-outline-navy"
-                    style={{ padding: '0.5rem 1rem', fontSize: '0.875rem', display: 'inline-flex' }}
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold bg-emerald-600 hover:bg-emerald-500 text-white px-3.5 py-2 rounded-lg transition-colors"
                   >
-                    <MapPin size={14} />
-                    Get Directions <ArrowRight size={14} />
+                    <MessageCircle size={14} />
+                    <span>WhatsApp Chat</span>
                   </a>
                 </div>
-              </Reveal>
+              </div>
 
-              {/* Hours note */}
-              <Reveal>
-                <div style={{ background: 'rgba(21,86,166,0.05)', border: '1px solid rgba(21,86,166,0.15)', borderRadius: 10, padding: '1.125rem', display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
-                  <Clock size={18} style={{ color: 'var(--royal)', flexShrink: 0, marginTop: 2 }} />
+              {/* Centre Location Card */}
+              <div className="card-rr p-6 md:p-8 bg-white border border-slate-200">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center text-blue-600">
+                    <MapPin size={20} />
+                  </div>
                   <div>
-                    <h3 style={{ fontSize: '0.9375rem', fontWeight: 700, color: 'var(--navy)', marginBottom: '0.25rem' }}>Hours of Operation</h3>
-                    <p style={{ color: 'var(--muted)', fontSize: '0.875rem', lineHeight: 1.6 }}>
-                      Contact the institute directly to confirm current office and batch hours. Hours may vary by season or batch schedule.
-                    </p>
+                    <h2 className="text-base font-bold text-slate-900">Virar East Address</h2>
+                    <p className="text-xs text-slate-500">2 minutes walk from Virar Railway Station</p>
                   </div>
                 </div>
-              </Reveal>
 
-              {/* Directions */}
-              <Reveal>
-                <div style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: 10, padding: '1.25rem' }}>
-                  <h3 style={{ fontSize: '0.9375rem', fontWeight: 700, color: 'var(--navy)', marginBottom: '0.875rem' }}>How to Reach Us</h3>
-                  <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.625rem', fontSize: '0.875rem', color: 'var(--charcoal)', lineHeight: 1.6 }}>
-                    <li>🚂 <strong>Train:</strong> Virar station, East exit — 2-minute walk to Raut Arcade</li>
-                    <li>🛺 <strong>Auto:</strong> Ask for Raut Arcade, near Subway, Virar East</li>
-                    <li>📍 <strong>Landmark:</strong> Opposite Subway restaurant, 2nd Floor</li>
-                  </ul>
+                <address className="not-italic text-sm text-slate-700 leading-relaxed mb-4">
+                  <strong className="text-slate-900 block mb-1">{SITE_CONFIG.fullName}</strong>
+                  {SITE_CONFIG.address.line1},<br />
+                  {SITE_CONFIG.address.line2},<br />
+                  {SITE_CONFIG.address.city}, {SITE_CONFIG.address.state} — {SITE_CONFIG.address.pin}
+                </address>
+
+                <a
+                  href={SITE_CONFIG.address.googleMapsSearch}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-secondary text-xs inline-flex items-center gap-1.5"
+                >
+                  <span>Open Directions on Google Maps</span>
+                  <ExternalLink size={12} />
+                </a>
+              </div>
+
+              {/* Hours of Operation */}
+              <div className="p-5 rounded-xl bg-slate-50 border border-slate-200 flex items-start gap-3">
+                <Clock size={18} className="text-blue-600 shrink-0 mt-0.5" />
+                <div>
+                  <h3 className="text-sm font-bold text-slate-900">Confirmed Operating Hours</h3>
+                  <p className="text-xs text-slate-600 mt-0.5">
+                    Monday to Saturday: <strong>8:00 AM – 9:00 PM</strong><br />
+                    Sunday: Special batches & admissions by prior appointment.
+                  </p>
                 </div>
-              </Reveal>
+              </div>
+
             </div>
 
-            {/* Enquiry form */}
-            <Reveal>
-              <div style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: 14, padding: 'clamp(1.5rem, 4vw, 2rem)' }}>
-                <h2 style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--navy)', marginBottom: '0.375rem' }}>
-                  Send an Enquiry
-                </h2>
-                <p style={{ color: 'var(--muted)', fontSize: '0.875rem', marginBottom: '1.5rem', lineHeight: 1.6 }}>
-                  Share your details and we'll get back to you via WhatsApp with course and batch information.
-                </p>
-                <EnquiryForm />
-              </div>
-            </Reveal>
+            {/* Right Column (7 cols): Enquiry Form */}
+            <div className="lg:col-span-7">
+              <EnquiryForm />
+            </div>
+
           </div>
         </div>
       </section>

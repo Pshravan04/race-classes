@@ -9,33 +9,23 @@ export default function NotFound() {
         title="Page Not Found"
         description="The page you are looking for does not exist. Return to Race Reddys Advanced Computer Education home."
       />
-      <section
-        style={{
-          background: 'var(--off-white)',
-          minHeight: '60vh',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          textAlign: 'center',
-          padding: '4rem 1rem',
-        }}
-      >
-        <div>
-          <div style={{ fontSize: '5rem', marginBottom: '1rem', lineHeight: 1 }}>🔍</div>
-          <h1 style={{ fontSize: 'clamp(1.75rem, 4vw, 2.5rem)', color: 'var(--navy)', marginBottom: '0.875rem' }}>
+      <section className="bg-slate-50 min-h-[60vh] flex items-center justify-center text-center px-4 py-20">
+        <div className="max-w-md mx-auto">
+          <p className="text-6xl font-black text-blue-600 font-mono mb-4">404</p>
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-3">
             Page Not Found
           </h1>
-          <p style={{ color: 'var(--muted)', maxWidth: 400, margin: '0 auto 2rem', lineHeight: 1.7 }}>
-            The page you're looking for doesn't exist or may have moved. Try our homepage or browse our courses.
+          <p className="text-sm text-slate-600 mb-8 leading-relaxed">
+            The link you followed may be incorrect, or the page may have been moved. Return to our homepage or explore available courses.
           </p>
-          <div style={{ display: 'flex', gap: '0.875rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link to="/" className="btn-primary">
-              <Home size={16} />
-              Go to Homepage
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <Link to="/" className="btn-primary text-sm">
+              <Home size={15} />
+              <span>Go to Homepage</span>
             </Link>
-            <Link to="/courses" className="btn-outline-navy">
-              <BookOpen size={16} />
-              Browse Courses
+            <Link to="/courses" className="btn-secondary text-sm">
+              <BookOpen size={15} />
+              <span>Browse Courses</span>
             </Link>
           </div>
         </div>

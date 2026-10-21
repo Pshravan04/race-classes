@@ -1,170 +1,162 @@
 import { useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
-import { Search } from 'lucide-react'
+import { Search, RotateCcw } from 'lucide-react'
 import SEO from '../components/SEO'
 import CourseCard from '../components/CourseCard'
-import { useReveal } from '../hooks/useReveal'
 import { COURSES, COURSE_CATEGORIES, type CourseCategory } from '../data/config'
-
-function Reveal({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
-  const { ref, visible } = useReveal()
-  return (
-    <div ref={ref} className={`reveal ${visible ? 'visible' : ''}`} style={{ transitionDelay: `${delay}ms` }}>
-      {children}
-    </div>
-  )
-}
 
 export default function Courses() {
   const [searchParams, setSearchParams] = useSearchParams()
-  const initialCat = (searchParams.get('cat') as CourseCategory) || 'all'
+  const categoryParam = searchParams.get('category') as CourseCategory | null
+  const initialCat = categoryParam && COURSE_CATEGORIES[categoryParam] ? categoryParam : 'all'
+
   const [activeCategory, setActiveCategory] = useState<CourseCategory | 'all'>(initialCat)
   const [searchQuery, setSearchQuery] = useState('')
 
-  const handleCatChange = (cat: CourseCategory | 'all') => {
+  const handleCategoryChange = (cat: CourseCategory | 'all') => {
     setActiveCategory(cat)
     if (cat === 'all') {
-      searchParams.delete('cat')
+      searchParams.delete('category')
     } else {
-      searchParams.set('cat', cat)
+      searchParams.set('category', cat)
     }
     setSearchParams(searchParams, { replace: true })
   }
 
-  const filteredCourses = COURSES.filter((c) => {
-    const matchCat = activeCategory === 'all' || c.category === activeCategory
-    const matchSearch = searchQuery.trim() === '' ||
-      c.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      c.shortDesc.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      c.whoFor.toLowerCase().includes(searchQuery.toLowerCase())
+  const handleReset = () => {
+    setActiveCategory('all')
+    setSearchQuery('')
+    searchParams.delete('category')
+    setSearchParams(searchParams, { replace: true })
+  }
+
+  const filteredCourses = COURSES.filter((course) => {
+    const matchCat = activeCategory === 'all' || course.category === activeCategory
+    const matchSearch =
+      searchQuery.trim() === '' ||
+      course.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      course.shortDesc.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      course.highlights.some((h) => h.toLowerCase().includes(searchQuery.toLowerCase()))
     return matchCat && matchSearch
   })
-
-  const groupedByCategory = Object.entries(COURSE_CATEGORIES).reduce((acc, [key]) => {
-    const cat = key as CourseCategory
-    const courses = filteredCourses.filter((c) => c.category === cat)
-    if (courses.length) acc[cat] = courses
-    return acc
-  }, {} as Record<CourseCategory, typeof COURSES>)
-
-  const showGrouped = activeCategory === 'all' && searchQuery.trim() === ''
 
   return (
     <>
       <SEO
-        title="All Courses"
-        description="Browse all computer and IT courses at Race Reddys Advanced Computer Education, Virar East — from Basic Computer to Software Development, AI, Tally with GST, Digital Marketing, Graphic Design, and Cyber Security."
+        title="Courses & Programs"
+        description="Explore computer courses at Race Reddys Advanced Computer Education, Virar East. Software Development, Tally Prime GST, Graphic Design, AI Prompt Engineering, Basic Computer, Cyber Security, and more."
         canonical="/courses"
       />
 
-      {/* Page hero */}
-      <section style={{ background: 'var(--navy)', padding: 'clamp(2.5rem, 6vw, 4.5rem) 0' }}>
+      {/* Header Banner */}
+      <section className="bg-slate-50 border-b border-slate-200 py-12 md:py-16">
         <div className="container-rr">
-          <span className="section-chip" style={{ background: 'rgba(217,174,82,0.12)', color: 'var(--gold)', borderColor: 'rgba(217,174,82,0.3)' }}>
-            Course Catalogue
-          </span>
-          <h1 style={{ color: '#fff', fontSize: 'clamp(2rem, 5vw, 3rem)', marginTop: '0.75rem', marginBottom: '0.75rem' }}>
-            Find Your Course
-          </h1>
-          <p style={{ color: 'rgba(255,255,255,0.75)', maxWidth: 500, lineHeight: 1.7 }}>
-            {COURSES.length}+ courses across computer fundamentals, design, development, AI, accounting, and more.
-          </p>
+          <div className="max-w-2xl">
+            <span className="section-eyebrow">COURSE CATALOGUE</span>
+            <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-3">
+              Browse All Computer & IT Courses
+            </h1>
+            <p className="text-base text-slate-600 leading-relaxed">
+              From foundational computer literacy to advanced software engineering, accounting, and creative disciplines. All courses include dedicated practical lab training.
+            </p>
 
-          {/* Search */}
-          <div className="search-wrap" style={{ maxWidth: 480, marginTop: '1.5rem' }}>
-            <Search size={16} className="search-icon" aria-hidden />
-            <input
-              type="search"
-              className="search-input"
-              placeholder="Search by course name or skill…"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              aria-label="Search all courses"
-              style={{ background: 'rgba(255,255,255,0.1)', border: '1.5px solid rgba(255,255,255,0.25)', color: '#fff' }}
-            />
+            {/* Search Input Box */}
+            <div className="relative mt-6 max-w-lg">
+              <Search size={18} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
+              <input
+                type="text"
+                placeholder="Search courses by name or skill (e.g. Tally, Python, Excel)..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                aria-label="Search all courses"
+                className="w-full pl-10 pr-4 py-3 bg-white border border-slate-200 rounded-xl text-sm text-slate-900 shadow-xs focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+              />
+            </div>
           </div>
         </div>
       </section>
 
-      <section style={{ background: 'var(--off-white)' }} className="section-py">
+      {/* Main Content: Categories & Courses Grid */}
+      <section className="bg-white section-py">
         <div className="container-rr">
-          {/* Category tabs */}
-          <Reveal>
-            <div
-              style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '2.5rem' }}
-              role="tablist"
-              aria-label="Filter courses by category"
+
+          {/* Functional Category Filter Pills */}
+          <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-8 scrollbar-none" role="tablist" aria-label="Course categories filter">
+            <button
+              type="button"
+              role="tab"
+              aria-selected={activeCategory === 'all'}
+              onClick={() => handleCategoryChange('all')}
+              className={`filter-pill ${activeCategory === 'all' ? 'active' : ''}`}
             >
-              <button
-                className={`cat-tab ${activeCategory === 'all' ? 'active' : ''}`}
-                onClick={() => handleCatChange('all')}
-                role="tab"
-                aria-selected={activeCategory === 'all'}
-              >
-                All Courses
-              </button>
-              {Object.entries(COURSE_CATEGORIES).map(([key, val]) => (
+              All Courses ({COURSES.length})
+            </button>
+            {Object.entries(COURSE_CATEGORIES).map(([catKey, catVal]) => {
+              const count = COURSES.filter((c) => c.category === catKey).length
+              return (
                 <button
-                  key={key}
-                  className={`cat-tab ${activeCategory === key ? 'active' : ''}`}
-                  onClick={() => handleCatChange(key as CourseCategory)}
+                  key={catKey}
+                  type="button"
                   role="tab"
-                  aria-selected={activeCategory === key}
+                  aria-selected={activeCategory === catKey}
+                  onClick={() => handleCategoryChange(catKey as CourseCategory)}
+                  className={`filter-pill ${activeCategory === catKey ? 'active' : ''}`}
                 >
-                  {val.emoji} {val.label}
+                  {catVal.label} ({count})
                 </button>
+              )
+            })}
+          </div>
+
+          {/* Filter Status Text */}
+          <div className="flex items-center justify-between gap-4 mb-6 text-xs text-slate-500">
+            <p>
+              Showing <strong className="text-slate-800">{filteredCourses.length}</strong> of{' '}
+              <strong className="text-slate-800">{COURSES.length}</strong> courses
+              {activeCategory !== 'all' && ` in ${COURSE_CATEGORIES[activeCategory].label}`}
+              {searchQuery && ` matching "${searchQuery}"`}
+            </p>
+
+            {(activeCategory !== 'all' || searchQuery) && (
+              <button
+                type="button"
+                onClick={handleReset}
+                className="inline-flex items-center gap-1 text-blue-600 hover:text-blue-700 font-semibold"
+              >
+                <RotateCcw size={12} />
+                <span>Reset all filters</span>
+              </button>
+            )}
+          </div>
+
+          {/* Courses Grid */}
+          {filteredCourses.length > 0 ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              {filteredCourses.map((course) => (
+                <CourseCard key={course.id} course={course} />
               ))}
             </div>
-          </Reveal>
-
-          {filteredCourses.length === 0 ? (
-            <div style={{ textAlign: 'center', padding: '4rem', color: 'var(--muted)' }}>
-              <Search size={48} style={{ margin: '0 auto 1rem', opacity: 0.3 }} />
-              <p style={{ fontSize: '1.125rem', fontWeight: 600 }}>No courses found</p>
-              <p style={{ marginTop: '0.5rem' }}>Try adjusting your search or selecting a different category.</p>
-            </div>
-          ) : showGrouped ? (
-            // Grouped by category view
-            Object.entries(groupedByCategory).map(([catKey, courses]) => (
-              <div key={catKey} style={{ marginBottom: '3rem' }}>
-                <Reveal>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.875rem', marginBottom: '1.5rem' }}>
-                    <h2 style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--navy)' }}>
-                      {COURSE_CATEGORIES[catKey as CourseCategory].emoji}{' '}
-                      {COURSE_CATEGORIES[catKey as CourseCategory].label}
-                    </h2>
-                    <div style={{ flex: 1, height: 1, background: 'var(--border)' }} />
-                    <span style={{ fontSize: '0.8125rem', color: 'var(--muted)', fontWeight: 600 }}>
-                      {courses.length} {courses.length === 1 ? 'course' : 'courses'}
-                    </span>
-                  </div>
-                </Reveal>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1.25rem' }}>
-                  {courses.map((course, i) => (
-                    <Reveal key={course.id} delay={i * 50}>
-                      <CourseCard course={course} />
-                    </Reveal>
-                  ))}
-                </div>
-              </div>
-            ))
           ) : (
-            // Flat grid (filtered/searched)
-            <>
-              <p style={{ color: 'var(--muted)', fontSize: '0.9rem', marginBottom: '1.5rem' }}>
-                Showing {filteredCourses.length} {filteredCourses.length === 1 ? 'course' : 'courses'}
-                {activeCategory !== 'all' ? ` in ${COURSE_CATEGORIES[activeCategory as CourseCategory].label}` : ''}
-                {searchQuery ? ` for "${searchQuery}"` : ''}
-              </p>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1.25rem' }}>
-                {filteredCourses.map((course, i) => (
-                  <Reveal key={course.id} delay={i * 40}>
-                    <CourseCard course={course} />
-                  </Reveal>
-                ))}
+            <div className="card-rr p-12 text-center bg-slate-50 border border-slate-200 max-w-md mx-auto my-8">
+              <div className="w-12 h-12 rounded-full bg-slate-200 flex items-center justify-center mx-auto mb-3 text-slate-500">
+                <Search size={22} />
               </div>
-            </>
+              <h3 className="text-base font-bold text-slate-800">
+                No matching courses found
+              </h3>
+              <p className="text-xs text-slate-500 mt-1 mb-5">
+                We could not find any courses matching your current filter criteria.
+              </p>
+              <button
+                type="button"
+                onClick={handleReset}
+                className="btn-primary text-xs py-2 px-4"
+              >
+                Reset Filters
+              </button>
+            </div>
           )}
+
         </div>
       </section>
     </>
