@@ -334,6 +334,27 @@ export default function CourseDetail() {
                 </a>
               </div>
 
+              {/* Lab Workstation Preview */}
+              <div className="rounded-2xl border border-slate-200 overflow-hidden bg-white shadow-xs">
+                <div className="relative aspect-[16/10] overflow-hidden bg-slate-900">
+                  <img
+                    src="/images/lab-students.jpg"
+                    alt="Students learning on computers at Race Reddys Virar"
+                    className="w-full h-full object-cover"
+                  />
+                  <span className="absolute top-2.5 left-2.5 bg-[#0084FF] text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-sm">
+                    Raut Arcade Lab 202
+                  </span>
+                  <span className="absolute bottom-2 left-2 right-2 bg-black/60 backdrop-blur-xs text-white text-[10px] font-semibold px-2 py-1 rounded">
+                    1 Student : 1 Confirmed PC
+                  </span>
+                </div>
+                <div className="p-3.5 text-xs text-slate-600">
+                  <strong className="text-slate-900 block font-bold mb-0.5">Dedicated Hands-on Lab Time</strong>
+                  Every student enrolled in {course.name} practices directly on their own desktop terminal with faculty guidance.
+                </div>
+              </div>
+
               {/* Lab Hours & Address */}
               <div className="bg-[#FAF7EE] p-5 rounded-2xl border border-[#E8E2D5] text-xs space-y-2">
                 <div className="flex items-center gap-2 text-[#071B3A] font-bold">

@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 import { 
   Check, 
   MapPin, 
-  BadgeCheck, 
-  Receipt, 
   Star,
   Laptop,
   Monitor,
@@ -15,6 +13,8 @@ import {
   Sparkles
 } from 'lucide-react';
 import SEO from '../components/SEO';
+import CampusCarousel from '../components/CampusCarousel';
+import CourseSlider from '../components/CourseSlider';
 import { COURSES, SITE_CONFIG, OFFERS_CONFIG } from '../data/config';
 
 // 6 featured courses for homepage preview — hand-picked across both types
@@ -64,11 +64,13 @@ export default function Home() {
   const [activeFilter, setActiveFilter] = useState<'all' | 'career' | 'short-term'>('all');
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
-  const baseFeatured = COURSES.filter((c) => FEATURED_COURSE_IDS.includes(c.id));
   const filteredCourses =
     activeFilter === 'all'
-      ? baseFeatured
-      : baseFeatured.filter((c) => c.type === activeFilter);
+      ? [
+          ...COURSES.filter((c) => FEATURED_COURSE_IDS.includes(c.id)),
+          ...COURSES.filter((c) => !FEATURED_COURSE_IDS.includes(c.id)),
+        ]
+      : COURSES.filter((c) => c.type === activeFilter);
 
   const wa = SITE_CONFIG.contact.whatsapp;
   const phone = SITE_CONFIG.contact.phone;
@@ -81,201 +83,152 @@ export default function Home() {
         canonical="/"
       />
 
-      {/* ── 1. PLANNED-STYLE HERO SECTION ────────────────────────── */}
-      <section className="relative bg-[#F8F9FA] text-[#111827] overflow-hidden pt-8 sm:pt-14 pb-16 lg:pb-24 border-b border-slate-200/60">
-        
-        {/* Background Ambient Curved Sand/Beige Accents */}
-        <div className="absolute top-0 right-0 w-1/2 h-full pointer-events-none hidden lg:block overflow-hidden">
-          <svg className="absolute -top-12 -right-12 w-[120%] h-[120%] opacity-40" viewBox="0 0 600 700" fill="none">
-            <path d="M 220 0 C 140 160, 320 280, 160 480 C 100 560, 40 640, 0 700 L 600 700 L 600 0 Z" fill="#EAE4DC" />
-          </svg>
-        </div>
+      {/* ── 1. SPLIT-SCREEN HERO SECTION (Left Content, Right Full Image) ── */}
+      <section className="relative w-full bg-[#F8F9FA] text-[#111827] border-b border-slate-200/80 overflow-hidden">
+        <div className="w-full grid grid-cols-1 lg:grid-cols-2 min-h-[580px] lg:min-h-[680px]">
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          {/* Left Column: Premium Content & CTAs */}
+          <div className="flex flex-col justify-center px-6 sm:px-12 lg:px-14 xl:px-20 py-12 sm:py-16 lg:py-24 max-w-3xl lg:max-w-none ml-auto">
+            
+            {/* Top Badges */}
+            <div className="flex flex-wrap items-center gap-2.5 mb-5">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F5BE4F] text-[#111827] text-xs font-black uppercase tracking-wider shadow-2xs">
+                <MapPin size={12} className="stroke-[2.5]" />
+                Virar East · Opp. Subway
+              </span>
 
-            {/* Left Column: Big Display Typography, Dual Buttons, and Trusted By */}
-            <div className="lg:col-span-7 flex flex-col items-start pt-2 lg:pt-4">
-              
-              {/* Main Headline with the distinctive Planned accent mark */}
-              <h1 className="text-4xl sm:text-5xl lg:text-[62px] xl:text-[68px] font-black text-[#111827] tracking-tight leading-[1.08] mb-6 font-sans">
-                Where your career comes together<span className="inline-block text-[#0084FF] font-light ml-1.5 -translate-y-1 transform scale-125 select-none">&#x00B4;</span>
-              </h1>
-
-              {/* Subheading copy */}
-              <p className="text-base sm:text-lg text-slate-600 max-w-xl leading-relaxed font-normal mb-8">
-                Race Reddys makes it easy for anyone in Virar to master job-ready software, Tally Prime with GST, Typing, and Web Development with dedicated individual computers, personal instruction, and flexible daily batches.
-              </p>
-
-              {/* Dual Action Buttons */}
-              <div className="flex flex-wrap items-center gap-3.5 mb-12 sm:mb-16">
-                <a
-                  href={`tel:${phone}`}
-                  className="inline-flex items-center justify-center h-12 sm:h-13 px-8 rounded-full bg-[#111827] hover:bg-[#1E293B] text-white font-bold text-sm sm:text-base shadow-md hover:shadow-lg active:scale-95 transition-all"
-                >
-                  Book a free demo
-                </a>
-
-                <Link
-                  to="/courses"
-                  className="inline-flex items-center justify-center h-12 sm:h-13 px-7 rounded-full bg-white text-[#111827] border border-slate-300 hover:border-[#111827] font-bold text-sm sm:text-base hover:bg-slate-50 active:scale-95 transition-all shadow-xs"
-                >
-                  Quick course tour
-                </Link>
-              </div>
-
-              {/* Trusted By / Industry Standards Bar */}
-              <div className="w-full max-w-xl pt-6 border-t border-slate-200">
-                <span className="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">
-                  Trusted by 5,000+ Students &amp; Industry Standards
-                </span>
-
-                <div className="flex flex-wrap items-center gap-x-8 gap-y-3 opacity-75 grayscale hover:grayscale-0 transition-all duration-300">
-                  {/* Tally Education */}
-                  <div className="flex items-center gap-1.5 font-bold text-slate-800 text-sm tracking-tight">
-                    <span className="w-5 h-5 rounded-full bg-[#E51B24] text-white text-[11px] font-black flex items-center justify-center">T</span>
-                    <span className="font-sans font-bold">TallyPrime</span>
-                  </div>
-
-                  {/* Microsoft */}
-                  <div className="flex items-center gap-1.5 font-semibold text-slate-800 text-sm tracking-tight">
-                    <span className="grid grid-cols-2 gap-0.5 w-3.5 h-3.5">
-                      <span className="bg-[#F25022]"></span>
-                      <span className="bg-[#7FBA00]"></span>
-                      <span className="bg-[#00A4EF]"></span>
-                      <span className="bg-[#FFB900]"></span>
-                    </span>
-                    <span className="font-sans font-semibold">Microsoft</span>
-                  </div>
-
-                  {/* ISO Certification Badge */}
-                  <div className="text-[11px] font-mono font-bold border border-slate-400/80 px-2 py-0.5 rounded text-slate-700 tracking-wider">
-                    ISO 9001:2015
-                  </div>
-
-                  {/* MS-CIT Standard */}
-                  <div className="text-xs font-bold text-slate-800 tracking-wide">
-                    MKCL Pattern
-                  </div>
-
-                  {/* Typing Board */}
-                  <div className="text-xs font-semibold text-slate-700">
-                    GCC-TBC Typing
-                  </div>
-                </div>
-              </div>
-
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-800 text-xs font-bold shadow-2xs">
+                <Sparkles size={12} className="text-[#0084FF]" />
+                Flat 50% Concession Admissions Open
+              </span>
             </div>
 
-            {/* Right Column: Signature Organic Curved Photo Frame & 3 Floating UI Cards */}
-            <div className="lg:col-span-5 relative flex justify-center mt-6 lg:mt-0">
-              <div className="relative w-full max-w-[480px] lg:max-w-[520px]">
-                
-                {/* Echoing Sand/Beige Background Curve */}
-                <div className="absolute -inset-3 sm:-inset-5 bg-[#EAE3D8] rounded-[40px] sm:rounded-[60px] lg:rounded-l-[180px] lg:rounded-r-[50px] -rotate-1 pointer-events-none -z-10" />
+            {/* Main Headline */}
+            <h1 className="text-4xl sm:text-5xl lg:text-[54px] xl:text-[62px] font-black text-[#111827] tracking-tight leading-[1.08] mb-5 font-sans">
+              Where your career comes together<span className="inline-block text-[#0084FF] font-light ml-1.5 -translate-y-1 transform scale-125 select-none">&#x00B4;</span>
+            </h1>
 
-                {/* Main Organic Photo Container with Curved Border Geometry */}
-                <div className="relative overflow-hidden aspect-[4/3] sm:aspect-[1/1] rounded-[36px] sm:rounded-[50px] lg:rounded-l-[170px] lg:rounded-r-[45px] shadow-2xl bg-slate-900 border-4 border-white">
-                  <img
-                    src="/images/hero-lab.jpg"
-                    alt="Students learning inside Race Reddys modern computer laboratory in Raut Arcade Virar East"
-                    className="w-full h-full object-cover scale-105"
-                  />
-                  {/* Subtle warm overlay to match Planned photography */}
-                  <div className="absolute inset-0 bg-gradient-to-tr from-black/30 via-transparent to-amber-900/10 pointer-events-none" />
+            {/* Subtitle */}
+            <p className="text-base sm:text-lg text-slate-600 max-w-xl leading-relaxed font-normal mb-8">
+              Race Reddys makes it easy for anyone in Virar to master job-ready software, Tally Prime with GST, Typing, and Web Development with dedicated individual computers, personal instruction, and flexible daily batches.
+            </p>
+
+            {/* Dual Action Buttons */}
+            <div className="flex flex-wrap items-center gap-3.5 mb-10 sm:mb-14">
+              <a
+                href={`tel:${phone}`}
+                className="inline-flex items-center justify-center h-12 sm:h-13 px-8 rounded-full bg-[#111827] hover:bg-[#1E293B] text-white font-bold text-sm sm:text-base shadow-md hover:shadow-lg active:scale-95 transition-all"
+              >
+                Book a free demo
+              </a>
+
+              <Link
+                to="/courses"
+                className="inline-flex items-center justify-center h-12 sm:h-13 px-7 rounded-full bg-white text-[#111827] border border-slate-300 hover:border-[#111827] font-bold text-sm sm:text-base hover:bg-slate-50 active:scale-95 transition-all shadow-xs"
+              >
+                Quick course tour
+              </Link>
+            </div>
+
+            {/* Trusted By / Industry Standards Bar */}
+            <div className="w-full max-w-xl pt-6 border-t border-slate-200">
+              <span className="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3.5">
+                Trusted by 5,000+ Students &amp; Industry Standards
+              </span>
+
+              <div className="flex flex-wrap items-center gap-x-8 gap-y-3 opacity-80 grayscale hover:grayscale-0 transition-all duration-300">
+                {/* Tally Education */}
+                <div className="flex items-center gap-1.5 font-bold text-slate-800 text-sm tracking-tight">
+                  <span className="w-5 h-5 rounded-full bg-[#E51B24] text-white text-[11px] font-black flex items-center justify-center">T</span>
+                  <span className="font-sans font-bold">TallyPrime</span>
                 </div>
 
-                {/* ── CARD 1: Floating "Checklist" (Center Left) ── */}
-                <div className="absolute top-1/2 -left-4 sm:-left-12 -translate-y-1/2 z-20 bg-white/95 backdrop-blur-md p-4 sm:p-5 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.14)] border border-slate-200/90 w-[240px] sm:w-[270px] hover:-translate-y-1 transition-transform">
-                  <h3 className="text-lg sm:text-xl font-black text-[#111827] tracking-tight mb-3">
-                    Checklist
-                  </h3>
-
-                  <div className="space-y-3">
-                    {/* Item 1: Pending */}
-                    <div>
-                      <div className="flex items-center gap-2">
-                        <div className="w-4 h-4 rounded border-2 border-slate-300 flex items-center justify-center shrink-0" />
-                        <span className="text-xs font-semibold text-slate-800">1 Student : 1 Machine Lab</span>
-                      </div>
-                      <span className="text-[11px] text-[#0084FF] font-semibold block ml-6 mt-0.5 cursor-pointer hover:underline">
-                        + Confirmed seat
-                      </span>
-                    </div>
-
-                    {/* Item 2: Checked */}
-                    <div>
-                      <div className="flex items-center gap-2">
-                        <div className="w-4 h-4 rounded bg-[#0084FF] text-white flex items-center justify-center shrink-0 shadow-xs">
-                          <Check size={12} strokeWidth={3} />
-                        </div>
-                        <span className="text-xs font-bold text-slate-800">Job-Ready Certification</span>
-                      </div>
-                      <span className="text-[10px] text-slate-400 block ml-6 mt-0.5">
-                        TallyPrime, Typing &amp; IT Skills
-                      </span>
-                    </div>
-                  </div>
+                {/* Microsoft */}
+                <div className="flex items-center gap-1.5 font-semibold text-slate-800 text-sm tracking-tight">
+                  <span className="grid grid-cols-2 gap-0.5 w-3.5 h-3.5">
+                    <span className="bg-[#F25022]"></span>
+                    <span className="bg-[#7FBA00]"></span>
+                    <span className="bg-[#00A4EF]"></span>
+                    <span className="bg-[#FFB900]"></span>
+                  </span>
+                  <span className="font-sans font-semibold">Microsoft</span>
                 </div>
 
-                {/* ── CARD 2: Floating "Venue & Rating" (Top Right) ── */}
-                <div className="absolute -top-4 sm:-top-6 right-2 sm:right-4 z-20 bg-white/95 backdrop-blur-md px-4 py-3 rounded-2xl shadow-[0_15px_35px_rgba(0,0,0,0.12)] border border-slate-200/90 hover:-translate-y-1 transition-transform">
-                  <div className="flex items-center justify-between gap-3 text-[11px] text-slate-500 font-medium">
-                    <span className="bg-slate-100 text-slate-700 px-2 py-0.5 rounded font-bold text-[10px] uppercase">
-                      Terminal 202
-                    </span>
-                    <span className="flex items-center gap-1 text-[11px] text-slate-500">
-                      <MapPin size={11} className="text-slate-400" />
-                      Virar East
-                    </span>
-                    <div className="bg-[#111827] text-white text-[10px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1">
-                      <span>4.9</span>
-                      <Star size={9} className="fill-[#F5BE4F] text-[#F5BE4F]" />
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-1.5 mt-2 font-black text-sm text-[#111827]">
-                    <span>Advanced IT Lab</span>
-                    <BadgeCheck size={16} className="text-[#0084FF] fill-[#0084FF]/20" />
-                  </div>
+                {/* ISO Certification Badge */}
+                <div className="text-[11px] font-mono font-bold border border-slate-400/80 px-2 py-0.5 rounded text-slate-700 tracking-wider">
+                  ISO 9001:2015
                 </div>
 
-                {/* ── CARD 3: Floating "Payment & Discount" (Bottom Right) ── */}
-                <div className="absolute -bottom-6 sm:-bottom-8 right-2 sm:right-6 z-20 bg-white/95 backdrop-blur-md p-4 sm:p-5 rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.16)] border border-slate-200/90 w-[260px] sm:w-[290px] hover:-translate-y-1 transition-transform">
-                  <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2.5">
-                    Payment schedule
-                  </h4>
-
-                  <div className="flex items-center gap-2 mb-3">
-                    <div className="w-7 h-7 rounded-lg bg-amber-50 border border-amber-200/80 flex items-center justify-center text-amber-700 shrink-0">
-                      <Receipt size={14} />
-                    </div>
-                    <span className="text-xs font-bold text-slate-900">Admission Fee</span>
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-2 text-xs border-t border-slate-100 pt-2 mb-2">
-                    <div>
-                      <span className="text-[10px] text-slate-400 block">Concession</span>
-                      <strong className="text-xs font-bold text-[#111827]">Discount 50%</strong>
-                    </div>
-                    <div>
-                      <span className="text-[10px] text-slate-400 block">Offer Status</span>
-                      <span className="inline-block bg-emerald-50 text-emerald-700 text-[10px] font-extrabold px-2 py-0.5 rounded-full border border-emerald-200">
-                        Active
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center justify-between text-[11px] text-slate-500 pt-1 border-t border-slate-100">
-                    <span>Free Basic Course</span>
-                    <span className="font-semibold text-slate-700">Starts: Monday</span>
-                  </div>
+                {/* MS-CIT Standard */}
+                <div className="text-xs font-bold text-slate-800 tracking-wide">
+                  MKCL Pattern
                 </div>
 
+                {/* Typing Board */}
+                <div className="text-xs font-semibold text-slate-700">
+                  GCC-TBC Typing
+                </div>
               </div>
             </div>
 
           </div>
+
+          {/* Right Column: Full-Height, Full-Width Edge-to-Edge Image */}
+          <div className="relative w-full h-[450px] sm:h-[550px] lg:h-auto min-h-[460px] lg:min-h-[660px] overflow-hidden bg-slate-900 flex flex-col justify-between p-6 sm:p-8">
+            
+            {/* Background Lab Photo filling 100% of the right side */}
+            <img
+              src="/images/hero-lab.jpg"
+              alt="Students learning inside Race Reddys modern computer laboratory in Raut Arcade Virar East"
+              className="absolute inset-0 w-full h-full object-cover object-center scale-102 hover:scale-105 transition-transform duration-700 ease-out"
+            />
+
+            {/* Subtle Gradient Overlays for Depth and Readability */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-black/35 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent pointer-events-none hidden lg:block" />
+
+            {/* Floating Top Right Tag */}
+            <div className="relative z-10 self-end">
+              <div className="bg-white/95 backdrop-blur-md px-3.5 py-2 rounded-2xl shadow-xl border border-white/60 flex items-center gap-3 text-xs">
+                <span className="bg-slate-900 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase">
+                  Terminal 202
+                </span>
+                <span className="font-semibold text-slate-800">
+                  Raut Arcade · Virar East
+                </span>
+                <div className="bg-[#111827] text-white text-[10px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1">
+                  <span>4.9</span>
+                  <Star size={9} className="fill-[#F5BE4F] text-[#F5BE4F]" />
+                </div>
+              </div>
+            </div>
+
+            {/* Floating Bottom Card Over Full Image */}
+            <div className="relative z-10 max-w-md bg-white/95 backdrop-blur-md p-5 rounded-3xl shadow-2xl border border-white/60">
+              <div className="flex items-center justify-between gap-3 mb-2.5">
+                <div className="flex items-center gap-2">
+                  <div className="w-5 h-5 rounded-full bg-emerald-500 text-white flex items-center justify-center shrink-0">
+                    <Check size={12} strokeWidth={3} />
+                  </div>
+                  <span className="text-xs font-bold text-slate-900">1 Student : 1 Machine Lab</span>
+                </div>
+                <span className="bg-emerald-50 text-emerald-700 text-[10px] font-extrabold px-2 py-0.5 rounded-full border border-emerald-200">
+                  Confirmed Seat
+                </span>
+              </div>
+
+              <p className="text-xs text-slate-600 leading-snug">
+                Every session is 100% practical on your own dedicated desktop computer. Admissions open for morning, ladies, and evening batches.
+              </p>
+
+              <div className="mt-3 pt-3 border-t border-slate-200/80 flex items-center justify-between text-[11px]">
+                <span className="font-bold text-[#0084FF]">⚡ 50% Concession + Free Basic Course</span>
+                <span className="text-slate-500 font-medium">Opp. Virar Station</span>
+              </div>
+            </div>
+
+          </div>
+
         </div>
       </section>
 
@@ -360,20 +313,20 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── 3. PROMO OFFER BANNER (Planned-Style Sleek Card) ──────────── */}
+      {/* ── 3. PROMO OFFER BANNER (Smooth High-Conversion Card) ──────────── */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full">
-        <div className="relative overflow-hidden rounded-3xl bg-[#0B0F19] text-white p-6 sm:p-10 shadow-2xl border border-slate-800">
+        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#0B1528] via-[#080E1C] to-[#040812] text-white p-6 sm:p-9 lg:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.45)] border border-white/10">
           
           {/* Subtle Ambient Glow */}
-          <div className="absolute -right-20 -top-20 w-80 h-80 bg-[#0084FF]/15 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute -left-20 -bottom-20 w-80 h-80 bg-[#F5BE4F]/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute -right-16 -top-16 w-96 h-96 bg-[#0084FF]/16 rounded-full blur-[100px] pointer-events-none" />
+          <div className="absolute -left-16 -bottom-16 w-96 h-96 bg-[#F5BE4F]/10 rounded-full blur-[100px] pointer-events-none" />
 
-          <div className="relative z-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
+          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
             
-            {/* Left: Badge & Headlines */}
-            <div className="max-w-2xl">
+            {/* Left: Badge, Headlines & Highlights (7 cols) */}
+            <div className="lg:col-span-7 flex flex-col justify-center pr-0 lg:pr-4">
               <div className="flex items-center gap-2 mb-3">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F5BE4F]/15 border border-[#F5BE4F]/30 text-[#F5BE4F] text-xs font-bold uppercase tracking-wider">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-400/10 border border-amber-400/25 text-[#F5BE4F] text-xs font-bold uppercase tracking-wider">
                   <Sparkles size={12} className="text-[#F5BE4F]" />
                   Limited-Time Admission Offer
                 </span>
@@ -382,55 +335,116 @@ export default function Home() {
                 </span>
               </div>
 
-              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight leading-tight">
-                Flat 50% Concession <span className="text-[#F5BE4F]">+ Free Basic Course</span>
+              <h3 className="text-2xl sm:text-3xl lg:text-[34px] font-black text-white tracking-tight leading-tight">
+                Flat 50% Concession{' '}
+                <span className="bg-gradient-to-r from-[#F5BE4F] via-[#FCE4A6] to-[#E5A93C] bg-clip-text text-transparent">
+                  + Free Basic Course
+                </span>
               </h3>
 
-              <p className="text-sm sm:text-base text-slate-300 mt-2.5 leading-relaxed">
+              <p className="text-sm sm:text-base text-slate-300 mt-3 leading-relaxed">
                 Enrol in any career-track diploma program this month and receive our complete foundational{' '}
                 <strong className="text-white font-bold">Basic Computer Course</strong> at zero additional cost. Includes 100% individual workstation time and recognized certification.
               </p>
 
               {/* Perks list */}
-              <div className="flex flex-wrap items-center gap-x-5 gap-y-2 mt-4 text-xs font-semibold text-slate-300">
-                <span className="flex items-center gap-1.5">
-                  <Check size={14} className="text-emerald-400" />
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-2 mt-5 text-xs font-semibold text-slate-300">
+                <span className="flex items-center gap-1.5 bg-white/5 border border-white/10 px-2.5 py-1 rounded-lg">
+                  <Check size={13} className="text-emerald-400 stroke-[3]" />
                   No Hidden Lab Fees
                 </span>
-                <span className="flex items-center gap-1.5">
-                  <Check size={14} className="text-emerald-400" />
+                <span className="flex items-center gap-1.5 bg-white/5 border border-white/10 px-2.5 py-1 rounded-lg">
+                  <Check size={13} className="text-emerald-400 stroke-[3]" />
                   Morning &amp; Ladies Slots
                 </span>
-                <span className="flex items-center gap-1.5">
-                  <Check size={14} className="text-emerald-400" />
+                <span className="flex items-center gap-1.5 bg-white/5 border border-white/10 px-2.5 py-1 rounded-lg">
+                  <Check size={13} className="text-emerald-400 stroke-[3]" />
                   Lifetime Doubt Support
                 </span>
               </div>
+
+              {/* Trust highlight chips */}
+              <div className="mt-5 pt-4 border-t border-white/10 flex flex-wrap items-center gap-3 text-xs">
+                <div className="bg-white/5 border border-white/10 px-3 py-1.5 rounded-full flex items-center gap-2 text-slate-300">
+                  <span className="w-2 h-2 rounded-full bg-[#F5BE4F] shadow-[0_0_8px_#F5BE4F]" />
+                  <span>Free Course Worth ₹3,500</span>
+                </div>
+                <div className="bg-white/5 border border-white/10 px-3 py-1.5 rounded-full flex items-center gap-2 text-slate-300">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_#34D399]" />
+                  <span>1 Student : 1 Desktop Terminal</span>
+                </div>
+              </div>
             </div>
 
-            {/* Right: Modern CTAs */}
-            <div className="flex flex-col sm:flex-row lg:flex-col gap-3 shrink-0 w-full sm:w-auto lg:w-64">
-              <a
-                href={`${wa}?text=${encodeURIComponent('Hi! I would like to claim the 50% Admission Concession at Race Reddys Virar East.')}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-2 h-12 px-6 rounded-full bg-[#25D366] hover:bg-[#20BA5A] text-white text-sm font-bold shadow-lg hover:shadow-xl transition-all active:scale-95"
-              >
-                <MessageSquare size={16} />
-                <span>Claim on WhatsApp</span>
-              </a>
+            {/* Right: Lab Image + Sleek Integrated Action Buttons (5 cols) */}
+            <div className="lg:col-span-5 flex flex-col w-full">
+              
+              {/* Photo Card with Floating Badges */}
+              <div className="relative rounded-2xl overflow-hidden border border-white/15 shadow-2xl bg-slate-900 group">
+                <div className="aspect-[16/10] w-full relative overflow-hidden">
+                  <img
+                    src="/images/lab-students.jpg"
+                    alt="Students practicing on computers in Virar East lab"
+                    className="w-full h-full object-cover group-hover:scale-104 transition-transform duration-700 ease-out"
+                  />
+                  {/* Cinematic Vignette */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/10 pointer-events-none" />
+                  <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-2xl pointer-events-none" />
 
-              <a
-                href={`tel:${phone}`}
-                className="w-full inline-flex items-center justify-center gap-2 h-12 px-5 rounded-full bg-white/10 hover:bg-white/15 text-white border border-white/15 text-sm font-semibold transition-all active:scale-95"
-              >
-                <Phone size={15} className="text-[#0084FF]" />
-                <span>Call {phone}</span>
-              </a>
+                  {/* Top-left: Location Pill */}
+                  <div className="absolute top-3 left-3 bg-black/55 backdrop-blur-md px-3 py-1 rounded-full border border-white/20 text-[11px] font-semibold text-white flex items-center gap-1.5 shadow-sm">
+                    <Sparkles size={11} className="text-[#F5BE4F]" />
+                    <span>Raut Arcade Lab 202</span>
+                  </div>
 
-              <div className="text-center text-[10px] text-slate-400">
+                  {/* Top-right: 50% Concession Tag */}
+                  <div className="absolute top-3 right-3 bg-gradient-to-r from-[#F5BE4F] to-[#E5A93C] text-slate-950 font-black text-xs px-3 py-1 rounded-full shadow-lg tracking-wider uppercase">
+                    Flat 50% OFF
+                  </div>
+
+                  {/* Bottom: Floating Glass Tag */}
+                  <div className="absolute bottom-3 left-3 right-3 bg-black/60 backdrop-blur-md px-3.5 py-2.5 rounded-xl border border-white/15 text-white flex items-center justify-between shadow-lg">
+                    <div>
+                      <span className="text-[10px] uppercase font-black text-[#F5BE4F] tracking-wider block">
+                        Included Free
+                      </span>
+                      <strong className="text-xs sm:text-sm font-bold text-white block">
+                        Basic Computer Foundation
+                      </strong>
+                    </div>
+                    <div className="text-right shrink-0">
+                      <span className="text-[10px] text-slate-300 block">Workstations</span>
+                      <span className="text-xs font-bold text-emerald-400">1 Student : 1 PC</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Side-by-Side Modern Action Buttons */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mt-3 w-full">
+                <a
+                  href={`${wa}?text=${encodeURIComponent('Hi! I would like to claim the 50% Admission Concession at Race Reddys Virar East.')}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 h-11 px-4 rounded-xl bg-gradient-to-r from-[#25D366] to-[#1EBE5D] hover:brightness-105 text-white text-xs sm:text-sm font-bold shadow-[0_4px_16px_rgba(37,211,102,0.25)] hover:shadow-[0_6px_22px_rgba(37,211,102,0.35)] transition-all active:scale-95 cursor-pointer"
+                >
+                  <MessageSquare size={16} />
+                  <span>Claim on WhatsApp</span>
+                </a>
+
+                <a
+                  href={`tel:${phone}`}
+                  className="inline-flex items-center justify-center gap-2 h-11 px-4 rounded-xl bg-white/10 hover:bg-white/15 text-white border border-white/15 text-xs sm:text-sm font-semibold transition-all active:scale-95 cursor-pointer backdrop-blur-md"
+                >
+                  <Phone size={15} className="text-[#F5BE4F]" />
+                  <span>Call {phone}</span>
+                </a>
+              </div>
+
+              <div className="text-center text-[10px] text-slate-400 font-medium pt-1.5">
                 {OFFERS_CONFIG.validityNote} · Raut Arcade, Virar East
               </div>
+
             </div>
 
           </div>
@@ -474,70 +488,8 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Course cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredCourses.map((course, idx) => {
-              const isCareer = course.type === 'career';
-              const isPopular = idx === 1;
-              return (
-                <div
-                  key={course.id}
-                  className={`bg-white rounded-2xl border p-6 sm:p-7 shadow-[0_8px_24px_rgba(11,31,75,0.06)] hover:shadow-[0_16px_36px_rgba(11,31,75,0.12)] hover:-translate-y-1 transition-all flex flex-col justify-between relative overflow-hidden ${
-                    isPopular ? 'border-[#1E4ED7]/30 ring-2 ring-[#1E4ED7]/10' : 'border-[#C5C6D0]'
-                  }`}
-                >
-                  {isPopular && (
-                    <div className="absolute top-0 right-0 bg-[#1E4ED7] text-white text-[10px] uppercase font-bold tracking-widest px-3 py-1 rounded-bl-lg">
-                      Popular Diploma
-                    </div>
-                  )}
-                  <div>
-                    <div className="flex items-center justify-between gap-2 mb-4">
-                      <span className={`px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider ${isCareer ? 'bg-[#DCE1FF] text-[#000926]' : 'bg-[#FBF3DD] text-[#996C00]'}`}>
-                        {isCareer ? 'Career Diploma' : 'Short-Term'}
-                      </span>
-                      <span className="text-xs text-[#45464F] flex items-center gap-1 font-medium">
-                        🕐 {course.durationPlaceholder}
-                      </span>
-                    </div>
-                    <h3 className="text-lg text-[#000926] font-bold">{course.name}</h3>
-                    <p className="text-sm text-[#45464F] mt-2 leading-relaxed">{course.shortDesc}</p>
-                    <ul className="mt-4 space-y-2 border-t border-[#C5C6D0]/60 pt-4 text-xs text-[#141B2B]">
-                      {course.topics.slice(0, 3).map((topic, i) => (
-                        <li key={i} className="flex items-center gap-2">
-                          <svg className="w-4 h-4 text-[#1FA855] shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                          </svg>
-                          {topic}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div className="pt-6 mt-4 flex items-center gap-2 border-t border-[#C5C6D0]/40">
-                    <Link
-                      to={`/courses/${course.id}`}
-                      className={`flex-1 inline-flex items-center justify-center h-10 px-4 rounded-full text-xs font-bold transition-colors ${
-                        isPopular
-                          ? 'bg-[#000926] text-white hover:bg-[#1E4ED7]'
-                          : 'bg-[#E1E8FE] text-[#000926] hover:bg-[#000926] hover:text-white'
-                      }`}
-                    >
-                      View Details
-                    </Link>
-                    <a
-                      href={`${wa}?text=${encodeURIComponent(course.whatsappMessage)}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      title="WhatsApp Enquiry"
-                      className="h-10 w-10 rounded-full bg-[#1FA855] text-white flex items-center justify-center hover:brightness-110 transition-all shrink-0 text-sm"
-                    >
-                      💬
-                    </a>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+          {/* Course Cards Interactive Slider with Images */}
+          <CourseSlider courses={filteredCourses} activeFilter={activeFilter} />
 
           <div className="mt-12 text-center">
             <Link
@@ -549,6 +501,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ── 4.5 CAMPUS & LAB INTERACTIVE CAROUSEL SLIDER ───────────── */}
+      <CampusCarousel />
 
       {/* ── 5. WHY RACE REDDYS ─────────────────────────────────────── */}
       <section className="bg-[#F1F3FF] py-20">
@@ -639,46 +594,90 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Slot 1: actual lab image placeholder */}
-            <div className="bg-white rounded-2xl border border-[#C5C6D0] overflow-hidden shadow-sm flex flex-col">
-              <div className="aspect-[4/3] w-full bg-[#071B3A] relative flex items-center justify-center">
-                <div className="text-center text-white/40">
-                  <div className="text-4xl mb-2">📷</div>
-                  <p className="text-xs font-medium">Lab Photo – To Be Added</p>
-                </div>
-                <span className="absolute top-3 left-3 bg-black/60 text-white px-2.5 py-1 rounded text-xs">Live Classroom</span>
+            {/* Slot 1: Live Lab Session */}
+            <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-md transition-shadow flex flex-col group">
+              <div className="aspect-[4/3] w-full relative overflow-hidden bg-slate-900">
+                <img
+                  src="/images/lab-students.jpg"
+                  alt="Students practicing on computers in Virar East lab"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <span className="absolute top-3 left-3 bg-[#0084FF] text-white px-2.5 py-1 rounded-full text-xs font-bold shadow-sm">
+                  Live Lab Session
+                </span>
+                <span className="absolute bottom-3 right-3 bg-black/60 backdrop-blur-xs text-white text-[11px] font-medium px-2 py-0.5 rounded">
+                  1 Student : 1 PC
+                </span>
               </div>
-              <div className="p-5">
-                <h4 className="text-base text-[#000926] font-bold">Raut Arcade Lab 202</h4>
-                <p className="text-xs text-[#45464F] mt-1">Active practical session at Raut Arcade Lab 202. Students working individually on core programming and accounting software.</p>
+              <div className="p-5 flex-1 flex flex-col justify-between">
+                <div>
+                  <h4 className="text-base text-[#000926] font-bold">Raut Arcade Lab 202</h4>
+                  <p className="text-xs text-[#45464F] mt-1.5 leading-relaxed">
+                    Active practical session at Raut Arcade Lab 202. Every student works on their own dedicated desktop terminal with modern core programming and accounting software.
+                  </p>
+                </div>
                 <div className="mt-4 pt-3 border-t border-[#C5C6D0]/40 flex items-center justify-between text-xs text-[#45464F]">
-                  <span className="font-medium">Capacity: Individual terminals</span>
-                  <span className="text-[#1E4ED7] font-semibold">Virar East</span>
+                  <span className="font-semibold text-emerald-600">Individual Terminals</span>
+                  <span className="text-[#1E4ED7] font-semibold">Virar East Station</span>
                 </div>
               </div>
             </div>
 
-            {/* Slot 2: student story placeholder */}
-            <div className="bg-white rounded-2xl border-2 border-dashed border-[#C5C6D0]/80 p-6 flex flex-col justify-between items-center text-center shadow-sm min-h-[340px]">
-              <div className="my-auto flex flex-col items-center">
-                <div className="w-16 h-16 rounded-full bg-[#E1E8FE] flex items-center justify-center text-3xl mb-4">📸</div>
-                <span className="text-sm font-bold text-[#000926]">Student photo and quote (to be added)</span>
-                <p className="text-xs text-[#45464F] mt-2 max-w-xs leading-relaxed">We collect verified feedback directly from enrolled students completing their certification courses.</p>
+            {/* Slot 2: 1-on-1 Faculty Mentorship */}
+            <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-md transition-shadow flex flex-col group">
+              <div className="aspect-[4/3] w-full relative overflow-hidden bg-slate-900">
+                <img
+                  src="/images/ladies-guidance.jpg"
+                  alt="Female instructor guiding student 1-on-1 at computer desk"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <span className="absolute top-3 left-3 bg-emerald-600 text-white px-2.5 py-1 rounded-full text-xs font-bold shadow-sm">
+                  1-on-1 Mentorship
+                </span>
+                <span className="absolute bottom-3 right-3 bg-black/60 backdrop-blur-xs text-white text-[11px] font-medium px-2 py-0.5 rounded">
+                  Ladies Special Batch
+                </span>
               </div>
-              <div className="w-full py-2.5 px-3 rounded-lg bg-[#F1F3FF] text-xs text-[#45464F] border border-[#C5C6D0]/50">
-                Verified local student profiles in progress
+              <div className="p-5 flex-1 flex flex-col justify-between">
+                <div>
+                  <h4 className="text-base text-[#000926] font-bold">Patient Desk-to-Desk Guidance</h4>
+                  <p className="text-xs text-[#45464F] mt-1.5 leading-relaxed">
+                    Patient, step-by-step guidance. Our experienced instructors answer questions directly at your terminal, making it ideal for beginners, school students, and homemakers.
+                  </p>
+                </div>
+                <div className="mt-4 pt-3 border-t border-[#C5C6D0]/40 flex items-center justify-between text-xs text-[#45464F]">
+                  <span className="font-semibold text-purple-700">Ladies Batch: 12:30–4 PM</span>
+                  <span className="text-[#1E4ED7] font-semibold">Safe Space</span>
+                </div>
               </div>
             </div>
 
-            {/* Slot 3: interior photo placeholder */}
-            <div className="bg-white rounded-2xl border-2 border-dashed border-[#C5C6D0]/80 p-6 flex flex-col justify-between items-center text-center shadow-sm min-h-[340px]">
-              <div className="my-auto flex flex-col items-center">
-                <div className="w-16 h-16 rounded-full bg-[#E1E8FE] flex items-center justify-center text-3xl mb-4">🖥</div>
-                <span className="text-sm font-bold text-[#000926]">Real photo of our lab (to be added)</span>
-                <p className="text-xs text-[#45464F] mt-2 max-w-xs leading-relaxed">Additional photography showing student projects, instructor demonstrations, and equipment upgrades.</p>
+            {/* Slot 3: Course Completion & Certification */}
+            <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-md transition-shadow flex flex-col group">
+              <div className="aspect-[4/3] w-full relative overflow-hidden bg-slate-900">
+                <img
+                  src="/images/certificate-success.jpg"
+                  alt="Proud student with course completion certificate at Race Reddys"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <span className="absolute top-3 left-3 bg-amber-500 text-white px-2.5 py-1 rounded-full text-xs font-bold shadow-sm">
+                  Student Success
+                </span>
+                <span className="absolute bottom-3 right-3 bg-black/60 backdrop-blur-xs text-white text-[11px] font-medium px-2 py-0.5 rounded">
+                  5,000+ Alumni
+                </span>
               </div>
-              <div className="w-full py-2.5 px-3 rounded-lg bg-[#F1F3FF] text-xs text-[#45464F] border border-[#C5C6D0]/50">
-                Interior workstation photography
+              <div className="p-5 flex-1 flex flex-col justify-between">
+                <div>
+                  <h4 className="text-base text-[#000926] font-bold">Certified Career Diplomas</h4>
+                  <p className="text-xs text-[#45464F] mt-1.5 leading-relaxed">
+                    Proud students receiving recognized career certifications upon completing practical coursework. Verified credentials trusted by employers across Palghar and Mumbai MMR.
+                  </p>
+                </div>
+                <div className="mt-4 pt-3 border-t border-[#C5C6D0]/40 flex items-center justify-between text-xs text-[#45464F]">
+                  <span className="font-semibold text-sky-600">Authorized Certificate</span>
+                  <span className="text-[#1E4ED7] font-semibold">Placement Help</span>
+                </div>
               </div>
             </div>
           </div>

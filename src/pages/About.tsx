@@ -70,31 +70,28 @@ export default function About() {
               </div>
             </div>
 
-            {/* Right Photo Slot: Institute Building & Lab (5 cols) */}
+            {/* Right Photo: Institute Building & Lab (5 cols) */}
             <div className="lg:col-span-5 space-y-4">
-              
-              {/* Photo Slot 1: Lab Space */}
-              <div className="bg-white p-3 rounded-2xl border-2 border-dashed border-[#C59B27] shadow-xs">
-                <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-[#071B3A] flex flex-col items-center justify-center text-center p-4">
+              <div className="bg-white p-3 rounded-2xl border border-slate-200 shadow-sm overflow-hidden group">
+                <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-slate-900">
                   <img
-                    src="/hero-lab.jpg"
+                    src="/images/lab-students.jpg"
                     alt="Race Reddys computer laboratory in Raut Arcade Virar East"
-                    className="absolute inset-0 w-full h-full object-cover opacity-80"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="relative z-10 bg-[#071B3A]/85 p-3 rounded-lg border border-white/20 text-white max-w-xs">
-                    <span className="text-xs font-bold block text-[#D8AF3E]">
-                      [Real Lab Photo Slot]
+                  <div className="absolute top-2.5 left-2.5 bg-[#0084FF] text-white text-[10px] font-bold px-2.5 py-1 rounded-full shadow-sm">
+                    Raut Arcade Lab 202
+                  </div>
+                  <div className="absolute bottom-2.5 left-2.5 right-2.5 bg-black/65 backdrop-blur-xs p-2.5 rounded-lg border border-white/10 text-white">
+                    <span className="text-xs font-bold block text-[#F5BE4F]">
+                      Individual Computer Terminals
                     </span>
                     <span className="text-[11px] text-gray-200">
-                      Raut Arcade, 2nd Floor Workstations
+                      Opposite Virar East Station Subway · 100% Practical Learning
                     </span>
                   </div>
                 </div>
-                <span className="text-[11px] text-gray-500 block text-center mt-2 font-mono">
-                  Recommended size: 1200x900px • Natural Lab Lighting
-                </span>
               </div>
-
             </div>
 
           </div>
@@ -212,51 +209,51 @@ export default function About() {
               </div>
             </div>
 
-            {/* Photo Slots: Faculty & Classrooms (6 cols) */}
+            {/* Faculty & Classrooms Photography (6 cols) */}
             <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
               
-              {/* Photo Slot 2: Faculty in Class */}
-              <div className="bg-white p-3 rounded-2xl border-2 border-dashed border-[#C59B27] shadow-xs">
-                <div className="aspect-[4/3] rounded-xl bg-[#071B3A] overflow-hidden relative flex flex-col items-center justify-center p-3 text-center">
+              {/* Photo 2: Faculty in Class */}
+              <div className="bg-white p-3 rounded-2xl border border-slate-200 shadow-sm overflow-hidden group">
+                <div className="aspect-[4/3] rounded-xl bg-slate-900 overflow-hidden relative">
                   <img
-                    src="/instructor-teaching.jpg"
+                    src="/images/instructor-teaching.jpg"
                     alt="Instructor assisting a student at Race Reddys"
-                    className="absolute inset-0 w-full h-full object-cover opacity-75"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="relative z-10 bg-[#071B3A]/85 p-2.5 rounded-lg border border-white/20 text-white">
-                    <span className="text-xs font-bold block text-[#D8AF3E]">
-                      [Faculty In Action Slot]
+                  <div className="absolute top-2.5 left-2.5 bg-emerald-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-sm">
+                    Faculty Mentorship
+                  </div>
+                  <div className="absolute bottom-2 left-2 right-2 bg-black/65 backdrop-blur-xs p-2 rounded-lg border border-white/10 text-white">
+                    <span className="text-xs font-bold block text-white">
+                      Patient Desk Assistance
                     </span>
                     <span className="text-[10px] text-gray-200">
-                      1-on-1 Student Assistance
+                      Personalized 1-on-1 step explanations
                     </span>
                   </div>
                 </div>
-                <span className="text-[10px] text-gray-500 block text-center mt-2 font-mono">
-                  Recommended size: 800x600px
-                </span>
               </div>
 
-              {/* Photo Slot 3: Student Typing Practice */}
-              <div className="bg-white p-3 rounded-2xl border-2 border-dashed border-[#C59B27] shadow-xs">
-                <div className="aspect-[4/3] rounded-xl bg-[#071B3A] overflow-hidden relative flex flex-col items-center justify-center p-3 text-center">
+              {/* Photo 3: Student Typing Practice */}
+              <div className="bg-white p-3 rounded-2xl border border-slate-200 shadow-sm overflow-hidden group">
+                <div className="aspect-[4/3] rounded-xl bg-slate-900 overflow-hidden relative">
                   <img
-                    src="/student-coding.jpg"
+                    src="/images/student-coding.jpg"
                     alt="Student coding and practicing typing"
-                    className="absolute inset-0 w-full h-full object-cover opacity-75"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="relative z-10 bg-[#071B3A]/85 p-2.5 rounded-lg border border-white/20 text-white">
-                    <span className="text-xs font-bold block text-[#D8AF3E]">
-                      [Student Practice Slot]
+                  <div className="absolute top-2.5 left-2.5 bg-purple-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-sm">
+                    Coding &amp; Typing Lab
+                  </div>
+                  <div className="absolute bottom-2 left-2 right-2 bg-black/65 backdrop-blur-xs p-2 rounded-lg border border-white/10 text-white">
+                    <span className="text-xs font-bold block text-white">
+                      Speed Typing &amp; Development
                     </span>
                     <span className="text-[10px] text-gray-200">
-                      Individual Workstation Practice
+                      Dedicated practice terminals daily
                     </span>
                   </div>
                 </div>
-                <span className="text-[10px] text-gray-500 block text-center mt-2 font-mono">
-                  Recommended size: 800x600px
-                </span>
               </div>
 
             </div>
