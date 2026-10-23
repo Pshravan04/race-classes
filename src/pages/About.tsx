@@ -1,217 +1,291 @@
-import { Link } from 'react-router-dom'
-import { MapPin, Phone, ArrowRight, Laptop, Target, Users } from 'lucide-react'
-import SEO from '../components/SEO'
-import { SITE_CONFIG } from '../data/config'
+import { MapPin, CheckCircle2 } from 'lucide-react';
+import SEO from '../components/SEO';
+import RailwayTrackDivider from '../components/RailwayTrackDivider';
+import { Link } from 'react-router-dom';
 
 export default function About() {
+
   return (
     <>
       <SEO
-        title="About Our Institute"
-        description="Learn about Race Reddys Advanced Computer Education in Virar East — our practical learning philosophy, dedicated computer labs, and skills-focused curricula."
+        title="About Us | Race Reddys Advanced Computer Education Virar East"
+        description="The story of Race Reddys in Virar East: eliminating the stressful commute to Mumbai with 100% practical computer training right outside Virar railway station."
         canonical="/about"
       />
 
       {/* Header Banner */}
-      <section className="bg-slate-50 border-b border-slate-200 py-12 md:py-16">
-        <div className="container-rr">
-          <div className="max-w-2xl">
-            <span className="section-eyebrow">ABOUT RACE REDDYS</span>
-            <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-3">
-              A Practical Approach to Computer Education
+      <section className="bg-[#FAF7EE] border-b border-[#E8E2D5] py-10 sm:py-14">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <div className="station-board-yellow inline-block mb-3 text-xs font-black">
+              OUR MISSION &amp; HERITAGE • आमच्याबद्दल
+            </div>
+            
+            <h1 className="text-3xl sm:text-4xl font-extrabold text-[#071B3A] font-serif-heading mb-3">
+              Grounded in Virar, Built for Practical Tech Careers
             </h1>
-            <p className="text-base text-slate-600 leading-relaxed">
-              Situated in Virar East, Race Reddys Advanced Computer Education is dedicated to empowering students, job seekers, and working professionals with industry-relevant digital competencies.
+            
+            <p className="text-sm sm:text-base text-[#4A5568] leading-relaxed">
+              We started Race Reddys with one clear conviction: students, homemakers, and job seekers in Virar and Vasai should not have to spend 4 hours in crowded local trains just to learn quality computer skills.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Who We Are & Narrative */}
-      <section className="bg-white section-py border-b border-slate-100">
-        <div className="container-rr">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-
-            <div className="lg:col-span-7 flex flex-col items-start">
-              <span className="section-eyebrow">OUR MISSION</span>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-4">
-                Skills-First Learning for Academic & Career Growth
-              </h2>
-              <div className="flex flex-col gap-3.5 text-base text-slate-600 leading-relaxed">
-                <p>
-                  Race Reddys Advanced Computer Education was established with a singular objective: to bridge the gap between classroom theory and real workplace software applications in the Virar and Palghar district region.
-                </p>
-                <p>
-                  Whether learning foundational keyboarding and MS Office, commercial accounting in Tally with GST, modern creative workflows in Photoshop and Illustrator, or software programming and AI prompt engineering, every student practices on dedicated computer workstations.
-                </p>
-                <p>
-                  We prioritize individual pacing, direct instructor interaction, and practical exercises designed to prepare candidates for job roles and certification exams.
-                </p>
+      {/* 1. The Story of the Institute */}
+      <section className="py-12 sm:py-16 bg-[#FBF9F5]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            
+            {/* Left Story Text (7 cols) */}
+            <div className="lg:col-span-7 space-y-5 text-[#334155] leading-relaxed text-sm sm:text-base">
+              <div className="station-board text-xs mb-2">
+                THE VIRAR STORY
               </div>
 
-              <div className="mt-6 flex flex-wrap items-center gap-3">
-                <Link to="/courses" className="btn-primary text-sm">
-                  <span>Browse Our Courses</span>
-                  <ArrowRight size={14} />
-                </Link>
-                <Link to="/contact" className="btn-secondary text-sm">
-                  <span>Visit Our Lab</span>
-                </Link>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#071B3A] font-serif-heading">
+                Why Should Virar Students Travel to Mumbai for Computer Education?
+              </h2>
+
+              <p>
+                Every morning, thousands of students and youths from Virar, Nalasopara, and Vasai board jam-packed Western Railway local trains heading toward Andheri, Dadar, and Churchgate. Many spend up to 4 exhausting hours every day just to attend a 90-minute computer or accounting class in South or Central Mumbai.
+              </p>
+
+              <p>
+                <strong>Race Reddys was founded to end this exhausting cycle.</strong> Located at 202, Raut Arcade, right across the Virar East railway subway, we bring state-of-the-art syllabus, licensed software, and seasoned instructors right to your doorstep in Virar.
+              </p>
+
+              <p>
+                Here, students learn at their own pace, with 100% individual workstation time. No sharing keyboards, no rushed theoretical lectures, and no commute fatigue.
+              </p>
+
+              <div className="p-4 bg-[#FAF7EE] rounded-xl border border-[#C59B27]/40 flex items-center gap-3">
+                <span className="w-10 h-10 rounded-full bg-[#071B3A] text-[#C59B27] flex items-center justify-center font-bold shrink-0">
+                  RR
+                </span>
+                <span className="text-xs sm:text-sm font-semibold text-[#071B3A]">
+                  "Save your travel energy for learning and coding. Your career starts right here on Platform 2."
+                </span>
               </div>
             </div>
 
-            <div className="lg:col-span-5">
-              <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm aspect-[4/3] bg-slate-100">
-                <img
-                  src="/instructor-teaching.jpg"
-                  alt="Faculty providing individual guidance to a computer student at Race Reddys"
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
+            {/* Right Photo Slot: Institute Building & Lab (5 cols) */}
+            <div className="lg:col-span-5 space-y-4">
+              
+              {/* Photo Slot 1: Lab Space */}
+              <div className="bg-white p-3 rounded-2xl border-2 border-dashed border-[#C59B27] shadow-xs">
+                <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-[#071B3A] flex flex-col items-center justify-center text-center p-4">
+                  <img
+                    src="/hero-lab.jpg"
+                    alt="Race Reddys computer laboratory in Raut Arcade Virar East"
+                    className="absolute inset-0 w-full h-full object-cover opacity-80"
+                  />
+                  <div className="relative z-10 bg-[#071B3A]/85 p-3 rounded-lg border border-white/20 text-white max-w-xs">
+                    <span className="text-xs font-bold block text-[#D8AF3E]">
+                      [Real Lab Photo Slot]
+                    </span>
+                    <span className="text-[11px] text-gray-200">
+                      Raut Arcade, 2nd Floor Workstations
+                    </span>
+                  </div>
+                </div>
+                <span className="text-[11px] text-gray-500 block text-center mt-2 font-mono">
+                  Recommended size: 1200x900px • Natural Lab Lighting
+                </span>
               </div>
+
             </div>
 
           </div>
+
         </div>
       </section>
 
-      {/* Learning Philosophy Grid */}
-      <section className="bg-alt section-py border-b border-slate-200">
-        <div className="container-rr">
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <span className="section-eyebrow">OUR TEACHING PHILOSOPHY</span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-              What Defines Training at Race Reddys
+      <RailwayTrackDivider label="THE TEACHING APPROACH • शिकवण्याची पद्धत" />
+
+      {/* 2. The Teaching Approach */}
+      <section className="py-12 bg-white border-y border-[#E8E2D5]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="max-w-3xl mb-10">
+            <div className="station-board-yellow inline-block mb-3 text-xs font-black">
+              100% HANDS-ON LEARNING
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#071B3A] font-serif-heading mb-3">
+              How We Teach: Individual Machine Time, Zero Cramming
             </h2>
-            <p className="text-base text-slate-600 mt-2">
-              Our principles are grounded in transparent education, active practice, and supportive guidance.
+            <p className="text-sm sm:text-base text-[#4A5568] leading-relaxed">
+              We reject the old method of boring blackboard theory lectures. Computers are learned by touching the keys and fixing errors yourself.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="card-rr p-6 bg-white border border-slate-200">
-              <div className="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 text-blue-600 flex items-center justify-center mb-3.5">
-                <Laptop size={20} />
-              </div>
-              <h3 className="text-base font-bold text-slate-900 mb-2">Dedicated Lab Practice</h3>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Learners receive dedicated time on desktop computers to complete practical modules, assignments, and sample projects.
+            
+            <div className="p-6 bg-[#FAF7EE] rounded-2xl border border-[#E8E2D5]">
+              <span className="w-10 h-10 rounded-lg bg-[#071B3A] text-[#C59B27] flex items-center justify-center font-black mb-3">
+                1:1
+              </span>
+              <h3 className="text-lg font-bold text-[#071B3A] font-serif-heading mb-2">
+                One Student, One PC
+              </h3>
+              <p className="text-xs sm:text-sm text-[#4A5568] leading-relaxed">
+                You never have to stand behind someone or wait for your turn. You get an assigned PC for your entire batch duration.
               </p>
             </div>
 
-            <div className="card-rr p-6 bg-white border border-slate-200">
-              <div className="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 text-blue-600 flex items-center justify-center mb-3.5">
-                <Users size={20} />
-              </div>
-              <h3 className="text-base font-bold text-slate-900 mb-2">Personalized Faculty Attention</h3>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Small batch sizes ensure our instructors can answer doubts individually and assist beginners who have never touched a computer.
+            <div className="p-6 bg-[#FAF7EE] rounded-2xl border border-[#E8E2D5]">
+              <span className="w-10 h-10 rounded-lg bg-[#C0392B] text-white flex items-center justify-center font-black mb-3">
+                100%
+              </span>
+              <h3 className="text-lg font-bold text-[#071B3A] font-serif-heading mb-2">
+                Practical Real-World Tasks
+              </h3>
+              <p className="text-xs sm:text-sm text-[#4A5568] leading-relaxed">
+                Whether creating actual GST tax invoices in Tally, editing real raw photos in Photoshop, or deploying web code online.
               </p>
             </div>
 
-            <div className="card-rr p-6 bg-white border border-slate-200">
-              <div className="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 text-blue-600 flex items-center justify-center mb-3.5">
-                <Target size={20} />
-              </div>
-              <h3 className="text-base font-bold text-slate-900 mb-2">Workplace Relevance</h3>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Training curricula are structured around software and practices commonly required by offices, businesses, and IT firms.
+            <div className="p-6 bg-[#FAF7EE] rounded-2xl border border-[#E8E2D5]">
+              <span className="w-10 h-10 rounded-lg bg-[#C59B27] text-[#071B3A] flex items-center justify-center font-black mb-3">
+                ∞
+              </span>
+              <h3 className="text-lg font-bold text-[#071B3A] font-serif-heading mb-2">
+                Free Lifetime Doubt Solving
+              </h3>
+              <p className="text-xs sm:text-sm text-[#4A5568] leading-relaxed">
+                Finished your course 6 months ago but stuck on a job problem? Walk back into Raut Arcade. Our doors remain open for guidance.
               </p>
             </div>
+
           </div>
+
         </div>
       </section>
 
-      {/* Location & Accessibility Details */}
-      <section className="bg-white section-py border-b border-slate-100">
-        <div className="container-rr">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-
-            <div className="lg:col-span-6">
-              <span className="section-eyebrow">CAMPUS ACCESSIBILITY</span>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-4">
-                Conveniently Located in Virar East
+      {/* 3. The Lab & Infrastructure */}
+      <section className="py-12 sm:py-16 bg-[#FBF9F5]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            
+            {/* Lab Specifications (6 cols) */}
+            <div className="lg:col-span-6 space-y-4">
+              <div className="station-board text-xs mb-2">
+                LAB SPECIFICATIONS
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#071B3A] font-serif-heading">
+                Modern, Comfortable, Air-Conditioned Workstation Lab
               </h2>
-              <p className="text-sm text-slate-600 leading-relaxed mb-6">
-                Our centre is located directly opposite the Virar East railway subway at Raut Arcade, providing seamless access for daily commuters across the Western line.
+              <p className="text-xs sm:text-sm text-[#4A5568] leading-relaxed">
+                Designed for extended, focused learning hours without strain or technical interruptions:
               </p>
 
-              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 flex flex-col gap-3 text-xs sm:text-sm text-slate-700 mb-6">
-                <div className="flex items-start gap-2.5">
-                  <MapPin size={18} className="text-blue-600 shrink-0 mt-0.5" />
-                  <span>
-                    <strong>Address: </strong>
-                    {SITE_CONFIG.address.line1}, {SITE_CONFIG.address.line2}, {SITE_CONFIG.address.city}, {SITE_CONFIG.address.state} {SITE_CONFIG.address.pin}
+              <div className="space-y-3 pt-2">
+                <div className="flex items-start gap-3 p-3 bg-white rounded-xl border border-[#E8E2D5]">
+                  <CheckCircle2 size={18} className="text-[#C59B27] shrink-0 mt-0.5" />
+                  <span className="text-xs sm:text-sm text-[#1C2430]">
+                    <strong>High-Speed SSD Workstations:</strong> Fast boot times, lag-free coding IDEs, and smooth graphics editing.
                   </span>
                 </div>
-                <div className="flex items-center gap-2.5">
-                  <Phone size={16} className="text-blue-600 shrink-0" />
-                  <span>
-                    <strong>Phone / WhatsApp: </strong>
-                    <a href={`tel:${SITE_CONFIG.contact.phoneRaw}`} className="text-blue-600 font-semibold">
-                      {SITE_CONFIG.contact.phone}
-                    </a>
+
+                <div className="flex items-start gap-3 p-3 bg-white rounded-xl border border-[#E8E2D5]">
+                  <CheckCircle2 size={18} className="text-[#C59B27] shrink-0 mt-0.5" />
+                  <span className="text-xs sm:text-sm text-[#1C2430]">
+                    <strong>Dual-Language Keyboards:</strong> Ergonomic keyboards supporting fast English and Marathi InScript typing.
+                  </span>
+                </div>
+
+                <div className="flex items-start gap-3 p-3 bg-white rounded-xl border border-[#E8E2D5]">
+                  <CheckCircle2 size={18} className="text-[#C59B27] shrink-0 mt-0.5" />
+                  <span className="text-xs sm:text-sm text-[#1C2430]">
+                    <strong>Inverter Power Backup:</strong> Uninterrupted power supply ensures zero loss of student practice work during local outages.
+                  </span>
+                </div>
+
+                <div className="flex items-start gap-3 p-3 bg-white rounded-xl border border-[#E8E2D5]">
+                  <CheckCircle2 size={18} className="text-[#C59B27] shrink-0 mt-0.5" />
+                  <span className="text-xs sm:text-sm text-[#1C2430]">
+                    <strong>Safe &amp; Respectful Atmosphere:</strong> Dedicated slots for ladies and students with personalized, gentle coaching.
                   </span>
                 </div>
               </div>
-
-              <a
-                href={SITE_CONFIG.address.googleMapsSearch}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-secondary text-xs"
-              >
-                <span>Open Google Maps Directions</span>
-                <ArrowRight size={13} />
-              </a>
             </div>
 
-            <div className="lg:col-span-6">
-              <div className="card-rr p-6 md:p-8 bg-slate-50 border border-slate-200">
-                <h3 className="text-base font-bold text-slate-900 mb-4">
-                  Transit & Commute Guide
-                </h3>
-                <ul className="flex flex-col gap-3 list-none p-0 m-0 text-xs sm:text-sm text-slate-700">
-                  <li className="flex items-start gap-2.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-600 shrink-0 mt-2" />
-                    <span><strong>By Local Train:</strong> Alight at Virar station (East side). Walk through or opposite the pedestrian subway to Raut Arcade (approx. 2 minutes).</span>
-                  </li>
-                  <li className="flex items-start gap-2.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-600 shrink-0 mt-2" />
-                    <span><strong>By Auto Rickshaw:</strong> Direct the driver to Raut Arcade near the Subway, Virar East.</span>
-                  </li>
-                  <li className="flex items-start gap-2.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-600 shrink-0 mt-2" />
-                    <span><strong>Floor Location:</strong> Second floor, Suite 202. Our office sign is visible upon entering the arcade.</span>
-                  </li>
-                </ul>
+            {/* Photo Slots: Faculty & Classrooms (6 cols) */}
+            <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              
+              {/* Photo Slot 2: Faculty in Class */}
+              <div className="bg-white p-3 rounded-2xl border-2 border-dashed border-[#C59B27] shadow-xs">
+                <div className="aspect-[4/3] rounded-xl bg-[#071B3A] overflow-hidden relative flex flex-col items-center justify-center p-3 text-center">
+                  <img
+                    src="/instructor-teaching.jpg"
+                    alt="Instructor assisting a student at Race Reddys"
+                    className="absolute inset-0 w-full h-full object-cover opacity-75"
+                  />
+                  <div className="relative z-10 bg-[#071B3A]/85 p-2.5 rounded-lg border border-white/20 text-white">
+                    <span className="text-xs font-bold block text-[#D8AF3E]">
+                      [Faculty In Action Slot]
+                    </span>
+                    <span className="text-[10px] text-gray-200">
+                      1-on-1 Student Assistance
+                    </span>
+                  </div>
+                </div>
+                <span className="text-[10px] text-gray-500 block text-center mt-2 font-mono">
+                  Recommended size: 800x600px
+                </span>
               </div>
+
+              {/* Photo Slot 3: Student Typing Practice */}
+              <div className="bg-white p-3 rounded-2xl border-2 border-dashed border-[#C59B27] shadow-xs">
+                <div className="aspect-[4/3] rounded-xl bg-[#071B3A] overflow-hidden relative flex flex-col items-center justify-center p-3 text-center">
+                  <img
+                    src="/student-coding.jpg"
+                    alt="Student coding and practicing typing"
+                    className="absolute inset-0 w-full h-full object-cover opacity-75"
+                  />
+                  <div className="relative z-10 bg-[#071B3A]/85 p-2.5 rounded-lg border border-white/20 text-white">
+                    <span className="text-xs font-bold block text-[#D8AF3E]">
+                      [Student Practice Slot]
+                    </span>
+                    <span className="text-[10px] text-gray-200">
+                      Individual Workstation Practice
+                    </span>
+                  </div>
+                </div>
+                <span className="text-[10px] text-gray-500 block text-center mt-2 font-mono">
+                  Recommended size: 800x600px
+                </span>
+              </div>
+
             </div>
 
           </div>
+
         </div>
       </section>
 
-      {/* Bottom CTA Banner */}
-      <section className="bg-slate-900 text-white py-12">
-        <div className="container-rr text-center max-w-2xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-3">
-            Ready to Begin Your Computer Training?
+      {/* CTA Box */}
+      <section className="py-12 bg-white border-t border-[#E8E2D5]">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <h2 className="text-2xl font-bold text-[#071B3A] font-serif-heading mb-3">
+            Want to see the lab in person?
           </h2>
-          <p className="text-sm text-slate-300 leading-relaxed mb-6">
-            Contact us today to schedule a lab visit, discuss current admission offers, and select the right batch.
+          <p className="text-xs sm:text-sm text-[#4A5568] mb-6">
+            Walk in anytime between 9:00 AM and 7:00 PM, Monday to Saturday. Take a seat, experience the demo class, and inspect our computers yourself.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3">
-            <Link to="/courses" className="btn-primary text-sm">
-              <span>Explore Courses</span>
-              <ArrowRight size={14} />
-            </Link>
-            <Link to="/contact" className="btn-secondary text-sm">
-              <span>Contact Admissions</span>
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 bg-[#071B3A] hover:bg-[#0E2B5C] text-white font-bold text-xs sm:text-sm px-6 py-3 rounded-xl border border-[#C59B27]"
+            >
+              <MapPin size={15} className="text-[#D8AF3E]" />
+              <span>Get Directions to Raut Arcade</span>
             </Link>
           </div>
         </div>
       </section>
     </>
-  )
+  );
 }

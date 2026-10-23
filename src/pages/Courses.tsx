@@ -1,164 +1,254 @@
-import { useState } from 'react'
-import { useSearchParams } from 'react-router-dom'
-import { Search, RotateCcw } from 'lucide-react'
-import SEO from '../components/SEO'
-import CourseCard from '../components/CourseCard'
-import { COURSES, COURSE_CATEGORIES, type CourseCategory } from '../data/config'
+import { useState, useMemo } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import { Search, RotateCcw, Briefcase, Store, Sparkles, Baby, BookOpen } from 'lucide-react';
+import SEO from '../components/SEO';
+import CourseCard from '../components/CourseCard';
+import CourseDrawer from '../components/CourseDrawer';
+import RailwayTrackDivider from '../components/RailwayTrackDivider';
+import { COURSES, type Course, type CourseType, type CourseGoal } from '../data/config';
 
 export default function Courses() {
-  const [searchParams, setSearchParams] = useSearchParams()
-  const categoryParam = searchParams.get('category') as CourseCategory | null
-  const initialCat = categoryParam && COURSE_CATEGORIES[categoryParam] ? categoryParam : 'all'
+  const [searchParams, setSearchParams] = useSearchParams();
 
-  const [activeCategory, setActiveCategory] = useState<CourseCategory | 'all'>(initialCat)
-  const [searchQuery, setSearchQuery] = useState('')
+  const typeParam = searchParams.get('type') as CourseType | null;
+  const goalParam = searchParams.get('goal') as CourseGoal | null;
 
-  const handleCategoryChange = (cat: CourseCategory | 'all') => {
-    setActiveCategory(cat)
-    if (cat === 'all') {
-      searchParams.delete('category')
+  const [activeType, setActiveType] = useState<CourseType | 'all'>(typeParam || 'all');
+  const [activeGoal, setActiveGoal] = useState<CourseGoal | 'all'>(goalParam || 'all');
+  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedCourse, setSelectedCourse] = useState<Course | null>(null);
+
+  const handleTypeChange = (type: CourseType | 'all') => {
+    setActiveType(type);
+    if (type === 'all') {
+      searchParams.delete('type');
     } else {
-      searchParams.set('category', cat)
+      searchParams.set('type', type);
     }
-    setSearchParams(searchParams, { replace: true })
-  }
+    setSearchParams(searchParams, { replace: true });
+  };
+
+  const handleGoalChange = (goal: CourseGoal | 'all') => {
+    setActiveGoal(goal);
+    if (goal === 'all') {
+      searchParams.delete('goal');
+    } else {
+      searchParams.set('goal', goal);
+    }
+    setSearchParams(searchParams, { replace: true });
+  };
 
   const handleReset = () => {
-    setActiveCategory('all')
-    setSearchQuery('')
-    searchParams.delete('category')
-    setSearchParams(searchParams, { replace: true })
-  }
+    setActiveType('all');
+    setActiveGoal('all');
+    setSearchQuery('');
+    setSearchParams({}, { replace: true });
+  };
 
-  const filteredCourses = COURSES.filter((course) => {
-    const matchCat = activeCategory === 'all' || course.category === activeCategory
-    const matchSearch =
-      searchQuery.trim() === '' ||
-      course.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      course.shortDesc.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      course.highlights.some((h) => h.toLowerCase().includes(searchQuery.toLowerCase()))
-    return matchCat && matchSearch
-  })
+  const filteredCourses = useMemo(() => {
+    return COURSES.filter((course) => {
+      const matchType = activeType === 'all' || course.type === activeType;
+      const matchGoal = activeGoal === 'all' || course.goals.includes(activeGoal);
+      const query = searchQuery.toLowerCase().trim();
+      const matchSearch =
+        query === '' ||
+        course.name.toLowerCase().includes(query) ||
+        course.shortDesc.toLowerCase().includes(query) ||
+        course.topics.some((topic) => topic.toLowerCase().includes(query));
+
+      return matchType && matchGoal && matchSearch;
+    });
+  }, [activeType, activeGoal, searchQuery]);
+
+  const shortTermCount = COURSES.filter((c) => c.type === 'short-term').length;
+  const careerCount = COURSES.filter((c) => c.type === 'career').length;
 
   return (
     <>
       <SEO
-        title="Courses & Programs"
-        description="Explore computer courses at Race Reddys Advanced Computer Education, Virar East. Software Development, Tally Prime GST, Graphic Design, AI Prompt Engineering, Basic Computer, Cyber Security, and more."
+        title="Courses & Programs | Race Reddys Virar East"
+        description="Filter all 23 practical computer courses in Virar East: TallyPrime with GST, Typing, Web Development, Data Science, AI & ML, MS Office, Graphic Design. 50% discount available."
         canonical="/courses"
       />
 
       {/* Header Banner */}
-      <section className="bg-slate-50 border-b border-slate-200 py-12 md:py-16">
-        <div className="container-rr">
-          <div className="max-w-2xl">
-            <span className="section-eyebrow">COURSE CATALOGUE</span>
-            <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-3">
-              Browse All Computer & IT Courses
+      <section className="bg-[#FAF7EE] border-b border-[#E8E2D5] py-10 sm:py-14">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <div className="station-board-yellow inline-block mb-3 text-xs font-black">
+              COURSE CATALOGUE • सर्व २३ कोर्सेस
+            </div>
+            
+            <h1 className="text-3xl sm:text-4xl font-extrabold text-[#071B3A] font-serif-heading mb-3">
+              Explore All 23 Practical Computer &amp; IT Courses
             </h1>
-            <p className="text-base text-slate-600 leading-relaxed">
-              From foundational computer literacy to advanced software engineering, accounting, and creative disciplines. All courses include dedicated practical lab training.
+            
+            <p className="text-sm sm:text-base text-[#4A5568] leading-relaxed">
+              Every course is taught on real computers with step-by-step guidance right opposite Virar East station. Filter by your career objective or learning goal below.
             </p>
 
-            {/* Search Input Box */}
+            {/* Quick Search Box */}
             <div className="relative mt-6 max-w-lg">
-              <Search size={18} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
+              <Search size={18} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
               <input
                 type="text"
-                placeholder="Search courses by name or skill (e.g. Tally, Python, Excel)..."
+                placeholder="Search by course name or topic (e.g. Tally, Python, Typing, GST)..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                aria-label="Search all courses"
-                className="w-full pl-10 pr-4 py-3 bg-white border border-slate-200 rounded-xl text-sm text-slate-900 shadow-xs focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+                aria-label="Search computer courses"
+                className="w-full pl-10 pr-4 py-2.5 bg-white border border-[#E8E2D5] rounded-xl text-sm text-[#071B3A] shadow-xs focus:outline-hidden focus:border-[#C59B27] focus:ring-2 focus:ring-[#C59B27]/20"
               />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Main Content: Categories & Courses Grid */}
-      <section className="bg-white section-py">
-        <div className="container-rr">
-
-          {/* Functional Category Filter Pills */}
-          <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-8 scrollbar-none" role="tablist" aria-label="Course categories filter">
-            <button
-              type="button"
-              role="tab"
-              aria-selected={activeCategory === 'all'}
-              onClick={() => handleCategoryChange('all')}
-              className={`filter-pill ${activeCategory === 'all' ? 'active' : ''}`}
-            >
-              All Courses ({COURSES.length})
-            </button>
-            {Object.entries(COURSE_CATEGORIES).map(([catKey, catVal]) => {
-              const count = COURSES.filter((c) => c.category === catKey).length
-              return (
+      {/* Main Course Listing & Interactive Filters */}
+      <section className="py-10 sm:py-14 bg-[#FBF9F5] min-h-[60vh]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          {/* Dual Filter Controls Bar */}
+          <div className="bg-white p-4 sm:p-5 rounded-2xl border border-[#E8E2D5] shadow-xs mb-8 space-y-4">
+            
+            {/* Filter 1: By Course Type (Short-Term vs Career) */}
+            <div>
+              <span className="text-xs font-black uppercase tracking-wider text-[#6B5A24] block mb-2">
+                1. Filter by Course Type:
+              </span>
+              <div className="flex flex-wrap items-center gap-2" role="tablist" aria-label="Course type filter">
                 <button
-                  key={catKey}
                   type="button"
-                  role="tab"
-                  aria-selected={activeCategory === catKey}
-                  onClick={() => handleCategoryChange(catKey as CourseCategory)}
-                  className={`filter-pill ${activeCategory === catKey ? 'active' : ''}`}
+                  onClick={() => handleTypeChange('all')}
+                  className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-colors ${
+                    activeType === 'all'
+                      ? 'bg-[#071B3A] text-white'
+                      : 'bg-[#F3EFE6] text-[#334155] hover:bg-[#E8E2D5]'
+                  }`}
                 >
-                  {catVal.label} ({count})
+                  All Courses ({COURSES.length})
                 </button>
-              )
-            })}
+                <button
+                  type="button"
+                  onClick={() => handleTypeChange('short-term')}
+                  className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-colors ${
+                    activeType === 'short-term'
+                      ? 'bg-[#071B3A] text-white'
+                      : 'bg-[#F3EFE6] text-[#334155] hover:bg-[#E8E2D5]'
+                  }`}
+                >
+                  Short-Term Skill Modules ({shortTermCount})
+                </button>
+                <button
+                  type="button"
+                  onClick={() => handleTypeChange('career')}
+                  className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-colors ${
+                    activeType === 'career'
+                      ? 'bg-[#C59B27] text-[#071B3A]'
+                      : 'bg-[#F3EFE6] text-[#334155] hover:bg-[#E8E2D5]'
+                  }`}
+                >
+                  Career-Objective Diplomas ({careerCount})
+                </button>
+              </div>
+            </div>
+
+            {/* Filter 2: By Learner Goal */}
+            <div className="pt-3 border-t border-[#E8E2D5]">
+              <span className="text-xs font-black uppercase tracking-wider text-[#6B5A24] block mb-2">
+                2. Filter by Your Learning Goal:
+              </span>
+              <div className="flex flex-wrap items-center gap-2">
+                {[
+                  { id: 'all', label: 'All Goals', icon: BookOpen },
+                  { id: 'job', label: 'Job Seekers & Freshers', icon: Briefcase },
+                  { id: 'business', label: 'Business & Shopkeepers', icon: Store },
+                  { id: 'skill', label: 'Skill Upgrade', icon: Sparkles },
+                  { id: 'kids', label: 'Kids & Beginners', icon: Baby },
+                ].map((item) => {
+                  const Icon = item.icon;
+                  const isActive = activeGoal === item.id;
+                  return (
+                    <button
+                      key={item.id}
+                      type="button"
+                      onClick={() => handleGoalChange(item.id as CourseGoal | 'all')}
+                      className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${
+                        isActive
+                          ? 'bg-[#C0392B] text-white'
+                          : 'bg-[#F3EFE6] text-[#334155] hover:bg-[#E8E2D5]'
+                      }`}
+                    >
+                      <Icon size={13} />
+                      <span>{item.label}</span>
+                    </button>
+                  );
+                })}
+
+                {(activeType !== 'all' || activeGoal !== 'all' || searchQuery !== '') && (
+                  <button
+                    type="button"
+                    onClick={handleReset}
+                    className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-bold text-[#C0392B] hover:bg-[#FCECEB] transition-colors ml-auto"
+                  >
+                    <RotateCcw size={13} />
+                    <span>Reset Filters</span>
+                  </button>
+                )}
+              </div>
+            </div>
+
           </div>
 
-          {/* Filter Status Text */}
-          <div className="flex items-center justify-between gap-4 mb-6 text-xs text-slate-500">
-            <p>
-              Showing <strong className="text-slate-800">{filteredCourses.length}</strong> of{' '}
-              <strong className="text-slate-800">{COURSES.length}</strong> courses
-              {activeCategory !== 'all' && ` in ${COURSE_CATEGORIES[activeCategory].label}`}
-              {searchQuery && ` matching "${searchQuery}"`}
-            </p>
-
-            {(activeCategory !== 'all' || searchQuery) && (
-              <button
-                type="button"
-                onClick={handleReset}
-                className="inline-flex items-center gap-1 text-blue-600 hover:text-blue-700 font-semibold"
-              >
-                <RotateCcw size={12} />
-                <span>Reset all filters</span>
-              </button>
-            )}
+          {/* Results Counter */}
+          <div className="flex items-center justify-between mb-6">
+            <span className="text-xs font-bold text-gray-500">
+              Showing <strong className="text-[#071B3A]">{filteredCourses.length}</strong> of {COURSES.length} courses
+            </span>
+            <span className="text-xs text-[#C59B27] font-semibold hidden sm:inline">
+              ★ All courses include 100% individual workstation training
+            </span>
           </div>
 
-          {/* Courses Grid */}
+          {/* Course Cards Grid */}
           {filteredCourses.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredCourses.map((course) => (
-                <CourseCard key={course.id} course={course} />
+                <CourseCard
+                  key={course.id}
+                  course={course}
+                  onSelect={(c) => setSelectedCourse(c)}
+                />
               ))}
             </div>
           ) : (
-            <div className="card-rr p-12 text-center bg-slate-50 border border-slate-200 max-w-md mx-auto my-8">
-              <div className="w-12 h-12 rounded-full bg-slate-200 flex items-center justify-center mx-auto mb-3 text-slate-500">
-                <Search size={22} />
-              </div>
-              <h3 className="text-base font-bold text-slate-800">
-                No matching courses found
-              </h3>
-              <p className="text-xs text-slate-500 mt-1 mb-5">
-                We could not find any courses matching your current filter criteria.
+            <div className="bg-white rounded-2xl border border-[#E8E2D5] p-10 text-center max-w-md mx-auto my-12">
+              <p className="text-base font-bold text-[#071B3A] mb-2 font-serif-heading">
+                No courses match your filter criteria
+              </p>
+              <p className="text-xs text-[#4A5568] mb-4">
+                Try searching with different keywords or reset the filters to see all available programs.
               </p>
               <button
                 type="button"
                 onClick={handleReset}
-                className="btn-primary text-xs py-2 px-4"
+                className="bg-[#071B3A] text-white text-xs font-bold px-4 py-2 rounded-lg"
               >
-                Reset Filters
+                Reset All Filters
               </button>
             </div>
           )}
 
         </div>
       </section>
+
+      {/* Railway Track Motif */}
+      <RailwayTrackDivider label="VIRAR EAST STATION • DIRECT PLATFORM ACCESS" />
+
+      {/* Slide-out Course Detail Drawer */}
+      <CourseDrawer
+        course={selectedCourse}
+        onClose={() => setSelectedCourse(null)}
+      />
     </>
-  )
+  );
 }

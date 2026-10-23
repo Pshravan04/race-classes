@@ -1,269 +1,272 @@
-import { useState, useEffect } from 'react'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
-import { Menu, X, Phone, ArrowUpRight } from 'lucide-react'
-import { SITE_CONFIG } from '../data/config'
+import { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { Menu, X, Phone, MessageSquare } from 'lucide-react';
+import { SITE_CONFIG } from '../data/config';
+import { useLanguage } from '../context/useLanguage';
+import type { Language } from '../data/translations';
 
 export default function Header() {
-  const [menuOpen, setMenuOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
-  const location = useLocation()
-  const navigate = useNavigate()
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+  const { language, setLanguage, t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20)
-    }
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+      setScrolled(window.scrollY > 15);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
-  useEffect(() => {
-    setMenuOpen(false)
-  }, [location.pathname])
-
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string, routeFallback: string) => {
-    if (location.pathname === '/') {
-      e.preventDefault()
-      const element = document.getElementById(targetId)
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' })
-      }
-    } else {
-      e.preventDefault()
-      navigate(routeFallback)
-    }
-  }
+  const navLinks = [
+    { to: '/', label: t.navHome },
+    { to: '/courses', label: t.navCourses },
+    { to: '/batches', label: t.navBatches },
+    { to: '/offers', label: t.navOffers, badge: '50%' },
+    { to: '/about', label: t.navAbout },
+    { to: '/gallery', label: t.navGallery },
+    { to: '/contact', label: t.navContact },
+  ];
 
   return (
     <>
-      {/* ─── Announcement Bar (Exact Stitch Spec) ─── */}
-      <aside aria-label="Announcement" className="bg-[#0b1728] text-white py-2 px-4 text-xs font-medium text-center border-b border-slate-800">
-        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-center gap-2 sm:gap-3">
-          <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-[#B7EB38] text-black">
-            ADMISSIONS OPEN
-          </span>
-          <span className="text-slate-200">
-            Summer &amp; Weekend Batches Starting at Virar East Branch • Avail{' '}
-            <strong className="text-white font-bold">50% Concession</strong> for early registrations!
-          </span>
-          <a
-            href="#enquiry-section"
-            onClick={(e) => handleNavClick(e, 'enquiry-section', '/admissions')}
-            className="underline text-[#B7EB38] hover:text-white font-semibold ml-1 cursor-pointer transition-colors"
-          >
-            Reserve Seat ↗
-          </a>
+      {/* ─── Sleek Top Announcement Ticker ─── */}
+      <aside
+        aria-label="Campus Notice"
+        className="bg-[#0B0F19] text-slate-300 text-[11px] py-1.5 px-4 border-b border-slate-800 select-none"
+      >
+        <div className="max-w-7xl mx-auto flex items-center justify-between gap-3">
+          
+          {/* Station location indicator */}
+          <div className="flex items-center gap-2 shrink-0">
+            <span className="bg-[#F5BE4F] text-[#0B0F19] font-black text-[9px] px-1.5 py-0.5 rounded uppercase tracking-wider">
+              VIRAR EAST
+            </span>
+            <span className="font-medium text-slate-300 text-[11px] hidden sm:inline">
+              Raut Arcade 202 · Opp. Station Subway &amp; Platform 1
+            </span>
+          </div>
+
+          {/* Offer highlight & Direct phone */}
+          <div className="flex items-center gap-4">
+            <span className="hidden md:inline font-semibold text-[#F5BE4F] text-[11px]">
+              🔥 Flat 50% Concession on Career Diplomas · Limited Seats
+            </span>
+
+            <a
+              href={`tel:${SITE_CONFIG.contact.phone}`}
+              className="hidden lg:flex items-center gap-1 text-slate-300 hover:text-white transition-colors"
+            >
+              <Phone size={10} className="text-[#0084FF]" />
+              <span className="font-medium">Call: {SITE_CONFIG.contact.phone}</span>
+            </a>
+
+            {/* Language Toggle: EN / हिं / मरा */}
+            <div
+              className="flex items-center gap-0.5 bg-slate-800/90 p-0.5 rounded-full border border-slate-700/60"
+              role="group"
+              aria-label="Language selection"
+            >
+              {(['en', 'hi', 'mr'] as Language[]).map((lang) => {
+                const isActive = language === lang;
+                const labels = { en: 'EN', hi: 'हिं', mr: 'मरा' };
+                return (
+                  <button
+                    key={lang}
+                    type="button"
+                    onClick={() => setLanguage(lang)}
+                    aria-pressed={isActive}
+                    className={`px-2 py-0.5 text-[10px] font-bold rounded-full transition-all ${
+                      isActive
+                        ? 'bg-[#0084FF] text-white shadow-xs'
+                        : 'text-slate-400 hover:text-white'
+                    }`}
+                  >
+                    {labels[lang]}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
         </div>
       </aside>
 
-      {/* ─── Floating Navbar (Exact Stitch Spec) ─── */}
-      <div className={`w-full px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto pt-3 sm:pt-4 z-50 transition-all ${
-        scrolled ? 'sticky top-3' : 'relative'
-      }`}>
-        <header className="bg-white/95 backdrop-blur-md rounded-full border border-gray-200/90 shadow-sm px-4 sm:px-6 py-2.5 flex items-center justify-between transition-all">
+      {/* ─── Main Navigation Header ─── */}
+      <header
+        className={`w-full z-40 transition-all duration-200 bg-white/95 backdrop-blur-md border-b border-slate-200/80 ${
+          scrolled ? 'sticky top-0 shadow-xs py-2.5' : 'relative py-3.5'
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
           
-          {/* Brand Logo Container */}
+          {/* Brand Logo & Name */}
           <Link to="/" className="flex items-center gap-3 group shrink-0" aria-label="Race Reddys Home">
-            <img
-              src="/stitch-logo.png"
-              alt="Race Reddys Advanced Computer Education Monogram"
-              className="h-10 w-10 sm:h-11 sm:w-11 object-contain rounded-full shadow-inner border border-slate-100"
-            />
-            <div className="leading-tight">
-              <span className="block font-black text-sm sm:text-base tracking-tight text-[#0F1E36] group-hover:text-[#1556A6] transition-colors">
+            <div className="w-10 h-10 rounded-xl bg-slate-900 flex items-center justify-center p-1.5 shadow-xs group-hover:scale-105 transition-transform">
+              <img
+                src="/images/logo-stitch.png"
+                alt="Race Reddys Emblem"
+                className="w-full h-full object-contain"
+                onError={(e) => {
+                  (e.target as HTMLElement).style.display = 'none';
+                }}
+              />
+            </div>
+
+            <div className="flex flex-col">
+              <span className="font-extrabold text-lg sm:text-xl tracking-tight text-[#111827] leading-none">
                 RACE REDDYS
               </span>
-              <span className="text-[10px] sm:text-[11px] font-semibold text-gray-500 uppercase tracking-wider block">
+              <span className="text-[9.5px] font-bold text-[#0084FF] tracking-wider uppercase leading-none mt-1">
                 Advanced Computer Education
               </span>
             </div>
           </Link>
 
-          {/* Center Navigation Pills */}
-          <nav className="hidden lg:flex items-center gap-1 text-sm font-medium text-gray-700" aria-label="Main Navigation">
-            <Link
-              to="/"
-              className={`px-4 py-1.5 rounded-full font-semibold transition-all ${
-                location.pathname === '/'
-                  ? 'bg-[#B7EB38] text-black shadow-xs'
-                  : 'hover:bg-gray-100 hover:text-black'
-              }`}
-            >
-              Home
-            </Link>
-
-            <a
-              href="#about"
-              onClick={(e) => handleNavClick(e, 'about', '/about')}
-              className={`px-3.5 py-1.5 rounded-full transition-colors ${
-                location.pathname === '/about'
-                  ? 'bg-[#B7EB38] text-black font-semibold'
-                  : 'hover:bg-gray-100 hover:text-black'
-              }`}
-            >
-              About Us
-            </a>
-
-            <a
-              href="#courses"
-              onClick={(e) => handleNavClick(e, 'courses', '/courses')}
-              className={`px-3.5 py-1.5 rounded-full transition-colors ${
-                location.pathname.startsWith('/courses')
-                  ? 'bg-[#B7EB38] text-black font-semibold'
-                  : 'hover:bg-gray-100 hover:text-black'
-              }`}
-            >
-              Courses
-            </a>
-
-            <a
-              href="#process"
-              onClick={(e) => handleNavClick(e, 'process', '/#process')}
-              className="px-3.5 py-1.5 rounded-full hover:bg-gray-100 hover:text-black transition-colors"
-            >
-              Training Process
-            </a>
-
-            <a
-              href="#enquiry-section"
-              onClick={(e) => handleNavClick(e, 'enquiry-section', '/admissions')}
-              className={`px-3.5 py-1.5 rounded-full transition-colors ${
-                location.pathname === '/admissions'
-                  ? 'bg-[#B7EB38] text-black font-semibold'
-                  : 'hover:bg-gray-100 hover:text-black'
-              }`}
-            >
-              Admissions
-            </a>
-
-            <a
-              href="#contact"
-              onClick={(e) => handleNavClick(e, 'contact', '/contact')}
-              className={`px-3.5 py-1.5 rounded-full transition-colors ${
-                location.pathname === '/contact'
-                  ? 'bg-[#B7EB38] text-black font-semibold'
-                  : 'hover:bg-gray-100 hover:text-black'
-              }`}
-            >
-              Contact
-            </a>
+          {/* Desktop Navigation Links (Spacious, Single-Line, Never Wraps) */}
+          <nav className="hidden lg:flex items-center gap-1 text-[13.5px] font-medium text-slate-600" aria-label="Main Navigation">
+            {navLinks.map((link) => {
+              const isActive = location.pathname === link.to;
+              return (
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  className={`px-3 py-1.5 rounded-full transition-all whitespace-nowrap flex items-center gap-1.5 ${
+                    isActive
+                      ? 'text-[#0084FF] font-semibold bg-sky-50'
+                      : 'hover:text-slate-900 hover:bg-slate-50'
+                  }`}
+                >
+                  <span>{link.label}</span>
+                  {link.badge && (
+                    <span className="px-1.5 py-0.2 bg-amber-100 text-amber-800 text-[10px] font-bold rounded-full">
+                      {link.badge}
+                    </span>
+                  )}
+                </Link>
+              );
+            })}
           </nav>
 
-          {/* Right CTAs */}
-          <div className="flex items-center gap-2 sm:gap-3">
-            {/* Call Us Pill */}
+          {/* Desktop CTAs (WhatsApp quick link + Signature Blue Pill) */}
+          <div className="hidden sm:flex items-center gap-3 shrink-0">
+            {/* Quick WhatsApp Link */}
             <a
-              href={`tel:${SITE_CONFIG.contact.phoneRaw}`}
-              className="hidden md:inline-flex items-center gap-2 text-xs font-semibold px-3.5 py-2 rounded-full border border-gray-200 bg-gray-50 hover:bg-gray-100 text-gray-800 transition-colors"
-              aria-label={`Call ${SITE_CONFIG.contact.phone}`}
+              href={`${SITE_CONFIG.contact.whatsapp}?text=${encodeURIComponent(
+                'Hello! I would like to enquire about courses and admissions at Race Reddys Virar East.'
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden xl:inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600 hover:text-emerald-600 transition-colors px-2 py-1 rounded-lg hover:bg-emerald-50/60"
             >
-              <span className="w-5 h-5 rounded-full bg-[#B7EB38] flex items-center justify-center text-black">
-                <Phone size={11} className="fill-current text-black" />
-              </span>
-              <span className="text-gray-500 font-normal">Call Now</span>
-              <span className="font-bold">{SITE_CONFIG.contact.phone}</span>
+              <MessageSquare size={13} className="text-emerald-600" />
+              <span>WhatsApp</span>
             </a>
 
-            {/* High Contrast Free Brochure / Enquire Now Button with Circle Arrow */}
-            <a
-              href="#enquiry-section"
-              onClick={(e) => handleNavClick(e, 'enquiry-section', '/contact')}
-              className="inline-flex items-center gap-2 bg-[#121c2d] hover:bg-black text-white text-xs sm:text-sm font-semibold pl-4 pr-1.5 py-1.5 rounded-full transition-transform active:scale-95 shadow group"
+            {/* Signature Blue Pill CTA */}
+            <Link
+              to="/contact#demo"
+              className="inline-flex items-center justify-center bg-[#0084FF] hover:bg-[#0074E0] text-white text-xs sm:text-sm font-semibold px-5 sm:px-6 py-2.5 rounded-full shadow-sm hover:shadow-md transition-all active:scale-95 whitespace-nowrap"
             >
-              <span>Get Free Brochure</span>
-              <span className="w-7 h-7 rounded-full bg-[#B7EB38] text-black flex items-center justify-center font-bold text-sm transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-                <ArrowUpRight size={15} />
-              </span>
-            </a>
+              Book a demo
+            </Link>
+          </div>
 
-            {/* Mobile Hamburger Toggle */}
+          {/* Mobile Menu Toggle Button */}
+          <div className="flex items-center gap-2 lg:hidden">
+            <a
+              href={`${SITE_CONFIG.contact.whatsapp}?text=${encodeURIComponent(
+                'Hello! I want to enquire about computer courses at Race Reddys Virar East.'
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 text-[#25D366] hover:bg-green-50 rounded-lg sm:hidden"
+              aria-label="WhatsApp quick chat"
+            >
+              <MessageSquare size={20} />
+            </a>
             <button
               type="button"
-              className="lg:hidden w-9 h-9 rounded-full bg-gray-100 hover:bg-gray-200 text-[#0F1E36] flex items-center justify-center transition-colors border border-gray-200"
-              onClick={() => setMenuOpen(!menuOpen)}
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="p-2 text-[#111827] hover:bg-slate-100 rounded-lg transition-colors"
+              aria-expanded={mobileMenuOpen}
               aria-label="Toggle navigation menu"
-              aria-expanded={menuOpen}
             >
-              {menuOpen ? <X size={18} /> : <Menu size={18} />}
+              {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
             </button>
           </div>
 
-        </header>
+        </div>
 
         {/* Mobile Navigation Drawer */}
-        {menuOpen && (
-          <div className="lg:hidden mt-2 bg-white rounded-3xl border border-gray-200 p-4 shadow-xl flex flex-col gap-1.5 animate-in fade-in slide-in-from-top-2 duration-150">
-            <Link
-              to="/"
-              onClick={() => setMenuOpen(false)}
-              className="px-4 py-2.5 rounded-xl text-sm font-bold bg-[#B7EB38] text-black"
-            >
-              Home
-            </Link>
-            <a
-              href="#about"
-              onClick={(e) => {
-                setMenuOpen(false)
-                handleNavClick(e, 'about', '/about')
-              }}
-              className="px-4 py-2 rounded-xl text-sm font-medium text-gray-700 hover:bg-gray-100"
-            >
-              About Us
-            </a>
-            <a
-              href="#courses"
-              onClick={(e) => {
-                setMenuOpen(false)
-                handleNavClick(e, 'courses', '/courses')
-              }}
-              className="px-4 py-2 rounded-xl text-sm font-medium text-gray-700 hover:bg-gray-100"
-            >
-              Courses
-            </a>
-            <a
-              href="#process"
-              onClick={(e) => {
-                setMenuOpen(false)
-                handleNavClick(e, 'process', '/#process')
-              }}
-              className="px-4 py-2 rounded-xl text-sm font-medium text-gray-700 hover:bg-gray-100"
-            >
-              Training Process
-            </a>
-            <a
-              href="#enquiry-section"
-              onClick={(e) => {
-                setMenuOpen(false)
-                handleNavClick(e, 'enquiry-section', '/admissions')
-              }}
-              className="px-4 py-2 rounded-xl text-sm font-medium text-gray-700 hover:bg-gray-100"
-            >
-              Admissions (50% Off)
-            </a>
-            <a
-              href="#contact"
-              onClick={(e) => {
-                setMenuOpen(false)
-                handleNavClick(e, 'contact', '/contact')
-              }}
-              className="px-4 py-2 rounded-xl text-sm font-medium text-gray-700 hover:bg-gray-100"
-            >
-              Contact
-            </a>
+        {mobileMenuOpen && (
+          <div className="lg:hidden border-t border-slate-200 bg-white px-4 pt-4 pb-6 shadow-2xl animate-in slide-in-from-top-2">
+            <div className="mb-3 px-3 py-2 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between text-xs font-medium text-slate-700">
+              <span>🔥 50% Concession on Career Diplomas</span>
+              <span className="bg-[#F5BE4F] text-[#111827] font-bold text-[9px] px-1.5 py-0.5 rounded">VIRAR</span>
+            </div>
 
-            <div className="pt-2 mt-2 border-t border-gray-100 flex flex-col gap-2">
+            <nav className="flex flex-col gap-1 mb-4" aria-label="Mobile Navigation">
+              {navLinks.map((link) => {
+                const isActive = location.pathname === link.to;
+                return (
+                  <Link
+                    key={link.to}
+                    to={link.to}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`px-3 py-2.5 rounded-lg text-sm font-semibold flex items-center justify-between transition-colors ${
+                      isActive
+                        ? 'bg-sky-50 text-[#0084FF] font-bold'
+                        : 'text-slate-700 hover:bg-slate-50'
+                    }`}
+                  >
+                    <div className="flex items-center gap-2">
+                      <span>{link.label}</span>
+                      {link.badge && (
+                        <span className="px-1.5 py-0.2 bg-amber-100 text-amber-800 text-[9px] font-bold rounded-full">
+                          {link.badge}
+                        </span>
+                      )}
+                    </div>
+                    <span className="text-xs text-slate-400">→</span>
+                  </Link>
+                );
+              })}
+            </nav>
+
+            {/* Mobile Contact & Demo Buttons */}
+            <div className="grid grid-cols-2 gap-2 pt-3 border-t border-slate-200">
               <a
-                href={`tel:${SITE_CONFIG.contact.phoneRaw}`}
-                className="flex items-center justify-center gap-2 text-xs font-bold py-2.5 rounded-xl bg-gray-100 text-gray-900"
+                href={`tel:${SITE_CONFIG.contact.phone}`}
+                className="flex items-center justify-center gap-1.5 bg-slate-50 border border-slate-200 text-[#111827] text-xs font-bold py-2.5 rounded-xl hover:bg-slate-100 transition-colors"
               >
-                <Phone size={13} />
-                <span>Call +91 97943 23963</span>
+                <Phone size={13} className="text-[#0084FF]" />
+                <span>Call Us</span>
+              </a>
+              <a
+                href={`${SITE_CONFIG.contact.whatsapp}?text=${encodeURIComponent(
+                  'Hello! I want to enquire about computer courses at Race Reddys Virar East.'
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-1.5 bg-[#25D366] text-white text-xs font-bold py-2.5 rounded-xl hover:bg-[#20BA5A] transition-colors shadow-xs"
+              >
+                <MessageSquare size={13} />
+                <span>WhatsApp</span>
               </a>
             </div>
+
+            <Link
+              to="/contact#demo"
+              onClick={() => setMobileMenuOpen(false)}
+              className="mt-2 w-full flex items-center justify-center bg-[#0084FF] hover:bg-[#0074E0] text-white text-xs font-bold py-3 rounded-xl shadow-sm transition-all"
+            >
+              Book a demo
+            </Link>
           </div>
         )}
-
-      </div>
+      </header>
     </>
-  )
+  );
 }

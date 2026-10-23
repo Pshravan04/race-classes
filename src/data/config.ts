@@ -1,484 +1,719 @@
 // ============================================================
-// SITE CONFIGURATION — edit all values here, never in components
+// SITE CONFIGURATION — RACE REDDYS ADVANCED COMPUTER EDUCATION
+// All business facts, courses, batches, and offers live here.
+// Non-developers can edit values here safely.
 // ============================================================
 
 export const SITE_CONFIG = {
   name: 'Race Reddys',
-  fullName: 'Race Reddys Advanced Computer Education',
-  tagline: 'Build Skills. Learn by Doing. Move Your Career Forward.',
+  fullName: 'Race Reddys – Advanced Computer Education',
+  tagline: 'Practical IT & Computer Training in Virar East',
+  motto: 'Ab Mumbai jaane ki zarurat nahi — Learn quality IT skills right at your station.',
   description:
-    'Practical computer and IT courses in Virar East, Maharashtra. From Basic Computer to Software Development, AI, Tally with GST, Digital Marketing, and more.',
+    'Hands-on computer training institute opposite Virar East railway station. 100% practical lab training, certification, placement assistance, flexible morning/evening batches, and special batches for ladies & students.',
 
   contact: {
-    phone: '+91 97943 23963',
+    phone: '9794323963',
     phoneRaw: '+919794323963',
+    phoneDisplay: '+91 97943 23963',
     whatsapp: 'https://wa.me/919794323963',
-    whatsappDefaultMessage: encodeURIComponent(
-      'Hello! I am interested in admissions at Race Reddys Advanced Computer Education. Please share more details.'
-    ),
+    whatsappNumber: '919794323963',
+    whatsappDefaultMessage: encodeURIComponent('Hello! I am interested in admissions at Race Reddys Virar East.'),
+    timings: 'Monday to Saturday: 9:00 AM – 7:00 PM (Sunday Closed)',
   },
 
   address: {
     line1: '202, 2nd Floor, Raut Arcade',
-    line2: 'Opp. Subway, Near Virar East Railway Station',
+    line2: 'Opposite Subway / Opposite Virar East Railway Station',
+    landmark: 'Right outside Platform 2 exit / subway',
     city: 'Virar East',
+    district: 'Palghar',
     state: 'Maharashtra',
     pin: '401305',
+    googleMapsEmbedUrl:
+      'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.665330374182!2d72.81165!3d19.4678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7a9bdc99b8b39%3A0x6b3b244799015c7e!2sRaut%20Arcade%2C%20Virar%20East!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin',
+    googleMapsDirectLink:
+      'https://maps.google.com/?q=Raut+Arcade+Virar+East+Maharashtra+401305',
     googleMapsSearch:
-      'https://www.google.com/maps/search/Race+Reddys+Advanced+Computer+Education+Virar+East+Maharashtra',
+      'https://maps.google.com/?q=Raut+Arcade+Virar+East+Maharashtra+401305',
   },
 
   seo: {
-    canonicalBase: 'https://racereddys.com', // update with actual domain
+    canonicalBase: 'https://racereddys.com',
     ogImage: '/logo-wordmark.jpg',
   },
 };
 
 // ============================================================
-// ACTIVE OFFER — set active: false to hide the offer strip
+// EDITABLE SEASONAL OFFERS (Change here for Diwali, New Year, etc.)
 // ============================================================
 export const ACTIVE_OFFER = {
   active: true,
   headline: 'Admissions Open',
   badge: '50% Off',
-  tagline:
-    'Enrol in any career course and get a Free Basic Computer Course. Limited seats available.',
-  disclaimer:
-    'Offer eligibility and terms must be confirmed directly with the institute before enrolment.',
+  tagline: 'Enrol in any career course and get a Free Basic Computer Course.',
+  disclaimer: 'Offer terms must be confirmed directly with institute administration.',
+};
+
+export const OFFERS_CONFIG = {
+  active: true,
+  seasonName: 'Admissions Special Concession', // Change to 'Diwali Dhamaka Offer', 'Summer Fast-Track Offer', etc.
+  bannerHeadline: 'Limited-Time Admissions Offer — Flat 50% Concession',
+  badge: '50% DISCOUNT',
+  ticketCode: 'VIRAR-FAST-50',
+  primaryOffer: {
+    title: '50% Discount on Course Fees',
+    badge: '50% OFF',
+    description:
+      'Special community subsidy for local Virar and Palghar district students, housewives, and early batch registrations.',
+    tagline: 'Quality education made accessible without commuting to Mumbai.',
+  },
+  bonusOffer: {
+    title: 'FREE Basic Computer Course',
+    badge: 'FREE BONUS',
+    description:
+      'Enroll in any career-objective course and get the complete Basic Computer foundation course (Windows, Internet, typing fundamentals) at zero additional charge.',
+    tagline: 'Ideal for beginners and career changers starting from scratch.',
+  },
+  validityNote: 'Offer available for current admission slots. Terms apply.',
 };
 
 // ============================================================
-// COURSE CATALOG
+// BATCHES & TIMINGS (Monday to Saturday, 9:00 AM to 7:00 PM)
 // ============================================================
-
-export type CourseCategory =
-  | 'fundamentals'
-  | 'office-accounting'
-  | 'design-creative'
-  | 'software-web'
-  | 'ai-data'
-  | 'digital-marketing'
-  | 'cyber-networking';
-
-export interface Course {
-  id: string;
+export interface BatchSlot {
   name: string;
-  category: CourseCategory;
-  shortDesc: string;
-  icon: string; // Lucide icon name
-  highlights: string[];
-  whoFor: string;
-  prerequisites: string;
-  topicsNote: string; // shown when full syllabus not confirmed
-  skillsGained: string[];
-  durationNote: string;
-  feeNote: string;
-  certificateNote: string;
+  timing: string;
+  targetAudience: string;
+  status: 'Filling Fast' | 'Available' | 'Special Dedicated Batch';
+  highlight?: boolean;
 }
 
-export const COURSE_CATEGORIES: Record<CourseCategory, { label: string; emoji: string }> = {
-  fundamentals: { label: 'Computer Basics', emoji: '💻' },
-  'office-accounting': { label: 'Office & Accounting', emoji: '📊' },
-  'design-creative': { label: 'Design & Creative', emoji: '🎨' },
-  'software-web': { label: 'Software & Web', emoji: '🛠️' },
-  'ai-data': { label: 'AI & Data', emoji: '🤖' },
-  'digital-marketing': { label: 'Digital Marketing', emoji: '📣' },
-  'cyber-networking': { label: 'Cyber Security & Networking', emoji: '🔐' },
-};
-
-export const COURSES: Course[] = [
-  // --- FUNDAMENTALS ---
+export const BATCHES_SCHEDULE: BatchSlot[] = [
   {
-    id: 'basic-computer',
-    name: 'Basic Computer',
-    category: 'fundamentals',
-    shortDesc: 'Begin your digital journey with practical, hands-on computer fundamentals.',
-    icon: 'Monitor',
-    highlights: ['Operating System basics', 'Internet & email usage', 'File management', 'Typing skills'],
-    whoFor: 'Complete beginners, homemakers, students, and anyone new to computers.',
-    prerequisites: 'No prior computer experience needed.',
-    topicsNote: 'Contact the institute for the detailed syllabus and current batch schedule.',
-    skillsGained: ['Navigate a Windows PC confidently', 'Browse the internet safely', 'Manage files and folders', 'Use basic productivity software'],
-    durationNote: 'Please contact the institute to confirm course duration.',
-    feeNote: 'Contact the institute for current fee details. A free Basic Computer Course is included with eligible career-course enrolment (terms apply).',
-    certificateNote: 'Contact the institute for certificate details.',
+    name: 'Early Morning College Batch',
+    timing: '7:30 AM – 9:00 AM',
+    targetAudience: 'College students before lectures begin',
+    status: 'Available',
   },
   {
-    id: 'ccc',
-    name: 'CCC (Course on Computer Concepts)',
-    category: 'fundamentals',
-    shortDesc: 'Government-recognised foundational computer literacy course.',
-    icon: 'BookOpen',
-    highlights: ['Computer fundamentals', 'Internet and WWW', 'MS Office basics', 'Presentation skills'],
-    whoFor: 'Students preparing for government exams or job applications requiring CCC certification.',
-    prerequisites: 'Basic English reading ability.',
-    topicsNote: 'Contact the institute for the detailed syllabus and exam preparation schedule.',
-    skillsGained: ['Prepare for CCC exam', 'Use standard office software', 'Work with internet tools', 'Create and deliver presentations'],
-    durationNote: 'Please contact the institute to confirm course duration.',
-    feeNote: 'Contact the institute for current fee details.',
-    certificateNote: 'Contact the institute for certificate and examination details.',
+    name: 'Morning General Batch',
+    timing: '9:00 AM – 10:30 AM',
+    targetAudience: 'Job seekers & fresh graduates',
+    status: 'Filling Fast',
   },
   {
-    id: 'typing',
-    name: 'Typing (English & Marathi)',
-    category: 'fundamentals',
-    shortDesc: 'Build speed and accuracy in English and Marathi typing for professional use.',
-    icon: 'Keyboard',
-    highlights: ['Touch typing technique', 'Speed building exercises', 'English keyboard layout', 'Marathi/InScript layout'],
-    whoFor: 'Government job aspirants, data entry professionals, and anyone needing typing skills.',
-    prerequisites: 'Basic computer familiarity helpful.',
-    topicsNote: 'Contact the institute for speed benchmarks and assessment details.',
-    skillsGained: ['Type accurately without looking at keys', 'Achieve required WPM for exams', 'Use both English and Marathi layouts'],
-    durationNote: 'Please contact the institute to confirm course duration.',
-    feeNote: 'Contact the institute for current fee details.',
-    certificateNote: 'Contact the institute for certificate details.',
+    name: 'Late Morning Batch',
+    timing: '10:30 AM – 12:00 PM',
+    targetAudience: 'Commerce students, Tally & Typing learners',
+    status: 'Available',
   },
   {
-    id: 'hardware',
-    name: 'Hardware & Networking Basics',
-    category: 'fundamentals',
-    shortDesc: 'Understand computer components, assembly, troubleshooting, and basic networking.',
-    icon: 'Cpu',
-    highlights: ['PC components and assembly', 'Troubleshooting common issues', 'Basic networking concepts', 'A+ and N+ exam preparation'],
-    whoFor: 'Aspiring IT support professionals, technicians, and hardware enthusiasts.',
-    prerequisites: 'Basic computer knowledge recommended.',
-    topicsNote: 'Contact the institute for the full syllabus covering A+ and N+ topics.',
-    skillsGained: ['Assemble and disassemble a PC', 'Diagnose and fix basic hardware issues', 'Configure a small network', 'Prepare for A+ and N+ certification exams'],
-    durationNote: 'Please contact the institute to confirm course duration.',
-    feeNote: 'Contact the institute for current fee details.',
-    certificateNote: 'Contact the institute for certificate details.',
-  },
-
-  // --- OFFICE & ACCOUNTING ---
-  {
-    id: 'ms-office',
-    name: 'MS Office (Word, Excel & PowerPoint)',
-    category: 'office-accounting',
-    shortDesc: 'Master the industry-standard office tools: Word, Excel, and PowerPoint.',
-    icon: 'FileText',
-    highlights: ['Microsoft Word for documents', 'Excel formulas, charts & data', 'PowerPoint presentations', 'Practical business use cases'],
-    whoFor: 'Office professionals, job seekers, and students needing workplace-ready skills.',
-    prerequisites: 'Basic computer familiarity.',
-    topicsNote: 'Contact the institute for detailed topic coverage per module.',
-    skillsGained: ['Create professional documents and reports', 'Build spreadsheets with formulas and charts', 'Design impactful presentations', 'Use MS Office in a real workplace context'],
-    durationNote: 'Please contact the institute to confirm course duration.',
-    feeNote: 'Contact the institute for current fee details.',
-    certificateNote: 'Contact the institute for certificate details.',
+    name: 'Special Ladies & Homemakers Batch',
+    timing: '12:30 PM – 2:00 PM',
+    targetAudience: 'Housewives, working women & first-time female learners',
+    status: 'Special Dedicated Batch',
+    highlight: true,
   },
   {
-    id: 'advanced-tally',
-    name: 'Advanced Tally with GST',
-    category: 'office-accounting',
-    shortDesc: 'Industry-level Tally ERP with complete GST, accounting, and taxation workflows.',
-    icon: 'Calculator',
-    highlights: ['Tally ERP fundamentals & advanced features', 'GST filing and compliance', 'Accounting entries and ledgers', 'Inventory and payroll management'],
-    whoFor: 'Accounts professionals, commerce students, and business owners.',
-    prerequisites: 'Basic knowledge of accounting concepts helpful.',
-    topicsNote: 'Contact the institute for the full syllabus including advanced topics.',
-    skillsGained: ['Maintain accounts in Tally ERP', 'File GST returns correctly', 'Manage inventory and payroll', 'Generate financial reports'],
-    durationNote: 'Please contact the institute to confirm course duration.',
-    feeNote: 'Contact the institute for current fee details.',
-    certificateNote: 'Contact the institute for certificate details.',
+    name: 'Afternoon Practical Lab Session',
+    timing: '2:30 PM – 4:00 PM',
+    targetAudience: 'School kids & self-paced practical project practice',
+    status: 'Available',
   },
   {
-    id: 'gst',
-    name: 'GST (Goods and Services Tax)',
-    category: 'office-accounting',
-    shortDesc: 'Focused course on GST law, filing, and practical compliance in India.',
-    icon: 'Receipt',
-    highlights: ['GST registration and types', 'Return filing (GSTR-1, GSTR-3B)', 'Input tax credit', 'E-invoicing and e-way bills'],
-    whoFor: 'Accountants, tax practitioners, and business staff handling GST.',
-    prerequisites: 'Basic accounting knowledge recommended.',
-    topicsNote: 'Contact the institute for the detailed syllabus.',
-    skillsGained: ['File GST returns independently', 'Apply input tax credit correctly', 'Handle e-invoicing requirements', 'Advise on basic GST compliance'],
-    durationNote: 'Please contact the institute to confirm course duration.',
-    feeNote: 'Contact the institute for current fee details.',
-    certificateNote: 'Contact the institute for certificate details.',
-  },
-
-  // --- DESIGN & CREATIVE ---
-  {
-    id: 'graphic-design',
-    name: 'Graphic Design & Canva',
-    category: 'design-creative',
-    shortDesc: 'Create stunning visuals for social media, print, and branding using Canva and design principles.',
-    icon: 'Palette',
-    highlights: ['Design principles and composition', 'Canva for quick professional designs', 'Social media graphics', 'Branding and logo basics'],
-    whoFor: 'Entrepreneurs, social media managers, students, and aspiring graphic designers.',
-    prerequisites: 'No prior design experience needed.',
-    topicsNote: 'Contact the institute for the detailed syllabus.',
-    skillsGained: ['Create polished social media content', 'Design marketing materials', 'Apply basic branding principles', 'Produce print-ready assets'],
-    durationNote: 'Please contact the institute to confirm course duration.',
-    feeNote: 'Contact the institute for current fee details.',
-    certificateNote: 'Contact the institute for certificate details.',
+    name: 'Late Afternoon Batch',
+    timing: '4:30 PM – 6:00 PM',
+    targetAudience: 'Students returning from college',
+    status: 'Filling Fast',
   },
   {
-    id: 'adobe-photoshop',
-    name: 'Adobe Photoshop',
-    category: 'design-creative',
-    shortDesc: 'Learn the world\'s leading image editing software for photo editing and digital art.',
-    icon: 'Image',
-    highlights: ['Layers and masking', 'Photo retouching and correction', 'Digital compositing', 'Exporting for web and print'],
-    whoFor: 'Aspiring graphic designers, photographers, and digital artists.',
-    prerequisites: 'Basic computer skills.',
-    topicsNote: 'Contact the institute for the detailed syllabus.',
-    skillsGained: ['Edit and enhance photographs professionally', 'Create digital compositions and artwork', 'Design marketing visuals', 'Prepare files for both print and web'],
-    durationNote: 'Please contact the institute to confirm course duration.',
-    feeNote: 'Contact the institute for current fee details.',
-    certificateNote: 'Contact the institute for certificate details.',
+    name: 'Evening Working Professionals Batch',
+    timing: '6:00 PM – 7:30 PM',
+    targetAudience: 'Office commuters & business owners',
+    status: 'Filling Fast',
   },
   {
-    id: 'adobe-illustrator',
-    name: 'Adobe Illustrator',
-    category: 'design-creative',
-    shortDesc: 'Master vector design for logos, icons, illustrations, and scalable graphics.',
-    icon: 'PenTool',
-    highlights: ['Vector drawing tools', 'Typography and layout', 'Logo and icon design', 'Print and digital outputs'],
-    whoFor: 'Aspiring graphic designers, brand designers, and creative professionals.',
-    prerequisites: 'Basic computer skills; Photoshop knowledge helpful.',
-    topicsNote: 'Contact the institute for the detailed syllabus.',
-    skillsGained: ['Create scalable vector graphics', 'Design professional logos and icons', 'Work with type and layout', 'Produce print-ready and digital assets'],
-    durationNote: 'Please contact the institute to confirm course duration.',
-    feeNote: 'Contact the institute for current fee details.',
-    certificateNote: 'Contact the institute for certificate details.',
-  },
-
-  // --- SOFTWARE & WEB ---
-  {
-    id: 'html-css',
-    name: 'HTML & CSS',
-    category: 'software-web',
-    shortDesc: 'Build the foundation of web development by creating structured, styled web pages.',
-    icon: 'Code',
-    highlights: ['HTML5 semantic structure', 'CSS styling and layout', 'Responsive design basics', 'Building a personal webpage project'],
-    whoFor: 'Beginners interested in web development and design.',
-    prerequisites: 'Basic computer skills.',
-    topicsNote: 'Contact the institute for the detailed syllabus.',
-    skillsGained: ['Structure web content with HTML', 'Style pages with CSS', 'Create mobile-friendly layouts', 'Deploy a basic webpage'],
-    durationNote: 'Please contact the institute to confirm course duration.',
-    feeNote: 'Contact the institute for current fee details.',
-    certificateNote: 'Contact the institute for certificate details.',
-  },
-  {
-    id: 'software-development',
-    name: 'Software Development',
-    category: 'software-web',
-    shortDesc: 'A career-oriented course covering core programming concepts and application development.',
-    icon: 'Terminal',
-    highlights: ['Programming fundamentals', 'Object-oriented concepts', 'Application project development', 'Problem-solving and debugging'],
-    whoFor: 'Students and graduates seeking a software development career.',
-    prerequisites: 'Basic computer knowledge; aptitude for logical thinking.',
-    topicsNote: 'Contact the institute for the full syllabus, programming languages covered, and project details.',
-    skillsGained: ['Write and understand code', 'Build functional software applications', 'Debug and solve programming problems', 'Contribute to development projects'],
-    durationNote: 'Please contact the institute to confirm course duration.',
-    feeNote: 'Contact the institute for current fee details.',
-    certificateNote: 'Contact the institute for certificate details.',
-  },
-  {
-    id: 'web-app-development',
-    name: 'Web & App Development',
-    category: 'software-web',
-    shortDesc: 'Build modern websites and mobile applications from concept to deployment.',
-    icon: 'Globe',
-    highlights: ['Frontend and backend concepts', 'Web application development', 'Mobile app fundamentals', 'Live project experience'],
-    whoFor: 'Aspiring full-stack or mobile developers.',
-    prerequisites: 'Basic computer knowledge; some coding exposure helpful.',
-    topicsNote: 'Contact the institute for the full syllabus, technologies covered, and project scope.',
-    skillsGained: ['Design and develop web applications', 'Understand mobile development concepts', 'Deploy projects online', 'Build a portfolio of work'],
-    durationNote: 'Please contact the institute to confirm course duration.',
-    feeNote: 'Contact the institute for current fee details.',
-    certificateNote: 'Contact the institute for certificate details.',
-  },
-  {
-    id: 'dfa',
-    name: 'DFA (Diploma in Financial Accounting)',
-    category: 'office-accounting',
-    shortDesc: 'Comprehensive diploma covering accounting, Tally, GST, and financial management.',
-    icon: 'TrendingUp',
-    highlights: ['Financial accounting principles', 'Tally ERP with GST', 'Payroll and banking', 'Financial statements and analysis'],
-    whoFor: 'Commerce students and professionals seeking an accounting career.',
-    prerequisites: 'Basic understanding of accounting recommended.',
-    topicsNote: 'Contact the institute for the full syllabus and modules.',
-    skillsGained: ['Manage complete accounting records', 'File taxes and GST returns', 'Prepare financial statements', 'Handle payroll processes'],
-    durationNote: 'Please contact the institute to confirm course duration.',
-    feeNote: 'Contact the institute for current fee details.',
-    certificateNote: 'Contact the institute for diploma and certificate details.',
-  },
-  {
-    id: 'animation',
-    name: 'Animation',
-    category: 'design-creative',
-    shortDesc: 'Create engaging 2D animations, motion graphics, and visual storytelling.',
-    icon: 'Film',
-    highlights: ['Animation principles', '2D animation techniques', 'Motion graphics basics', 'Project-based practice'],
-    whoFor: 'Creative students and aspiring animators.',
-    prerequisites: 'Basic computer skills; interest in art and storytelling.',
-    topicsNote: 'Contact the institute for the full syllabus and software details.',
-    skillsGained: ['Create 2D animations', 'Apply core animation principles', 'Produce motion graphic sequences', 'Build an animation portfolio'],
-    durationNote: 'Please contact the institute to confirm course duration.',
-    feeNote: 'Contact the institute for current fee details.',
-    certificateNote: 'Contact the institute for certificate details.',
-  },
-
-  // --- AI, DATA SCIENCE, ML ---
-  {
-    id: 'ai-machine-learning',
-    name: 'AI & Machine Learning',
-    category: 'ai-data',
-    shortDesc: 'Explore artificial intelligence and machine learning concepts with practical applications.',
-    icon: 'Brain',
-    highlights: ['Introduction to AI and ML', 'Key algorithms and models', 'Data handling basics', 'Practical ML project'],
-    whoFor: 'Technology enthusiasts, graduates, and professionals seeking AI skills.',
-    prerequisites: 'Basic computer skills; some mathematics background helpful.',
-    topicsNote: 'Contact the institute for the full syllabus and tools used.',
-    skillsGained: ['Understand core AI and ML concepts', 'Work with basic ML models', 'Apply AI to real problems', 'Prepare for advanced AI study or work'],
-    durationNote: 'Please contact the institute to confirm course duration.',
-    feeNote: 'Contact the institute for current fee details.',
-    certificateNote: 'Contact the institute for certificate details.',
-  },
-  {
-    id: 'ai-prompt-engineering',
-    name: 'AI Prompt Engineering',
-    category: 'ai-data',
-    shortDesc: 'Learn to craft effective prompts and workflows using modern AI tools like ChatGPT and Gemini.',
-    icon: 'MessageSquare',
-    highlights: ['Prompt design principles', 'Working with LLMs (ChatGPT, Gemini)', 'Productivity with AI tools', 'Real-world AI workflow applications'],
-    whoFor: 'Professionals, entrepreneurs, students, and anyone wanting to harness AI tools.',
-    prerequisites: 'Basic internet and computer usage.',
-    topicsNote: 'Contact the institute for the full syllabus and tools covered.',
-    skillsGained: ['Write effective AI prompts', 'Automate tasks using AI tools', 'Improve work output with AI assistance', 'Evaluate AI outputs critically'],
-    durationNote: 'Please contact the institute to confirm course duration.',
-    feeNote: 'Contact the institute for current fee details.',
-    certificateNote: 'Contact the institute for certificate details.',
-  },
-  {
-    id: 'data-science',
-    name: 'Data Science',
-    category: 'ai-data',
-    shortDesc: 'Analyse data, build visualisations, and extract actionable insights for data-driven decisions.',
-    icon: 'BarChart2',
-    highlights: ['Data collection and cleaning', 'Statistical analysis', 'Data visualisation', 'Introduction to predictive modelling'],
-    whoFor: 'Graduates and professionals interested in analytics and data-driven careers.',
-    prerequisites: 'Basic computer skills; some maths and statistics knowledge helpful.',
-    topicsNote: 'Contact the institute for the full syllabus and tools used.',
-    skillsGained: ['Process and analyse datasets', 'Create meaningful data visualisations', 'Apply basic statistical methods', 'Communicate findings effectively'],
-    durationNote: 'Please contact the institute to confirm course duration.',
-    feeNote: 'Contact the institute for current fee details.',
-    certificateNote: 'Contact the institute for certificate details.',
-  },
-
-  // --- DIGITAL MARKETING ---
-  {
-    id: 'digital-marketing',
-    name: 'Digital Marketing',
-    category: 'digital-marketing',
-    shortDesc: 'Master online marketing — SEO, social media, content, email, and paid advertising.',
-    icon: 'TrendingUp',
-    highlights: ['SEO and SEM basics', 'Social media marketing', 'Content marketing strategy', 'Google Ads and Meta Ads fundamentals'],
-    whoFor: 'Entrepreneurs, marketing professionals, graduates, and freelancers.',
-    prerequisites: 'Basic internet usage and social media familiarity.',
-    topicsNote: 'Contact the institute for the full syllabus and tools covered.',
-    skillsGained: ['Run effective digital campaigns', 'Improve organic search visibility', 'Manage social media channels', 'Analyse marketing performance data'],
-    durationNote: 'Please contact the institute to confirm course duration.',
-    feeNote: 'Contact the institute for current fee details.',
-    certificateNote: 'Contact the institute for certificate details.',
-  },
-
-  // --- CYBER SECURITY & NETWORKING ---
-  {
-    id: 'ethical-hacking',
-    name: 'Ethical Hacking',
-    category: 'cyber-networking',
-    shortDesc: 'Learn authorised security testing and vulnerability assessment to protect systems.',
-    icon: 'Shield',
-    highlights: ['Networking and security fundamentals', 'Common vulnerability types', 'Penetration testing concepts', 'Ethical and legal considerations'],
-    whoFor: 'IT professionals, networking students, and cybersecurity aspirants.',
-    prerequisites: 'Networking fundamentals and basic command-line experience recommended.',
-    topicsNote: 'Contact the institute for the full syllabus and certification pathways.',
-    skillsGained: ['Identify security vulnerabilities', 'Conduct basic penetration tests ethically', 'Understand attacker techniques', 'Recommend security improvements'],
-    durationNote: 'Please contact the institute to confirm course duration.',
-    feeNote: 'Contact the institute for current fee details.',
-    certificateNote: 'Contact the institute for certificate details.',
-  },
-  {
-    id: 'cyber-security',
-    name: 'Cyber Security',
-    category: 'cyber-networking',
-    shortDesc: 'Protect digital systems, networks, and data from modern cyber threats.',
-    icon: 'Lock',
-    highlights: ['Cybersecurity fundamentals', 'Network security and firewalls', 'Incident response basics', 'Security best practices'],
-    whoFor: 'IT professionals, network admins, and security-minded students.',
-    prerequisites: 'Networking basics helpful.',
-    topicsNote: 'Contact the institute for the full syllabus.',
-    skillsGained: ['Understand the cybersecurity landscape', 'Implement basic security controls', 'Respond to security incidents', 'Apply security best practices in the workplace'],
-    durationNote: 'Please contact the institute to confirm course duration.',
-    feeNote: 'Contact the institute for current fee details.',
-    certificateNote: 'Contact the institute for certificate details.',
-  },
-  {
-    id: 'hardware-networking',
-    name: 'Hardware & Networking (A+ and N+)',
-    category: 'cyber-networking',
-    shortDesc: 'Advanced hardware assembly, troubleshooting, and network configuration towards A+ and N+ readiness.',
-    icon: 'Network',
-    highlights: ['Advanced PC hardware', 'Network design and configuration', 'Troubleshooting methodologies', 'A+ and N+ exam preparation'],
-    whoFor: 'IT support aspirants and networking professionals.',
-    prerequisites: 'Basic computer and networking knowledge.',
-    topicsNote: 'Contact the institute for the full syllabus and practical lab details.',
-    skillsGained: ['Configure and troubleshoot networks', 'Support PC hardware at a professional level', 'Prepare for A+ and N+ certification exams', 'Set up small office networks'],
-    durationNote: 'Please contact the institute to confirm course duration.',
-    feeNote: 'Contact the institute for current fee details.',
-    certificateNote: 'Contact the institute for certificate details.',
+    name: 'Weekend Fast-Track Batch',
+    timing: 'Saturday special sessions (by appointment)',
+    targetAudience: 'Working professionals needing intensive modules',
+    status: 'Available',
   },
 ];
 
 // ============================================================
-// FAQ DATA
+// COURSE TYPES & GOALS
 // ============================================================
-export interface FAQ {
-  q: string;
-  a: string;
+export type CourseType = 'short-term' | 'career';
+export type CourseGoal = 'job' | 'business' | 'skill' | 'kids';
+
+export interface Course {
+  id: string;
+  name: string;
+  type: CourseType;
+  goals: CourseGoal[];
+  shortDesc: string;
+  whoFor: string;
+  topics: string[];
+  durationPlaceholder: string;
+  mode: string;
+  certificate: string;
+  whatsappMessage: string;
 }
 
-export const FAQS: FAQ[] = [
+// Exactly 23 distinct courses from prompt:
+// Short-term (12): Basic Computer, MS-Office, Advanced Tally with GST, GST, CCC, Typing (English and Marathi), Illustrator, Photoshop, HTML, CSS, Hardware, A+ and N+
+// Career-objective (11): Software Development, DFA, Animation, AI & ML, Digital Marketing, Web & App Development, Ethical Hacking, AI Prompt Engineering, Data Science, Cyber Security, Graphic Designing
+export const COURSES: Course[] = [
+  // ─── SHORT-TERM COURSES (12) ───
   {
-    q: 'Which courses are available?',
-    a: 'We offer a wide spectrum of short-term and career-oriented courses including Computer Basics, MS Office, Advanced Tally with GST, CCC, English & Marathi Typing, Adobe Illustrator, Photoshop, HTML/CSS, Hardware & Networking (A+ and N+), Graphic Design, Software Development, DFA, Animation, AI & Machine Learning, Digital Marketing, Web & App Development, Ethical Hacking, AI Prompt Engineering, Data Science, and Cyber Security.',
+    id: 'basic-computer',
+    name: 'Basic Computer',
+    type: 'short-term',
+    goals: ['kids', 'skill'],
+    shortDesc: 'Start from absolute scratch: computer anatomy, Windows navigation, file management, and internet safety.',
+    whoFor: 'Complete beginners of any age, housewives, school kids, and first-time computer users.',
+    topics: [
+      'Understanding PC hardware, CPU, mouse & keyboard controls',
+      'Windows OS navigation, desktop personalization, and folder organisation',
+      'Browsing the World Wide Web safely and searching with Google',
+      'Setting up and writing professional emails via Gmail',
+      'Pen drive data transfer, saving files, and antivirus basics',
+      'Online bill payments, net banking security, and digital safety',
+    ],
+    durationPlaceholder: '4 to 6 Weeks (Fast-track available)',
+    mode: '100% In-Person Practical Lab (Virar East)',
+    certificate: 'Certification of Computer Literacy & Basic Lab Proficiency',
+    whatsappMessage: 'Hello! I want to enquire about the Basic Computer Course at Race Reddys Virar East. Please share batch timings and fee details.',
   },
   {
-    q: 'Can beginners join?',
-    a: 'Yes, absolutely. Our foundational courses such as Basic Computer, MS Office, CCC, and Typing require zero prior computer knowledge. We provide patient, guided instruction for complete beginners of all age groups.',
+    id: 'ms-office',
+    name: 'MS-Office (Word, Excel, PowerPoint)',
+    type: 'short-term',
+    goals: ['job', 'business', 'skill'],
+    shortDesc: 'Master Microsoft Word documents, Excel spreadsheets & formulas, and PowerPoint presentations for workplace readiness.',
+    whoFor: 'College students, office assistants, job seekers, and business owners creating invoices.',
+    topics: [
+      'MS Word: Professional letter writing, tables, mail merge, formatting, resumes',
+      'MS Excel: Data entry, SUM/AVERAGE/IF formulas, VLOOKUP, XLOOKUP',
+      'MS Excel: Pivot Tables, interactive charts, filtering, conditional formatting',
+      'MS PowerPoint: Slide layouts, transitions, business pitch decks',
+      'Printing, PDF conversions, and collaborative Google Docs/Sheets',
+    ],
+    durationPlaceholder: '6 to 8 Weeks',
+    mode: '100% In-Person Practical Lab (Virar East)',
+    certificate: 'MS Office Specialist Practical Certificate',
+    whatsappMessage: 'Hello! I want to enquire about the MS-Office (Word, Excel, PowerPoint) course at Race Reddys Virar East. Please share batch timings and fee details.',
   },
   {
-    q: 'How do I choose a suitable course?',
-    a: 'You can visit our centre in Virar East or contact us via call or WhatsApp at +91 97943 23963. Our team will understand your educational background, career aspirations, and current skill level to recommend the most suitable course or learning pathway.',
+    id: 'advanced-tally-with-gst',
+    name: 'Advanced Tally with GST',
+    type: 'short-term',
+    goals: ['job', 'business'],
+    shortDesc: 'Complete industry accounting with TallyPrime, voucher entry, inventory tracking, GST calculation, and balance sheets.',
+    whoFor: 'Commerce students, aspiring accountants, bookkeepers, and retail shop owners.',
+    topics: [
+      'Company creation, ledger groups, voucher entry (Sales, Purchase, Payment, Receipt)',
+      'GST configuration: CGST, SGST, IGST calculation on goods and services',
+      'Inventory management: Stock groups, units of measure, godowns',
+      'E-way bills, E-invoicing, and GSTR-1, GSTR-3B report generation',
+      'Bank reconciliation, Profit & Loss accounts, and Balance Sheet finalisation',
+      'TallyPrime shortcuts, security controls, and audit trails',
+    ],
+    durationPlaceholder: '8 to 10 Weeks',
+    mode: '100% In-Person Practical Lab (Virar East)',
+    certificate: 'Advanced TallyPrime with GST Industry Certificate',
+    whatsappMessage: 'Hello! I want to enquire about the Advanced Tally with GST course at Race Reddys Virar East. Please share batch timings and fee details.',
   },
   {
-    q: 'What are the course fees?',
-    a: 'Course fees vary based on the program and duration. An advertised 50% discount offer is currently available for eligible admissions. Please contact the institute directly to confirm the exact fee schedule and payment installment options.',
+    id: 'gst',
+    name: 'GST (Goods and Services Tax)',
+    type: 'short-term',
+    goals: ['job', 'business'],
+    shortDesc: 'Focused legal and practical compliance training on GST laws, portals, return filing, and input tax credit (ITC).',
+    whoFor: 'Accountants, tax consultants, CA interns, and business proprietors.',
+    topics: [
+      'GST concepts: Dual GST structure, tax rates, threshold limits & composition scheme',
+      'GST registration process and portal navigation',
+      'Input Tax Credit (ITC) rules, eligibility, and reconciliation (GSTR-2B vs 3B)',
+      'Filing monthly returns: GSTR-1 (outward supplies) and GSTR-3B (tax payment)',
+      'Generating E-way bills and complying with E-invoicing mandates',
+      'Handling GST notices, penalties, and reverse charge mechanism (RCM)',
+    ],
+    durationPlaceholder: '4 to 6 Weeks',
+    mode: '100% In-Person Practical Lab (Virar East)',
+    certificate: 'Certificate in Practical GST Compliance & E-Filing',
+    whatsappMessage: 'Hello! I want to enquire about the GST course at Race Reddys Virar East. Please share batch timings and fee details.',
   },
   {
-    q: 'How long does each course take?',
-    a: 'Duration varies by course type — short-term skill modules take a few weeks, while comprehensive career programs take a few months. Please contact the institute for the specific duration and fast-track options for your course of interest.',
+    id: 'ccc',
+    name: 'CCC (Course on Computer Concepts)',
+    type: 'short-term',
+    goals: ['job', 'kids', 'skill'],
+    shortDesc: 'Government-recognised foundational syllabus required for state government exams, clerical posts, and public recruitment.',
+    whoFor: 'Aspirants preparing for government, banking, municipal, and clerical recruitment exams.',
+    topics: [
+      'Introduction to computers and GUI-based operating systems',
+      'Word processing elements (formatting, tables, spell check)',
+      'Spreadsheets: data manipulation and basic arithmetic functions',
+      'Presentations: slide design and animation effects',
+      'Internet, WWW, web browsers, search engines, and social media',
+      'Digital financial services, UPI, Net banking, and e-Governance schemes',
+      'Mock test practice and CCC exam question papers',
+    ],
+    durationPlaceholder: '6 to 8 Weeks',
+    mode: '100% In-Person Practical Lab (Virar East)',
+    certificate: 'CCC Exam Preparation & Institute Completion Certificate',
+    whatsappMessage: 'Hello! I want to enquire about the CCC course at Race Reddys Virar East. Please share batch timings and fee details.',
   },
   {
-    q: 'What are the batch timings?',
-    a: 'We offer flexible batch timings across morning, afternoon, and evening sessions to accommodate school and college students, job seekers, and working professionals. Contact our Virar East office to check currently available batch slots.',
+    id: 'typing-english-marathi',
+    name: 'Typing (English and Marathi)',
+    type: 'short-term',
+    goals: ['job', 'skill'],
+    shortDesc: 'Touch typing accuracy and speed training in English and Marathi (InScript / Remington) for government typing exams and offices.',
+    whoFor: 'Government clerical candidates, court stenographer aspirants, data entry operators, and students.',
+    topics: [
+      'Ergonomic home row posture and touch-typing technique',
+      'English typing speed building from 30 WPM to 40+ WPM',
+      'Marathi typing using standard InScript and phonetic layouts',
+      'Official letter formatting, statement typing, and passage tests',
+      'Timed speed-building software with real-time error percentage tracking',
+      'Preparation for GCC-TBC and government commercial certificate exams',
+    ],
+    durationPlaceholder: '2 to 3 Months (Continuous speed training)',
+    mode: '100% In-Person Practical Lab (Virar East)',
+    certificate: 'Certificate of Typing Speed Proficiency (English & Marathi)',
+    whatsappMessage: 'Hello! I want to enquire about English & Marathi Typing at Race Reddys Virar East. Please share batch timings and fee details.',
   },
   {
-    q: 'Is practical training included?',
-    a: 'Yes. Practical, hands-on training is the foundation of Race Reddys. Every student practices on dedicated computers with real exercises, business scenarios, and guided instructor assistance rather than pure classroom lectures.',
+    id: 'illustrator',
+    name: 'Illustrator',
+    type: 'short-term',
+    goals: ['job', 'business', 'skill'],
+    shortDesc: 'Master vector artwork, custom logo creation, typography, iconography, and print-ready digital branding.',
+    whoFor: 'Creative students, social media content creators, aspiring brand designers, and print shop staff.',
+    topics: [
+      'Pen tool mastery: Bezier curves, anchor points, and shape drawing',
+      'Logo design principles, geometric grid construction, and monograms',
+      'Typography, font pairing, text effects, and path text',
+      'Color palettes, gradients, mesh tool, and vector patterns',
+      'Designing visiting cards, flyers, standees, and brochures for print',
+      'Exporting SVG, EPS, high-res PDF, and web-optimised assets',
+    ],
+    durationPlaceholder: '6 to 8 Weeks',
+    mode: '100% In-Person Practical Lab (Virar East)',
+    certificate: 'Certificate in Adobe Illustrator Vector Design',
+    whatsappMessage: 'Hello! I want to enquire about the Illustrator course at Race Reddys Virar East. Please share batch timings and fee details.',
   },
   {
-    q: 'What are the eligibility conditions for offers?',
-    a: 'The advertised 50% discount and the Free Basic Computer Course offer with eligible career course enrolment are subject to institute terms, batch availability, and admission verification. Please speak with our administration team to confirm current eligibility.',
+    id: 'photoshop',
+    name: 'Photoshop',
+    type: 'short-term',
+    goals: ['job', 'business', 'skill'],
+    shortDesc: 'Professional photo editing, image manipulation, background removal, retouching, and social media banner design.',
+    whoFor: 'Photographers, graphic designers, digital marketers, and photo studio operators.',
+    topics: [
+      'Layers, masks, blend modes, and non-destructive image editing',
+      'Selection tools: Object selection, lasso, pen tool, and refine edge',
+      'Portrait retouching: Healing brush, frequency separation, blemish removal',
+      'Color grading, adjustment layers, curves, and photo composites',
+      'Designing social media posts, YouTube thumbnails, and marketing banners',
+      'Image resizing, compression, and print resolution standards (300 DPI)',
+    ],
+    durationPlaceholder: '6 to 8 Weeks',
+    mode: '100% In-Person Practical Lab (Virar East)',
+    certificate: 'Certificate in Adobe Photoshop & Digital Image Editing',
+    whatsappMessage: 'Hello! I want to enquire about the Photoshop course at Race Reddys Virar East. Please share batch timings and fee details.',
   },
   {
-    q: 'Where is the institute located?',
-    a: 'We are conveniently located at 202, 2nd Floor, Raut Arcade, Opposite Subway, near Virar East railway station, Virar East, Maharashtra 401305 — just a 2-minute walk from the station.',
+    id: 'html',
+    name: 'HTML (HyperText Markup Language)',
+    type: 'short-term',
+    goals: ['job', 'kids', 'skill'],
+    shortDesc: 'The foundation of the World Wide Web: build clean, accessible, semantic web pages with HTML5 standard tags.',
+    whoFor: 'Absolute beginner coders, school/college students, and aspiring web developers.',
+    topics: [
+      'HTML document skeleton, head metadata, and character encoding',
+      'Semantic tags: header, nav, main, section, article, footer',
+      'Text formatting, headings, lists, tables, and hyperlinks',
+      'Embedding images, audio, video, and responsive picture elements',
+      'HTML5 form controls: inputs, select dropdowns, radio/checkboxes, validation',
+      'SEO meta tags, open graph attributes, and web accessibility (a11y) basics',
+    ],
+    durationPlaceholder: '4 Weeks',
+    mode: '100% In-Person Practical Lab (Virar East)',
+    certificate: 'Certificate in HTML5 Web Foundations',
+    whatsappMessage: 'Hello! I want to enquire about the HTML course at Race Reddys Virar East. Please share batch timings and fee details.',
   },
   {
-    q: 'How do I enquire about admission?',
-    a: 'You can enquire by calling +91 97943 23963, sending a WhatsApp message directly from the website, submitting the online admission enquiry form, or walking directly into our Virar East centre during working hours.',
+    id: 'css',
+    name: 'CSS (Cascading Style Sheets)',
+    type: 'short-term',
+    goals: ['job', 'kids', 'skill'],
+    shortDesc: 'Transform plain HTML into gorgeous, responsive websites with CSS3 styling, Flexbox, Grid, and subtle animations.',
+    whoFor: 'Beginner web designers, students with basic HTML knowledge, and UI enthusiasts.',
+    topics: [
+      'CSS selectors, specificity, cascade, and the box model (margin, padding, border)',
+      'Modern layouts with CSS Flexbox: axis alignment, wrapping, flex items',
+      'CSS Grid systems: rows, columns, template areas, and auto-fit grids',
+      'Responsive web design with media queries for mobile, tablet, and desktop',
+      'Typography, web fonts, shadows, gradients, and custom scrollbars',
+      'Transitions, hover states, keyframe animations, and transform effects',
+    ],
+    durationPlaceholder: '4 to 6 Weeks',
+    mode: '100% In-Person Practical Lab (Virar East)',
+    certificate: 'Certificate in CSS3 Responsive Web Styling',
+    whatsappMessage: 'Hello! I want to enquire about the CSS course at Race Reddys Virar East. Please share batch timings and fee details.',
+  },
+  {
+    id: 'hardware',
+    name: 'Hardware',
+    type: 'short-term',
+    goals: ['job', 'skill'],
+    shortDesc: 'Hands-on computer assembling, motherboard diagnosis, processor socketing, RAM/SSD installation, and troubleshooting.',
+    whoFor: 'Aspiring computer technicians, hardware shop staff, and students wanting hardware diagnostic skills.',
+    topics: [
+      'PC anatomy: Motherboard chipset, CPU sockets, RAM types (DDR4/DDR5), SSD/HDD',
+      'SMPS power supply testing, wattage calculations, and cable routing',
+      'Complete desktop computer assembling from scratch',
+      'BIOS/UEFI setup, boot priority, overclocking safety, and firmware updates',
+      'Windows OS installation, disk partitioning, driver configuration',
+      'Diagnosing common hardware issues: Blue Screen (BSOD), overheating, beep codes',
+    ],
+    durationPlaceholder: '6 to 8 Weeks',
+    mode: '100% In-Person Practical Lab (Virar East)',
+    certificate: 'Certificate in Computer Hardware Assembly & Troubleshooting',
+    whatsappMessage: 'Hello! I want to enquire about the Hardware course at Race Reddys Virar East. Please share batch timings and fee details.',
+  },
+  {
+    id: 'a-plus-and-n-plus',
+    name: 'A+ and N+',
+    type: 'short-term',
+    goals: ['job', 'skill'],
+    shortDesc: 'Professional IT support and network administration syllabus aligned with industry benchmark certification standards.',
+    whoFor: 'IT helpdesk technicians, system administrators, and graduates seeking IT infrastructure jobs.',
+    topics: [
+      'CompTIA A+ syllabus: Hardware components, mobile devices, OS troubleshooting',
+      'Command-line utilities: CMD, PowerShell, ipconfig, ping, tracert, chkdsk',
+      'CompTIA N+ syllabus: OSI model, TCP/IP protocols, IPv4 & IPv6 addressing, subnetting',
+      'Cabling & connectors: Crimping RJ45 Ethernet cables, patch panels, switch configuration',
+      'Router configuration, Wi-Fi security (WPA3), DHCP, DNS, and NAT protocols',
+      'Network security, firewall configuration, remote desktop, and VPN setup',
+    ],
+    durationPlaceholder: '8 to 12 Weeks',
+    mode: '100% In-Person Practical Lab (Virar East)',
+    certificate: 'Certificate in A+ (Hardware Support) and N+ (Networking)',
+    whatsappMessage: 'Hello! I want to enquire about the A+ and N+ course at Race Reddys Virar East. Please share batch timings and fee details.',
+  },
+
+  // ─── CAREER-OBJECTIVE COURSES (11) ───
+  {
+    id: 'software-development',
+    name: 'Software Development',
+    type: 'career',
+    goals: ['job'],
+    shortDesc: 'Comprehensive coding career track covering core programming logic, algorithms, OOP, database design, and real-world project builds.',
+    whoFor: 'BCA, BSc IT, engineering students, graduates, and career switchers wanting software developer jobs.',
+    topics: [
+      'Programming fundamentals: Variables, data types, control flow, loops, functions',
+      'Object-Oriented Programming (OOP): Classes, inheritance, polymorphism, encapsulation',
+      'Data Structures & Algorithms: Arrays, lists, stacks, queues, searching & sorting',
+      'Relational Database Management with SQL (MySQL / PostgreSQL)',
+      'Git version control, GitHub repositories, and collaborative branching workflows',
+      'Building a complete end-to-end capstone software application',
+    ],
+    durationPlaceholder: '4 to 6 Months',
+    mode: '100% In-Person Practical Lab (Virar East)',
+    certificate: 'Diploma in Software Development & Engineering Foundations',
+    whatsappMessage: 'Hello! I want to enquire about the Software Development career course at Race Reddys Virar East. Please share syllabus, fees, and batch details.',
+  },
+  {
+    id: 'dfa',
+    name: 'DFA (Diploma in Financial Accounting)',
+    type: 'career',
+    goals: ['job', 'business'],
+    shortDesc: 'Complete corporate accounting diploma integrating Manual Accounting, Advanced TallyPrime, GST E-filing, Payroll, and Taxation.',
+    whoFor: 'Commerce graduates, accountants seeking promotions, and small business managers.',
+    topics: [
+      'Fundamental principles of accounting, golden rules, journal entries & ledgers',
+      'Trial Balance, Profit & Loss Accounts, and Balance Sheet finalisation',
+      'TallyPrime with GST, Inventory control, cost centres, and multi-currency',
+      'Payroll management in Tally: PF, ESI, TDS calculation, salary slips',
+      'GST returns (GSTR-1, GSTR-3B) and online portal submission',
+      'Income Tax fundamentals, TDS return filing, and audit documentation',
+    ],
+    durationPlaceholder: '4 to 6 Months',
+    mode: '100% In-Person Practical Lab (Virar East)',
+    certificate: 'Professional Diploma in Financial Accounting (DFA)',
+    whatsappMessage: 'Hello! I want to enquire about the DFA (Diploma in Financial Accounting) at Race Reddys Virar East. Please share syllabus, fees, and batch details.',
+  },
+  {
+    id: 'animation',
+    name: 'Animation',
+    type: 'career',
+    goals: ['job', 'skill'],
+    shortDesc: 'Step into the creative world of 2D/3D animation, character rigging, motion timing, visual storytelling, and video production.',
+    whoFor: 'Creative students, visual artists, aspiring animators, and game/multimedia enthusiasts.',
+    topics: [
+      'The 12 golden principles of animation (squash & stretch, anticipation, timing)',
+      'Storyboarding, character concept sketch, and visual narrative planning',
+      'Vector animation, digital puppets, and character rigging techniques',
+      'Keyframe animation, lip-syncing with audio, and walk cycles',
+      'Motion graphics for advertising, social media reels, and explainer videos',
+      'Video editing, sound design integration, and rendering portfolio reels',
+    ],
+    durationPlaceholder: '4 to 6 Months',
+    mode: '100% In-Person Practical Lab (Virar East)',
+    certificate: 'Diploma in Digital Animation & Motion Graphics',
+    whatsappMessage: 'Hello! I want to enquire about the Animation course at Race Reddys Virar East. Please share syllabus, fees, and batch details.',
+  },
+  {
+    id: 'ai-ml',
+    name: 'AI & ML',
+    type: 'career',
+    goals: ['job', 'skill'],
+    shortDesc: 'Demystify Machine Learning and Artificial Intelligence with Python: linear models, classifiers, neural networks, and computer vision.',
+    whoFor: 'Tech graduates, programmers, data analysts, and engineering students.',
+    topics: [
+      'Python for Machine Learning: NumPy arrays, Pandas DataFrames, Matplotlib',
+      'Supervised Learning: Linear regression, logistic regression, decision trees',
+      'Unsupervised Learning: K-Means clustering, PCA dimensionality reduction',
+      'Model evaluation: Train-test split, cross-validation, precision, recall, F1 score',
+      'Introduction to Neural Networks, Deep Learning, and TensorFlow/PyTorch concepts',
+      'Deploying an ML model as a functional web application',
+    ],
+    durationPlaceholder: '4 to 6 Months',
+    mode: '100% In-Person Practical Lab (Virar East)',
+    certificate: 'Certificate in Applied AI & Machine Learning Foundations',
+    whatsappMessage: 'Hello! I want to enquire about the AI & ML course at Race Reddys Virar East. Please share syllabus, fees, and batch details.',
+  },
+  {
+    id: 'digital-marketing',
+    name: 'Digital Marketing',
+    type: 'career',
+    goals: ['job', 'business'],
+    shortDesc: 'Launch client campaigns with Search Engine Optimisation (SEO), Meta Ads, Google Search Ads, Social Media Marketing, and Analytics.',
+    whoFor: 'Job seekers, marketing graduates, freelancers, and business owners wanting online customers.',
+    topics: [
+      'SEO fundamentals: Keyword research, on-page optimization, backlink strategies',
+      'Local SEO & Google Business Profile optimization for Virar/Mumbai shops',
+      'Meta Ads Manager: Facebook and Instagram lead generation and retargeting campaigns',
+      'Google Ads: Search campaigns, PPC bidding, quality score, and conversion tracking',
+      'Content marketing, Canva banner design, copy strategies, and email campaigns',
+      'Google Analytics (GA4) traffic measurement and client ROI reporting',
+    ],
+    durationPlaceholder: '3 to 4 Months',
+    mode: '100% In-Person Practical Lab (Virar East)',
+    certificate: 'Professional Diploma in Digital Marketing & Growth Strategy',
+    whatsappMessage: 'Hello! I want to enquire about the Digital Marketing course at Race Reddys Virar East. Please share syllabus, fees, and batch details.',
+  },
+  {
+    id: 'web-and-app-development',
+    name: 'Web & App Development',
+    type: 'career',
+    goals: ['job', 'business'],
+    shortDesc: 'Full-stack development: build modern responsive web applications and mobile apps from database schema to cloud deployment.',
+    whoFor: 'Aspiring web developers, full-stack engineers, and tech entrepreneurs.',
+    topics: [
+      'Frontend mastery: HTML5, CSS3, modern JavaScript (ES6+), and responsive UI',
+      'Component-driven frontend architecture with React / Vue concepts',
+      'Backend server development: Node.js, Express REST APIs, authentication (JWT)',
+      'Database integration: MongoDB / PostgreSQL CRUD operations',
+      'Mobile-first and hybrid mobile app foundations with web technologies',
+      'Cloud deployment (Vercel, Netlify, Render), domains, and live project launch',
+    ],
+    durationPlaceholder: '5 to 6 Months',
+    mode: '100% In-Person Practical Lab (Virar East)',
+    certificate: 'Professional Diploma in Full-Stack Web & App Development',
+    whatsappMessage: 'Hello! I want to enquire about the Web & App Development course at Race Reddys Virar East. Please share syllabus, fees, and batch details.',
+  },
+  {
+    id: 'ethical-hacking',
+    name: 'Ethical Hacking',
+    type: 'career',
+    goals: ['job', 'skill'],
+    shortDesc: 'Learn defensive and offensive cybersecurity techniques, penetration testing, vulnerability assessment, and network defence.',
+    whoFor: 'IT students, networking professionals, and security career aspirants.',
+    topics: [
+      'Ethical hacking laws, compliance, and cybercrime jurisdiction in India',
+      'Reconnaissance and footprinting: Nmap port scanning, OSINT techniques',
+      'Network penetration testing: Wireshark packet analysis, man-in-the-middle attacks',
+      'Web application vulnerabilities: OWASP Top 10 (SQL injection, XSS, CSRF)',
+      'Wireless security testing, password auditing tools, and security hardening',
+      'Vulnerability scanning reports and client remediation guidelines',
+    ],
+    durationPlaceholder: '4 to 5 Months',
+    mode: '100% In-Person Practical Lab (Virar East)',
+    certificate: 'Certificate in Ethical Hacking & Penetration Testing Basics',
+    whatsappMessage: 'Hello! I want to enquire about the Ethical Hacking course at Race Reddys Virar East. Please share syllabus, fees, and batch details.',
+  },
+  {
+    id: 'ai-prompt-engineering',
+    name: 'AI Prompt Engineering',
+    type: 'career',
+    goals: ['job', 'business', 'skill'],
+    shortDesc: 'Master generative AI workflows with ChatGPT, Gemini, Midjourney, and Claude to multiply work productivity by 10x.',
+    whoFor: 'Working professionals, content writers, business owners, students, and consultants.',
+    topics: [
+      'How Large Language Models (LLMs) work: Tokens, temperature, and hallucinations',
+      'Prompt crafting frameworks: Few-shot prompting, chain-of-thought, role persona prompts',
+      'Automating office work: Drafting reports, summarizing long documents, creating emails',
+      'Coding assistance: Writing, debugging, and explaining code with AI',
+      'AI for image generation: Crafting prompts for Midjourney, DALL-E, and marketing art',
+      'Building custom GPTs, workflow automations, and AI ethical best practices',
+    ],
+    durationPlaceholder: '4 to 6 Weeks',
+    mode: '100% In-Person Practical Lab (Virar East)',
+    certificate: 'Certificate in AI Prompt Engineering & Productivity Workflows',
+    whatsappMessage: 'Hello! I want to enquire about the AI Prompt Engineering course at Race Reddys Virar East. Please share syllabus, fees, and batch details.',
+  },
+  {
+    id: 'data-science',
+    name: 'Data Science',
+    type: 'career',
+    goals: ['job', 'skill'],
+    shortDesc: 'Extract valuable business insights from raw data: Python programming, exploratory data analysis, statistical modeling, and dashboards.',
+    whoFor: 'Graduates in math, stats, engineering, commerce, or anyone seeking high-paying data analyst jobs.',
+    topics: [
+      'Python for data analysis: Data structures, NumPy, Pandas wrangling & cleaning',
+      'Data visualization: Matplotlib, Seaborn, interactive Power BI / Tableau dashboards',
+      'Statistical inference: Probability distributions, hypothesis testing, correlation analysis',
+      'Feature engineering, handling missing data, outlier detection, scaling',
+      'Predictive modeling algorithms: Regression, classification, customer segmentation',
+      'Presenting data stories and insights to business stakeholders',
+    ],
+    durationPlaceholder: '5 to 6 Months',
+    mode: '100% In-Person Practical Lab (Virar East)',
+    certificate: 'Professional Diploma in Practical Data Science & Analytics',
+    whatsappMessage: 'Hello! I want to enquire about the Data Science course at Race Reddys Virar East. Please share syllabus, fees, and batch details.',
+  },
+  {
+    id: 'cyber-security',
+    name: 'Cyber Security',
+    type: 'career',
+    goals: ['job', 'skill'],
+    shortDesc: 'Protect enterprise servers, corporate data, and personal devices from malware, ransomware, identity theft, and cyber threats.',
+    whoFor: 'System administrators, IT graduates, and security operations center (SOC) aspirants.',
+    topics: [
+      'Cybersecurity landscape: Threat actors, attack vectors, defense in depth',
+      'Operating system hardening: Windows Server & Linux security policies',
+      'Network defense: Firewalls, IDS/IPS, secure network segmentation, and zero trust',
+      'Cryptography: Symmetric vs asymmetric encryption, hashing, SSL/TLS certificates',
+      'Incident response and digital forensics: Log analysis, malware triage',
+      'Security compliance, data protection standards, and ISO 27001 awareness',
+    ],
+    durationPlaceholder: '4 to 6 Months',
+    mode: '100% In-Person Practical Lab (Virar East)',
+    certificate: 'Certificate in Enterprise Cyber Security & System Defense',
+    whatsappMessage: 'Hello! I want to enquire about the Cyber Security course at Race Reddys Virar East. Please share syllabus, fees, and batch details.',
+  },
+  {
+    id: 'graphic-designing',
+    name: 'Graphic Designing',
+    type: 'career',
+    goals: ['job', 'business', 'skill'],
+    shortDesc: 'Comprehensive professional design career diploma covering Photoshop, Illustrator, CorelDraw/InDesign, visual identity, and advertising.',
+    whoFor: 'Creative students, freelancers, print shop operators, and advertising agency aspirants.',
+    topics: [
+      'Design fundamentals: Color theory, typography hierarchy, layout composition',
+      'Adobe Photoshop: Image manipulation, photo composition, digital matte painting',
+      'Adobe Illustrator: Vector logo creation, icon design, brand identity systems',
+      'CorelDraw / InDesign: Multi-page catalogues, newspapers, packaging design',
+      'Social media creative campaigns, print specifications, pre-press checks',
+      'Building a professional physical and Behance design portfolio',
+    ],
+    durationPlaceholder: '4 to 6 Months',
+    mode: '100% In-Person Practical Lab (Virar East)',
+    certificate: 'Professional Diploma in Graphic Designing & Visual Communication',
+    whatsappMessage: 'Hello! I want to enquire about the Graphic Designing career course at Race Reddys Virar East. Please share syllabus, fees, and batch details.',
+  },
+];
+
+// ============================================================
+// FREQUENTLY ASKED QUESTIONS (Friendly, warm, local Virar context)
+// ============================================================
+export interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+export const FAQS_LIST: FAQItem[] = [
+  {
+    question: 'Where exactly is the institute located in Virar?',
+    answer:
+      'We are located at 202, 2nd Floor, Raut Arcade, directly opposite the Virar East Railway Station subway. If you step out of Platform 2 or take the railway subway towards the East, Raut Arcade is just a 2-minute walk away. You do not need to take an auto or bus.',
+  },
+  {
+    question: 'I have never touched a computer before. Can I join?',
+    answer:
+      'Yes, absolutely! Many of our students are first-time computer users, including homemakers, school students, and seniors. Our instructors teach in simple Hindi, Marathi, or English with immense patience. You get your own computer to practice right from day one.',
+  },
+  {
+    question: 'How does the 50% discount and Free Basic Computer offer work?',
+    answer:
+      'For our current admission batch, we are offering up to 50% fee concession on standard course charges. Additionally, when you enroll in any career-objective program (such as Software Development, DFA, Web Development, or Digital Marketing), you get the complete Basic Computer foundation course completely free of charge. Please confirm eligibility and seat availability with the institute office.',
+  },
+  {
+    question: 'Are there separate batches for ladies or housewives?',
+    answer:
+      'Yes! We run a dedicated, comfortable ladies’ batch between 12:30 PM and 2:00 PM (and 2:30 PM to 4:00 PM). It provides a quiet, supportive environment where homemakers and women can learn at their own pace without hesitation.',
+  },
+  {
+    question: 'Can I attend a free demo class before paying fees?',
+    answer:
+      'Yes. We strongly encourage every student and parent to book a free demo class. You can sit in the lab, observe the teaching method, interact with the instructor, and then make a confident decision.',
+  },
+  {
+    question: 'What if I have doubts after completing my course?',
+    answer:
+      'Race Reddys offers Free Lifetime Doubt-Solving Support. Even months or years after completing your training, if you face a difficulty with Tally, coding, GST filing, or design at your workplace, you are welcome to visit the lab and ask our teachers for guidance.',
+  },
+  {
+    question: 'Do you offer Marathi typing as well as English typing?',
+    answer:
+      'Yes. We provide complete touch-typing training for both English and Marathi (including standard InScript and Remington keyboard layouts), which is essential for Maharashtra government exams, clerical posts, and legal offices.',
+  },
+  {
+    question: 'What are the batch timings?',
+    answer:
+      'Batches run from Monday to Saturday, between 9:00 AM and 7:00 PM. We offer early morning slots (7:30 AM onwards) for college goers, afternoon slots for women, and evening slots (until 7:30 PM) for working commuters.',
+  },
+];
+
+// ============================================================
+// OWNER'S CHECKLIST OF PLACEHOLDERS TO PROVIDE REAL CONTENT
+// (Documented for seamless handoff to the institute owner)
+// ============================================================
+export const PLACEHOLDERS_CHECKLIST = [
+  {
+    item: 'Lab Photographs',
+    location: 'About & Home Page lab showcase slots',
+    currentStatus: 'Visual photo slot with clear dimension instructions (recommended 1200x800px, natural lighting showing students on workstations)',
+    actionRequired: 'Provide 3-4 genuine, unedited photos of students practicing in the Raut Arcade 2nd floor lab.',
+  },
+  {
+    item: 'Faculty Headshots & Bios',
+    location: 'About Page faculty section',
+    currentStatus: 'Clearly marked placeholder card showing teaching experience and subjects',
+    actionRequired: 'Provide names, qualifications (e.g. MCA, B.E., M.Com), and photos of the primary instructors.',
+  },
+  {
+    item: 'Exact Fee Schedule & Installment Slabs',
+    location: 'Batches & Fees / WhatsApp inquiry response',
+    currentStatus: 'Handled via direct "Ask for Fee Details" CTA to enable personalized installment plans and 50% discount calculation',
+    actionRequired: 'Provide final fee chart if institute desires publishing exact numeric fees publicly on the website.',
+  },
+  {
+    item: 'Real Student Reviews & Placement Photos',
+    location: 'Student Success / Gallery page',
+    currentStatus: 'Authentic "Share your story" invitation box with zero fake testimonials, zero invented student names, and zero fake stats',
+    actionRequired: 'Collect authentic written feedback, photos, and job placement letters from real alumni to showcase.',
+  },
+  {
+    item: 'Exact Course Durations & Batch Start Dates',
+    location: 'Course detail cards and drawer',
+    currentStatus: 'Realistic industry benchmark duration range (e.g., 4-6 weeks for short-term, 4-6 months for career diploma) with note that fast-track is available',
+    actionRequired: 'Confirm if specific calendar batch dates should be listed for upcoming admissions.',
   },
 ];

@@ -4,7 +4,7 @@ import SEO from '../components/SEO'
 import { SITE_CONFIG } from '../data/config'
 
 export default function Privacy() {
-  const year = new Date().getFullYear()
+  const year = 2026;
 
   return (
     <>

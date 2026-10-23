@@ -1,154 +1,161 @@
-import { ArrowUpRight, Phone, Check } from 'lucide-react'
-import { SITE_CONFIG } from '../data/config'
+import { MessageSquare, Clock, MapPin, CheckCircle } from 'lucide-react';
+import { SITE_CONFIG, OFFERS_CONFIG } from '../data/config';
+import { useLanguage } from '../context/useLanguage';
+import { Link } from 'react-router-dom';
 
 export default function HeroSection() {
-  const handleScrollToEnquiry = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault()
-    const el = document.getElementById('enquiry-section')
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' })
-    }
-  }
+  const { t } = useLanguage();
 
   return (
-    <section className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-2 sm:mt-4 pt-2 pb-8 sm:pb-10" id="hero" aria-label="Hero Showcase">
-      <div className="relative rounded-3xl overflow-hidden min-h-[580px] lg:min-h-[640px] flex flex-col justify-between p-6 sm:p-10 lg:p-14 text-white shadow-xl">
+    <section className="relative pt-6 sm:pt-10 pb-12 sm:pb-16 overflow-hidden bg-[#FBF9F5]" aria-label="Hero Section">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Real Lab Photo Background with Dark Cinematic Overlay */}
-        <div className="absolute inset-0 z-0">
-          <img
-            src="/stitch-hero.png"
-            alt="Race Reddys Computer Education Laboratory with students and instructor"
-            className="w-full h-full object-cover object-center filter brightness-[0.45] contrast-[1.05]"
-            loading="eager"
-            fetchPriority="high"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#08121e]/95 via-[#0b192e]/60 to-transparent" />
-        </div>
-
-        {/* Top Row Badges */}
-        <div className="relative z-10 flex flex-wrap items-center justify-between gap-4">
-          {/* Review Rating Pill */}
-          <div className="flex items-center gap-2.5 bg-black/40 backdrop-blur-md border border-white/15 px-3.5 py-1.5 rounded-full text-xs">
-            <div className="flex items-center space-x-0.5">
-              <span className="w-4 h-4 rounded-full bg-[#4285F4] text-white flex items-center justify-center text-[10px] font-bold">
-                G
+        {/* Asymmetrical Editorial Layout: 7 cols text, 5 cols local visual card */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          
+          {/* Left Column: Local Headline & Direct CTAs */}
+          <div className="lg:col-span-7">
+            
+            {/* Station Signplate */}
+            <div className="inline-flex items-center gap-2 mb-4">
+              <span className="station-board-yellow text-[11px] font-black uppercase tracking-wider px-2.5 py-1">
+                VIRAR EAST • विरार पूर्व
               </span>
-              <span className="text-amber-400 font-bold ml-1">★★★★★ 4.9</span>
+              <span className="text-xs font-bold text-[#071B3A] tracking-wide">
+                Opp. Subway &amp; Station • 2 Min Walk
+              </span>
             </div>
-            <span className="text-gray-300 border-l border-white/20 pl-2">
-              98% Positive Feedback from 2,000+ Students
-            </span>
-          </div>
 
-          {/* Skill Tags */}
-          <div className="hidden sm:flex items-center gap-2 text-xs font-medium text-gray-300">
-            <span className="px-2.5 py-1 rounded-full bg-white/10 backdrop-blur-sm">
-              TallyPrime &amp; GST
-            </span>
-            <span className="px-2.5 py-1 rounded-full bg-white/10 backdrop-blur-sm">
-              Full-Stack Coding
-            </span>
-            <span className="px-2.5 py-1 rounded-full bg-white/10 backdrop-blur-sm">
-              Graphic Design
-            </span>
-          </div>
-        </div>
-
-        {/* Center / Mid Content: Headline & Subheading */}
-        <div className="relative z-10 max-w-3xl my-auto py-8">
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] mb-5 text-white">
-            Virar East’s leading <br className="hidden sm:inline" />
-            IT training, <span className="serif-accent font-normal text-[#B7EB38]">done right now</span>
-          </h1>
-
-          <p className="text-base sm:text-lg text-gray-200 max-w-2xl font-light leading-relaxed mb-8">
-            Hands-on practical training in TallyPrime with GST, Python Full-Stack, Advanced MS-Office, and Graphic Design. 100% individual workstation time for learners across Virar, Vasai, and Palghar.
-          </p>
-
-          {/* CTA Buttons Row */}
-          <div className="flex flex-wrap items-center gap-3 sm:gap-4">
-            {/* Primary CTA Button with Arrow Pill */}
-            <a
-              href="#enquiry-section"
-              onClick={handleScrollToEnquiry}
-              className="inline-flex items-center gap-3 bg-[#B7EB38] hover:bg-[#a9dc2d] text-black font-bold text-sm sm:text-base pl-5 pr-2 py-2 rounded-full transition-transform active:scale-95 shadow-lg group"
-            >
-              <span>Enquire About Admissions</span>
-              <span className="w-8 h-8 rounded-full bg-black text-white flex items-center justify-center font-bold text-sm transition-transform group-hover:scale-105">
-                <ArrowUpRight size={16} />
+            {/* Virar Local Headline */}
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#071B3A] font-serif-heading leading-[1.15] mb-4">
+              <span className="block text-[#C0392B] text-xl sm:text-2xl font-bold tracking-normal uppercase mb-1">
+                {t.stationTagline}
               </span>
-            </a>
+              {t.heroTitleLine1}{' '}
+              <span className="hand-underline text-[#071B3A]">
+                {t.heroTitleHighlight}
+              </span>
+            </h1>
 
-            {/* Ghost Call Button */}
-            <a
-              href={`tel:${SITE_CONFIG.contact.phoneRaw}`}
-              className="inline-flex items-center gap-2 bg-white/15 hover:bg-white/25 border border-white/20 text-white font-medium text-sm sm:text-base px-5 py-3 rounded-full backdrop-blur-sm transition-colors"
-              aria-label={`Call ${SITE_CONFIG.contact.phone}`}
-            >
-              <Phone size={15} className="text-[#B7EB38]" />
-              <span>Call Institute</span>
-              <span className="text-xs">↗</span>
-            </a>
-          </div>
-        </div>
+            {/* Friendly, Teacher-Like Subheading with "Virar Fast" Wordplay */}
+            <p className="text-base sm:text-lg text-[#334155] leading-relaxed mb-6 font-normal">
+              Catch the <strong className="text-[#071B3A] font-semibold">Virar Fast</strong> to your tech and accounting career — without the draining 2-hour daily local train commute into Mumbai. 100% individual workstation time for students, homemakers, and working professionals.
+            </p>
 
-        {/* Bottom Row Proof & Verification Highlights */}
-        <div className="relative z-10 pt-4 flex flex-col md:flex-row items-start md:items-end justify-between gap-6 border-t border-white/15">
-          {/* Left Quality Assurance Claims */}
-          <div className="flex items-center gap-2 text-xs text-gray-300">
-            <span className="w-4 h-4 rounded-full bg-[#B7EB38] text-black flex items-center justify-center text-[10px] font-bold">
-              <Check size={11} strokeWidth={3} />
-            </span>
-            <span>
-              Govt. Recognized Certification Path • Guaranteed Personal Desktop • 10+ Years in Virar East
-            </span>
-          </div>
-
-          {/* Right Floating Social Proof Badge */}
-          <div className="flex items-center gap-4 bg-black/50 backdrop-blur-md p-2.5 rounded-2xl border border-white/15">
-            {/* Metric Stack */}
-            <div className="px-2">
-              <span className="block text-2xl font-black text-white leading-none">2K+</span>
-              <span className="text-[10px] uppercase font-bold text-gray-400">Trained Students</span>
-              {/* Mini Avatar Stack */}
-              <div className="flex -space-x-2 mt-1">
-                <span className="inline-flex h-5 w-5 rounded-full ring-2 ring-black bg-blue-500 text-[8px] font-bold text-white items-center justify-center">
-                  AS
-                </span>
-                <span className="inline-flex h-5 w-5 rounded-full ring-2 ring-black bg-amber-500 text-[8px] font-bold text-white items-center justify-center">
-                  PK
-                </span>
-                <span className="inline-flex h-5 w-5 rounded-full ring-2 ring-black bg-emerald-500 text-[8px] font-bold text-white items-center justify-center">
-                  RM
-                </span>
-                <span className="inline-flex h-5 w-5 rounded-full ring-2 ring-black bg-purple-500 text-[8px] font-bold text-white items-center justify-center">
-                  +
-                </span>
+            {/* Key Selling Points Checklist */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mb-8 text-xs sm:text-sm text-[#1A2332] font-medium">
+              <div className="flex items-center gap-2 bg-white/80 border border-[#E8E2D5] px-3 py-2 rounded-lg">
+                <CheckCircle size={16} className="text-[#C59B27] shrink-0" />
+                <span>{t.heroBadgePractical}</span>
+              </div>
+              <div className="flex items-center gap-2 bg-white/80 border border-[#E8E2D5] px-3 py-2 rounded-lg">
+                <CheckCircle size={16} className="text-[#C59B27] shrink-0" />
+                <span>{t.heroBadgeLadies}</span>
+              </div>
+              <div className="flex items-center gap-2 bg-white/80 border border-[#E8E2D5] px-3 py-2 rounded-lg">
+                <CheckCircle size={16} className="text-[#C59B27] shrink-0" />
+                <span>{t.heroBadgeDoubt}</span>
+              </div>
+              <div className="flex items-center gap-2 bg-white/80 border border-[#E8E2D5] px-3 py-2 rounded-lg">
+                <CheckCircle size={16} className="text-[#C59B27] shrink-0" />
+                <span>English &amp; Marathi Typing Practice</span>
               </div>
             </div>
 
-            {/* Video / Lab Tour Mini Thumbnail preview badge */}
-            <a
-              href="#about"
-              className="relative w-20 h-14 rounded-xl overflow-hidden border border-white/30 bg-slate-800 flex items-center justify-center cursor-pointer group"
-              title="Tour the Lab"
-            >
-              <img
-                src="/stitch-hero.png"
-                alt="Lab View Preview"
-                className="w-full h-full object-cover filter brightness-75 group-hover:scale-110 transition-transform duration-300"
-              />
-              <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-                <span className="w-6 h-6 rounded-full bg-[#B7EB38] text-black flex items-center justify-center text-[11px] font-black pl-0.5 shadow">
-                  ▶
-                </span>
-              </div>
-            </a>
+            {/* Primary CTAs */}
+            <div className="flex flex-wrap items-center gap-3 sm:gap-4">
+              {/* WhatsApp Us CTA */}
+              <a
+                href={`${SITE_CONFIG.contact.whatsapp}?text=${encodeURIComponent(
+                  'Hello! I am looking for computer classes in Virar East. Please share course details and batch timings.'
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2.5 bg-[#25D366] hover:bg-[#20BA5A] text-white font-bold text-sm sm:text-base px-5 py-3 rounded-xl shadow-sm hover:shadow transition-all active:scale-95"
+              >
+                <MessageSquare size={18} />
+                <span>{t.ctaWhatsapp}</span>
+              </a>
+
+              {/* Book Free Demo Class CTA */}
+              <Link
+                to="/contact#demo"
+                className="inline-flex items-center gap-2 bg-[#071B3A] hover:bg-[#0E2B5C] text-white font-bold text-sm sm:text-base px-5 py-3 rounded-xl border border-[#C59B27] shadow-sm hover:shadow transition-all active:scale-95"
+              >
+                <Clock size={18} className="text-[#D8AF3E]" />
+                <span>{t.ctaDemo}</span>
+              </Link>
+            </div>
+
+            {/* Location Subtext */}
+            <div className="flex items-center gap-2 mt-4 text-xs text-gray-500">
+              <MapPin size={14} className="text-[#C0392B] shrink-0" />
+              <span>{t.heroAddressHint}</span>
+            </div>
+
           </div>
+
+          {/* Right Column: Authentic Institute Card / Lab Photo with Station Ticket Tag */}
+          <div className="lg:col-span-5">
+            <div className="bg-white rounded-2xl border border-[#E8E2D5] p-4 sm:p-5 shadow-sm relative">
+              
+              {/* Authentic Photo Container */}
+              <div className="relative rounded-xl overflow-hidden aspect-[4/3] bg-[#071B3A] mb-4">
+                <img
+                  src="/hero-lab.jpg"
+                  alt="Students practicing in computer laboratory at Race Reddys Virar East"
+                  className="w-full h-full object-cover"
+                  loading="eager"
+                  onError={(e) => {
+                    // Fallback to stitch hero if hero-lab fails
+                    (e.target as HTMLImageElement).src = '/stitch-hero.png';
+                  }}
+                />
+                
+                {/* Station Tag Overlay */}
+                <div className="absolute bottom-3 left-3 right-3 bg-[#071B3A]/90 backdrop-blur-xs text-white p-2.5 rounded-lg border border-[#C59B27]/40 text-xs flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-[#25D366] animate-pulse" />
+                    <span className="font-bold">Live Lab Sessions</span>
+                  </div>
+                  <span className="text-[#D8AF3E] font-semibold text-[11px]">
+                    Mon–Sat: 9 AM–7 PM
+                  </span>
+                </div>
+              </div>
+
+              {/* Compact Local Trust Bar */}
+              <div className="p-3 bg-[#FAF7EE] rounded-xl border border-[#E8E2D5] flex items-center justify-between gap-3">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-9 h-9 rounded-lg bg-[#071B3A] text-[#C59B27] flex items-center justify-center font-black text-sm shrink-0">
+                    RR
+                  </div>
+                  <div className="leading-tight">
+                    <span className="text-xs font-bold text-[#071B3A] block">
+                      Individual Machine Guarantee
+                    </span>
+                    <span className="text-[11px] text-[#4A5568]">
+                      1 Student = 1 PC. No sharing.
+                    </span>
+                  </div>
+                </div>
+
+                <div className="text-right">
+                  <span className="text-xs font-black text-[#C0392B] uppercase block">
+                    {OFFERS_CONFIG.badge}
+                  </span>
+                  <span className="text-[10px] text-gray-500 block">
+                    Limited Seats
+                  </span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
         </div>
 
       </div>
     </section>
-  )
+  );
 }
