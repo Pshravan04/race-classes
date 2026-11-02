@@ -3,13 +3,12 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, MessageSquare } from 'lucide-react';
 import { SITE_CONFIG } from '../data/config';
 import { useLanguage } from '../context/useLanguage';
-import type { Language } from '../data/translations';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
-  const { language, setLanguage, t } = useLanguage();
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -56,38 +55,11 @@ export default function Header() {
 
             <a
               href={`tel:${SITE_CONFIG.contact.phone}`}
-              className="hidden lg:flex items-center gap-1 text-slate-200 hover:text-white transition-colors"
+              className="flex items-center gap-1.5 text-slate-200 hover:text-white transition-colors text-xs font-semibold"
             >
-              <Phone size={10} className="text-[#F5BE4F]" />
-              <span className="font-medium">Call: {SITE_CONFIG.contact.phone}</span>
+              <Phone size={11} className="text-[#F5BE4F]" />
+              <span>Call: {SITE_CONFIG.contact.phone}</span>
             </a>
-
-            {/* Language Toggle: EN / हिं / मरा */}
-            <div
-              className="flex items-center gap-0.5 bg-[#000E33] p-0.5 rounded-full border border-white/15"
-              role="group"
-              aria-label="Language selection"
-            >
-              {(['en', 'hi', 'mr'] as Language[]).map((lang) => {
-                const isActive = language === lang;
-                const labels = { en: 'EN', hi: 'हिं', mr: 'मरा' };
-                return (
-                  <button
-                    key={lang}
-                    type="button"
-                    onClick={() => setLanguage(lang)}
-                    aria-pressed={isActive}
-                    className={`px-2 py-0.5 text-[10px] font-bold rounded-full transition-all ${
-                      isActive
-                        ? 'bg-[#C41E1E] text-white shadow-xs'
-                        : 'text-slate-300 hover:text-white'
-                    }`}
-                  >
-                    {labels[lang]}
-                  </button>
-                );
-              })}
-            </div>
           </div>
 
         </div>

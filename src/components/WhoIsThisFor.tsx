@@ -56,7 +56,7 @@ export default function WhoIsThisFor() {
         {/* Section Header */}
         <div className="max-w-3xl mb-10 sm:mb-12">
           <div className="station-board mb-3 text-xs">
-            TARGET AUDIENCE • कोणासाठी आहे?
+            TARGET AUDIENCE
           </div>
           <h2 id="who-heading" className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#071B3A] font-serif-heading mb-3">
             {t.whoHeading}

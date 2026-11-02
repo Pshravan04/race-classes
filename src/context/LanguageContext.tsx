@@ -7,10 +7,7 @@ const STORAGE_KEY = 'race_reddys_language';
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [language, setLanguageState] = useState<Language>(() => {
     try {
-      const saved = localStorage.getItem(STORAGE_KEY) as Language | null;
-      if (saved && (saved === 'en' || saved === 'hi' || saved === 'mr')) {
-        return saved;
-      }
+      localStorage.removeItem(STORAGE_KEY);
     } catch {
       // fallback
     }
@@ -27,7 +24,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   };
 
   useEffect(() => {
-    document.documentElement.lang = language === 'mr' ? 'mr-IN' : language === 'hi' ? 'hi-IN' : 'en';
+    document.documentElement.lang = 'en';
   }, [language]);
 
   const value = {

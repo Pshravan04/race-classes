@@ -42,7 +42,7 @@ Message: ${message || 'I would like to enquire about admissions and batch availa
       />
 
       <PageHero
-        eyebrow="Contact &amp; Location · संपर्क आणि पत्ता"
+        eyebrow="Contact &amp; Location"
         title="Visit Our Centre or Chat With Our Instructors"
         description="We are located directly opposite the Virar East railway subway. Just 2 minutes on foot from Platform 1/2 exit. Walk in anytime during working hours for a free demo session."
         aside={

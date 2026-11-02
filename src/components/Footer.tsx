@@ -2,10 +2,9 @@ import { Link } from 'react-router-dom';
 import { Phone, MessageSquare, Clock, ArrowUpRight, MapPin } from 'lucide-react';
 import { SITE_CONFIG } from '../data/config';
 import { useLanguage } from '../context/useLanguage';
-import type { Language } from '../data/translations';
 
 export default function Footer() {
-  const { language, setLanguage, t } = useLanguage();
+  const { t } = useLanguage();
 
   return (
     <footer className="relative bg-[#001752] text-white border-t border-[#002277] pt-14 pb-24 md:pb-12 text-xs sm:text-sm overflow-hidden">
@@ -48,7 +47,7 @@ export default function Footer() {
             <ul className="space-y-2.5 text-xs text-slate-300">
               <li>
                 <Link to="/" className="hover:text-white transition-colors">
-                  Home (मुख्य पृष्ठ)
+                  Home
                 </Link>
               </li>
               <li>
@@ -179,29 +178,8 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="pt-7 flex flex-col lg:flex-row items-center justify-between gap-4 text-xs text-slate-400">
-          <div className="flex flex-wrap items-center justify-center gap-2" role="group" aria-label="Language selection">
-            <span>Select Language / भाषा निवडा:</span>
-            <div className="flex items-center gap-0.5 rounded-full border border-white/10 bg-white/5 p-0.5">
-              {(['en', 'hi', 'mr'] as Language[]).map((l) => (
-                <button
-                  key={l}
-                  type="button"
-                  onClick={() => setLanguage(l)}
-                  aria-pressed={language === l}
-                  className={`px-2.5 py-1 rounded-full text-[11px] font-bold transition-colors ${
-                    language === l
-                      ? 'bg-[#C41E1E] text-white shadow-xs'
-                      : 'text-slate-300 hover:text-white'
-                  }`}
-                >
-                  {l === 'en' ? 'English' : l === 'hi' ? 'हिंदी' : 'मराठी'}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          <div className="text-center">
+        <div className="pt-7 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+          <div className="text-center sm:text-left">
             © 2026 Race Reddys Advanced Computer Education. All rights reserved.
           </div>
 
@@ -209,13 +187,14 @@ export default function Footer() {
             <Link to="/privacy" className="hover:text-white transition-colors">
               Privacy &amp; Terms
             </Link>
+            <span>•</span>
             <a
               href={SITE_CONFIG.address.googleMapsDirectLink}
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-white flex items-center gap-1 transition-colors"
             >
-              <span>Google Maps</span>
+              <span>Virar East Subway Exit</span>
               <ArrowUpRight size={12} />
             </a>
           </div>

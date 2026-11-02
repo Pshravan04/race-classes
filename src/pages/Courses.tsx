@@ -91,7 +91,7 @@ export default function Courses() {
       />
 
       <PageHero
-        eyebrow="Course Catalogue · सर्व २३ कोर्सेस"
+        eyebrow="Course Catalogue · All 23 Courses"
         title="Explore All 23 Practical Computer & IT Courses"
         description="Every course is taught on real computers with step-by-step guidance right opposite Virar East station. Filter by your career objective or learning goal below."
         aside={

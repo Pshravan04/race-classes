@@ -16,7 +16,7 @@ export default function FAQSection() {
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-12">
           <div className="station-board-yellow inline-block mb-3 text-xs font-black">
-            FREQUENTLY ASKED QUESTIONS • वारंवार विचारले जाणारे प्रश्न
+            FREQUENTLY ASKED QUESTIONS
           </div>
           
           <h2 id="faq-heading" className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#071B3A] font-serif-heading mb-3">

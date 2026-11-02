@@ -19,7 +19,7 @@ export default function HeroSection() {
             {/* Station Signplate */}
             <div className="inline-flex items-center gap-2 mb-4">
               <span className="station-board-yellow text-[11px] font-black uppercase tracking-wider px-2.5 py-1">
-                VIRAR EAST • विरार पूर्व
+                VIRAR EAST
               </span>
               <span className="text-xs font-bold text-[#071B3A] tracking-wide">
                 Opp. Subway &amp; Station • 2 Min Walk

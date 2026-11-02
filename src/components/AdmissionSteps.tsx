@@ -36,7 +36,7 @@ export default function AdmissionSteps() {
         {/* Section Header */}
         <div className="max-w-3xl mb-10 sm:mb-12">
           <div className="station-board mb-3 text-xs">
-            ADMISSION PROCESS • प्रवेश प्रक्रिया
+            ADMISSION PROCESS
           </div>
           <h2 id="steps-heading" className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#071B3A] font-serif-heading mb-3">
             {t.stepsHeading}

@@ -9,7 +9,7 @@ export default function MapAddressBlock() {
         {/* Section Header */}
         <div className="max-w-3xl mb-10">
           <div className="station-board mb-3 text-xs">
-            LOCATION &amp; TIMINGS • पत्ता व वेळ
+            LOCATION &amp; TIMINGS
           </div>
           <h2 id="location-heading" className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#071B3A] font-serif-heading mb-2">
             Right Opposite Virar East Railway Station

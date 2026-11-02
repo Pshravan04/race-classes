@@ -36,7 +36,7 @@ export default function FeaturedCourses() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
           <div>
             <div className="station-board-yellow inline-block mb-3 text-xs font-black">
-              POPULAR CHOICES • लोकप्रिय कोर्सेस
+              POPULAR CHOICES
             </div>
             <h2 id="featured-heading" className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#071B3A] font-serif-heading">
               Featured Job-Ready Courses

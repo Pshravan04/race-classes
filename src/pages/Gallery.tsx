@@ -89,7 +89,7 @@ export default function Gallery() {
       />
 
       <PageHero
-        eyebrow="Authentic Lab Moments · खरी प्रगती"
+        eyebrow="Authentic Lab Moments"
         title="Gallery & Student Learning Journey"
         description="We stand for genuine, grounded education. Explore authentic daily sessions, active workstation practice, and student certification milestones at Raut Arcade, Virar East."
         aside={

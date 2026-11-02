@@ -23,7 +23,7 @@ export default function About() {
       />
 
       <PageHero
-        eyebrow="Our Mission &amp; Heritage · आमच्याबद्दल"
+        eyebrow="Our Mission &amp; Heritage"
         title="Grounded in Virar, Built for Practical Tech Careers"
         description="We started Race Reddys with one clear conviction: students, homemakers, and job seekers in Virar and Vasai should not have to spend 4 hours in crowded local trains just to learn quality computer skills."
         aside={

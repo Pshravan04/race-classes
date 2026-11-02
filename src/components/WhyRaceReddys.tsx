@@ -46,7 +46,7 @@ export default function WhyRaceReddys() {
       title: t.why7Title,
       desc: t.why7Desc,
       icon: Keyboard,
-      stat: 'English + मराठी',
+      stat: 'English & Regional',
     },
   ];
 
@@ -57,7 +57,7 @@ export default function WhyRaceReddys() {
         {/* Section Header */}
         <div className="max-w-3xl mb-10 sm:mb-12">
           <div className="station-board-yellow inline-block mb-3 text-xs font-black">
-            PROVEN BENEFITS • आमची वैशिष्ट्ये
+            PROVEN BENEFITS
           </div>
           <h2 id="why-heading" className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#071B3A] font-serif-heading mb-3">
             {t.whyHeading}

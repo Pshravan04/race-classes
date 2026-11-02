@@ -28,7 +28,7 @@ export default function Offers() {
       />
 
       <PageHero
-        eyebrow="Special Concession Scheme · सवलत योजना"
+        eyebrow="Special Concession Scheme"
         title={OFFERS_CONFIG.bannerHeadline}
         description="We believe quality computer education should be affordable to every family in Virar East and Palghar district. Avail our limited-time subsidies below."
       />

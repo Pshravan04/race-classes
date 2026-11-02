@@ -40,7 +40,7 @@ export default function BatchesAndFees() {
       />
 
       <PageHero
-        eyebrow="Timetable & Fees · बॅचेस आणि फी"
+        eyebrow="Timetable & Fees"
         title="Batch Schedules & Transparent Fee Counseling"
         description="Open Monday to Saturday from 9:00 AM to 7:00 PM. Designed to fit around college lectures, office commutes on the Western Railway, and household schedules."
         aside={

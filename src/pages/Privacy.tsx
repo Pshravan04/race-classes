@@ -17,7 +17,7 @@ export default function Privacy() {
       />
 
       <PageHero
-        eyebrow="Privacy Policy · गोपनीयता धोरण"
+        eyebrow="Privacy Policy"
         title="Student Privacy & Communication Commitment"
         description="We treat student inquiry details with strict confidentiality. No spam calls, no commercial data selling, and zero third-party marketing sharing."
       />
