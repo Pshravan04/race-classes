@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import { Phone, MessageSquare, MapPin, Clock, Send, CheckCircle2 } from 'lucide-react';
+import { Phone, MessageSquare, MapPin, Clock, Send, CheckCircle2, Sparkles, Navigation, ArrowRight } from 'lucide-react';
 import SEO from '../components/SEO';
-import RailwayTrackDivider from '../components/RailwayTrackDivider';
+import PageHero from '../components/PageHero';
+import CtaBand from '../components/CtaBand';
 import { SITE_CONFIG, COURSES } from '../data/config';
 
 export default function Contact() {
-
   const [fullName, setFullName] = useState('');
   const [phone, setPhone] = useState('');
   const [course, setCourse] = useState('Basic Computer');
@@ -17,11 +17,10 @@ export default function Contact() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    // Simulate submission to backend / local storage
     setTimeout(() => {
       setLoading(false);
       setSubmitted(true);
-    }, 600);
+    }, 500);
   };
 
   const getWhatsAppPrefillUrl = () => {
@@ -42,297 +41,364 @@ Message: ${message || 'I would like to enquire about admissions and batch availa
         canonical="/contact"
       />
 
-      {/* Header Banner */}
-      <section className="bg-[#FAF7EE] border-b border-[#E8E2D5] py-10 sm:py-14">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <div className="station-board-yellow inline-block mb-3 text-xs font-black">
-              CONTACT &amp; LOCATION • संपर्क आणि पत्ता
-            </div>
-            
-            <h1 className="text-3xl sm:text-4xl font-extrabold text-[#071B3A] font-serif-heading mb-3">
-              Visit Our Centre or Chat With Our Instructors
-            </h1>
-            
-            <p className="text-sm sm:text-base text-[#4A5568] leading-relaxed">
-              We are located directly opposite the Virar East railway subway. Just 2 minutes on foot from Platform 2 exit. Walk in anytime during working hours.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Contact &amp; Location · संपर्क आणि पत्ता"
+        title="Visit Our Centre or Chat With Our Instructors"
+        description="We are located directly opposite the Virar East railway subway. Just 2 minutes on foot from Platform 1/2 exit. Walk in anytime during working hours for a free demo session."
+        aside={
+          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-[#0B1528] via-[#080E1C] to-[#040812] p-6 sm:p-7 text-white shadow-2xl">
+            <div className="absolute -right-12 -top-12 h-48 w-48 rounded-full bg-[#0084FF]/20 blur-[80px] pointer-events-none" />
+            <div className="absolute -left-12 -bottom-12 h-48 w-48 rounded-full bg-[#F5BE4F]/10 blur-[80px] pointer-events-none" />
 
-      {/* Main Contact Grid */}
-      <section className="py-12 sm:py-16 bg-[#FBF9F5]" id="demo">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
-            
-            {/* Left Column: Direct Contacts & Address Cards (5 cols) */}
-            <div className="lg:col-span-5 space-y-6">
-              
-              {/* Quick Action Buttons */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div className="relative z-10">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#F5BE4F] px-3 py-1 text-[10px] font-black uppercase tracking-wider text-[#111827]">
+                <Sparkles size={12} />
+                Quick Communication Desk
+              </span>
+
+              <h2 className="mt-4 text-2xl font-bold tracking-tight">
+                Immediate Callback on WhatsApp
+              </h2>
+              <p className="mt-2 text-xs sm:text-sm leading-relaxed text-slate-300">
+                Message our Virar East counselors directly for batch schedules, syllabus brochures, and fee concession details.
+              </p>
+
+              <div className="mt-5 space-y-2.5">
                 <a
                   href={`tel:${SITE_CONFIG.contact.phone}`}
-                  className="flex items-center justify-center gap-2.5 bg-[#071B3A] hover:bg-[#0E2B5C] text-white p-4 rounded-xl font-bold text-sm shadow-xs transition-colors border border-[#C59B27]"
-                  aria-label={`Call ${SITE_CONFIG.contact.phoneDisplay}`}
+                  className="flex items-center justify-between p-3 rounded-2xl bg-white/5 border border-white/10 text-xs hover:bg-white/10 transition"
                 >
-                  <Phone size={18} className="text-[#D8AF3E]" />
-                  <span>Call {SITE_CONFIG.contact.phone}</span>
+                  <span className="flex items-center gap-2 text-slate-300">
+                    <Phone size={14} className="text-[#0084FF]" />
+                    <span>Direct Calling:</span>
+                  </span>
+                  <strong className="text-white font-bold">{SITE_CONFIG.contact.phone}</strong>
                 </a>
 
                 <a
                   href={`${SITE_CONFIG.contact.whatsapp}?text=${encodeURIComponent(
-                    'Hello! I would like to visit Race Reddys Virar East for course admission.'
+                    'Hello Race Reddys! I would like to enquire about course admissions at your Virar East centre.'
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20BA5A] text-white p-4 rounded-xl font-bold text-sm shadow-xs transition-colors"
-                  aria-label="Chat with institute on WhatsApp"
+                  className="flex items-center justify-between p-3 rounded-2xl bg-[#25D366]/15 border border-[#25D366]/30 text-xs text-white hover:bg-[#25D366]/25 transition"
                 >
-                  <MessageSquare size={18} />
-                  <span>WhatsApp Us</span>
+                  <span className="flex items-center gap-2 text-slate-200">
+                    <MessageSquare size={14} className="text-[#25D366]" />
+                    <span>WhatsApp Chat:</span>
+                  </span>
+                  <strong className="text-[#25D366] font-bold">Start Chat ↗</strong>
                 </a>
               </div>
+            </div>
+          </div>
+        }
+      />
 
-              {/* Physical Location Card */}
-              <div className="bg-white p-6 rounded-2xl border border-[#E8E2D5] shadow-xs space-y-4">
-                <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-[#071B3A] text-[#C59B27] flex items-center justify-center shrink-0">
-                    <MapPin size={20} />
-                  </div>
-                  <div>
-                    <span className="text-[11px] font-bold text-gray-500 uppercase tracking-wider block">
-                      Physical Address
-                    </span>
-                    <strong className="text-sm sm:text-base text-[#071B3A] font-bold block mt-0.5">
-                      {SITE_CONFIG.address.line1}
-                    </strong>
-                    <span className="text-xs text-[#4A5568] block mt-0.5 leading-relaxed">
-                      {SITE_CONFIG.address.line2}, {SITE_CONFIG.address.city}, {SITE_CONFIG.address.state} – {SITE_CONFIG.address.pin}
-                    </span>
-                    <span className="text-xs text-[#6B5A24] font-medium block mt-1">
-                      Landmark: {SITE_CONFIG.address.landmark}
-                    </span>
-                  </div>
+      {/* ─── 3 Direct Contact Cards ─── */}
+      <section className="bg-white py-12 sm:py-16 border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <div className="p-6 rounded-3xl border border-slate-200 bg-[#F8F9FA] flex flex-col justify-between shadow-xs">
+              <div>
+                <div className="w-11 h-11 rounded-2xl bg-sky-50 border border-sky-100 flex items-center justify-center text-[#0084FF] mb-4">
+                  <MapPin size={20} />
                 </div>
+                <h3 className="font-bold text-base text-[#111827] mb-1">Campus Location</h3>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  {SITE_CONFIG.address.line1}, {SITE_CONFIG.address.line2}, {SITE_CONFIG.address.city}, {SITE_CONFIG.address.state} - {SITE_CONFIG.address.pin}
+                </p>
+              </div>
+              <a
+                href={SITE_CONFIG.address.googleMapsDirectLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 inline-flex items-center gap-1.5 text-xs font-bold text-[#0084FF] hover:underline"
+              >
+                <span>Open in Google Maps</span>
+                <Navigation size={13} />
+              </a>
+            </div>
 
-                <div className="pt-3 border-t border-[#E8E2D5] flex items-start gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-[#FAF7EE] text-[#071B3A] flex items-center justify-center shrink-0 border border-[#E8E2D5]">
-                    <Clock size={19} className="text-[#C0392B]" />
-                  </div>
-                  <div>
-                    <span className="text-[11px] font-bold text-gray-500 uppercase tracking-wider block">
-                      Working Timings
-                    </span>
-                    <strong className="text-xs sm:text-sm text-[#071B3A] font-bold block mt-0.5">
-                      Monday to Saturday: 9:00 AM – 7:00 PM
-                    </strong>
-                    <span className="text-xs text-gray-500 block">
-                      Sunday: Closed (Special classes by appointment)
-                    </span>
-                  </div>
+            <div className="p-6 rounded-3xl border border-slate-200 bg-[#F8F9FA] flex flex-col justify-between shadow-xs">
+              <div>
+                <div className="w-11 h-11 rounded-2xl bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-600 mb-4">
+                  <Phone size={20} />
+                </div>
+                <h3 className="font-bold text-base text-[#111827] mb-1">Telephone &amp; WhatsApp</h3>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3">
+                  Call or message for admission counseling, syllabus PDFs, and fee concession details:
+                </p>
+                <div className="space-y-1 text-xs">
+                  <a href={`tel:${SITE_CONFIG.contact.phone}`} className="font-bold text-[#111827] block hover:text-[#0084FF]">
+                    📞 {SITE_CONFIG.contact.phone}
+                  </a>
+                  <span className="text-slate-500 block">WhatsApp: {SITE_CONFIG.contact.phoneDisplay}</span>
                 </div>
               </div>
+              <a
+                href={`${SITE_CONFIG.contact.whatsapp}?text=${encodeURIComponent('Hello! I would like to enquire about computer classes at Race Reddys Virar East.')}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 inline-flex items-center gap-1.5 text-xs font-bold text-emerald-600 hover:underline"
+              >
+                <span>Chat on WhatsApp</span>
+                <ArrowRight size={13} />
+              </a>
+            </div>
 
-              {/* Embedded Google Map */}
-              <div className="bg-white p-2 rounded-2xl border border-[#E8E2D5] shadow-xs overflow-hidden">
-                <div className="relative aspect-[16/10] w-full rounded-xl overflow-hidden bg-gray-100">
-                  <iframe
-                    title="Race Reddys Location opposite Virar East Railway Station"
-                    src={SITE_CONFIG.address.googleMapsEmbedUrl}
-                    className="w-full h-full border-0"
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                  />
+            <div className="p-6 rounded-3xl border border-slate-200 bg-[#F8F9FA] flex flex-col justify-between shadow-xs">
+              <div>
+                <div className="w-11 h-11 rounded-2xl bg-amber-50 border border-amber-100 flex items-center justify-center text-amber-600 mb-4">
+                  <Clock size={20} />
                 </div>
-                <div className="p-3 text-center">
+                <h3 className="font-bold text-base text-[#111827] mb-1">Centre Working Hours</h3>
+                <div className="space-y-1.5 text-xs sm:text-sm text-slate-600">
+                  <p><strong>Monday – Saturday:</strong> 9:00 AM – 7:00 PM</p>
+                  <p><strong>Sunday:</strong> Closed for routine maintenance</p>
+                </div>
+              </div>
+              <div className="mt-4">
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 px-3 py-1 text-[11px] font-bold">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                  Admissions Open Today
+                </span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Main Interactive Contact & Enquiry Form ─── */}
+      <section className="py-16 sm:py-20 bg-[#F8F9FA]" id="demo">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+            
+            {/* Left: Walking Directions & Station Proximity */}
+            <div className="lg:col-span-5 space-y-6">
+              <div className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm space-y-4">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-400/15 text-amber-700 text-xs font-bold uppercase tracking-wider">
+                  <MapPin size={12} />
+                  Walking Directions
+                </span>
+
+                <h2 className="text-xl sm:text-2xl font-bold text-[#111827]">
+                  How to Reach Us from Virar Station
+                </h2>
+
+                <div className="space-y-3.5 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  <div className="flex items-start gap-3">
+                    <span className="w-6 h-6 rounded-full bg-[#111827] text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">1</span>
+                    <span>Get off the local train at <strong>Virar Station (Platform 1 or 2)</strong>.</span>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <span className="w-6 h-6 rounded-full bg-[#111827] text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">2</span>
+                    <span>Take the pedestrian subway exit toward <strong>Virar East</strong>.</span>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <span className="w-6 h-6 rounded-full bg-[#111827] text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">3</span>
+                    <span>As soon as you climb the subway stairs, <strong>Raut Arcade</strong> is right opposite the subway opening.</span>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <span className="w-6 h-6 rounded-full bg-[#0084FF] text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">4</span>
+                    <span>Come up to the <strong>2nd Floor, Room No. 202</strong>. Our reception team will welcome you.</span>
+                  </div>
+                </div>
+
+                <div className="pt-2">
                   <a
                     href={SITE_CONFIG.address.googleMapsDirectLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-xs font-bold text-[#071B3A] hover:text-[#C59B27] underline"
+                    className="w-full inline-flex items-center justify-center gap-2 h-11 px-5 rounded-full bg-[#111827] hover:bg-[#1E293B] text-white text-xs font-bold transition-all shadow-xs active:scale-95"
                   >
-                    Open in Google Maps Application ↗
+                    <Navigation size={14} className="text-[#F5BE4F]" />
+                    <span>Open Live Navigation in Google Maps</span>
                   </a>
                 </div>
               </div>
 
+              {/* Lab Preview Thumbnail */}
+              <div className="rounded-3xl border border-slate-200 overflow-hidden bg-white shadow-sm">
+                <div className="relative aspect-[16/10] overflow-hidden bg-slate-900">
+                  <img
+                    src="/images/lab-students.jpg"
+                    alt="Students practicing on computers at Race Reddys Virar"
+                    className="w-full h-full object-cover"
+                  />
+                  <span className="absolute top-3 left-3 bg-[#0084FF] text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full shadow-sm">
+                    Raut Arcade Lab 202
+                  </span>
+                  <span className="absolute bottom-3 left-3 right-3 bg-black/60 backdrop-blur-xs text-white text-[11px] font-semibold px-3 py-1.5 rounded-xl">
+                    100% Practical • 1 Student : 1 Computer
+                  </span>
+                </div>
+              </div>
             </div>
 
-            {/* Right Column: Admission Enquiry & Demo Booking Form (7 cols) */}
-            <div className="lg:col-span-7">
-              <div className="bg-white p-6 sm:p-8 rounded-2xl border border-[#E8E2D5] shadow-xs">
-                
-                <div className="station-board mb-3 text-xs">
-                  BOOK FREE DEMO / ENQUIRY
-                </div>
+            {/* Right: Admission & Demo Class Form */}
+            <div className="lg:col-span-7 bg-white p-6 sm:p-10 rounded-3xl border border-slate-200 shadow-sm">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-50 text-[#0084FF] text-xs font-bold uppercase tracking-wider mb-3">
+                <Sparkles size={12} />
+                Free Counseling &amp; Demo Class
+              </span>
 
-                <h2 className="text-2xl font-bold text-[#071B3A] font-serif-heading mb-2">
-                  Admission Enquiry &amp; Demo Class Registration
-                </h2>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#111827] tracking-tight mb-2">
+                Book a Free Trial Session or Ask Course Fees
+              </h2>
 
-                <p className="text-xs sm:text-sm text-[#4A5568] leading-relaxed mb-6">
-                  Fill in your details below. You can submit directly or send these details to us via WhatsApp with one tap.
-                </p>
+              <p className="text-xs sm:text-sm text-slate-500 mb-6 leading-relaxed">
+                Fill out the quick form below. Our Virar East counselor will contact you with the complete syllabus brochure, batch timing options, and 50% concession details.
+              </p>
 
-                {submitted ? (
-                  <div className="p-6 bg-[#FAF7EE] border border-[#C59B27] rounded-xl text-center space-y-3 animate-in fade-in">
-                    <CheckCircle2 size={40} className="text-[#25D366] mx-auto" />
-                    <h3 className="text-lg font-bold text-[#071B3A] font-serif-heading">
-                      Thank you, {fullName}!
-                    </h3>
-                    <p className="text-xs sm:text-sm text-[#4A5568] max-w-md mx-auto leading-relaxed">
-                      We have received your enquiry for <strong className="text-[#071B3A]">{course}</strong>. Our faculty will reach out to you shortly at <strong className="text-[#071B3A]">{phone}</strong>.
-                    </p>
-                    <div className="pt-2">
-                      <a
-                        href={getWhatsAppPrefillUrl()}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 bg-[#25D366] text-white text-xs font-bold px-4 py-2.5 rounded-lg"
-                      >
-                        <MessageSquare size={14} />
-                        <span>Also Send to Us on WhatsApp</span>
-                      </a>
-                    </div>
+              {submitted ? (
+                <div className="p-8 rounded-2xl bg-emerald-50 border border-emerald-200 text-center flex flex-col items-center gap-3 animate-in fade-in">
+                  <CheckCircle2 size={44} className="text-emerald-600" />
+                  <h3 className="font-extrabold text-lg text-emerald-950">
+                    Enquiry Submitted Successfully!
+                  </h3>
+                  <p className="text-xs sm:text-sm text-emerald-800 leading-relaxed max-w-md">
+                    Thank you, <strong>{fullName}</strong>. Our Virar East coordinator will reach out to you at <strong>{phone}</strong> regarding <strong>{course}</strong>.
+                  </p>
+
+                  <div className="flex flex-col sm:flex-row gap-3 mt-4 w-full max-w-md">
+                    <a
+                      href={getWhatsAppPrefillUrl()}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold text-xs py-3 px-4 rounded-full flex items-center justify-center gap-2 transition shadow-xs"
+                    >
+                      <MessageSquare size={15} />
+                      <span>Continue on WhatsApp Now</span>
+                    </a>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setSubmitted(false);
+                        setFullName('');
+                        setPhone('');
+                        setMessage('');
+                      }}
+                      className="w-full bg-white hover:bg-slate-50 text-slate-700 border border-slate-300 font-bold text-xs py-3 px-4 rounded-full transition"
+                    >
+                      Submit Another Enquiry
+                    </button>
                   </div>
-                ) : (
-                  <form onSubmit={handleSubmit} className="space-y-4">
-                    
-                    {/* Full Name */}
-                    <div>
-                      <label htmlFor="fullname" className="block text-xs font-bold text-[#071B3A] mb-1">
-                        Full Name <span className="text-[#C0392B]">*</span>
-                      </label>
-                      <input
-                        id="fullname"
-                        type="text"
-                        required
-                        placeholder="e.g. Rahul Patil / Priya Sharma"
-                        value={fullName}
-                        onChange={(e) => setFullName(e.target.value)}
-                        className="w-full px-3.5 py-2.5 rounded-xl border border-[#E8E2D5] text-sm text-[#071B3A] focus:outline-hidden focus:border-[#C59B27] focus:ring-2 focus:ring-[#C59B27]/20"
-                      />
-                    </div>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div>
+                    <label className="block text-xs font-bold text-slate-700 mb-1" htmlFor="full-name">
+                      Full Name *
+                    </label>
+                    <input
+                      id="full-name"
+                      type="text"
+                      required
+                      value={fullName}
+                      onChange={(e) => setFullName(e.target.value)}
+                      placeholder="e.g. Rahul Sharma"
+                      className="w-full text-xs sm:text-sm px-4 py-3 rounded-2xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#0084FF] bg-white transition"
+                    />
+                  </div>
 
-                    {/* Phone Number */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="phone" className="block text-xs font-bold text-[#071B3A] mb-1">
-                        Phone / WhatsApp Number <span className="text-[#C0392B]">*</span>
+                      <label className="block text-xs font-bold text-slate-700 mb-1" htmlFor="phone-number">
+                        Mobile / WhatsApp Number *
                       </label>
                       <input
-                        id="phone"
+                        id="phone-number"
                         type="tel"
                         required
-                        placeholder="10-digit mobile number"
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
-                        className="w-full px-3.5 py-2.5 rounded-xl border border-[#E8E2D5] text-sm text-[#071B3A] focus:outline-hidden focus:border-[#C59B27] focus:ring-2 focus:ring-[#C59B27]/20"
+                        placeholder="e.g. 9876543210"
+                        className="w-full text-xs sm:text-sm px-4 py-3 rounded-2xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#0084FF] bg-white transition"
                       />
                     </div>
 
-                    {/* Course Selection */}
                     <div>
-                      <label htmlFor="course-select" className="block text-xs font-bold text-[#071B3A] mb-1">
-                        Course You Are Interested In
+                      <label className="block text-xs font-bold text-slate-700 mb-1" htmlFor="course-select">
+                        Interested Course *
                       </label>
                       <select
                         id="course-select"
                         value={course}
                         onChange={(e) => setCourse(e.target.value)}
-                        className="w-full px-3.5 py-2.5 rounded-xl border border-[#E8E2D5] text-sm text-[#071B3A] focus:outline-hidden focus:border-[#C59B27] bg-white"
+                        className="w-full text-xs sm:text-sm px-4 py-3 rounded-2xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#0084FF] bg-white transition"
                       >
-                        <optgroup label="Short-Term Courses (12)">
-                          {COURSES.filter((c) => c.type === 'short-term').map((c) => (
-                            <option key={c.id} value={c.name}>
-                              {c.name}
-                            </option>
-                          ))}
-                        </optgroup>
-                        <optgroup label="Career-Objective Courses (11)">
-                          {COURSES.filter((c) => c.type === 'career').map((c) => (
-                            <option key={c.id} value={c.name}>
-                              {c.name}
-                            </option>
-                          ))}
-                        </optgroup>
+                        {COURSES.map((c) => (
+                          <option key={c.id} value={c.name}>
+                            {c.name} ({c.type === 'career' ? 'Career Diploma' : 'Short-Term'})
+                          </option>
+                        ))}
                       </select>
                     </div>
+                  </div>
 
-                    {/* Preferred Batch */}
-                    <div>
-                      <label htmlFor="batch-select" className="block text-xs font-bold text-[#071B3A] mb-1">
-                        Preferred Batch Timing
-                      </label>
-                      <select
-                        id="batch-select"
-                        value={preferredBatch}
-                        onChange={(e) => setPreferredBatch(e.target.value)}
-                        className="w-full px-3.5 py-2.5 rounded-xl border border-[#E8E2D5] text-sm text-[#071B3A] focus:outline-hidden focus:border-[#C59B27] bg-white"
-                      >
-                        <option value="Morning Batch (7:30 AM – 9:00 AM)">Early Morning College Batch (7:30 AM – 9:00 AM)</option>
-                        <option value="Morning Batch (9:00 AM – 10:30 AM)">Morning General Batch (9:00 AM – 10:30 AM)</option>
-                        <option value="Late Morning Batch (10:30 AM – 12:00 PM)">Late Morning Batch (10:30 AM – 12:00 PM)</option>
-                        <option value="Special Ladies Batch (12:30 PM – 2:00 PM)">Special Ladies &amp; Homemakers Batch (12:30 PM – 2:00 PM)</option>
-                        <option value="Afternoon Practical Batch (2:30 PM – 4:00 PM)">Afternoon Lab Batch (2:30 PM – 4:00 PM)</option>
-                        <option value="Late Afternoon Batch (4:30 PM – 6:00 PM)">Late Afternoon College Batch (4:30 PM – 6:00 PM)</option>
-                        <option value="Evening Working Professionals (6:00 PM – 7:30 PM)">Evening Working Professionals (6:00 PM – 7:30 PM)</option>
-                        <option value="Weekend Special Batch">Weekend Batch</option>
-                      </select>
-                    </div>
+                  <div>
+                    <label className="block text-xs font-bold text-slate-700 mb-1" htmlFor="batch-timing">
+                      Preferred Batch Timing
+                    </label>
+                    <select
+                      id="batch-timing"
+                      value={preferredBatch}
+                      onChange={(e) => setPreferredBatch(e.target.value)}
+                      className="w-full text-xs sm:text-sm px-4 py-3 rounded-2xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#0084FF] bg-white transition"
+                    >
+                      <option>Morning Batch (9:00 AM – 10:30 AM)</option>
+                      <option>Mid-Day Batch (10:30 AM – 12:00 PM)</option>
+                      <option>Ladies Batch (12:30 PM – 2:00 PM)</option>
+                      <option>Afternoon Batch (2:00 PM – 3:30 PM)</option>
+                      <option>Evening Student Batch (4:00 PM – 5:30 PM)</option>
+                      <option>Late Evening Working Batch (5:30 PM – 7:00 PM)</option>
+                    </select>
+                  </div>
 
-                    {/* Optional Message */}
-                    <div>
-                      <label htmlFor="notes" className="block text-xs font-bold text-[#071B3A] mb-1">
-                        Any specific requirement or question? (Optional)
-                      </label>
-                      <textarea
-                        id="notes"
-                        rows={3}
-                        placeholder="e.g. Do you have weekend slots? Want to know fees with 50% offer..."
-                        value={message}
-                        onChange={(e) => setMessage(e.target.value)}
-                        className="w-full px-3.5 py-2 rounded-xl border border-[#E8E2D5] text-sm text-[#071B3A] focus:outline-hidden focus:border-[#C59B27]"
-                      />
-                    </div>
+                  <div>
+                    <label className="block text-xs font-bold text-slate-700 mb-1" htmlFor="enquiry-notes">
+                      Any specific questions? (Optional)
+                    </label>
+                    <textarea
+                      id="enquiry-notes"
+                      rows={3}
+                      value={message}
+                      onChange={(e) => setMessage(e.target.value)}
+                      placeholder="e.g. Can I start from next Monday? Is installment facility available?"
+                      className="w-full text-xs sm:text-sm px-4 py-3 rounded-2xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#0084FF] bg-white transition"
+                    />
+                  </div>
 
-                    {/* Action Buttons: Submit + WhatsApp Fallback */}
-                    <div className="pt-2 flex flex-col sm:flex-row gap-3">
-                      <button
-                        type="submit"
-                        disabled={loading}
-                        className="flex-1 inline-flex items-center justify-center gap-2 bg-[#071B3A] hover:bg-[#0E2B5C] text-white font-bold text-sm py-3 px-6 rounded-xl border border-[#C59B27] transition-all cursor-pointer disabled:opacity-50"
-                      >
-                        <Send size={16} className="text-[#D8AF3E]" />
-                        <span>{loading ? 'Submitting...' : 'Submit Admission Enquiry'}</span>
-                      </button>
+                  <button
+                    type="submit"
+                    disabled={loading}
+                    className="w-full inline-flex items-center justify-center gap-2 h-12 px-8 rounded-full bg-[#111827] hover:bg-[#1E293B] text-white font-bold text-sm shadow-md transition-all active:scale-95 disabled:opacity-50"
+                  >
+                    <Send size={15} className="text-[#F5BE4F]" />
+                    <span>{loading ? 'Submitting Enquiry...' : 'Submit Admission Enquiry'}</span>
+                  </button>
 
-                      <a
-                        href={getWhatsAppPrefillUrl()}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20BA5A] text-white font-bold text-sm py-3 px-5 rounded-xl transition-all"
-                      >
-                        <MessageSquare size={16} />
-                        <span>Send via WhatsApp Fallback</span>
-                      </a>
-                    </div>
-
-                    <p className="text-[11px] text-gray-500 pt-1">
-                      🔒 Your phone number is kept strictly confidential. We do not spam.
-                    </p>
-
-                  </form>
-                )}
-
-              </div>
+                  <p className="text-[10px] text-slate-400 text-center pt-1">
+                    🔒 Privacy Guarantee: No spam calls. Your details are used strictly by our Virar East coordinator.
+                  </p>
+                </form>
+              )}
             </div>
 
           </div>
         </div>
       </section>
 
-      <RailwayTrackDivider label="VIRAR EAST • OPP. SUBWAY • MON–SAT 9 AM–7 PM" />
+      <CtaBand
+        title="Prefer to talk directly to an instructor?"
+        description="Call 9794323963 or walk directly into our lab at 202, Raut Arcade, right across the Virar East railway subway. We are happy to help."
+      />
     </>
   );
 }

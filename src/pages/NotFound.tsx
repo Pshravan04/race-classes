@@ -19,11 +19,11 @@ export default function NotFound() {
             The link you followed may be incorrect, or the page may have been moved. Return to our homepage or explore available courses.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3">
-            <Link to="/" className="btn-primary text-sm">
+            <Link to="/" className="inline-flex items-center gap-2 h-11 px-6 rounded-full bg-[#111827] hover:bg-[#1E293B] text-white text-xs sm:text-sm font-bold shadow-md transition-all">
               <Home size={15} />
               <span>Go to Homepage</span>
             </Link>
-            <Link to="/courses" className="btn-secondary text-sm">
+            <Link to="/courses" className="inline-flex items-center gap-2 h-11 px-6 rounded-full bg-white text-[#111827] border border-slate-300 hover:border-[#111827] text-xs sm:text-sm font-bold transition-all shadow-xs">
               <BookOpen size={15} />
               <span>Browse Courses</span>
             </Link>

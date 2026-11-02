@@ -32,7 +32,7 @@ export default function App() {
     <LanguageProvider>
       <BrowserRouter>
         <ScrollToTop />
-        <div className="min-h-screen bg-[#FBF9F5] text-[#1C2430] flex flex-col justify-between selection:bg-[#C59B27] selection:text-[#071B3A]">
+        <div className="min-h-screen bg-[#F8F9FA] text-[#111827] flex flex-col justify-between selection:bg-[#0084FF] selection:text-white">
           <div>
             <Header />
             <main id="main-content">

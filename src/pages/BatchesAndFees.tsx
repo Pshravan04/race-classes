@@ -1,10 +1,36 @@
-import { Clock, Heart, MessageSquare } from 'lucide-react';
+import { Clock, Heart, MessageSquare, Sparkles, CalendarClock } from 'lucide-react';
 import SEO from '../components/SEO';
-import RailwayTrackDivider from '../components/RailwayTrackDivider';
+import PageHero from '../components/PageHero';
+import SectionHeading from '../components/SectionHeading';
+import CtaBand from '../components/CtaBand';
 import { BATCHES_SCHEDULE, SITE_CONFIG } from '../data/config';
 
-export default function BatchesAndFees() {
+const FEE_PRINCIPLES = [
+  {
+    title: '1. Upfront 50% Concession',
+    description: 'Every enrolled student receives the current 50% fee concession automatically deducted at registration.',
+  },
+  {
+    title: '2. Monthly Easy Installments',
+    description: 'Pay comfortably in simple monthly installments as you learn. No interest, no third-party loan apps.',
+  },
+  {
+    title: '3. Zero Extra Exam Charges',
+    description: 'Lab workstation access, course notes, practice tests, and course certificate are all bundled in.',
+  },
+];
 
+function statusClasses(status: string) {
+  if (status === 'Special Dedicated Batch') {
+    return 'border border-[#F5BE4F]/50 bg-[#F5BE4F]/20 text-[#8A5A00]';
+  }
+  if (status === 'Filling Fast') {
+    return 'border border-rose-200 bg-rose-50 text-rose-700';
+  }
+  return 'border border-emerald-200 bg-emerald-50 text-emerald-700';
+}
+
+export default function BatchesAndFees() {
   return (
     <>
       <SEO
@@ -13,164 +39,164 @@ export default function BatchesAndFees() {
         canonical="/batches"
       />
 
-      {/* Header Banner */}
-      <section className="bg-[#FAF7EE] border-b border-[#E8E2D5] py-10 sm:py-14">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <div className="station-board-yellow inline-block mb-3 text-xs font-black">
-              TIMETABLE &amp; FEES • बॅचेस आणि फी
-            </div>
-            
-            <h1 className="text-3xl sm:text-4xl font-extrabold text-[#071B3A] font-serif-heading mb-3">
-              Batch Schedules &amp; Transparent Fee Counseling
-            </h1>
-            
-            <p className="text-sm sm:text-base text-[#4A5568] leading-relaxed">
-              Open Monday to Saturday from 9:00 AM to 7:00 PM. Designed to fit around college lectures, office commutes on the Western Railway, and household schedules.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Timetable & Fees · बॅचेस आणि फी"
+        title="Batch Schedules & Transparent Fee Counseling"
+        description="Open Monday to Saturday from 9:00 AM to 7:00 PM. Designed to fit around college lectures, office commutes on the Western Railway, and household schedules."
+        aside={
+          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-[#0B1528] via-[#080E1C] to-[#040812] p-6 sm:p-7 text-white shadow-2xl">
+            <div className="absolute -right-12 -top-12 h-48 w-48 rounded-full bg-[#0084FF]/20 blur-[80px] pointer-events-none" />
+            <div className="absolute -left-12 -bottom-12 h-48 w-48 rounded-full bg-[#F5BE4F]/10 blur-[80px] pointer-events-none" />
 
-      {/* Main Timetable Section */}
-      <section className="py-12 sm:py-16 bg-[#FBF9F5]">
+            <div className="relative z-10">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#F5BE4F] px-3 py-1 text-[10px] font-black uppercase tracking-wider text-[#111827]">
+                <CalendarClock size={12} />
+                Daily lab timetable
+              </span>
+
+              <h2 className="mt-4 text-2xl font-bold tracking-tight">
+                1.5 hours of machine time per batch
+              </h2>
+              <p className="mt-2 text-xs sm:text-sm leading-relaxed text-slate-300">
+                Eight weekday slots from early morning to evening, including a dedicated ladies and
+                homemakers batch.
+              </p>
+
+              <div className="mt-5 grid grid-cols-3 gap-2 rounded-2xl border border-white/10 bg-white/5 p-3 text-center">
+                <div>
+                  <strong className="block text-lg font-black text-white">8</strong>
+                  <span className="text-[10px] font-semibold text-slate-400">Slots</span>
+                </div>
+                <div className="border-x border-white/10">
+                  <strong className="block text-lg font-black text-white">1.5</strong>
+                  <span className="text-[10px] font-semibold text-slate-400">Hours</span>
+                </div>
+                <div>
+                  <strong className="block text-lg font-black text-white">1:1</strong>
+                  <span className="text-[10px] font-semibold text-slate-400">Machine</span>
+                </div>
+              </div>
+
+              <a
+                href={`${SITE_CONFIG.contact.whatsapp}?text=${encodeURIComponent(
+                  'Hello! I would like to confirm current batch timings and seat availability at Race Reddys Virar East.'
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#25D366] px-5 py-3 text-xs sm:text-sm font-bold text-white transition-all hover:bg-[#20BA5A] active:scale-95"
+              >
+                <MessageSquare size={15} />
+                <span>Check seat availability</span>
+              </a>
+            </div>
+          </div>
+        }
+      />
+
+      <section className="bg-[#F8F9FA] py-16 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          {/* Railway Station Board Timetable Wrapper */}
-          <div className="bg-white rounded-2xl border border-[#E8E2D5] shadow-xs overflow-hidden max-w-5xl mx-auto mb-12">
-            
-            {/* Timetable Header */}
-            <div className="bg-[#071B3A] text-white p-5 sm:p-6 border-b border-[#C59B27]/40 flex flex-wrap items-center justify-between gap-4">
+          {/* Timetable */}
+          <div className="mx-auto mb-12 max-w-5xl overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
+            <div className="flex flex-wrap items-center justify-between gap-4 border-b border-white/10 bg-[#0B0F19] p-5 text-white sm:p-6">
               <div>
-                <span className="station-board-yellow text-[10px] py-0.5 px-2">
-                  VIRAR JUNCTION
+                <span className="inline-flex items-center rounded-full bg-[#F5BE4F] px-2.5 py-0.5 text-[10px] font-black uppercase tracking-wider text-[#111827]">
+                  Virar East
                 </span>
-                <h2 className="text-xl sm:text-2xl font-bold font-serif-heading text-white mt-1">
+                <h2 className="mt-2 text-xl sm:text-2xl font-bold tracking-tight text-white">
                   Daily Lab Timetable (Mon–Sat)
                 </h2>
               </div>
 
-              <div className="flex items-center gap-2 text-xs text-gray-300">
-                <Clock size={15} className="text-[#D8AF3E]" />
+              <div className="flex items-center gap-2 text-xs text-slate-300">
+                <Clock size={15} className="text-[#0084FF]" />
                 <span>1.5 Hours Machine Time per Batch</span>
               </div>
             </div>
 
-            {/* Timetable Rows */}
-            <div className="divide-y divide-[#E8E2D5]">
-              {BATCHES_SCHEDULE.map((slot, index) => {
-                return (
-                  <div
-                    key={index}
-                    className={`p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition-colors ${
-                      slot.highlight
-                        ? 'bg-[#FFFDF5] border-l-4 border-l-[#C59B27]'
-                        : 'hover:bg-[#FAF7EE]'
-                    }`}
-                  >
-                    <div className="space-y-1">
-                      <div className="flex flex-wrap items-center gap-2">
-                        <strong className="text-sm sm:text-base text-[#071B3A] font-bold font-serif-heading">
-                          {slot.name}
-                        </strong>
+            <div className="divide-y divide-slate-100">
+              {BATCHES_SCHEDULE.map((slot, index) => (
+                <div
+                  key={index}
+                  className={`flex flex-col justify-between gap-4 p-4 transition-colors sm:flex-row sm:items-center sm:p-5 ${
+                    slot.highlight
+                      ? 'border-l-4 border-[#0084FF] bg-[#F8F9FA]'
+                      : 'hover:bg-[#F8F9FA]'
+                  }`}
+                >
+                  <div className="space-y-1">
+                    <div className="flex flex-wrap items-center gap-2">
+                      <strong className="text-sm font-bold text-[#111827] sm:text-base">
+                        {slot.name}
+                      </strong>
 
-                        {slot.highlight && (
-                          <span className="inline-flex items-center gap-1 text-[10px] font-black bg-[#C59B27] text-[#071B3A] px-2 py-0.5 rounded-full">
-                            <Heart size={11} className="fill-[#071B3A]" />
-                            Ladies &amp; Students Priority
-                          </span>
-                        )}
-                      </div>
-
-                      <p className="text-xs text-[#4A5568]">
-                        Recommended for: <span className="font-medium text-[#1A2332]">{slot.targetAudience}</span>
-                      </p>
+                      {slot.highlight && (
+                        <span className="inline-flex items-center gap-1 rounded-full bg-[#0084FF] px-2 py-0.5 text-[10px] font-black text-white">
+                          <Heart size={10} className="fill-white" />
+                          Ladies &amp; Students Priority
+                        </span>
+                      )}
                     </div>
 
-                    <div className="flex items-center justify-between sm:justify-end gap-4 shrink-0">
-                      {/* Timing Badge */}
-                      <span className="font-mono text-xs sm:text-sm font-bold text-[#071B3A] bg-[#F3EFE6] px-3 py-1.5 rounded-lg border border-[#E8E2D5]">
-                        {slot.timing}
-                      </span>
-
-                      {/* Status Indicator */}
-                      <span
-                        className={`text-[11px] font-bold px-2.5 py-1 rounded-md ${
-                          slot.status === 'Special Dedicated Batch'
-                            ? 'bg-[#FBF4E4] text-[#A8811C] border border-[#C59B27]/40'
-                            : slot.status === 'Filling Fast'
-                            ? 'bg-[#FCECEB] text-[#C0392B] border border-[#C0392B]/20'
-                            : 'bg-[#EBF7EE] text-[#1E7E34] border border-[#1E7E34]/20'
-                        }`}
-                      >
-                        {slot.status}
-                      </span>
-                    </div>
+                    <p className="text-xs text-slate-500">
+                      Recommended for:{' '}
+                      <span className="font-medium text-slate-700">{slot.targetAudience}</span>
+                    </p>
                   </div>
-                );
-              })}
+
+                  <div className="flex shrink-0 items-center justify-between gap-4 sm:justify-end">
+                    <span className="rounded-lg border border-slate-200 bg-[#F1F3FF] px-3 py-1.5 font-mono text-xs font-bold text-[#111827] sm:text-sm">
+                      {slot.timing}
+                    </span>
+
+                    <span className={`rounded-full px-2.5 py-1 text-[11px] font-bold ${statusClasses(slot.status)}`}>
+                      {slot.status}
+                    </span>
+                  </div>
+                </div>
+              ))}
             </div>
 
-            {/* Timetable Footer Note */}
-            <div className="p-4 bg-[#FAF7EE] border-t border-[#E8E2D5] text-xs text-gray-600 flex flex-wrap items-center justify-between gap-3">
+            <div className="flex flex-wrap items-center justify-between gap-3 border-t border-slate-200 bg-[#F8F9FA] p-4 text-xs text-slate-500">
               <span>* Special customized timing slots are also arranged upon request for working shift workers.</span>
-              <span className="font-semibold text-[#071B3A]">Sunday: Closed for routine maintenance</span>
+              <span className="font-semibold text-[#111827]">Sunday: Closed for routine maintenance</span>
             </div>
-
           </div>
 
-          {/* Transparent Fee Discussion & "Ask for Fee Details" CTA */}
-          <div className="max-w-4xl mx-auto bg-white p-6 sm:p-8 rounded-2xl border border-[#E8E2D5] shadow-xs">
-            <div className="station-board-yellow inline-block mb-3 text-xs font-black">
-              TRANSPARENT FEE POLICY
-            </div>
-            
-            <h2 className="text-2xl font-bold text-[#071B3A] font-serif-heading mb-3">
-              How Our Course Fees Work (With 50% Subsidy)
-            </h2>
+          {/* Fees */}
+          <div className="mx-auto max-w-5xl rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+            <SectionHeading
+              eyebrow="Transparent Fee Policy"
+              title="How Our Course Fees Work (With 50% Subsidy)"
+              description="Unlike commercial training franchises that push aggressive loans or lock students into expensive contracts, Race Reddys operates on simple, honest, and affordable monthly fee installments for local families."
+            />
 
-            <p className="text-xs sm:text-sm text-[#4A5568] leading-relaxed mb-6">
-              Unlike commercial training franchises that push aggressive loans or lock students into expensive contracts, Race Reddys operates on simple, honest, and affordable monthly fee installments for local families.
-            </p>
-
-            {/* 3 Fee Principles */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
-              <div className="p-4 bg-[#FAF7EE] rounded-xl border border-[#E8E2D5]">
-                <strong className="text-xs sm:text-sm text-[#071B3A] block mb-1">
-                  1. Upfront 50% Concession
-                </strong>
-                <p className="text-xs text-[#526071] leading-relaxed">
-                  Every enrolled student receives the current 50% fee concession automatically deducted at registration.
-                </p>
-              </div>
-
-              <div className="p-4 bg-[#FAF7EE] rounded-xl border border-[#E8E2D5]">
-                <strong className="text-xs sm:text-sm text-[#071B3A] block mb-1">
-                  2. Monthly Easy Installments
-                </strong>
-                <p className="text-xs text-[#526071] leading-relaxed">
-                  Pay comfortably in simple monthly installments as you learn. No interest, no third-party loan apps.
-                </p>
-              </div>
-
-              <div className="p-4 bg-[#FAF7EE] rounded-xl border border-[#E8E2D5]">
-                <strong className="text-xs sm:text-sm text-[#071B3A] block mb-1">
-                  3. Zero Extra Exam Charges
-                </strong>
-                <p className="text-xs text-[#526071] leading-relaxed">
-                  Lab workstation access, course notes, practice tests, and course certificate are all bundled in.
-                </p>
-              </div>
+            <div className="mt-7 grid grid-cols-1 gap-4 sm:grid-cols-3">
+              {FEE_PRINCIPLES.map((principle) => (
+                <div
+                  key={principle.title}
+                  className="rounded-xl border border-slate-200 bg-[#F8F9FA] p-4"
+                >
+                  <strong className="mb-1 block text-xs font-bold text-[#111827] sm:text-sm">
+                    {principle.title}
+                  </strong>
+                  <p className="text-xs leading-relaxed text-slate-500">
+                    {principle.description}
+                  </p>
+                </div>
+              ))}
             </div>
 
-            {/* The "Ask for Fee Details" Primary CTA Button */}
-            <div className="p-5 bg-[#071B3A] rounded-xl text-white flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="mt-7 flex flex-col items-center justify-between gap-4 rounded-2xl bg-[#0B0F19] p-5 text-white sm:flex-row sm:p-6">
               <div>
-                <h3 className="text-base font-bold font-serif-heading text-white mb-1">
-                  Need Exact Fee Quote for Your Chosen Course?
-                </h3>
-                <p className="text-xs text-gray-300">
-                  Message us the course name on WhatsApp to receive the exact fee breakdown and current batch availability within 5 minutes.
+                <div className="mb-1 flex items-center gap-2">
+                  <Sparkles size={14} className="text-[#F5BE4F]" />
+                  <h3 className="text-base font-bold tracking-tight text-white">
+                    Need Exact Fee Quote for Your Chosen Course?
+                  </h3>
+                </div>
+                <p className="text-xs text-slate-400">
+                  Message us the course name on WhatsApp to receive the exact fee breakdown and
+                  current batch availability within 5 minutes.
                 </p>
               </div>
 
@@ -180,19 +206,21 @@ export default function BatchesAndFees() {
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20BA5A] text-white font-bold text-xs sm:text-sm px-6 py-3 rounded-xl shadow-md transition-all shrink-0 active:scale-95"
+                className="inline-flex shrink-0 items-center gap-2 rounded-full bg-[#25D366] px-6 py-3 text-xs font-bold text-white shadow-md transition-all hover:bg-[#20BA5A] active:scale-95 sm:text-sm"
               >
                 <MessageSquare size={16} />
                 <span>Ask for Fee Details (WhatsApp)</span>
               </a>
             </div>
-
           </div>
-
         </div>
       </section>
 
-      <RailwayTrackDivider label="VIRAR EAST • 7:30 AM TO 7:30 PM BATCHES" />
+      <CtaBand
+        eyebrow="Flexible Timetable"
+        title="Need a batch timing that fits your daily routine?"
+        description="Share your college lectures, office commute hours, or household timings. We will assign you a dedicated 1.5-hour machine workstation in the right batch."
+      />
     </>
   );
 }

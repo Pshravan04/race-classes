@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Phone, MessageSquare, Clock, ArrowUpRight } from 'lucide-react';
+import { Phone, MessageSquare, Clock, ArrowUpRight, MapPin } from 'lucide-react';
 import { SITE_CONFIG } from '../data/config';
 import { useLanguage } from '../context/useLanguage';
 import type { Language } from '../data/translations';
@@ -8,48 +8,52 @@ export default function Footer() {
   const { language, setLanguage, t } = useLanguage();
 
   return (
-    <footer className="bg-[#071B3A] text-white border-t-2 border-[#C59B27] pt-14 pb-20 md:pb-12 text-xs sm:text-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Top 4-Column Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pb-12 border-b border-white/10">
-          
-          {/* Column 1: Brand & Local Mission */}
-          <div className="space-y-4">
+    <footer className="relative bg-[#0B0F19] text-white border-t border-white/10 pt-14 pb-24 md:pb-12 text-xs sm:text-sm overflow-hidden">
+      <div className="absolute -right-24 top-0 w-80 h-80 bg-[#0084FF]/10 rounded-full blur-[110px] pointer-events-none" />
+      <div className="absolute -left-24 bottom-0 w-80 h-80 bg-[#F5BE4F]/5 rounded-full blur-[110px] pointer-events-none" />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/10">
+          {/* Brand */}
+          <div className="space-y-5">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-[#0E2B5C] border-2 border-[#C59B27] flex items-center justify-center text-[#D8AF3E] font-black text-sm shrink-0">
-                RR
+              <div className="w-11 h-11 rounded-2xl bg-slate-900 border border-white/10 flex items-center justify-center p-1.5 shrink-0">
+                <img
+                  src="/images/logo-stitch.png"
+                  alt="Race Reddys emblem"
+                  className="w-full h-full object-contain"
+                />
               </div>
               <div>
-                <span className="font-bold text-base block font-serif-heading text-white">
+                <span className="font-extrabold text-lg tracking-tight text-white block leading-none">
                   RACE REDDYS
                 </span>
-                <span className="text-[11px] text-[#D8AF3E] font-semibold block uppercase">
+                <span className="text-[9.5px] font-bold text-[#0084FF] tracking-wider uppercase block mt-1.5">
                   Advanced Computer Education
                 </span>
               </div>
             </div>
 
-            <p className="text-gray-300 text-xs leading-relaxed">
-              Virar East’s dedicated computer training institute. Offering 100% practical lab training, industry certification, and personal mentoring right opposite Virar station.
+            <p className="text-slate-400 text-xs leading-relaxed">
+              Virar East’s dedicated computer training institute. Offering 100% practical lab training,
+              industry certification, and personal mentoring right opposite Virar station.
             </p>
 
-            <div className="flex items-center gap-2 pt-1">
-              <span className="station-board-yellow text-[10px] py-0.5 px-2">
-                VIRAR FAST
+            <div className="flex items-center gap-2">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#F5BE4F] px-3 py-1 text-[10px] font-black uppercase tracking-wider text-[#111827]">
+                <MapPin size={11} />
+                Virar Fast
               </span>
-              <span className="text-gray-400 text-[11px]">
-                {t.stationTagline}
-              </span>
+              <span className="text-slate-400 text-[11px]">{t.stationTagline}</span>
             </div>
           </div>
 
-          {/* Column 2: Quick Links */}
+          {/* Navigation */}
           <div className="space-y-3">
-            <h4 className="text-xs font-black uppercase tracking-wider text-[#D8AF3E]">
+            <h4 className="text-[11px] font-black uppercase tracking-wider text-[#F5BE4F]">
               Navigation Links
             </h4>
-            <ul className="space-y-2 text-xs text-gray-300">
+            <ul className="space-y-2.5 text-xs text-slate-300">
               <li>
                 <Link to="/" className="hover:text-white transition-colors">
                   Home (मुख्य पृष्ठ)
@@ -88,12 +92,12 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 3: Popular Courses */}
+          {/* Popular courses */}
           <div className="space-y-3">
-            <h4 className="text-xs font-black uppercase tracking-wider text-[#D8AF3E]">
+            <h4 className="text-[11px] font-black uppercase tracking-wider text-[#F5BE4F]">
               Popular Courses
             </h4>
-            <ul className="space-y-2 text-xs text-gray-300">
+            <ul className="space-y-2.5 text-xs text-slate-300">
               <li>
                 <Link to="/courses/advanced-tally-with-gst" className="hover:text-white transition-colors">
                   Advanced Tally with GST
@@ -132,21 +136,22 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 4: Contact & Location */}
-          <div className="space-y-3 text-xs text-gray-300">
-            <h4 className="text-xs font-black uppercase tracking-wider text-[#D8AF3E]">
+          {/* Visit centre */}
+          <div className="space-y-3 text-xs text-slate-300">
+            <h4 className="text-[11px] font-black uppercase tracking-wider text-[#F5BE4F]">
               Visit Centre
             </h4>
-            
+
             <p className="leading-relaxed">
-              <strong className="text-white block">Race Reddys</strong>
-              202, 2nd Floor, Raut Arcade, Opp. Subway / Opp. Virar East Railway Station, Virar East, Maharashtra 401305.
+              <strong className="text-white block mb-1">Race Reddys</strong>
+              202, 2nd Floor, Raut Arcade, Opp. Subway / Opp. Virar East Railway Station,
+              Virar East, Maharashtra 401305.
             </p>
 
-            <div className="pt-1 space-y-1.5">
+            <div className="pt-1 space-y-2">
               <div className="flex items-center gap-2">
-                <Phone size={14} className="text-[#D8AF3E]" />
-                <a href={`tel:${SITE_CONFIG.contact.phone}`} className="hover:text-white font-mono font-bold">
+                <Phone size={14} className="text-[#0084FF]" />
+                <a href={`tel:${SITE_CONFIG.contact.phone}`} className="hover:text-white font-bold">
                   {SITE_CONFIG.contact.phoneDisplay}
                 </a>
               </div>
@@ -157,64 +162,72 @@ export default function Footer() {
                   href={SITE_CONFIG.contact.whatsapp}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-white font-semibold text-[#25D366]"
+                  className="hover:text-white font-semibold text-[#4ADE80]"
                 >
                   WhatsApp: 9794323963
                 </a>
               </div>
 
-              <div className="flex items-center gap-2 text-gray-400">
-                <Clock size={14} />
+              <div className="flex items-center gap-2 text-slate-400">
+                <Clock size={14} className="text-[#F5BE4F]" />
                 <span>Mon–Sat: 9:00 AM – 7:00 PM</span>
               </div>
             </div>
-          </div>
 
+            <a
+              href={SITE_CONFIG.address.googleMapsDirectLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-[11px] font-semibold text-slate-200 hover:bg-white/10 hover:text-white transition-colors"
+            >
+              <span>Get directions</span>
+              <ArrowUpRight size={12} className="text-[#F5BE4F]" />
+            </a>
+          </div>
         </div>
 
-        {/* Bottom Language & Copyright Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400">
-          
-          {/* Language Selector */}
-          <div className="flex items-center gap-2">
+        {/* Bottom bar */}
+        <div className="pt-7 flex flex-col lg:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+          <div className="flex flex-wrap items-center justify-center gap-2" role="group" aria-label="Language selection">
             <span>Select Language / भाषा निवडा:</span>
-            {(['en', 'hi', 'mr'] as Language[]).map((l) => (
-              <button
-                key={l}
-                type="button"
-                onClick={() => setLanguage(l)}
-                className={`px-2 py-0.5 rounded text-[11px] font-bold ${
-                  language === l
-                    ? 'bg-[#C59B27] text-[#071B3A]'
-                    : 'bg-white/10 text-gray-300 hover:bg-white/20'
-                }`}
-              >
-                {l === 'en' ? 'English' : l === 'hi' ? 'हिंदी' : 'मराठी'}
-              </button>
-            ))}
+            <div className="flex items-center gap-0.5 rounded-full border border-white/10 bg-white/5 p-0.5">
+              {(['en', 'hi', 'mr'] as Language[]).map((l) => (
+                <button
+                  key={l}
+                  type="button"
+                  onClick={() => setLanguage(l)}
+                  aria-pressed={language === l}
+                  className={`px-2.5 py-1 rounded-full text-[11px] font-bold transition-colors ${
+                    language === l
+                      ? 'bg-[#0084FF] text-white'
+                      : 'text-slate-400 hover:text-white'
+                  }`}
+                >
+                  {l === 'en' ? 'English' : l === 'hi' ? 'हिंदी' : 'मराठी'}
+                </button>
+              ))}
+            </div>
           </div>
 
-          <div>
+          <div className="text-center">
             © 2026 Race Reddys Advanced Computer Education. All rights reserved.
           </div>
 
-          <div className="flex items-center gap-4 text-gray-400 text-[11px]">
-            <Link to="/privacy" className="hover:text-white">
+          <div className="flex items-center gap-4 text-slate-400 text-[11px]">
+            <Link to="/privacy" className="hover:text-white transition-colors">
               Privacy &amp; Terms
             </Link>
             <a
               href={SITE_CONFIG.address.googleMapsDirectLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-white flex items-center gap-1"
+              className="hover:text-white flex items-center gap-1 transition-colors"
             >
               <span>Google Maps</span>
               <ArrowUpRight size={12} />
             </a>
           </div>
-
         </div>
-
       </div>
     </footer>
   );

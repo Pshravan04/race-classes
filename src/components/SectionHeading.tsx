@@ -1,0 +1,29 @@
+import type { ReactNode } from 'react';
+
+interface SectionHeadingProps {
+  eyebrow: string;
+  title: ReactNode;
+  description?: ReactNode;
+  align?: 'left' | 'center';
+  className?: string;
+}
+
+export default function SectionHeading({
+  eyebrow,
+  title,
+  description,
+  align = 'left',
+  className = '',
+}: SectionHeadingProps) {
+  const alignment = align === 'center' ? 'text-center max-w-3xl mx-auto' : 'max-w-3xl';
+
+  return (
+    <div className={`${alignment} ${className}`}>
+      <span className="text-xs text-[#1E4ED7] font-bold uppercase tracking-widest">{eyebrow}</span>
+      <h2 className="text-3xl sm:text-4xl text-[#000926] font-bold tracking-tight mt-1">{title}</h2>
+      {description && (
+        <p className="text-sm sm:text-base text-[#45464F] mt-2 leading-relaxed">{description}</p>
+      )}
+    </div>
+  );
+}

@@ -1,4 +1,4 @@
-import { MessageSquare, ArrowRight } from 'lucide-react';
+import { MessageSquare, ArrowRight, Check } from 'lucide-react';
 import type { Course } from '../data/config';
 import { SITE_CONFIG } from '../data/config';
 
@@ -11,75 +11,64 @@ export default function CourseCard({ course, onSelect }: CourseCardProps) {
   const isCareer = course.type === 'career';
 
   return (
-    <div className="tactile-card rounded-xl p-5 flex flex-col justify-between h-full bg-white relative group">
-      
-      {/* Top Meta Strip */}
+    <div className="group flex h-full flex-col justify-between rounded-2xl border border-slate-200 bg-white p-5 shadow-xs transition-all duration-200 hover:-translate-y-0.5 hover:border-[#0084FF]/40 hover:shadow-lg">
       <div>
         <div className="flex items-center justify-between gap-2 mb-3">
           <span
-            className={`text-[10px] font-black uppercase px-2 py-0.5 rounded tracking-wide ${
+            className={`inline-flex items-center rounded-full px-2.5 py-1 text-[10px] font-black uppercase tracking-wider ${
               isCareer
-                ? 'bg-[#071B3A] text-[#C59B27] border border-[#C59B27]/40'
-                : 'bg-[#FAF7EE] text-[#071B3A] border border-[#E8E2D5]'
+                ? 'bg-[#0084FF] text-white'
+                : 'bg-[#F5BE4F] text-[#111827]'
             }`}
           >
             {isCareer ? 'Career Objective' : 'Short-Term Module'}
           </span>
 
-          <span className="text-[11px] font-semibold text-gray-500">
-            {course.durationPlaceholder.split('(')[0]}
+          <span className="text-[11px] font-semibold text-slate-500">
+            {course.durationPlaceholder.split('(')[0].trim()}
           </span>
         </div>
 
-        {/* Title */}
-        <h3 className="text-lg font-bold text-[#071B3A] font-serif-heading mb-2 group-hover:text-[#C59B27] transition-colors leading-snug">
+        <h3 className="text-lg font-bold text-[#111827] leading-snug transition-colors group-hover:text-[#0084FF]">
           {course.name}
         </h3>
 
-        {/* Short Description */}
-        <p className="text-xs sm:text-sm text-[#4A5568] leading-relaxed mb-4 line-clamp-2">
+        <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed line-clamp-2">
           {course.shortDesc}
         </p>
 
-        {/* Key Highlights / Sample Topics */}
-        <div className="space-y-1.5 mb-4 pt-3 border-t border-[#E8E2D5]/80">
+        <div className="mt-4 space-y-1.5 border-t border-slate-100 pt-3">
           {course.topics.slice(0, 2).map((topic, i) => (
-            <div key={i} className="flex items-start gap-1.5 text-xs text-[#334155]">
-              <span className="text-[#C59B27] font-bold mt-0.5">•</span>
+            <div key={i} className="flex items-start gap-2 text-xs text-slate-600">
+              <Check size={13} className="text-[#0084FF] shrink-0 mt-0.5 stroke-[2.5]" />
               <span className="line-clamp-1">{topic}</span>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Action Row */}
-      <div className="pt-3 border-t border-[#E8E2D5] flex items-center justify-between gap-2 mt-auto">
-        
-        {/* Quick View Details Button */}
+      <div className="mt-4 flex items-center justify-between gap-2 border-t border-slate-100 pt-3">
         <button
           type="button"
           onClick={() => onSelect(course)}
-          className="text-xs font-bold text-[#071B3A] hover:text-[#C59B27] flex items-center gap-1 transition-colors py-1 cursor-pointer"
+          className="inline-flex items-center gap-1 py-1 text-xs font-bold text-[#111827] transition-colors hover:text-[#0084FF] cursor-pointer"
           aria-label={`View full details for ${course.name}`}
         >
           <span>Syllabus &amp; Topics</span>
           <ArrowRight size={13} />
         </button>
 
-        {/* 1-Click WhatsApp Enquiry */}
         <a
           href={`${SITE_CONFIG.contact.whatsapp}?text=${encodeURIComponent(course.whatsappMessage)}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 bg-[#25D366]/10 hover:bg-[#25D366] text-[#128C7E] hover:text-white px-3 py-1.5 rounded-md text-xs font-bold transition-all"
+          className="inline-flex items-center gap-1.5 rounded-full bg-[#25D366]/10 px-3 py-1.5 text-xs font-bold text-[#128C7E] transition-all hover:bg-[#25D366] hover:text-white"
           aria-label={`Enquire about ${course.name} on WhatsApp`}
         >
           <MessageSquare size={13} />
           <span>Enquire</span>
         </a>
-
       </div>
-
     </div>
   );
 }

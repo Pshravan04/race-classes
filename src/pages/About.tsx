@@ -1,93 +1,138 @@
-import { MapPin, CheckCircle2 } from 'lucide-react';
-import SEO from '../components/SEO';
-import RailwayTrackDivider from '../components/RailwayTrackDivider';
 import { Link } from 'react-router-dom';
+import { 
+  MapPin, 
+  Monitor, 
+  Users, 
+  Award, 
+  Clock, 
+  Sparkles
+} from 'lucide-react';
+import SEO from '../components/SEO';
+import PageHero from '../components/PageHero';
+import SectionHeading from '../components/SectionHeading';
+import CtaBand from '../components/CtaBand';
+import { SITE_CONFIG } from '../data/config';
 
 export default function About() {
-
   return (
     <>
       <SEO
         title="About Us | Race Reddys Advanced Computer Education Virar East"
-        description="The story of Race Reddys in Virar East: eliminating the stressful commute to Mumbai with 100% practical computer training right outside Virar railway station."
+        description="The story of Race Reddys in Virar East: eliminating the stressful commute to Mumbai with 100% practical computer training right outside Virar railway station. 10+ years of empowering local learners."
         canonical="/about"
       />
 
-      {/* Header Banner */}
-      <section className="bg-[#FAF7EE] border-b border-[#E8E2D5] py-10 sm:py-14">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <div className="station-board-yellow inline-block mb-3 text-xs font-black">
-              OUR MISSION &amp; HERITAGE • आमच्याबद्दल
-            </div>
-            
-            <h1 className="text-3xl sm:text-4xl font-extrabold text-[#071B3A] font-serif-heading mb-3">
-              Grounded in Virar, Built for Practical Tech Careers
-            </h1>
-            
-            <p className="text-sm sm:text-base text-[#4A5568] leading-relaxed">
-              We started Race Reddys with one clear conviction: students, homemakers, and job seekers in Virar and Vasai should not have to spend 4 hours in crowded local trains just to learn quality computer skills.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Our Mission &amp; Heritage · आमच्याबद्दल"
+        title="Grounded in Virar, Built for Practical Tech Careers"
+        description="We started Race Reddys with one clear conviction: students, homemakers, and job seekers in Virar and Vasai should not have to spend 4 hours in crowded local trains just to learn quality computer skills."
+        aside={
+          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-[#0B1528] via-[#080E1C] to-[#040812] p-6 sm:p-7 text-white shadow-2xl">
+            <div className="absolute -right-12 -top-12 h-48 w-48 rounded-full bg-[#0084FF]/20 blur-[80px] pointer-events-none" />
+            <div className="absolute -left-12 -bottom-12 h-48 w-48 rounded-full bg-[#F5BE4F]/10 blur-[80px] pointer-events-none" />
 
-      {/* 1. The Story of the Institute */}
-      <section className="py-12 sm:py-16 bg-[#FBF9F5]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            
-            {/* Left Story Text (7 cols) */}
-            <div className="lg:col-span-7 space-y-5 text-[#334155] leading-relaxed text-sm sm:text-base">
-              <div className="station-board text-xs mb-2">
-                THE VIRAR STORY
+            <div className="relative z-10">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#F5BE4F] px-3 py-1 text-[10px] font-black uppercase tracking-wider text-[#111827]">
+                <Sparkles size={12} />
+                Since 2014 in Virar East
+              </span>
+
+              <h2 className="mt-4 text-2xl font-bold tracking-tight">
+                10+ Years of Practical Mentorship
+              </h2>
+              <p className="mt-2 text-xs sm:text-sm leading-relaxed text-slate-300">
+                Over 5,000 local learners trained across accounting, office productivity, graphic design, and software programming.
+              </p>
+
+              <div className="mt-5 grid grid-cols-3 gap-2 rounded-2xl border border-white/10 bg-white/5 p-3 text-center">
+                <div>
+                  <strong className="block text-lg font-black text-white">5K+</strong>
+                  <span className="text-[10px] font-semibold text-slate-400">Students</span>
+                </div>
+                <div className="border-x border-white/10">
+                  <strong className="block text-lg font-black text-white">1:1</strong>
+                  <span className="text-[10px] font-semibold text-slate-400">Machine</span>
+                </div>
+                <div>
+                  <strong className="block text-lg font-black text-[#F5BE4F]">10+</strong>
+                  <span className="text-[10px] font-semibold text-slate-400">Years</span>
+                </div>
               </div>
 
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#071B3A] font-serif-heading">
+              <div className="mt-5 flex items-center justify-between gap-3 text-[11px] text-slate-300 border-t border-white/10 pt-3">
+                <span className="flex items-center gap-1 text-[#F5BE4F]">
+                  <MapPin size={13} />
+                  <span>Raut Arcade 202</span>
+                </span>
+                <span className="text-emerald-400 font-semibold">Opp. Station Subway</span>
+              </div>
+            </div>
+          </div>
+        }
+      />
+
+      {/* ─── 1. The Virar Story Section ─── */}
+      <section className="bg-white py-16 sm:py-20 border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            
+            {/* Story Text */}
+            <div className="lg:col-span-7 space-y-5 text-slate-600 leading-relaxed text-sm sm:text-base">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-50 text-[#0084FF] border border-sky-100 text-xs font-bold uppercase tracking-wider">
+                <span>The Suburban Education Challenge</span>
+              </div>
+
+              <h2 className="text-2xl sm:text-4xl font-extrabold text-[#111827] tracking-tight">
                 Why Should Virar Students Travel to Mumbai for Computer Education?
               </h2>
 
               <p>
-                Every morning, thousands of students and youths from Virar, Nalasopara, and Vasai board jam-packed Western Railway local trains heading toward Andheri, Dadar, and Churchgate. Many spend up to 4 exhausting hours every day just to attend a 90-minute computer or accounting class in South or Central Mumbai.
+                Every morning, thousands of youths and college students from Virar, Nalasopara, and Vasai board crowded Western Railway local trains heading towards Andheri, Dadar, and Churchgate. Many spend up to 4 exhausting hours every day just to attend a 90-minute computer or accounting class in South or Central Mumbai.
               </p>
 
               <p>
-                <strong>Race Reddys was founded to end this exhausting cycle.</strong> Located at 202, Raut Arcade, right across the Virar East railway subway, we bring state-of-the-art syllabus, licensed software, and seasoned instructors right to your doorstep in Virar.
+                <strong className="text-[#111827]">Race Reddys was founded to end this exhausting commute.</strong> Located at 202, Raut Arcade, directly opposite the Virar East railway subway, we bring modern IT curriculums, licensed software, and experienced instructors right to your doorstep in Virar.
               </p>
 
               <p>
                 Here, students learn at their own pace, with 100% individual workstation time. No sharing keyboards, no rushed theoretical lectures, and no commute fatigue.
               </p>
 
-              <div className="p-4 bg-[#FAF7EE] rounded-xl border border-[#C59B27]/40 flex items-center gap-3">
-                <span className="w-10 h-10 rounded-full bg-[#071B3A] text-[#C59B27] flex items-center justify-center font-bold shrink-0">
-                  RR
-                </span>
-                <span className="text-xs sm:text-sm font-semibold text-[#071B3A]">
-                  "Save your travel energy for learning and coding. Your career starts right here on Platform 2."
-                </span>
+              <div className="p-4 bg-[#F8F9FA] rounded-2xl border border-slate-200 flex items-center gap-3.5">
+                <div className="w-10 h-10 rounded-xl bg-[#0084FF] text-white flex items-center justify-center shrink-0 font-black text-sm">
+                  1:1
+                </div>
+                <div>
+                  <strong className="block text-xs sm:text-sm text-[#111827] font-bold">
+                    Zero Screen Sharing Guarantee
+                  </strong>
+                  <span className="text-xs text-slate-500">
+                    One student per desktop terminal for every single minute of your class.
+                  </span>
+                </div>
               </div>
             </div>
 
-            {/* Right Photo: Institute Building & Lab (5 cols) */}
-            <div className="lg:col-span-5 space-y-4">
-              <div className="bg-white p-3 rounded-2xl border border-slate-200 shadow-sm overflow-hidden group">
-                <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-slate-900">
+            {/* Photo Card */}
+            <div className="lg:col-span-5">
+              <div className="relative rounded-3xl overflow-hidden border border-slate-200 shadow-xl bg-slate-900 group">
+                <div className="aspect-[4/3] w-full relative overflow-hidden">
                   <img
-                    src="/images/lab-students.jpg"
-                    alt="Race Reddys computer laboratory in Raut Arcade Virar East"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    src="/images/hero-lab.jpg"
+                    alt="Race Reddys computer lab inside Raut Arcade Virar East"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
-                  <div className="absolute top-2.5 left-2.5 bg-[#0084FF] text-white text-[10px] font-bold px-2.5 py-1 rounded-full shadow-sm">
-                    Raut Arcade Lab 202
-                  </div>
-                  <div className="absolute bottom-2.5 left-2.5 right-2.5 bg-black/65 backdrop-blur-xs p-2.5 rounded-lg border border-white/10 text-white">
-                    <span className="text-xs font-bold block text-[#F5BE4F]">
-                      Individual Computer Terminals
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                  
+                  <div className="absolute bottom-4 left-4 right-4 bg-black/60 backdrop-blur-md p-3.5 rounded-2xl border border-white/15 text-white">
+                    <span className="text-[10px] uppercase font-bold text-[#F5BE4F] tracking-wider block">
+                      Raut Arcade · Lab Terminal 202
                     </span>
-                    <span className="text-[11px] text-gray-200">
-                      Opposite Virar East Station Subway · 100% Practical Learning
+                    <strong className="text-xs sm:text-sm text-white font-bold block mt-0.5">
+                      Air-Conditioned Practical Lab Facility
+                    </strong>
+                    <span className="text-[11px] text-slate-300">
+                      Virar East Station Subway Exit • 2-Minute Walk
                     </span>
                   </div>
                 </div>
@@ -95,194 +140,175 @@ export default function About() {
             </div>
 
           </div>
-
         </div>
       </section>
 
-      <RailwayTrackDivider label="THE TEACHING APPROACH • शिकवण्याची पद्धत" />
-
-      {/* 2. The Teaching Approach */}
-      <section className="py-12 bg-white border-y border-[#E8E2D5]">
+      {/* ─── 2. Teaching Principles Bento Grid ─── */}
+      <section className="bg-[#F8F9FA] py-16 sm:py-20 border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="max-w-3xl mb-10">
-            <div className="station-board-yellow inline-block mb-3 text-xs font-black">
-              100% HANDS-ON LEARNING
+          <SectionHeading
+            eyebrow="Our Teaching Philosophy"
+            title="How We Teach Differently at Race Reddys"
+            description="Education at Race Reddys is built on practical confidence rather than memorizing textbooks. Here are the four standards we uphold for every enrolled student."
+          />
+
+          <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between">
+              <div>
+                <div className="w-12 h-12 rounded-2xl bg-sky-50 border border-sky-100 flex items-center justify-center text-[#0084FF] mb-4">
+                  <Monitor size={22} />
+                </div>
+                <h3 className="text-base sm:text-lg font-bold text-[#111827] mb-2">100% Practical Training</h3>
+                <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
+                  You sit in front of an active computer terminal from day one. Concepts are practiced immediately with real accounting entries and code.
+                </p>
+              </div>
+              <span className="text-[11px] font-bold text-[#0084FF] mt-4 block">1:1 Workstation Ratio</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#071B3A] font-serif-heading mb-3">
-              How We Teach: Individual Machine Time, Zero Cramming
-            </h2>
-            <p className="text-sm sm:text-base text-[#4A5568] leading-relaxed">
-              We reject the old method of boring blackboard theory lectures. Computers are learned by touching the keys and fixing errors yourself.
-            </p>
+
+            <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between">
+              <div>
+                <div className="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-600 mb-4">
+                  <Users size={22} />
+                </div>
+                <h3 className="text-base sm:text-lg font-bold text-[#111827] mb-2">Patient Desk Guidance</h3>
+                <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
+                  Trainers sit directly beside you to resolve doubts, correct keyboard finger placement, and walk through mistakes step by step.
+                </p>
+              </div>
+              <span className="text-[11px] font-bold text-emerald-600 mt-4 block">Personal Mentorship</span>
+            </div>
+
+            <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between">
+              <div>
+                <div className="w-12 h-12 rounded-2xl bg-amber-50 border border-amber-100 flex items-center justify-center text-amber-600 mb-4">
+                  <Award size={22} />
+                </div>
+                <h3 className="text-base sm:text-lg font-bold text-[#111827] mb-2">Government &amp; ISO Aligned</h3>
+                <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
+                  Syllabi conform to MKCL exam patterns, GCC-TBC typing criteria, and ISO 9001:2015 standards, making certificates valid for job interviews.
+                </p>
+              </div>
+              <span className="text-[11px] font-bold text-amber-600 mt-4 block">Authorized Credentials</span>
+            </div>
+
+            <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between">
+              <div>
+                <div className="w-12 h-12 rounded-2xl bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-600 mb-4">
+                  <Clock size={22} />
+                </div>
+                <h3 className="text-base sm:text-lg font-bold text-[#111827] mb-2">Free Lifetime Doubt Support</h3>
+                <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
+                  Even after finishing your course, you can walk in to our lab to practice or ask your teacher for help on actual office tasks.
+                </p>
+              </div>
+              <span className="text-[11px] font-bold text-indigo-600 mt-4 block">Alumni Lab Privileges</span>
+            </div>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            
-            <div className="p-6 bg-[#FAF7EE] rounded-2xl border border-[#E8E2D5]">
-              <span className="w-10 h-10 rounded-lg bg-[#071B3A] text-[#C59B27] flex items-center justify-center font-black mb-3">
-                1:1
-              </span>
-              <h3 className="text-lg font-bold text-[#071B3A] font-serif-heading mb-2">
-                One Student, One PC
-              </h3>
-              <p className="text-xs sm:text-sm text-[#4A5568] leading-relaxed">
-                You never have to stand behind someone or wait for your turn. You get an assigned PC for your entire batch duration.
-              </p>
-            </div>
-
-            <div className="p-6 bg-[#FAF7EE] rounded-2xl border border-[#E8E2D5]">
-              <span className="w-10 h-10 rounded-lg bg-[#C0392B] text-white flex items-center justify-center font-black mb-3">
-                100%
-              </span>
-              <h3 className="text-lg font-bold text-[#071B3A] font-serif-heading mb-2">
-                Practical Real-World Tasks
-              </h3>
-              <p className="text-xs sm:text-sm text-[#4A5568] leading-relaxed">
-                Whether creating actual GST tax invoices in Tally, editing real raw photos in Photoshop, or deploying web code online.
-              </p>
-            </div>
-
-            <div className="p-6 bg-[#FAF7EE] rounded-2xl border border-[#E8E2D5]">
-              <span className="w-10 h-10 rounded-lg bg-[#C59B27] text-[#071B3A] flex items-center justify-center font-black mb-3">
-                ∞
-              </span>
-              <h3 className="text-lg font-bold text-[#071B3A] font-serif-heading mb-2">
-                Free Lifetime Doubt Solving
-              </h3>
-              <p className="text-xs sm:text-sm text-[#4A5568] leading-relaxed">
-                Finished your course 6 months ago but stuck on a job problem? Walk back into Raut Arcade. Our doors remain open for guidance.
-              </p>
-            </div>
-
-          </div>
-
         </div>
       </section>
 
-      {/* 3. The Lab & Infrastructure */}
-      <section className="py-12 sm:py-16 bg-[#FBF9F5]">
+      {/* ─── 3. Who Learns Here ─── */}
+      <section className="bg-white py-16 sm:py-20 border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            
-            {/* Lab Specifications (6 cols) */}
-            <div className="lg:col-span-6 space-y-4">
-              <div className="station-board text-xs mb-2">
-                LAB SPECIFICATIONS
+          <SectionHeading
+            eyebrow="Community Impact"
+            title="Who Learns at Race Reddys?"
+            description="Our classrooms reflect the diverse community of Virar, Vasai, and Palghar. We welcome learners of all ages and backgrounds."
+          />
+
+          <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="p-6 rounded-3xl border border-slate-200 bg-[#F8F9FA] flex flex-col justify-between">
+              <div>
+                <span className="text-2xl mb-3 block">🎓</span>
+                <h3 className="text-base font-bold text-[#111827] mb-2">College Students &amp; Freshers</h3>
+                <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
+                  Students from Viva College, St. Joseph, and nearby colleges who want job-ready skills in Tally, Python, and Graphic Design before graduation.
+                </p>
               </div>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#071B3A] font-serif-heading">
-                Modern, Comfortable, Air-Conditioned Workstation Lab
-              </h2>
-              <p className="text-xs sm:text-sm text-[#4A5568] leading-relaxed">
-                Designed for extended, focused learning hours without strain or technical interruptions:
-              </p>
-
-              <div className="space-y-3 pt-2">
-                <div className="flex items-start gap-3 p-3 bg-white rounded-xl border border-[#E8E2D5]">
-                  <CheckCircle2 size={18} className="text-[#C59B27] shrink-0 mt-0.5" />
-                  <span className="text-xs sm:text-sm text-[#1C2430]">
-                    <strong>High-Speed SSD Workstations:</strong> Fast boot times, lag-free coding IDEs, and smooth graphics editing.
-                  </span>
-                </div>
-
-                <div className="flex items-start gap-3 p-3 bg-white rounded-xl border border-[#E8E2D5]">
-                  <CheckCircle2 size={18} className="text-[#C59B27] shrink-0 mt-0.5" />
-                  <span className="text-xs sm:text-sm text-[#1C2430]">
-                    <strong>Dual-Language Keyboards:</strong> Ergonomic keyboards supporting fast English and Marathi InScript typing.
-                  </span>
-                </div>
-
-                <div className="flex items-start gap-3 p-3 bg-white rounded-xl border border-[#E8E2D5]">
-                  <CheckCircle2 size={18} className="text-[#C59B27] shrink-0 mt-0.5" />
-                  <span className="text-xs sm:text-sm text-[#1C2430]">
-                    <strong>Inverter Power Backup:</strong> Uninterrupted power supply ensures zero loss of student practice work during local outages.
-                  </span>
-                </div>
-
-                <div className="flex items-start gap-3 p-3 bg-white rounded-xl border border-[#E8E2D5]">
-                  <CheckCircle2 size={18} className="text-[#C59B27] shrink-0 mt-0.5" />
-                  <span className="text-xs sm:text-sm text-[#1C2430]">
-                    <strong>Safe &amp; Respectful Atmosphere:</strong> Dedicated slots for ladies and students with personalized, gentle coaching.
-                  </span>
-                </div>
+              <div className="mt-4 pt-3 border-t border-slate-200 text-xs font-semibold text-[#0084FF]">
+                Batches before &amp; after college hours
               </div>
             </div>
 
-            {/* Faculty & Classrooms Photography (6 cols) */}
-            <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              
-              {/* Photo 2: Faculty in Class */}
-              <div className="bg-white p-3 rounded-2xl border border-slate-200 shadow-sm overflow-hidden group">
-                <div className="aspect-[4/3] rounded-xl bg-slate-900 overflow-hidden relative">
-                  <img
-                    src="/images/instructor-teaching.jpg"
-                    alt="Instructor assisting a student at Race Reddys"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute top-2.5 left-2.5 bg-emerald-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-sm">
-                    Faculty Mentorship
-                  </div>
-                  <div className="absolute bottom-2 left-2 right-2 bg-black/65 backdrop-blur-xs p-2 rounded-lg border border-white/10 text-white">
-                    <span className="text-xs font-bold block text-white">
-                      Patient Desk Assistance
-                    </span>
-                    <span className="text-[10px] text-gray-200">
-                      Personalized 1-on-1 step explanations
-                    </span>
-                  </div>
-                </div>
+            <div className="p-6 rounded-3xl border border-slate-200 bg-[#F8F9FA] flex flex-col justify-between">
+              <div>
+                <span className="text-2xl mb-3 block">👩‍💼</span>
+                <h3 className="text-base font-bold text-[#111827] mb-2">Homemakers &amp; Women</h3>
+                <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
+                  Women returning to careers or learning basic computers and office typing for household accounting in our supportive afternoon ladies batch.
+                </p>
               </div>
-
-              {/* Photo 3: Student Typing Practice */}
-              <div className="bg-white p-3 rounded-2xl border border-slate-200 shadow-sm overflow-hidden group">
-                <div className="aspect-[4/3] rounded-xl bg-slate-900 overflow-hidden relative">
-                  <img
-                    src="/images/student-coding.jpg"
-                    alt="Student coding and practicing typing"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute top-2.5 left-2.5 bg-purple-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-sm">
-                    Coding &amp; Typing Lab
-                  </div>
-                  <div className="absolute bottom-2 left-2 right-2 bg-black/65 backdrop-blur-xs p-2 rounded-lg border border-white/10 text-white">
-                    <span className="text-xs font-bold block text-white">
-                      Speed Typing &amp; Development
-                    </span>
-                    <span className="text-[10px] text-gray-200">
-                      Dedicated practice terminals daily
-                    </span>
-                  </div>
-                </div>
+              <div className="mt-4 pt-3 border-t border-slate-200 text-xs font-semibold text-emerald-600">
+                Special ladies batch: 12:30 PM – 4:00 PM
               </div>
-
             </div>
 
-          </div>
-
-        </div>
-      </section>
-
-      {/* CTA Box */}
-      <section className="py-12 bg-white border-t border-[#E8E2D5]">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-2xl font-bold text-[#071B3A] font-serif-heading mb-3">
-            Want to see the lab in person?
-          </h2>
-          <p className="text-xs sm:text-sm text-[#4A5568] mb-6">
-            Walk in anytime between 9:00 AM and 7:00 PM, Monday to Saturday. Take a seat, experience the demo class, and inspect our computers yourself.
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-3">
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-2 bg-[#071B3A] hover:bg-[#0E2B5C] text-white font-bold text-xs sm:text-sm px-6 py-3 rounded-xl border border-[#C59B27]"
-            >
-              <MapPin size={15} className="text-[#D8AF3E]" />
-              <span>Get Directions to Raut Arcade</span>
-            </Link>
+            <div className="p-6 rounded-3xl border border-slate-200 bg-[#F8F9FA] flex flex-col justify-between">
+              <div>
+                <span className="text-2xl mb-3 block">💼</span>
+                <h3 className="text-base font-bold text-[#111827] mb-2">Working Professionals &amp; Business Owners</h3>
+                <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
+                  Local shopkeepers, traders, and working clerks upgrading to TallyPrime GST invoicing, digital marketing, and advanced Excel spreadsheets.
+                </p>
+              </div>
+              <div className="mt-4 pt-3 border-t border-slate-200 text-xs font-semibold text-amber-600">
+                Early morning &amp; evening slots
+              </div>
+            </div>
           </div>
         </div>
       </section>
+
+      {/* ─── 4. Location Callout ─── */}
+      <section className="bg-[#F8F9FA] py-16 sm:py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="rounded-3xl border border-slate-200 bg-white p-6 sm:p-10 shadow-sm">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              <div className="lg:col-span-8">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-400/15 text-amber-700 text-xs font-bold uppercase tracking-wider mb-3">
+                  <MapPin size={12} />
+                  Prime Station Location
+                </span>
+                <h2 className="text-2xl sm:text-3xl font-bold text-[#111827] tracking-tight">
+                  2 Minutes on Foot from Virar Railway Station (Platform 1 Exit)
+                </h2>
+                <p className="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
+                  Our lab is located on the 2nd Floor of Raut Arcade, directly facing the railway subway stairs on Station Road East. You can walk straight in after getting off the train without needing an auto-rickshaw.
+                </p>
+                <div className="mt-4 flex flex-wrap items-center gap-4 text-xs font-semibold text-slate-700">
+                  <span>📍 202, Raut Arcade, Virar East</span>
+                  <span>⏰ Mon–Sat: 9:00 AM – 7:00 PM</span>
+                  <span>📞 Phone: {SITE_CONFIG.contact.phone}</span>
+                </div>
+              </div>
+
+              <div className="lg:col-span-4 flex flex-col gap-3">
+                <a
+                  href={SITE_CONFIG.address.googleMapsDirectLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 h-12 px-6 rounded-full bg-[#111827] hover:bg-[#1E293B] text-white text-xs sm:text-sm font-bold shadow-md transition-all active:scale-95"
+                >
+                  <MapPin size={15} className="text-[#F5BE4F]" />
+                  <span>Open in Google Maps</span>
+                </a>
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center justify-center gap-2 h-12 px-6 rounded-full bg-white text-[#111827] border border-slate-300 hover:border-[#111827] text-xs sm:text-sm font-bold transition-all shadow-xs"
+                >
+                  <span>Book Lab Tour &amp; Demo</span>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <CtaBand
+        title="Ready to see our computer lab in person?"
+        description="Walk in anytime between 9:00 AM and 7:00 PM, Monday to Saturday. Take a seat, experience a free practical demo, and inspect our computers yourself."
+      />
     </>
   );
 }
