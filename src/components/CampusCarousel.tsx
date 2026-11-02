@@ -15,9 +15,9 @@ interface Slide {
 const SLIDES: Slide[] = [
   {
     id: 1,
-    image: '/images/lab-students.jpg',
+    image: '/images/real-lab-classroom.jpg',
     badge: 'Raut Arcade Lab 202 · Virar East',
-    badgeColor: 'bg-[#F5BE4F] text-[#111827]',
+    badgeColor: 'bg-[#F5BE4F] text-[#001752]',
     title: '100% Practical Machine Time for Every Learner',
     description: 'Every student learns directly on their own confirmed desktop workstation with uninterrupted power and high-speed internet. Zero screen sharing or theory-only lectures.',
     stats: [
@@ -28,54 +28,54 @@ const SLIDES: Slide[] = [
   },
   {
     id: 2,
-    image: '/images/ladies-guidance.jpg',
-    badge: 'Special Dedicated Ladies Batch (12:30 – 4:00 PM)',
-    badgeColor: 'bg-emerald-500 text-white',
-    title: 'Patient 1-on-1 Guidance & Safe Learning Environment',
-    description: 'Comfortable, quiet afternoon batches tailored for housewives, working women, and school students. Friendly instructors explain every step patiently at your own pace.',
+    image: '/images/real-instructor-mentoring.jpg',
+    badge: 'Desk-to-Desk 1-on-1 Mentorship',
+    badgeColor: 'bg-[#C41E1E] text-white',
+    title: 'Personalized Coaching at Your Individual PC',
+    description: 'Experienced trainers sit directly beside you to resolve doubts, guide mouse navigation and keyboard placement, and walk through real practical exercises step by step.',
     stats: [
-      { label: 'Batch Type', value: 'Ladies Exclusive' },
-      { label: 'Mentorship', value: 'Desk-to-Desk' },
-      { label: 'Atmosphere', value: 'Safe & Encouraging' }
+      { label: 'Mentorship', value: '1-on-1 Desk-to-Desk' },
+      { label: 'Pace', value: 'Your Own Speed' },
+      { label: 'Atmosphere', value: 'Friendly & Supportive' }
     ]
   },
   {
     id: 3,
-    image: '/images/tally-practice.jpg',
-    badge: 'High-Demand Career Course',
-    badgeColor: 'bg-[#001752] text-white',
-    title: 'Industry-Standard TallyPrime with GST & Billing',
-    description: 'Master live company creation, voucher entries, GST returns (GSTR-1, 3B), inventory management, and balance sheets for immediate employment in Virar & Mumbai.',
+    image: '/images/real-teacher-lecture.jpg',
+    badge: 'Dedicated Batches · Ladies Slot 12:30–4 PM',
+    badgeColor: 'bg-emerald-600 text-white',
+    title: 'Safe, Focused & Structured Classroom Learning',
+    description: 'Comfortable, quiet batches tailored for students, housewives, and working professionals. Instructors clarify fundamental concepts clearly before practical machine drills.',
     stats: [
-      { label: 'Curriculum', value: 'TallyPrime + GST' },
+      { label: 'Batch Type', value: 'Ladies & General' },
+      { label: 'Timing', value: 'Flexible Slots' },
+      { label: 'Environment', value: 'Safe & Clean' }
+    ]
+  },
+  {
+    id: 4,
+    image: '/images/real-data-chart-session.jpg',
+    badge: 'TallyPrime, Excel & Data Analytics',
+    badgeColor: 'bg-[#001752] text-white',
+    title: 'Live Business Data, Financial Reports & Chart Analysis',
+    description: 'Master live company accounts, GST return filing, MIS reports, dynamic charts, and automated Excel workbooks for immediate employability in Virar, Vasai, and Mumbai.',
+    stats: [
+      { label: 'Curriculum', value: 'TallyPrime + Adv Excel' },
       { label: 'Target', value: 'Job & Business' },
       { label: 'Offer', value: 'Flat 50% Concession' }
     ]
   },
   {
-    id: 4,
-    image: '/images/certificate-success.jpg',
-    badge: 'Recognized Credentials · 5,000+ Alumni',
-    badgeColor: 'bg-purple-600 text-white',
-    title: 'Authorized Certifications & Placement Support',
-    description: 'Receive accredited certificates that prove your hands-on proficiency to employers. Includes resume formatting, interview guidance, and local placement assistance.',
-    stats: [
-      { label: 'Certificates', value: 'Government Pattern' },
-      { label: 'Typing Board', value: 'GCC-TBC Pattern' },
-      { label: 'Assistance', value: 'Placement Guidance' }
-    ]
-  },
-  {
     id: 5,
-    image: '/images/student-coding.jpg',
-    badge: 'Tech & Career Track',
-    badgeColor: 'bg-amber-500 text-white',
-    title: 'Full-Stack Web Development, Coding & AI Modules',
-    description: 'Hands-on practice in HTML, CSS, JavaScript, React, Python, and AI prompt engineering with practical project portfolios that prepare you for the IT industry.',
+    image: '/images/real-lab-wide.jpg',
+    badge: 'Opposite Virar East Station Subway Exit',
+    badgeColor: 'bg-[#001752] text-white',
+    title: 'Modern Lab Infrastructure · 5,000+ Alumni Since 2014',
+    description: 'High-speed broadband, uninterrupted power backup, ergonomic seating, and licensed software. Eliminate the exhausting 4-hour commute to South Mumbai.',
     stats: [
-      { label: 'Track', value: 'Full-Stack & Python' },
-      { label: 'Method', value: 'Real Projects' },
-      { label: 'Support', value: 'Lifetime Doubt-Solving' }
+      { label: 'Walk from Station', value: '2 Minutes Flat' },
+      { label: 'Alumni Network', value: '5,000+ Trained' },
+      { label: 'Support', value: 'Free Lifetime Doubts' }
     ]
   }
 ];

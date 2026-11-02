@@ -178,7 +178,7 @@ export default function Home() {
             
             {/* Background Lab Photo filling 100% of the right side */}
             <img
-              src="/images/hero-lab.jpg"
+              src="/images/real-lab-classroom.jpg"
               alt="Students learning inside Race Reddys modern computer laboratory in Raut Arcade Virar East"
               className="absolute inset-0 w-full h-full object-cover object-center scale-102 hover:scale-105 transition-transform duration-700 ease-out"
             />
@@ -383,8 +383,8 @@ export default function Home() {
               <div className="relative rounded-2xl overflow-hidden border border-white/15 shadow-2xl bg-slate-900 group">
                 <div className="aspect-[16/10] w-full relative overflow-hidden">
                   <img
-                    src="/images/lab-students.jpg"
-                    alt="Students practicing on computers in Virar East lab"
+                    src="/images/real-instructor-mentoring.jpg"
+                    alt="Instructor guiding students hands-on at computer workstation in Virar East lab"
                     className="w-full h-full object-cover group-hover:scale-104 transition-transform duration-700 ease-out"
                   />
                   {/* Cinematic Vignette */}
@@ -598,8 +598,8 @@ export default function Home() {
             <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-md transition-shadow flex flex-col group">
               <div className="aspect-[4/3] w-full relative overflow-hidden bg-slate-900">
                 <img
-                  src="/images/lab-students.jpg"
-                  alt="Students practicing on computers in Virar East lab"
+                  src="/images/real-lab-wide.jpg"
+                  alt="Full view of student workstations in Race Reddys Virar East lab"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <span className="absolute top-3 left-3 bg-[#001752] text-white px-2.5 py-1 rounded-full text-xs font-bold shadow-sm">
@@ -627,8 +627,8 @@ export default function Home() {
             <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-md transition-shadow flex flex-col group">
               <div className="aspect-[4/3] w-full relative overflow-hidden bg-slate-900">
                 <img
-                  src="/images/ladies-guidance.jpg"
-                  alt="Female instructor guiding student 1-on-1 at computer desk"
+                  src="/images/real-instructor-mentoring.jpg"
+                  alt="Instructor explaining computer concept 1-on-1 directly at student desk"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <span className="absolute top-3 left-3 bg-emerald-600 text-white px-2.5 py-1 rounded-full text-xs font-bold shadow-sm">
@@ -656,26 +656,26 @@ export default function Home() {
             <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-md transition-shadow flex flex-col group">
               <div className="aspect-[4/3] w-full relative overflow-hidden bg-slate-900">
                 <img
-                  src="/images/certificate-success.jpg"
-                  alt="Proud student with course completion certificate at Race Reddys"
+                  src="/images/real-teacher-lecture.jpg"
+                  alt="Teacher conducting classroom lecture and whiteboard discussion at Race Reddys"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <span className="absolute top-3 left-3 bg-[#C41E1E] text-white px-2.5 py-1 rounded-full text-xs font-bold shadow-sm">
-                  Student Success
+                  Interactive Class
                 </span>
                 <span className="absolute bottom-3 right-3 bg-black/60 backdrop-blur-xs text-white text-[11px] font-medium px-2 py-0.5 rounded">
-                  5,000+ Alumni
+                  Daily Batches
                 </span>
               </div>
               <div className="p-5 flex-1 flex flex-col justify-between">
                 <div>
-                  <h4 className="text-base text-[#001752] font-bold">Certified Career Diplomas</h4>
+                  <h4 className="text-base text-[#001752] font-bold">Concept Clarity &amp; Whiteboard Prep</h4>
                   <p className="text-xs text-slate-600 mt-1.5 leading-relaxed">
-                    Proud students receiving recognized career certifications upon completing practical coursework. Verified credentials trusted by employers across Palghar and Mumbai MMR.
+                    Clear blackboard and digital screen explanations before you start coding or entering accounting vouchers. Gain full conceptual clarity before practicing independently.
                   </p>
                 </div>
                 <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-600">
-                  <span className="font-semibold text-sky-600">Authorized Certificate</span>
+                  <span className="font-semibold text-sky-600">Authorized Curriculum</span>
                   <span className="text-[#C41E1E] font-bold">Placement Help</span>
                 </div>
               </div>

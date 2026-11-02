@@ -6,76 +6,76 @@ import { SITE_CONFIG } from '../data/config';
 
 const GALLERY_ITEMS = [
   {
-    image: '/images/lab-students.jpg',
-    alt: 'Students practicing on computers in Virar East lab',
-    badge: 'Live Classroom',
+    image: '/images/real-lab-classroom.jpg',
+    alt: 'Students practicing on computers in Virar East lab at Raut Arcade',
+    badge: 'Raut Arcade Lab 202',
     badgeClass: 'bg-[#001752] text-white',
-    bottomLeft: 'Raut Arcade Lab 202',
+    bottomLeft: 'Virar East Subway Exit',
     bottomRight: '1 Student : 1 PC',
     bottomRightClass: 'text-emerald-400',
     title: 'Individual Practical Workstations',
     description:
-      'Morning & Afternoon batches at Raut Arcade. Confirmed machine time with zero sharing.',
+      'Genuine daily sessions at Raut Arcade 202, opposite Virar East railway subway. Every student has a dedicated computer terminal.',
   },
   {
-    image: '/images/instructor-teaching.jpg',
-    alt: 'Faculty assisting student 1-on-1 at computer desk',
-    badge: '1-on-1 Mentorship',
-    badgeClass: 'bg-emerald-600 text-white',
-    bottomLeft: 'Desk Guidance',
-    bottomRight: 'Zero Hesitation',
+    image: '/images/real-instructor-mentoring.jpg',
+    alt: 'Faculty assisting student hands-on at computer desk at Race Reddys',
+    badge: '1-on-1 Faculty Mentorship',
+    badgeClass: 'bg-[#C41E1E] text-white',
+    bottomLeft: 'Desk Coaching',
+    bottomRight: 'Patient Guidance',
     bottomRightClass: 'text-sky-300',
-    title: 'Patient, Step-by-Step Teaching',
+    title: 'Hands-On Desk Coaching',
     description:
-      'Teachers answer every doubt directly at the student’s desk. Ideal for absolute beginners.',
+      'Faculty directly guide students with mouse navigation, typing mechanics, voucher entries, and code execution step by step.',
   },
   {
-    image: '/images/student-coding.jpg',
-    alt: 'Student working on coding and typing exercise',
-    badge: 'Coding & Typing',
-    badgeClass: 'bg-violet-600 text-white',
-    bottomLeft: 'GCC-TBC Pattern',
-    bottomRight: 'English & Marathi',
-    bottomRightClass: 'text-amber-300',
-    title: 'Speed Typing & Web Development',
-    description:
-      'Timed speed assessments for government exam preparation and modern software projects.',
-  },
-  {
-    image: '/images/certificate-success.jpg',
-    alt: 'Student celebrating course completion and certification at Race Reddys',
-    badge: 'Recognized Diploma',
-    badgeClass: 'bg-amber-500 text-white',
-    bottomLeft: '5,000+ Alumni',
-    bottomRight: '100% Certified',
-    bottomRightClass: 'text-emerald-400',
-    title: 'Course Completion Moments',
-    description:
-      'Celebrating students completing career certifications and stepping into corporate roles.',
-  },
-  {
-    image: '/images/tally-practice.jpg',
-    alt: 'Student practicing TallyPrime accounting with GST in lab',
-    badge: 'Accounting & GST',
-    badgeClass: 'bg-blue-600 text-white',
-    bottomLeft: 'TallyPrime + GST',
-    bottomRight: 'Live Billing',
-    bottomRightClass: 'text-yellow-300',
-    title: 'Accounting & GST Computation',
-    description:
-      'Hands-on voucher entries, bank reconciliations, and tax returns for office jobs.',
-  },
-  {
-    image: '/images/ladies-guidance.jpg',
-    alt: 'Encouraging environment for ladies and students at Race Reddys',
-    badge: 'Ladies Exclusive',
-    badgeClass: 'bg-rose-600 text-white',
-    bottomLeft: '12:30 PM – 4:00 PM',
-    bottomRight: 'Safe & Quiet',
+    image: '/images/real-teacher-lecture.jpg',
+    alt: 'Teacher explaining concept at whiteboard to computer students at Race Reddys',
+    badge: 'Structured Classroom Batches',
+    badgeClass: 'bg-emerald-600 text-white',
+    bottomLeft: 'Daily Batches',
+    bottomRight: 'Ladies 12:30–4 PM',
     bottomRightClass: 'text-white',
-    title: 'Safe & Encouraging Space',
+    title: 'Interactive Whiteboard Lectures',
     description:
-      'Empowering homemakers, working women, and young students with digital confidence.',
+      'Detailed concept explanations before hands-on computer execution. Safe, welcoming environment for school, college, and ladies batches.',
+  },
+  {
+    image: '/images/real-data-chart-session.jpg',
+    alt: 'Students analyzing Excel charts and financial data on screen at Race Reddys',
+    badge: 'Advanced Excel & Business Analytics',
+    badgeClass: 'bg-[#001752] text-white',
+    bottomLeft: 'TallyPrime + GST',
+    bottomRight: 'Live Projects',
+    bottomRightClass: 'text-yellow-300',
+    title: 'Practical Chart & Report Generation',
+    description:
+      'Real-time financial charts, pivot summaries, and invoice automation displayed directly on digital screens for deep practical learning.',
+  },
+  {
+    image: '/images/real-lab-wide.jpg',
+    alt: 'Panoramic view of full computer lab inside Raut Arcade Virar East',
+    badge: 'Spacious Lab Infrastructure',
+    badgeClass: 'bg-[#001752] text-white',
+    bottomLeft: '2nd Floor 202',
+    bottomRight: '100% Practical',
+    bottomRightClass: 'text-emerald-400',
+    title: 'Full Facility Panoramic View',
+    description:
+      'Air-conditioned learning booths with individual high-speed desktop PCs, uninterrupted power backup, and quiet study ambiance.',
+  },
+  {
+    image: '/images/real-lab-aisle.jpg',
+    alt: 'Students seated in booths working with course material at Race Reddys Virar',
+    badge: 'Authentic Study Materials',
+    badgeClass: 'bg-[#C41E1E] text-white',
+    bottomLeft: 'Since 2014',
+    bottomRight: '5,000+ Alumni',
+    bottomRightClass: 'text-emerald-400',
+    title: 'Focused Practice & Reference Books',
+    description:
+      'Students working through syllabus modules, textbook examples, and real-world accounting entries under mentor supervision.',
   },
 ];
 
@@ -97,16 +97,16 @@ export default function Gallery() {
             <div className="grid grid-cols-2 gap-3">
               <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-slate-200 bg-slate-900 shadow-sm">
                 <img
-                  src="/images/lab-students.jpg"
-                  alt="Students learning in the Race Reddys lab"
+                  src="/images/real-lab-classroom.jpg"
+                  alt="Real students learning in the Race Reddys computer lab"
                   className="h-full w-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
               </div>
               <div className="relative mt-7 aspect-[4/5] overflow-hidden rounded-2xl border border-slate-200 bg-slate-900 shadow-sm">
                 <img
-                  src="/images/ladies-guidance.jpg"
-                  alt="Ladies batch guidance at Race Reddys"
+                  src="/images/real-instructor-mentoring.jpg"
+                  alt="Faculty desk guidance at Race Reddys"
                   className="h-full w-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />

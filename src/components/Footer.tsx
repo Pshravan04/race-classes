@@ -16,21 +16,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/10">
           {/* Brand */}
           <div className="space-y-5">
-            <div className="flex items-center gap-3">
-              <div className="w-11 h-11 rounded-2xl bg-[#000E33] border border-white/10 flex items-center justify-center p-1.5 shrink-0">
+            <div>
+              <div className="bg-white rounded-2xl p-2.5 inline-block shadow-lg border border-white/20">
                 <img
-                  src="/images/logo-stitch.png"
-                  alt="Race Reddys emblem"
-                  className="w-full h-full object-contain"
+                  src="/images/logo-full.png"
+                  alt="RACE - Reddy's Advanced Computer Education"
+                  className="h-10 sm:h-11 w-auto object-contain"
                 />
-              </div>
-              <div>
-                <span className="font-extrabold text-lg tracking-tight text-white block leading-none">
-                  RACE REDDYS
-                </span>
-                <span className="text-[9.5px] font-extrabold text-[#C41E1E] tracking-wider uppercase block mt-1.5">
-                  Advanced Computer Education
-                </span>
               </div>
             </div>
 

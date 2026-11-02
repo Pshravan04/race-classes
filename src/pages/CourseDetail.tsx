@@ -342,7 +342,7 @@ export default function CourseDetail() {
               <div className="rounded-3xl border border-slate-200 overflow-hidden bg-white shadow-sm">
                 <div className="relative aspect-[16/10] overflow-hidden bg-slate-900">
                   <img
-                    src="/images/lab-students.jpg"
+                    src="/images/real-instructor-mentoring.jpg"
                     alt="Students learning on computers at Race Reddys Virar"
                     className="w-full h-full object-cover"
                   />

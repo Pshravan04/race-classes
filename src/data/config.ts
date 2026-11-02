@@ -40,7 +40,7 @@ export const SITE_CONFIG = {
 
   seo: {
     canonicalBase: 'https://racereddys.com',
-    ogImage: '/logo-wordmark.jpg',
+    ogImage: '/images/logo-full.png',
   },
 };
 

@@ -118,7 +118,7 @@ export default function About() {
               <div className="relative rounded-3xl overflow-hidden border border-slate-200 shadow-xl bg-slate-900 group">
                 <div className="aspect-[4/3] w-full relative overflow-hidden">
                   <img
-                    src="/images/hero-lab.jpg"
+                    src="/images/real-lab-classroom.jpg"
                     alt="Race Reddys computer lab inside Raut Arcade Virar East"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />

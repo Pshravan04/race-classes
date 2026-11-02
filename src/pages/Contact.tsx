@@ -227,8 +227,8 @@ Message: ${message || 'I would like to enquire about admissions and batch availa
               <div className="rounded-3xl border border-slate-200 overflow-hidden bg-white shadow-sm">
                 <div className="relative aspect-[16/10] overflow-hidden bg-slate-900">
                   <img
-                    src="/images/lab-students.jpg"
-                    alt="Students practicing on computers at Race Reddys Virar"
+                    src="/images/real-instructor-mentoring.jpg"
+                    alt="Instructor guiding students on computers at Race Reddys Virar"
                     className="w-full h-full object-cover"
                   />
                   <span className="absolute top-3 left-3 bg-[#001752] text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full shadow-sm">
