@@ -8,16 +8,16 @@ export default function Footer() {
   const { language, setLanguage, t } = useLanguage();
 
   return (
-    <footer className="relative bg-[#0B0F19] text-white border-t border-white/10 pt-14 pb-24 md:pb-12 text-xs sm:text-sm overflow-hidden">
-      <div className="absolute -right-24 top-0 w-80 h-80 bg-[#0084FF]/10 rounded-full blur-[110px] pointer-events-none" />
-      <div className="absolute -left-24 bottom-0 w-80 h-80 bg-[#F5BE4F]/5 rounded-full blur-[110px] pointer-events-none" />
+    <footer className="relative bg-[#001752] text-white border-t border-[#002277] pt-14 pb-24 md:pb-12 text-xs sm:text-sm overflow-hidden">
+      <div className="absolute -right-24 top-0 w-80 h-80 bg-[#C41E1E]/15 rounded-full blur-[110px] pointer-events-none" />
+      <div className="absolute -left-24 bottom-0 w-80 h-80 bg-[#002B94]/25 rounded-full blur-[110px] pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/10">
           {/* Brand */}
           <div className="space-y-5">
             <div className="flex items-center gap-3">
-              <div className="w-11 h-11 rounded-2xl bg-slate-900 border border-white/10 flex items-center justify-center p-1.5 shrink-0">
+              <div className="w-11 h-11 rounded-2xl bg-[#000E33] border border-white/10 flex items-center justify-center p-1.5 shrink-0">
                 <img
                   src="/images/logo-stitch.png"
                   alt="Race Reddys emblem"
@@ -28,23 +28,23 @@ export default function Footer() {
                 <span className="font-extrabold text-lg tracking-tight text-white block leading-none">
                   RACE REDDYS
                 </span>
-                <span className="text-[9.5px] font-bold text-[#0084FF] tracking-wider uppercase block mt-1.5">
+                <span className="text-[9.5px] font-extrabold text-[#C41E1E] tracking-wider uppercase block mt-1.5">
                   Advanced Computer Education
                 </span>
               </div>
             </div>
 
-            <p className="text-slate-400 text-xs leading-relaxed">
+            <p className="text-slate-300 text-xs leading-relaxed">
               Virar East’s dedicated computer training institute. Offering 100% practical lab training,
               industry certification, and personal mentoring right opposite Virar station.
             </p>
 
             <div className="flex items-center gap-2">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#F5BE4F] px-3 py-1 text-[10px] font-black uppercase tracking-wider text-[#111827]">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#C41E1E] px-3 py-1 text-[10px] font-black uppercase tracking-wider text-white">
                 <MapPin size={11} />
                 Virar Fast
               </span>
-              <span className="text-slate-400 text-[11px]">{t.stationTagline}</span>
+              <span className="text-slate-300 text-[11px]">{t.stationTagline}</span>
             </div>
           </div>
 
@@ -150,7 +150,7 @@ export default function Footer() {
 
             <div className="pt-1 space-y-2">
               <div className="flex items-center gap-2">
-                <Phone size={14} className="text-[#0084FF]" />
+                <Phone size={14} className="text-[#C41E1E]" />
                 <a href={`tel:${SITE_CONFIG.contact.phone}`} className="hover:text-white font-bold">
                   {SITE_CONFIG.contact.phoneDisplay}
                 </a>
@@ -199,8 +199,8 @@ export default function Footer() {
                   aria-pressed={language === l}
                   className={`px-2.5 py-1 rounded-full text-[11px] font-bold transition-colors ${
                     language === l
-                      ? 'bg-[#0084FF] text-white'
-                      : 'text-slate-400 hover:text-white'
+                      ? 'bg-[#C41E1E] text-white shadow-xs'
+                      : 'text-slate-300 hover:text-white'
                   }`}
                 >
                   {l === 'en' ? 'English' : l === 'hi' ? 'हिंदी' : 'मराठी'}

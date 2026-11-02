@@ -41,13 +41,13 @@ export default function Offers() {
             {/* Concession detail */}
             <div className="rounded-3xl border border-slate-200 bg-white p-6 sm:p-7 shadow-sm">
               <div className="mb-4 flex flex-wrap items-center gap-2">
-                <span className="inline-flex items-center rounded-full bg-[#F5BE4F] px-3 py-1 text-[10px] font-black uppercase tracking-wider text-[#111827]">
+                <span className="inline-flex items-center rounded-full bg-[#C41E1E] px-3 py-1 text-[10px] font-black uppercase tracking-wider text-white shadow-xs">
                   50% Off
                 </span>
-                <span className="text-xs font-bold text-[#111827]">All Courses Included</span>
+                <span className="text-xs font-bold text-[#001752]">All Courses Included</span>
               </div>
 
-              <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-[#111827]">
+              <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-[#001752]">
                 Flat 50% Concession on Standard Course Fees
               </h2>
 
@@ -60,7 +60,7 @@ export default function Offers() {
               <ul className="mt-5 space-y-2.5 border-t border-slate-100 pt-4">
                 {CONCESSION_POINTS.map((point) => (
                   <li key={point} className="flex items-start gap-2 text-xs text-[#334155]">
-                    <CheckCircle2 size={15} className="mt-0.5 shrink-0 text-[#0084FF]" />
+                    <CheckCircle2 size={15} className="mt-0.5 shrink-0 text-[#C41E1E]" />
                     <span>{point}</span>
                   </li>
                 ))}
@@ -70,13 +70,13 @@ export default function Offers() {
             {/* Bonus detail */}
             <div className="rounded-3xl border border-slate-200 bg-white p-6 sm:p-7 shadow-sm">
               <div className="mb-4 flex flex-wrap items-center gap-2">
-                <span className="inline-flex items-center rounded-full bg-[#0084FF] px-3 py-1 text-[10px] font-black uppercase tracking-wider text-white">
+                <span className="inline-flex items-center rounded-full bg-[#001752] px-3 py-1 text-[10px] font-black uppercase tracking-wider text-white">
                   100% Free
                 </span>
-                <span className="text-xs font-bold text-[#111827]">Career Track Bonus</span>
+                <span className="text-xs font-bold text-[#001752]">Career Track Bonus</span>
               </div>
 
-              <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-[#111827]">
+              <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-[#001752]">
                 FREE Basic Computer Foundation with Career Courses
               </h2>
 
@@ -90,7 +90,7 @@ export default function Offers() {
               <ul className="mt-5 space-y-2.5 border-t border-slate-100 pt-4">
                 {BONUS_POINTS.map((point) => (
                   <li key={point} className="flex items-start gap-2 text-xs text-[#334155]">
-                    <CheckCircle2 size={15} className="mt-0.5 shrink-0 text-[#0084FF]" />
+                    <CheckCircle2 size={15} className="mt-0.5 shrink-0 text-[#C41E1E]" />
                     <span>{point}</span>
                   </li>
                 ))}
@@ -100,23 +100,23 @@ export default function Offers() {
 
           {/* How to claim */}
           <div className="mx-auto mt-10 max-w-5xl overflow-hidden rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 text-center shadow-sm">
-            <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-2xl bg-sky-50 text-[#0084FF] border border-sky-100">
+            <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#FDF2F2] text-[#C41E1E] border border-[#FAD4D4]">
               <Ticket size={22} />
             </div>
 
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-[#F5BE4F]/20 px-3 py-1 text-[10px] font-black uppercase tracking-wider text-[#8A5A00]">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-[#C41E1E]/15 px-3 py-1 text-[10px] font-black uppercase tracking-wider text-[#C41E1E]">
               <Sparkles size={11} />
               Claim in one step
             </span>
 
-            <h3 className="mt-3 text-xl sm:text-2xl font-bold tracking-tight text-[#111827]">
+            <h3 className="mt-3 text-xl sm:text-2xl font-bold tracking-tight text-[#001752]">
               Ready to claim your concession?
             </h3>
 
             <p className="mx-auto mt-2 max-w-2xl text-xs sm:text-sm leading-relaxed text-slate-600">
               Visit our centre at Raut Arcade, 2nd floor, opposite Virar East subway, or mention
               ticket code{' '}
-              <strong className="rounded bg-[#F1F3FF] px-1.5 py-0.5 font-mono text-[#111827]">
+              <strong className="rounded bg-[#F1F4FA] px-1.5 py-0.5 font-mono text-[#001752] font-bold">
                 {OFFERS_CONFIG.ticketCode}
               </strong>{' '}
               on WhatsApp.
@@ -129,7 +129,7 @@ export default function Offers() {
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-6 py-3 text-xs sm:text-sm font-bold text-white shadow-md transition-all hover:bg-[#20BA5A] active:scale-95"
+                className="inline-flex items-center gap-2 rounded-full bg-[#C41E1E] hover:bg-[#A81717] px-6 py-3 text-xs sm:text-sm font-bold text-white shadow-md transition-all active:scale-95"
               >
                 <MessageSquare size={16} />
                 <span>Claim via WhatsApp</span>
@@ -137,7 +137,7 @@ export default function Offers() {
 
               <Link
                 to="/courses"
-                className="inline-flex items-center gap-1.5 rounded-full bg-[#111827] px-6 py-3 text-xs sm:text-sm font-bold text-white transition-colors hover:bg-[#0084FF]"
+                className="inline-flex items-center gap-1.5 rounded-full bg-[#001752] hover:bg-[#C41E1E] px-6 py-3 text-xs sm:text-sm font-bold text-white transition-colors"
               >
                 <span>Browse All 23 Courses</span>
                 <ArrowRight size={14} className="text-[#F5BE4F]" />

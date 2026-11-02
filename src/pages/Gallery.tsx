@@ -9,7 +9,7 @@ const GALLERY_ITEMS = [
     image: '/images/lab-students.jpg',
     alt: 'Students practicing on computers in Virar East lab',
     badge: 'Live Classroom',
-    badgeClass: 'bg-[#0084FF] text-white',
+    badgeClass: 'bg-[#001752] text-white',
     bottomLeft: 'Raut Arcade Lab 202',
     bottomRight: '1 Student : 1 PC',
     bottomRightClass: 'text-emerald-400',
@@ -114,7 +114,7 @@ export default function Gallery() {
             </div>
 
             <div className="absolute -bottom-4 left-1/2 w-[85%] -translate-x-1/2 rounded-2xl border border-white/60 bg-white/95 p-3 text-center shadow-xl backdrop-blur-md">
-              <strong className="block text-xs font-black text-[#111827]">Raut Arcade Lab 202</strong>
+              <strong className="block text-xs font-black text-[#001752]">Raut Arcade Lab 202</strong>
               <span className="text-[10px] font-semibold text-slate-500">
                 Real sessions · 1 Student : 1 PC
               </span>
@@ -150,7 +150,7 @@ export default function Gallery() {
                 </div>
 
                 <div className="flex flex-1 flex-col px-1 pt-3">
-                  <strong className="block text-sm font-bold text-[#111827]">{item.title}</strong>
+                  <strong className="block text-sm font-bold text-[#001752]">{item.title}</strong>
                   <span className="mt-1 block text-xs leading-relaxed text-slate-500">
                     {item.description}
                   </span>
@@ -161,11 +161,11 @@ export default function Gallery() {
 
           {/* Share your story */}
           <div className="mx-auto mt-14 max-w-3xl rounded-3xl border border-slate-200 bg-[#F8F9FA] p-6 text-center shadow-sm sm:p-8">
-            <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-2xl border border-sky-100 bg-sky-50 text-[#0084FF]">
+            <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-2xl border border-[#FAD4D4] bg-[#FDF2F2] text-[#C41E1E]">
               <Upload size={22} />
             </div>
 
-            <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-[#111827]">
+            <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-[#001752]">
               Are you an alumni of Race Reddys? Share Your Story!
             </h2>
 
@@ -181,7 +181,7 @@ export default function Gallery() {
               )}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-5 inline-flex items-center gap-2 rounded-full bg-[#25D366] px-6 py-3 text-xs font-bold text-white shadow-sm transition-all hover:bg-[#20BA5A] active:scale-95 sm:text-sm"
+              className="mt-5 inline-flex items-center gap-2 rounded-full bg-[#C41E1E] hover:bg-[#A81717] px-6 py-3 text-xs font-bold text-white shadow-sm transition-all active:scale-95 sm:text-sm"
             >
               <MessageSquare size={16} />
               <span>Send Your Story on WhatsApp</span>

@@ -48,18 +48,18 @@ export default function CourseDrawer({ course, onClose }: CourseDrawerProps) {
 
       <div className="relative w-full max-w-xl bg-[#F8F9FA] min-h-screen sm:min-h-0 sm:max-h-[96vh] sm:my-auto sm:mr-4 sm:rounded-3xl shadow-2xl border-l sm:border border-slate-200 flex flex-col z-10 overflow-hidden">
         {/* Header */}
-        <div className="relative bg-[#0B0F19] text-white p-5 sm:p-6 border-b border-white/10 flex items-start justify-between gap-4 overflow-hidden">
-          <div className="absolute -right-10 -top-10 w-40 h-40 bg-[#0084FF]/25 rounded-full blur-2xl pointer-events-none" />
+        <div className="relative bg-[#001752] text-white p-5 sm:p-6 border-b border-[#002277] flex items-start justify-between gap-4 overflow-hidden">
+          <div className="absolute -right-10 -top-10 w-40 h-40 bg-[#C41E1E]/20 rounded-full blur-2xl pointer-events-none" />
           <div className="relative z-10">
             <div className="flex flex-wrap items-center gap-2 mb-2">
               <span
                 className={`text-[10px] font-black px-2.5 py-1 rounded-full uppercase tracking-wider ${
-                  isCareer ? 'bg-[#F5BE4F] text-[#111827]' : 'bg-white/10 text-white border border-white/15'
+                  isCareer ? 'bg-[#C41E1E] text-white shadow-xs' : 'bg-white/10 text-white border border-white/15'
                 }`}
               >
                 {isCareer ? 'Career-Objective Course' : 'Short-Term Skill Module'}
               </span>
-              <span className="text-[11px] font-semibold text-[#0084FF]">
+              <span className="text-[11px] font-bold text-[#F5BE4F]">
                 Virar East Branch
               </span>
             </div>
@@ -81,9 +81,9 @@ export default function CourseDrawer({ course, onClose }: CourseDrawerProps) {
         </div>
 
         {/* Body */}
-        <div className="p-5 sm:p-6 overflow-y-auto space-y-5 flex-1 text-[#111827]">
+        <div className="p-5 sm:p-6 overflow-y-auto space-y-5 flex-1 text-[#001752]">
           <div>
-            <h3 className="text-[11px] font-black uppercase tracking-wider text-[#1E4ED7] mb-1.5">
+            <h3 className="text-[11px] font-black uppercase tracking-wider text-[#C41E1E] mb-1.5">
               Course Overview
             </h3>
             <p className="text-sm text-slate-600 leading-relaxed">
@@ -94,37 +94,37 @@ export default function CourseDrawer({ course, onClose }: CourseDrawerProps) {
           <div className="grid grid-cols-2 gap-3 bg-white p-4 rounded-2xl border border-slate-200 text-xs">
             <div>
               <span className="text-slate-500 block mb-1 flex items-center gap-1">
-                <Clock size={13} className="text-[#0084FF]" />
+                <Clock size={13} className="text-[#C41E1E]" />
                 Typical Duration
               </span>
-              <strong className="text-[#111827] font-semibold">
+              <strong className="text-[#001752] font-semibold">
                 {course.durationPlaceholder}
               </strong>
             </div>
 
             <div>
               <span className="text-slate-500 block mb-1 flex items-center gap-1">
-                <Laptop size={13} className="text-[#0084FF]" />
+                <Laptop size={13} className="text-[#C41E1E]" />
                 Training Mode
               </span>
-              <strong className="text-[#111827] font-semibold">
+              <strong className="text-[#001752] font-semibold">
                 100% Practical Lab
               </strong>
             </div>
 
             <div className="col-span-2 pt-3 border-t border-slate-100">
               <span className="text-slate-500 block mb-1 flex items-center gap-1">
-                <Award size={13} className="text-[#0084FF]" />
+                <Award size={13} className="text-[#C41E1E]" />
                 Certification
               </span>
-              <strong className="text-[#111827] font-semibold">
+              <strong className="text-[#001752] font-semibold">
                 {course.certificate}
               </strong>
             </div>
           </div>
 
           <div>
-            <h3 className="text-[11px] font-black uppercase tracking-wider text-[#1E4ED7] mb-1.5">
+            <h3 className="text-[11px] font-black uppercase tracking-wider text-[#C41E1E] mb-1.5">
               Who is this course for?
             </h3>
             <div className="p-4 bg-white rounded-xl border border-slate-200 text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -133,25 +133,25 @@ export default function CourseDrawer({ course, onClose }: CourseDrawerProps) {
           </div>
 
           <div>
-            <h3 className="text-[11px] font-black uppercase tracking-wider text-[#1E4ED7] mb-2">
+            <h3 className="text-[11px] font-black uppercase tracking-wider text-[#C41E1E] mb-2">
               What You Will Learn (Practical Modules)
             </h3>
             <ul className="space-y-2.5 bg-white p-4 rounded-2xl border border-slate-200">
               {course.topics.map((topic, i) => (
                 <li key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600">
-                  <CheckCircle2 size={16} className="text-[#0084FF] shrink-0 mt-0.5" />
+                  <CheckCircle2 size={16} className="text-[#C41E1E] shrink-0 mt-0.5" />
                   <span>{topic}</span>
                 </li>
               ))}
             </ul>
           </div>
 
-          <div className="p-4 bg-[#F1F3FF] rounded-2xl border border-[#0084FF]/20 text-xs text-[#111827]">
+          <div className="p-4 bg-[#FDF2F2] rounded-2xl border border-[#FAD4D4] text-xs text-[#001752]">
             <div className="flex items-center gap-2 mb-1.5">
-              <span className="rounded-full bg-[#F5BE4F] px-2.5 py-0.5 text-[10px] font-black text-[#111827]">
+              <span className="rounded-full bg-[#C41E1E] px-2.5 py-0.5 text-[10px] font-black text-white">
                 {OFFERS_CONFIG.badge}
               </span>
-              <strong className="text-xs font-bold text-[#111827]">
+              <strong className="text-xs font-bold text-[#001752]">
                 Concession Eligible
               </strong>
             </div>
@@ -167,9 +167,9 @@ export default function CourseDrawer({ course, onClose }: CourseDrawerProps) {
         <div className="p-4 sm:p-5 bg-white border-t border-slate-200 flex flex-wrap items-center justify-between gap-3">
           <a
             href={`tel:${SITE_CONFIG.contact.phone}`}
-            className="inline-flex items-center gap-1.5 text-xs font-bold text-[#111827] hover:bg-slate-50 px-3 py-2.5 rounded-full border border-slate-200 transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs font-bold text-[#001752] hover:bg-slate-50 px-3 py-2.5 rounded-full border border-slate-200 transition-colors"
           >
-            <Phone size={14} className="text-[#0084FF]" />
+            <Phone size={14} className="text-[#C41E1E]" />
             <span>Call Institute</span>
           </a>
 

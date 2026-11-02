@@ -43,7 +43,7 @@ const SLIDES: Slide[] = [
     id: 3,
     image: '/images/tally-practice.jpg',
     badge: 'High-Demand Career Course',
-    badgeColor: 'bg-[#0084FF] text-white',
+    badgeColor: 'bg-[#001752] text-white',
     title: 'Industry-Standard TallyPrime with GST & Billing',
     description: 'Master live company creation, voucher entries, GST returns (GSTR-1, 3B), inventory management, and balance sheets for immediate employment in Virar & Mumbai.',
     stats: [
@@ -133,7 +133,7 @@ export default function CampusCarousel() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
           <div>
             <div className="flex items-center gap-2 mb-2.5">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-50 text-[#0084FF] text-xs font-bold uppercase tracking-wider border border-sky-100">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#C41E1E]/10 text-[#C41E1E] text-xs font-bold uppercase tracking-wider border border-[#C41E1E]/20">
                 <Sparkles size={13} />
                 Live Campus Experience
               </span>
@@ -142,8 +142,8 @@ export default function CampusCarousel() {
               </span>
             </div>
             
-            <h2 className="text-3xl sm:text-4xl font-black text-[#111827] tracking-tight leading-tight">
-              Life Inside Our <span className="text-[#0084FF]">Practical IT Lab</span>
+            <h2 className="text-3xl sm:text-4xl font-black text-[#001752] tracking-tight leading-tight">
+              Life Inside Our <span className="text-[#C41E1E]">Practical IT Lab</span>
             </h2>
             <p className="text-sm sm:text-base text-slate-600 mt-2 max-w-2xl leading-relaxed">
               Explore authentic daily sessions at Raut Arcade 202. Experience individual computer workstations, patient teaching, and job-ready practical learning.
@@ -155,7 +155,7 @@ export default function CampusCarousel() {
             <button
               type="button"
               onClick={prevSlide}
-              className="w-11 h-11 rounded-full bg-slate-100 hover:bg-slate-200 text-[#111827] flex items-center justify-center transition-all shadow-xs active:scale-95 cursor-pointer"
+              className="w-11 h-11 rounded-full bg-slate-100 hover:bg-slate-200 text-[#001752] flex items-center justify-center transition-all shadow-xs active:scale-95 cursor-pointer"
               aria-label="Previous slide"
             >
               <ChevronLeft size={20} />
@@ -163,7 +163,7 @@ export default function CampusCarousel() {
             <button
               type="button"
               onClick={nextSlide}
-              className="w-11 h-11 rounded-full bg-[#111827] hover:bg-[#1E293B] text-white flex items-center justify-center transition-all shadow-md active:scale-95 cursor-pointer"
+              className="w-11 h-11 rounded-full bg-[#001752] hover:bg-[#C41E1E] text-white flex items-center justify-center transition-all shadow-md active:scale-95 cursor-pointer"
               aria-label="Next slide"
             >
               <ChevronRight size={20} />
@@ -237,7 +237,7 @@ export default function CampusCarousel() {
               <div className="flex flex-wrap items-center gap-3">
                 <Link
                   to="/contact#demo"
-                  className="inline-flex items-center justify-center bg-[#0084FF] hover:bg-[#0074E0] text-white text-xs sm:text-sm font-bold px-6 py-2.5 rounded-full shadow-md transition-all active:scale-95"
+                  className="inline-flex items-center justify-center bg-[#C41E1E] hover:bg-[#A81717] text-white text-xs sm:text-sm font-bold px-6 py-2.5 rounded-full shadow-md transition-all active:scale-95"
                 >
                   Book Free Demo Visit
                 </Link>
@@ -263,7 +263,7 @@ export default function CampusCarousel() {
                 onClick={() => goToSlide(i)}
                 className={`transition-all rounded-full ${
                   i === currentIndex
-                    ? 'w-6 h-2 bg-[#0084FF]'
+                    ? 'w-6 h-2 bg-[#C41E1E]'
                     : 'w-2 h-2 bg-white/50 hover:bg-white'
                 }`}
                 aria-label={`Go to slide ${i + 1}`}

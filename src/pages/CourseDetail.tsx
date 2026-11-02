@@ -41,7 +41,7 @@ export default function CourseDetail() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between text-xs">
           <Link
             to="/courses"
-            className="inline-flex items-center gap-1.5 font-bold text-[#111827] hover:text-[#0084FF] transition-colors"
+            className="inline-flex items-center gap-1.5 font-bold text-[#001752] hover:text-[#C41E1E] transition-colors"
           >
             <ArrowLeft size={14} />
             <span>Back to All 23 Courses</span>
@@ -58,9 +58,9 @@ export default function CourseDetail() {
       </div>
 
       {/* ─── Course Hero Banner ─── */}
-      <section className="relative bg-gradient-to-br from-[#0B1528] via-[#080E1C] to-[#040812] text-white py-12 sm:py-16 overflow-hidden border-b border-white/10">
-        <div className="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-[#0084FF]/20 blur-[120px] pointer-events-none" />
-        <div className="absolute top-1/2 -right-24 w-96 h-96 rounded-full bg-[#F5BE4F]/15 blur-[120px] pointer-events-none" />
+      <section className="relative bg-gradient-to-br from-[#001752] via-[#000F36] to-[#00081C] text-white py-12 sm:py-16 overflow-hidden border-b border-[#002277]">
+        <div className="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-[#C41E1E]/20 blur-[120px] pointer-events-none" />
+        <div className="absolute top-1/2 -right-24 w-96 h-96 rounded-full bg-[#002B94]/30 blur-[120px] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -72,7 +72,7 @@ export default function CourseDetail() {
               <div className="flex flex-wrap items-center gap-2">
                 <span className={`text-xs font-black px-3 py-1 rounded-full uppercase tracking-wide ${
                   isCareer 
-                    ? 'bg-[#F5BE4F] text-[#111827] shadow-sm' 
+                    ? 'bg-[#C41E1E] text-white shadow-xs' 
                     : 'bg-white/15 text-white border border-white/20'
                 }`}>
                   {isCareer ? 'Career-Objective Diploma' : 'Short-Term Certificate'}
@@ -81,7 +81,7 @@ export default function CourseDetail() {
                   <Monitor size={13} />
                   <span>100% Practical (1:1 Machine)</span>
                 </span>
-                <span className="inline-flex items-center gap-1.5 bg-sky-500/20 text-sky-300 text-xs font-bold px-3 py-1 rounded-full border border-sky-400/30">
+                <span className="inline-flex items-center gap-1.5 bg-red-500/20 text-red-200 text-xs font-bold px-3 py-1 rounded-full border border-red-400/30">
                   <Clock size={13} />
                   <span>Duration: {course.durationPlaceholder}</span>
                 </span>
@@ -112,7 +112,7 @@ export default function CourseDetail() {
                         <Icon size={14} />
                         <span className="text-xs font-bold text-white">{feat.label}</span>
                       </div>
-                      <span className="text-[11px] text-slate-400">{feat.sub}</span>
+                      <span className="text-[11px] text-slate-300">{feat.sub}</span>
                     </div>
                   );
                 })}
@@ -122,9 +122,9 @@ export default function CourseDetail() {
               <div className="flex flex-wrap items-center gap-3 pt-3">
                 <Link
                   to="/contact"
-                  className="inline-flex items-center justify-center gap-2 h-12 px-7 rounded-full bg-[#111827] hover:bg-[#1E293B] text-white border border-white/20 font-bold text-sm shadow-md active:scale-95 transition-all"
+                  className="inline-flex items-center justify-center gap-2 h-12 px-7 rounded-full bg-[#C41E1E] hover:bg-[#A81717] text-white font-bold text-sm shadow-md active:scale-95 transition-all"
                 >
-                  <Sparkles size={15} className="text-[#F5BE4F]" />
+                  <Sparkles size={15} className="text-white" />
                   <span>Book Free Demo Class</span>
                 </Link>
 
@@ -140,7 +140,7 @@ export default function CourseDetail() {
 
                 <a
                   href={`tel:${SITE_CONFIG.contact.phone}`}
-                  className="inline-flex items-center justify-center gap-2 h-12 px-5 rounded-full bg-white/10 hover:bg-white/15 text-white text-sm font-semibold border border-white/20 active:scale-95 transition-colors"
+                  className="inline-flex items-center justify-center gap-2 h-12 px-5 rounded-full bg-white/10 hover:bg-white/20 text-white text-sm font-semibold border border-white/20 active:scale-95 transition-colors"
                 >
                   <Phone size={14} className="text-[#F5BE4F]" />
                   <span>Call {SITE_CONFIG.contact.phone}</span>
@@ -151,20 +151,20 @@ export default function CourseDetail() {
 
             {/* Right Card: Quick Admission Concession Callout (4 cols) */}
             <div className="lg:col-span-4 mt-4 lg:mt-0">
-              <div className="bg-white rounded-3xl p-6 sm:p-7 text-[#111827] shadow-2xl border border-slate-200 flex flex-col gap-4">
+              <div className="bg-white rounded-3xl p-6 sm:p-7 text-[#001752] shadow-2xl border border-slate-200 flex flex-col gap-4">
                 <div className="flex items-center justify-between">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 text-amber-800 text-xs font-bold border border-amber-200">
-                    <Tag size={13} className="text-[#F5BE4F]" />
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-50 text-[#C41E1E] text-xs font-bold border border-red-200">
+                    <Tag size={13} className="text-[#C41E1E]" />
                     <span>Special Concession</span>
                   </span>
-                  <span className="bg-[#111827] text-white text-[10px] py-0.5 px-2 font-bold rounded">
+                  <span className="bg-[#001752] text-white text-[10px] py-0.5 px-2 font-bold rounded">
                     RAUT ARCADE 202
                   </span>
                 </div>
 
                 <div>
                   <div className="flex items-baseline gap-2">
-                    <span className="text-3xl font-black text-[#111827]">Flat 50% OFF</span>
+                    <span className="text-3xl font-black text-[#C41E1E]">Flat 50% OFF</span>
                   </div>
                   <p className="text-xs text-slate-600 mt-1 font-medium leading-relaxed">
                     {isCareer 
@@ -180,7 +180,7 @@ export default function CourseDetail() {
                   </div>
                   <div className="flex items-center justify-between py-1 text-slate-700">
                     <span className="font-medium text-slate-500">Machine Ratio:</span>
-                    <strong className="font-bold text-[#0084FF]">1 Student : 1 PC</strong>
+                    <strong className="font-bold text-[#C41E1E]">1 Student : 1 PC</strong>
                   </div>
                   <div className="flex items-center justify-between py-1 text-slate-700">
                     <span className="font-medium text-slate-500">Institute Location:</span>
@@ -216,10 +216,10 @@ export default function CourseDetail() {
               
               {/* Who is this course for */}
               <div className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/90 shadow-sm">
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-50 text-[#0084FF] text-xs font-bold uppercase tracking-wider mb-3">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-50 text-[#C41E1E] text-xs font-bold uppercase tracking-wider mb-3">
                   Target Audience
                 </div>
-                <h2 className="text-xl sm:text-2xl font-bold text-[#111827] mb-3">
+                <h2 className="text-xl sm:text-2xl font-bold text-[#001752] mb-3">
                   Who is this course for?
                 </h2>
                 <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
@@ -232,14 +232,14 @@ export default function CourseDetail() {
                 <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 text-amber-800 text-xs font-bold uppercase tracking-wider mb-3 border border-amber-200">
                   Syllabus &amp; Practical Modules
                 </div>
-                <h2 className="text-xl sm:text-2xl font-bold text-[#111827] mb-4">
+                <h2 className="text-xl sm:text-2xl font-bold text-[#001752] mb-4">
                   What You Will Learn Hands-On
                 </h2>
                 <div className="space-y-3">
                   {course.topics.map((topic, i) => (
                     <div key={i} className="flex items-start gap-3 p-3.5 bg-[#F8F9FA] rounded-2xl border border-slate-200/80">
                       <CheckCircle2 size={18} className="text-emerald-500 shrink-0 mt-0.5" />
-                      <span className="text-xs sm:text-sm text-[#111827] font-medium leading-relaxed">
+                      <span className="text-xs sm:text-sm text-[#001752] font-medium leading-relaxed">
                         {topic}
                       </span>
                     </div>
@@ -253,7 +253,7 @@ export default function CourseDetail() {
                   <div className="w-10 h-10 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center mb-3">
                     <Award size={20} />
                   </div>
-                  <h3 className="text-base font-bold text-[#111827] mb-1">
+                  <h3 className="text-base font-bold text-[#001752] mb-1">
                     Recognised Certification
                   </h3>
                   <p className="text-xs text-slate-500 leading-relaxed">
@@ -262,10 +262,10 @@ export default function CourseDetail() {
                 </div>
 
                 <div className="bg-white p-6 rounded-3xl border border-slate-200/90 shadow-sm">
-                  <div className="w-10 h-10 rounded-2xl bg-sky-50 text-[#0084FF] flex items-center justify-center mb-3">
+                  <div className="w-10 h-10 rounded-2xl bg-[#001752]/10 text-[#001752] flex items-center justify-center mb-3">
                     <Clock size={20} />
                   </div>
-                  <h3 className="text-base font-bold text-[#111827] mb-1">
+                  <h3 className="text-base font-bold text-[#001752] mb-1">
                     Free Lifetime Doubt Support
                   </h3>
                   <p className="text-xs text-slate-500 leading-relaxed">
@@ -346,7 +346,7 @@ export default function CourseDetail() {
                     alt="Students learning on computers at Race Reddys Virar"
                     className="w-full h-full object-cover"
                   />
-                  <span className="absolute top-2.5 left-2.5 bg-[#0084FF] text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full shadow-sm">
+                  <span className="absolute top-2.5 left-2.5 bg-[#001752] text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full shadow-sm">
                     Raut Arcade Lab 202
                   </span>
                   <span className="absolute bottom-2.5 left-2.5 right-2.5 bg-black/60 backdrop-blur-xs text-white text-[10px] font-semibold px-2.5 py-1 rounded-xl">
@@ -354,15 +354,15 @@ export default function CourseDetail() {
                   </span>
                 </div>
                 <div className="p-4 text-xs text-slate-600">
-                  <strong className="text-[#111827] block font-bold mb-0.5">Dedicated Hands-on Lab Time</strong>
+                  <strong className="text-[#001752] block font-bold mb-0.5">Dedicated Hands-on Lab Time</strong>
                   Every student enrolled in {course.name} practices directly on their own desktop terminal with faculty guidance.
                 </div>
               </div>
 
               {/* Lab Hours & Address */}
               <div className="bg-white p-6 rounded-3xl border border-slate-200 text-xs space-y-2.5 shadow-sm">
-                <div className="flex items-center gap-2 text-[#111827] font-bold">
-                  <MapPin size={15} className="text-[#0084FF]" />
+                <div className="flex items-center gap-2 text-[#001752] font-bold">
+                  <MapPin size={15} className="text-[#C41E1E]" />
                   <span>Visit Lab in Person</span>
                 </div>
                 <p className="text-slate-500 leading-relaxed">
@@ -372,7 +372,7 @@ export default function CourseDetail() {
                   href={SITE_CONFIG.address.googleMapsDirectLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-[#0084FF] font-bold hover:underline"
+                  className="inline-flex items-center gap-1 text-[#001752] hover:text-[#C41E1E] font-bold underline"
                 >
                   <span>Open in Google Maps</span>
                   <ArrowRight size={12} />
@@ -386,7 +386,7 @@ export default function CourseDetail() {
           {/* Related Courses Carousel / Rail */}
           {relatedCourses.length > 0 && (
             <div className="mt-16 pt-10 border-t border-slate-200">
-              <h2 className="text-xl sm:text-2xl font-bold text-[#111827] mb-6">
+              <h2 className="text-xl sm:text-2xl font-bold text-[#001752] mb-6">
                 Explore Other Recommended Courses
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -396,10 +396,10 @@ export default function CourseDetail() {
                     to={`/courses/${c.id}`}
                     className="rounded-3xl p-6 bg-white border border-slate-200 shadow-sm hover:shadow-md transition-shadow block group"
                   >
-                    <span className="text-[10px] font-black uppercase text-[#0084FF] block mb-1">
+                    <span className="text-[10px] font-black uppercase text-[#C41E1E] block mb-1">
                       {c.type === 'career' ? 'Career Track' : 'Short-Term Module'}
                     </span>
-                    <h3 className="text-base font-bold text-[#111827] group-hover:text-[#0084FF] transition-colors mb-1">
+                    <h3 className="text-base font-bold text-[#001752] group-hover:text-[#C41E1E] transition-colors mb-1">
                       {c.name}
                     </h3>
                     <p className="text-xs text-slate-500 line-clamp-2">

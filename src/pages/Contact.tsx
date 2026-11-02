@@ -46,12 +46,12 @@ Message: ${message || 'I would like to enquire about admissions and batch availa
         title="Visit Our Centre or Chat With Our Instructors"
         description="We are located directly opposite the Virar East railway subway. Just 2 minutes on foot from Platform 1/2 exit. Walk in anytime during working hours for a free demo session."
         aside={
-          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-[#0B1528] via-[#080E1C] to-[#040812] p-6 sm:p-7 text-white shadow-2xl">
-            <div className="absolute -right-12 -top-12 h-48 w-48 rounded-full bg-[#0084FF]/20 blur-[80px] pointer-events-none" />
-            <div className="absolute -left-12 -bottom-12 h-48 w-48 rounded-full bg-[#F5BE4F]/10 blur-[80px] pointer-events-none" />
+          <div className="relative overflow-hidden rounded-3xl border border-[#002B94] bg-gradient-to-br from-[#001752] via-[#000F36] to-[#00081C] p-6 sm:p-7 text-white shadow-2xl">
+            <div className="absolute -right-12 -top-12 h-48 w-48 rounded-full bg-[#C41E1E]/20 blur-[80px] pointer-events-none" />
+            <div className="absolute -left-12 -bottom-12 h-48 w-48 rounded-full bg-[#002277]/30 blur-[80px] pointer-events-none" />
 
             <div className="relative z-10">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#F5BE4F] px-3 py-1 text-[10px] font-black uppercase tracking-wider text-[#111827]">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#C41E1E] px-3 py-1 text-[10px] font-black uppercase tracking-wider text-white shadow-xs">
                 <Sparkles size={12} />
                 Quick Communication Desk
               </span>
@@ -69,7 +69,7 @@ Message: ${message || 'I would like to enquire about admissions and batch availa
                   className="flex items-center justify-between p-3 rounded-2xl bg-white/5 border border-white/10 text-xs hover:bg-white/10 transition"
                 >
                   <span className="flex items-center gap-2 text-slate-300">
-                    <Phone size={14} className="text-[#0084FF]" />
+                    <Phone size={14} className="text-[#C41E1E]" />
                     <span>Direct Calling:</span>
                   </span>
                   <strong className="text-white font-bold">{SITE_CONFIG.contact.phone}</strong>
@@ -81,13 +81,13 @@ Message: ${message || 'I would like to enquire about admissions and batch availa
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-between p-3 rounded-2xl bg-[#25D366]/15 border border-[#25D366]/30 text-xs text-white hover:bg-[#25D366]/25 transition"
+                  className="flex items-center justify-between p-3 rounded-2xl bg-[#C41E1E]/20 border border-[#C41E1E]/40 text-xs text-white hover:bg-[#C41E1E]/30 transition"
                 >
                   <span className="flex items-center gap-2 text-slate-200">
-                    <MessageSquare size={14} className="text-[#25D366]" />
+                    <MessageSquare size={14} className="text-[#F5BE4F]" />
                     <span>WhatsApp Chat:</span>
                   </span>
-                  <strong className="text-[#25D366] font-bold">Start Chat ↗</strong>
+                  <strong className="text-white font-bold">Start Chat ↗</strong>
                 </a>
               </div>
             </div>
@@ -102,10 +102,10 @@ Message: ${message || 'I would like to enquire about admissions and batch availa
             
             <div className="p-6 rounded-3xl border border-slate-200 bg-[#F8F9FA] flex flex-col justify-between shadow-xs">
               <div>
-                <div className="w-11 h-11 rounded-2xl bg-sky-50 border border-sky-100 flex items-center justify-center text-[#0084FF] mb-4">
+                <div className="w-11 h-11 rounded-2xl bg-[#FDF2F2] border border-[#FAD4D4] flex items-center justify-center text-[#C41E1E] mb-4">
                   <MapPin size={20} />
                 </div>
-                <h3 className="font-bold text-base text-[#111827] mb-1">Campus Location</h3>
+                <h3 className="font-bold text-base text-[#001752] mb-1">Campus Location</h3>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                   {SITE_CONFIG.address.line1}, {SITE_CONFIG.address.line2}, {SITE_CONFIG.address.city}, {SITE_CONFIG.address.state} - {SITE_CONFIG.address.pin}
                 </p>
@@ -114,7 +114,7 @@ Message: ${message || 'I would like to enquire about admissions and batch availa
                 href={SITE_CONFIG.address.googleMapsDirectLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-4 inline-flex items-center gap-1.5 text-xs font-bold text-[#0084FF] hover:underline"
+                className="mt-4 inline-flex items-center gap-1.5 text-xs font-bold text-[#C41E1E] hover:underline"
               >
                 <span>Open in Google Maps</span>
                 <Navigation size={13} />
@@ -123,15 +123,15 @@ Message: ${message || 'I would like to enquire about admissions and batch availa
 
             <div className="p-6 rounded-3xl border border-slate-200 bg-[#F8F9FA] flex flex-col justify-between shadow-xs">
               <div>
-                <div className="w-11 h-11 rounded-2xl bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-600 mb-4">
+                <div className="w-11 h-11 rounded-2xl bg-[#001752]/5 border border-[#001752]/15 flex items-center justify-center text-[#001752] mb-4">
                   <Phone size={20} />
                 </div>
-                <h3 className="font-bold text-base text-[#111827] mb-1">Telephone &amp; WhatsApp</h3>
+                <h3 className="font-bold text-base text-[#001752] mb-1">Telephone &amp; WhatsApp</h3>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3">
                   Call or message for admission counseling, syllabus PDFs, and fee concession details:
                 </p>
                 <div className="space-y-1 text-xs">
-                  <a href={`tel:${SITE_CONFIG.contact.phone}`} className="font-bold text-[#111827] block hover:text-[#0084FF]">
+                  <a href={`tel:${SITE_CONFIG.contact.phone}`} className="font-bold text-[#001752] block hover:text-[#C41E1E]">
                     📞 {SITE_CONFIG.contact.phone}
                   </a>
                   <span className="text-slate-500 block">WhatsApp: {SITE_CONFIG.contact.phoneDisplay}</span>
@@ -200,12 +200,12 @@ Message: ${message || 'I would like to enquire about admissions and batch availa
                   </div>
 
                   <div className="flex items-start gap-3">
-                    <span className="w-6 h-6 rounded-full bg-[#111827] text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">3</span>
+                    <span className="w-6 h-6 rounded-full bg-[#001752] text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">3</span>
                     <span>As soon as you climb the subway stairs, <strong>Raut Arcade</strong> is right opposite the subway opening.</span>
                   </div>
 
                   <div className="flex items-start gap-3">
-                    <span className="w-6 h-6 rounded-full bg-[#0084FF] text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">4</span>
+                    <span className="w-6 h-6 rounded-full bg-[#C41E1E] text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">4</span>
                     <span>Come up to the <strong>2nd Floor, Room No. 202</strong>. Our reception team will welcome you.</span>
                   </div>
                 </div>
@@ -215,7 +215,7 @@ Message: ${message || 'I would like to enquire about admissions and batch availa
                     href={SITE_CONFIG.address.googleMapsDirectLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full inline-flex items-center justify-center gap-2 h-11 px-5 rounded-full bg-[#111827] hover:bg-[#1E293B] text-white text-xs font-bold transition-all shadow-xs active:scale-95"
+                    className="w-full inline-flex items-center justify-center gap-2 h-11 px-5 rounded-full bg-[#001752] hover:bg-[#C41E1E] text-white text-xs font-bold transition-all shadow-xs active:scale-95"
                   >
                     <Navigation size={14} className="text-[#F5BE4F]" />
                     <span>Open Live Navigation in Google Maps</span>
@@ -231,7 +231,7 @@ Message: ${message || 'I would like to enquire about admissions and batch availa
                     alt="Students practicing on computers at Race Reddys Virar"
                     className="w-full h-full object-cover"
                   />
-                  <span className="absolute top-3 left-3 bg-[#0084FF] text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full shadow-sm">
+                  <span className="absolute top-3 left-3 bg-[#001752] text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full shadow-sm">
                     Raut Arcade Lab 202
                   </span>
                   <span className="absolute bottom-3 left-3 right-3 bg-black/60 backdrop-blur-xs text-white text-[11px] font-semibold px-3 py-1.5 rounded-xl">
@@ -243,12 +243,12 @@ Message: ${message || 'I would like to enquire about admissions and batch availa
 
             {/* Right: Admission & Demo Class Form */}
             <div className="lg:col-span-7 bg-white p-6 sm:p-10 rounded-3xl border border-slate-200 shadow-sm">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-50 text-[#0084FF] text-xs font-bold uppercase tracking-wider mb-3">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-50 text-[#C41E1E] text-xs font-bold uppercase tracking-wider mb-3">
                 <Sparkles size={12} />
                 Free Counseling &amp; Demo Class
               </span>
 
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#111827] tracking-tight mb-2">
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#001752] tracking-tight mb-2">
                 Book a Free Trial Session or Ask Course Fees
               </h2>
 
@@ -303,7 +303,7 @@ Message: ${message || 'I would like to enquire about admissions and batch availa
                       value={fullName}
                       onChange={(e) => setFullName(e.target.value)}
                       placeholder="e.g. Rahul Sharma"
-                      className="w-full text-xs sm:text-sm px-4 py-3 rounded-2xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#0084FF] bg-white transition"
+                      className="w-full text-xs sm:text-sm px-4 py-3 rounded-2xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#C41E1E] bg-white transition"
                     />
                   </div>
 
@@ -319,7 +319,7 @@ Message: ${message || 'I would like to enquire about admissions and batch availa
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
                         placeholder="e.g. 9876543210"
-                        className="w-full text-xs sm:text-sm px-4 py-3 rounded-2xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#0084FF] bg-white transition"
+                        className="w-full text-xs sm:text-sm px-4 py-3 rounded-2xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#C41E1E] bg-white transition"
                       />
                     </div>
 
@@ -331,7 +331,7 @@ Message: ${message || 'I would like to enquire about admissions and batch availa
                         id="course-select"
                         value={course}
                         onChange={(e) => setCourse(e.target.value)}
-                        className="w-full text-xs sm:text-sm px-4 py-3 rounded-2xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#0084FF] bg-white transition"
+                        className="w-full text-xs sm:text-sm px-4 py-3 rounded-2xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#C41E1E] bg-white transition"
                       >
                         {COURSES.map((c) => (
                           <option key={c.id} value={c.name}>
@@ -350,7 +350,7 @@ Message: ${message || 'I would like to enquire about admissions and batch availa
                       id="batch-timing"
                       value={preferredBatch}
                       onChange={(e) => setPreferredBatch(e.target.value)}
-                      className="w-full text-xs sm:text-sm px-4 py-3 rounded-2xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#0084FF] bg-white transition"
+                      className="w-full text-xs sm:text-sm px-4 py-3 rounded-2xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#C41E1E] bg-white transition"
                     >
                       <option>Morning Batch (9:00 AM – 10:30 AM)</option>
                       <option>Mid-Day Batch (10:30 AM – 12:00 PM)</option>
@@ -371,16 +371,16 @@ Message: ${message || 'I would like to enquire about admissions and batch availa
                       value={message}
                       onChange={(e) => setMessage(e.target.value)}
                       placeholder="e.g. Can I start from next Monday? Is installment facility available?"
-                      className="w-full text-xs sm:text-sm px-4 py-3 rounded-2xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#0084FF] bg-white transition"
+                      className="w-full text-xs sm:text-sm px-4 py-3 rounded-2xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#C41E1E] bg-white transition"
                     />
                   </div>
 
                   <button
                     type="submit"
                     disabled={loading}
-                    className="w-full inline-flex items-center justify-center gap-2 h-12 px-8 rounded-full bg-[#111827] hover:bg-[#1E293B] text-white font-bold text-sm shadow-md transition-all active:scale-95 disabled:opacity-50"
+                    className="w-full inline-flex items-center justify-center gap-2 h-12 px-8 rounded-full bg-[#C41E1E] hover:bg-[#A81717] text-white font-bold text-sm shadow-md transition-all active:scale-95 disabled:opacity-50"
                   >
-                    <Send size={15} className="text-[#F5BE4F]" />
+                    <Send size={15} className="text-white" />
                     <span>{loading ? 'Submitting Enquiry...' : 'Submit Admission Enquiry'}</span>
                   </button>
 

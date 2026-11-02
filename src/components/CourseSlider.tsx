@@ -100,7 +100,7 @@ export default function CourseSlider({ courses }: CourseSliderProps) {
             Showing {courses.length} Courses
           </span>
           <span className="hidden sm:inline-block w-1.5 h-1.5 rounded-full bg-slate-300" />
-          <span className="hidden sm:inline-flex items-center gap-1 text-xs text-[#0084FF] font-semibold">
+          <span className="hidden sm:inline-flex items-center gap-1 text-xs text-[#C41E1E] font-semibold">
             <Sparkles size={12} />
             Slide left &amp; right to explore
           </span>
@@ -114,7 +114,7 @@ export default function CourseSlider({ courses }: CourseSliderProps) {
             disabled={!canScrollLeft}
             className={`w-10 h-10 rounded-full flex items-center justify-center transition-all cursor-pointer ${
               canScrollLeft
-                ? 'bg-[#111827] text-white hover:bg-[#0084FF] shadow-sm active:scale-95'
+                ? 'bg-[#001752] text-white hover:bg-[#C41E1E] shadow-sm active:scale-95'
                 : 'bg-slate-100 text-slate-300 cursor-not-allowed'
             }`}
             aria-label="Previous courses"
@@ -128,7 +128,7 @@ export default function CourseSlider({ courses }: CourseSliderProps) {
             disabled={!canScrollRight}
             className={`w-10 h-10 rounded-full flex items-center justify-center transition-all cursor-pointer ${
               canScrollRight
-                ? 'bg-[#111827] text-white hover:bg-[#0084FF] shadow-sm active:scale-95'
+                ? 'bg-[#001752] text-white hover:bg-[#C41E1E] shadow-sm active:scale-95'
                 : 'bg-slate-100 text-slate-300 cursor-not-allowed'
             }`}
             aria-label="Next courses"
@@ -156,7 +156,7 @@ export default function CourseSlider({ courses }: CourseSliderProps) {
             <div
               key={course.id}
               className={`w-[85vw] sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-14px)] shrink-0 snap-start bg-white rounded-2xl border overflow-hidden shadow-xs hover:shadow-lg hover:-translate-y-1 transition-all flex flex-col justify-between group ${
-                isPopular ? 'border-[#0084FF]/40 ring-1 ring-[#0084FF]/20' : 'border-slate-200'
+                isPopular ? 'border-[#C41E1E]/50 ring-1 ring-[#C41E1E]/20' : 'border-slate-200'
               }`}
             >
               {/* Card Image Banner */}
@@ -175,8 +175,8 @@ export default function CourseSlider({ courses }: CourseSliderProps) {
                 <span
                   className={`absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-wider shadow-sm ${
                     isCareer
-                      ? 'bg-[#0084FF] text-white'
-                      : 'bg-[#F5BE4F] text-[#2E1F00]'
+                      ? 'bg-[#C41E1E] text-white'
+                      : 'bg-[#001752] text-white'
                   }`}
                 >
                   {isCareer ? 'Career Diploma' : 'Short-Term Skill'}
@@ -184,7 +184,7 @@ export default function CourseSlider({ courses }: CourseSliderProps) {
 
                 {/* Top Right: Popular Badge or Duration */}
                 {isPopular ? (
-                  <span className="absolute top-3 right-3 bg-red-600 text-white text-[9px] uppercase font-black tracking-wider px-2.5 py-1 rounded-full shadow-sm">
+                  <span className="absolute top-3 right-3 bg-[#C41E1E] text-white text-[9px] uppercase font-black tracking-wider px-2.5 py-1 rounded-full shadow-sm">
                     Popular Choice
                   </span>
                 ) : (
@@ -211,13 +211,13 @@ export default function CourseSlider({ courses }: CourseSliderProps) {
                   {/* Duration row if popular */}
                   {isPopular && (
                     <div className="flex items-center gap-1.5 text-xs text-slate-500 font-semibold mb-1.5">
-                      <Clock size={13} className="text-[#0084FF]" />
+                      <Clock size={13} className="text-[#C41E1E]" />
                       <span>Duration: {course.durationPlaceholder.split('(')[0].trim()}</span>
                     </div>
                   )}
 
                   {/* Course Title */}
-                  <h3 className="text-base sm:text-lg font-bold text-[#111827] group-hover:text-[#0084FF] transition-colors leading-snug line-clamp-1">
+                  <h3 className="text-base sm:text-lg font-bold text-[#001752] group-hover:text-[#C41E1E] transition-colors leading-snug line-clamp-1">
                     {course.name}
                   </h3>
 
@@ -230,7 +230,7 @@ export default function CourseSlider({ courses }: CourseSliderProps) {
                   <div className="mt-3.5 pt-3 border-t border-slate-100 space-y-1.5">
                     {course.topics.slice(0, 2).map((topic, i) => (
                       <div key={i} className="flex items-start gap-2 text-[11px] text-slate-600">
-                        <Check size={12} className="text-emerald-500 shrink-0 stroke-[2.5] mt-0.5" />
+                        <Check size={12} className="text-[#C41E1E] shrink-0 stroke-[2.5] mt-0.5" />
                         <span className="line-clamp-1">{topic}</span>
                       </div>
                     ))}
@@ -241,7 +241,7 @@ export default function CourseSlider({ courses }: CourseSliderProps) {
                 <div className="pt-4 mt-4 flex items-center gap-2 border-t border-slate-100">
                   <Link
                     to={`/courses/${course.id}`}
-                    className="flex-1 inline-flex items-center justify-center h-10 px-4 rounded-full text-xs font-bold bg-[#111827] text-white hover:bg-[#0084FF] transition-all shadow-xs active:scale-95"
+                    className="flex-1 inline-flex items-center justify-center h-10 px-4 rounded-full text-xs font-bold bg-[#001752] text-white hover:bg-[#C41E1E] transition-all shadow-xs active:scale-95"
                   >
                     View Details &amp; Syllabus →
                   </Link>
@@ -275,7 +275,7 @@ export default function CourseSlider({ courses }: CourseSliderProps) {
             }}
             className={`transition-all rounded-full cursor-pointer ${
               i === currentIndex
-                ? 'w-6 h-2 bg-[#0084FF]'
+                ? 'w-6 h-2 bg-[#C41E1E]'
                 : 'w-2 h-2 bg-slate-300 hover:bg-slate-400'
             }`}
             aria-label={`Go to slide ${i + 1}`}

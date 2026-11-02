@@ -19,10 +19,10 @@ export default function SectionHeading({
 
   return (
     <div className={`${alignment} ${className}`}>
-      <span className="text-xs text-[#1E4ED7] font-bold uppercase tracking-widest">{eyebrow}</span>
-      <h2 className="text-3xl sm:text-4xl text-[#000926] font-bold tracking-tight mt-1">{title}</h2>
+      <span className="text-xs text-[#C41E1E] font-extrabold uppercase tracking-widest">{eyebrow}</span>
+      <h2 className="text-3xl sm:text-4xl text-[#001752] font-black tracking-tight mt-1">{title}</h2>
       {description && (
-        <p className="text-sm sm:text-base text-[#45464F] mt-2 leading-relaxed">{description}</p>
+        <p className="text-sm sm:text-base text-slate-600 mt-2 leading-relaxed">{description}</p>
       )}
     </div>
   );

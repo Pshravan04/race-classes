@@ -11,14 +11,14 @@ export default function CourseCard({ course, onSelect }: CourseCardProps) {
   const isCareer = course.type === 'career';
 
   return (
-    <div className="group flex h-full flex-col justify-between rounded-2xl border border-slate-200 bg-white p-5 shadow-xs transition-all duration-200 hover:-translate-y-0.5 hover:border-[#0084FF]/40 hover:shadow-lg">
+    <div className="group flex h-full flex-col justify-between rounded-2xl border border-slate-200 bg-white p-5 shadow-xs transition-all duration-200 hover:-translate-y-0.5 hover:border-[#C41E1E]/40 hover:shadow-lg">
       <div>
         <div className="flex items-center justify-between gap-2 mb-3">
           <span
             className={`inline-flex items-center rounded-full px-2.5 py-1 text-[10px] font-black uppercase tracking-wider ${
               isCareer
-                ? 'bg-[#0084FF] text-white'
-                : 'bg-[#F5BE4F] text-[#111827]'
+                ? 'bg-[#C41E1E] text-white'
+                : 'bg-[#001752] text-white'
             }`}
           >
             {isCareer ? 'Career Objective' : 'Short-Term Module'}
@@ -29,7 +29,7 @@ export default function CourseCard({ course, onSelect }: CourseCardProps) {
           </span>
         </div>
 
-        <h3 className="text-lg font-bold text-[#111827] leading-snug transition-colors group-hover:text-[#0084FF]">
+        <h3 className="text-lg font-bold text-[#001752] leading-snug transition-colors group-hover:text-[#C41E1E]">
           {course.name}
         </h3>
 
@@ -40,7 +40,7 @@ export default function CourseCard({ course, onSelect }: CourseCardProps) {
         <div className="mt-4 space-y-1.5 border-t border-slate-100 pt-3">
           {course.topics.slice(0, 2).map((topic, i) => (
             <div key={i} className="flex items-start gap-2 text-xs text-slate-600">
-              <Check size={13} className="text-[#0084FF] shrink-0 mt-0.5 stroke-[2.5]" />
+              <Check size={13} className="text-[#C41E1E] shrink-0 mt-0.5 stroke-[2.5]" />
               <span className="line-clamp-1">{topic}</span>
             </div>
           ))}
@@ -51,7 +51,7 @@ export default function CourseCard({ course, onSelect }: CourseCardProps) {
         <button
           type="button"
           onClick={() => onSelect(course)}
-          className="inline-flex items-center gap-1 py-1 text-xs font-bold text-[#111827] transition-colors hover:text-[#0084FF] cursor-pointer"
+          className="inline-flex items-center gap-1 py-1 text-xs font-bold text-[#001752] transition-colors hover:text-[#C41E1E] cursor-pointer"
           aria-label={`View full details for ${course.name}`}
         >
           <span>Syllabus &amp; Topics</span>

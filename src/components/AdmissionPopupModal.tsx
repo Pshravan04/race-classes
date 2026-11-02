@@ -134,11 +134,11 @@ export default function AdmissionPopupModal() {
       {/* Modal Dialog Card */}
       <div className="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl border border-slate-200/90 overflow-hidden z-10 animate-in zoom-in-95 duration-200 my-auto">
         
-        {/* Modal Header (Obsidian Planned-Style with Glowing Accent) */}
-        <div className="relative bg-[#0B0F19] text-white p-5 sm:p-6 overflow-hidden">
+        {/* Modal Header (Brand Navy & Red Style) */}
+        <div className="relative bg-[#001752] text-white p-5 sm:p-6 overflow-hidden border-b border-[#002277]">
           {/* Subtle Ambient Glows */}
-          <div className="absolute -right-10 -top-10 w-44 h-44 bg-[#0084FF]/25 rounded-full blur-2xl pointer-events-none" />
-          <div className="absolute -left-10 -bottom-10 w-40 h-40 bg-[#F5BE4F]/15 rounded-full blur-2xl pointer-events-none" />
+          <div className="absolute -right-10 -top-10 w-44 h-44 bg-[#C41E1E]/25 rounded-full blur-2xl pointer-events-none" />
+          <div className="absolute -left-10 -bottom-10 w-40 h-40 bg-[#002580]/40 rounded-full blur-2xl pointer-events-none" />
 
           {/* Close Button */}
           <button
@@ -152,11 +152,11 @@ export default function AdmissionPopupModal() {
 
           <div className="relative z-10 pr-8">
             <div className="flex items-center gap-2 mb-2">
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#F5BE4F] text-[#0B0F19] text-[10px] font-black uppercase tracking-wider">
-                <Sparkles size={11} className="fill-[#0B0F19]" />
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#C41E1E] text-white text-[10px] font-black uppercase tracking-wider shadow-xs">
+                <Sparkles size={11} className="fill-white" />
                 Admissions Open · 50% Concession
               </span>
-              <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wide">
+              <span className="text-[10px] text-slate-300 font-bold uppercase tracking-wide">
                 Virar East Station
               </span>
             </div>
@@ -164,7 +164,7 @@ export default function AdmissionPopupModal() {
             <h2 id="admission-modal-title" className="text-xl sm:text-2xl font-black text-white tracking-tight leading-snug">
               Book Your Free Demo Class
             </h2>
-            <p className="text-xs sm:text-sm text-slate-300 mt-1 leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-200 mt-1 leading-relaxed">
               Reserve your individual computer machine &amp; claim a complimentary <strong className="text-white font-bold">Basic Computer Course</strong> with any career diploma.
             </p>
           </div>
@@ -184,14 +184,14 @@ export default function AdmissionPopupModal() {
                   Admission Inquiry Reserved!
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-600 mt-1.5 max-w-sm mx-auto leading-relaxed">
-                  Thank you, <strong className="text-slate-900">{fullName}</strong>. We have registered your inquiry for <strong className="text-[#0084FF]">{course}</strong> ({batch}).
+                  Thank you, <strong className="text-slate-900">{fullName}</strong>. We have registered your inquiry for <strong className="text-[#C41E1E]">{course}</strong> ({batch}).
                 </p>
               </div>
 
               <div className="p-3 bg-slate-50 rounded-2xl border border-slate-200 text-left text-xs space-y-1.5">
                 <div className="flex items-center justify-between text-slate-600">
                   <span>Concession Status:</span>
-                  <span className="font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
+                  <span className="font-bold text-[#C41E1E] bg-[#C41E1E]/10 px-2 py-0.5 rounded-full border border-[#C41E1E]/20">
                     50% Discount Applied
                   </span>
                 </div>
@@ -220,7 +220,7 @@ export default function AdmissionPopupModal() {
                   href={`tel:${SITE_CONFIG.contact.phone}`}
                   className="inline-flex items-center justify-center gap-1.5 h-11 px-5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-900 text-xs sm:text-sm font-semibold transition-all active:scale-95"
                 >
-                  <Phone size={14} className="text-[#0084FF]" />
+                  <Phone size={14} className="text-[#C41E1E]" />
                   <span>Call {SITE_CONFIG.contact.phone}</span>
                 </a>
               </div>
@@ -253,7 +253,7 @@ export default function AdmissionPopupModal() {
                     placeholder="e.g. Rahul Patil / Priya Sharma"
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
-                    className="w-full pl-9 pr-3.5 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 focus:outline-hidden focus:border-[#0084FF] focus:ring-2 focus:ring-[#0084FF]/20 transition-all"
+                    className="w-full pl-9 pr-3.5 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 focus:outline-hidden focus:border-[#C41E1E] focus:ring-2 focus:ring-[#C41E1E]/20 transition-all"
                   />
                 </div>
               </div>
@@ -275,7 +275,7 @@ export default function AdmissionPopupModal() {
                     placeholder="98XXXXXXXX"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                    className="w-full px-3.5 py-2.5 rounded-r-xl border border-slate-200 text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 focus:outline-hidden focus:border-[#0084FF] focus:ring-2 focus:ring-[#0084FF]/20 transition-all"
+                    className="w-full px-3.5 py-2.5 rounded-r-xl border border-slate-200 text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 focus:outline-hidden focus:border-[#C41E1E] focus:ring-2 focus:ring-[#C41E1E]/20 transition-all"
                   />
                 </div>
                 {errorMsg && (
@@ -296,7 +296,7 @@ export default function AdmissionPopupModal() {
                     id="popup-course"
                     value={course}
                     onChange={(e) => setCourse(e.target.value)}
-                    className="w-full pl-9 pr-8 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm text-slate-900 bg-white focus:outline-hidden focus:border-[#0084FF] focus:ring-2 focus:ring-[#0084FF]/20 transition-all appearance-none cursor-pointer"
+                    className="w-full pl-9 pr-8 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm text-slate-900 bg-white focus:outline-hidden focus:border-[#C41E1E] focus:ring-2 focus:ring-[#C41E1E]/20 transition-all appearance-none cursor-pointer"
                   >
                     {popularCourses.map((c) => (
                       <option key={c} value={c}>{c}</option>
@@ -321,7 +321,7 @@ export default function AdmissionPopupModal() {
                     id="popup-batch"
                     value={batch}
                     onChange={(e) => setBatch(e.target.value)}
-                    className="w-full pl-9 pr-8 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm text-slate-900 bg-white focus:outline-hidden focus:border-[#0084FF] focus:ring-2 focus:ring-[#0084FF]/20 transition-all appearance-none cursor-pointer"
+                    className="w-full pl-9 pr-8 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm text-slate-900 bg-white focus:outline-hidden focus:border-[#C41E1E] focus:ring-2 focus:ring-[#C41E1E]/20 transition-all appearance-none cursor-pointer"
                   >
                     {batchOptions.map((b) => (
                       <option key={b} value={b}>{b}</option>
@@ -348,7 +348,7 @@ export default function AdmissionPopupModal() {
               {/* Submit CTA Button */}
               <button
                 type="submit"
-                className="w-full flex items-center justify-center gap-2 bg-[#0084FF] hover:bg-[#0074E0] text-white text-xs sm:text-sm font-bold py-3 px-6 rounded-full shadow-md hover:shadow-lg transition-all active:scale-95 cursor-pointer"
+                className="w-full flex items-center justify-center gap-2 bg-[#C41E1E] hover:bg-[#A81717] text-white text-xs sm:text-sm font-bold py-3 px-6 rounded-full shadow-md hover:shadow-lg transition-all active:scale-95 cursor-pointer"
               >
                 <span>Claim 50% Concession &amp; Book Demo</span>
                 <Send size={14} />
@@ -358,7 +358,7 @@ export default function AdmissionPopupModal() {
                 <span>Raut Arcade 202 · Opp. Subway, Virar East</span>
                 <a
                   href={`tel:${SITE_CONFIG.contact.phone}`}
-                  className="font-bold text-slate-600 hover:text-[#0084FF]"
+                  className="font-bold text-[#001752] hover:text-[#C41E1E]"
                 >
                   Call: {SITE_CONFIG.contact.phone}
                 </a>

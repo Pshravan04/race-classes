@@ -95,12 +95,12 @@ export default function Courses() {
         title="Explore All 23 Practical Computer & IT Courses"
         description="Every course is taught on real computers with step-by-step guidance right opposite Virar East station. Filter by your career objective or learning goal below."
         aside={
-          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-[#0B1528] via-[#080E1C] to-[#040812] p-6 text-white shadow-2xl sm:p-7">
-            <div className="absolute -right-12 -top-12 h-48 w-48 rounded-full bg-[#0084FF]/20 blur-[80px] pointer-events-none" />
-            <div className="absolute -left-12 -bottom-12 h-48 w-48 rounded-full bg-[#F5BE4F]/10 blur-[80px] pointer-events-none" />
+          <div className="relative overflow-hidden rounded-3xl border border-[#002B94] bg-gradient-to-br from-[#001752] via-[#000F36] to-[#00081C] p-6 text-white shadow-2xl sm:p-7">
+            <div className="absolute -right-12 -top-12 h-48 w-48 rounded-full bg-[#C41E1E]/20 blur-[80px] pointer-events-none" />
+            <div className="absolute -left-12 -bottom-12 h-48 w-48 rounded-full bg-[#002277]/30 blur-[80px] pointer-events-none" />
 
             <div className="relative z-10">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#F5BE4F] px-3 py-1 text-[10px] font-black uppercase tracking-wider text-[#111827]">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#C41E1E] px-3 py-1 text-[10px] font-black uppercase tracking-wider text-white shadow-xs">
                 <Sparkles size={11} />
                 Need help choosing?
               </span>
@@ -120,7 +120,7 @@ export default function Courses() {
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-1.5 rounded-full bg-[#25D366] px-4 py-2.5 text-xs font-bold text-white transition-all hover:bg-[#20BA5A] active:scale-95"
+                  className="inline-flex items-center justify-center gap-1.5 rounded-full bg-[#C41E1E] hover:bg-[#A81717] px-4 py-2.5 text-xs font-bold text-white transition-all active:scale-95 shadow-md"
                 >
                   <MessageSquare size={14} />
                   <span>WhatsApp</span>
@@ -134,7 +134,7 @@ export default function Courses() {
                 </a>
               </div>
 
-              <div className="mt-4 border-t border-white/10 pt-3 text-[10px] font-medium text-slate-400">
+              <div className="mt-4 border-t border-white/10 pt-3 text-[10px] font-medium text-slate-300">
                 Opp. Virar East Station Subway · Mon–Sat 9 AM–7 PM
               </div>
             </div>
@@ -153,7 +153,7 @@ export default function Courses() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               aria-label="Search computer courses"
-              className="w-full rounded-full border border-slate-200 bg-white py-3 pl-11 pr-4 text-sm text-[#111827] shadow-sm outline-none transition-all placeholder:text-slate-400 focus:border-[#0084FF] focus:ring-2 focus:ring-[#0084FF]/20"
+              className="w-full rounded-full border border-slate-200 bg-white py-3 pl-11 pr-4 text-sm text-[#001752] shadow-sm outline-none transition-all placeholder:text-slate-400 focus:border-[#C41E1E] focus:ring-2 focus:ring-[#C41E1E]/20"
             />
           </div>
 
@@ -167,7 +167,7 @@ export default function Courses() {
             <span className="rounded-full border border-slate-200 bg-white px-3 py-1 text-slate-600">
               {careerCount} Career Tracks
             </span>
-            <span className="rounded-full bg-[#F5BE4F] px-3 py-1 text-[#111827]">
+            <span className="rounded-full bg-[#C41E1E] px-3 py-1 text-white font-bold">
               1 Student : 1 PC
             </span>
           </div>
@@ -179,7 +179,7 @@ export default function Courses() {
           {/* Filters */}
           <div className="mb-8 space-y-4 rounded-3xl border border-slate-200 bg-white p-4 shadow-sm sm:p-5">
             <div>
-              <span className="mb-2 block text-[11px] font-black uppercase tracking-wider text-[#111827]">
+              <span className="mb-2 block text-[11px] font-black uppercase tracking-wider text-[#001752]">
                 1. Filter by Course Type
               </span>
               <div
@@ -193,8 +193,8 @@ export default function Courses() {
                   aria-pressed={activeType === 'all'}
                   className={`rounded-full px-3.5 py-1.5 text-xs font-bold transition-colors ${
                     activeType === 'all'
-                      ? 'bg-[#111827] text-white'
-                      : 'bg-[#F1F3FF] text-[#334155] hover:bg-slate-200'
+                      ? 'bg-[#001752] text-white shadow-sm'
+                      : 'bg-[#F1F4FA] text-[#001752] hover:bg-slate-200'
                   }`}
                 >
                   All Courses ({COURSES.length})
@@ -205,8 +205,8 @@ export default function Courses() {
                   aria-pressed={activeType === 'short-term'}
                   className={`rounded-full px-3.5 py-1.5 text-xs font-bold transition-colors ${
                     activeType === 'short-term'
-                      ? 'bg-[#111827] text-white'
-                      : 'bg-[#F1F3FF] text-[#334155] hover:bg-slate-200'
+                      ? 'bg-[#001752] text-white shadow-sm'
+                      : 'bg-[#F1F4FA] text-[#001752] hover:bg-slate-200'
                   }`}
                 >
                   Short-Term Skill Modules ({shortTermCount})
@@ -217,8 +217,8 @@ export default function Courses() {
                   aria-pressed={activeType === 'career'}
                   className={`rounded-full px-3.5 py-1.5 text-xs font-bold transition-colors ${
                     activeType === 'career'
-                      ? 'bg-[#111827] text-white'
-                      : 'bg-[#F1F3FF] text-[#334155] hover:bg-slate-200'
+                      ? 'bg-[#C41E1E] text-white shadow-sm'
+                      : 'bg-[#F1F4FA] text-[#001752] hover:bg-slate-200'
                   }`}
                 >
                   Career-Objective Diplomas ({careerCount})
@@ -227,7 +227,7 @@ export default function Courses() {
             </div>
 
             <div className="border-t border-slate-100 pt-4">
-              <span className="mb-2 block text-[11px] font-black uppercase tracking-wider text-[#111827]">
+              <span className="mb-2 block text-[11px] font-black uppercase tracking-wider text-[#001752]">
                 2. Filter by Your Learning Goal
               </span>
               <div className="flex flex-wrap items-center gap-2">
@@ -242,8 +242,8 @@ export default function Courses() {
                       aria-pressed={isActive}
                       className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-bold transition-colors ${
                         isActive
-                          ? 'bg-[#0084FF] text-white'
-                          : 'bg-[#F1F3FF] text-[#334155] hover:bg-slate-200'
+                          ? 'bg-[#C41E1E] text-white shadow-sm'
+                          : 'bg-[#F1F4FA] text-[#001752] hover:bg-slate-200'
                       }`}
                     >
                       <Icon size={13} />
@@ -269,10 +269,10 @@ export default function Courses() {
           {/* Results */}
           <div className="mb-5 flex items-center justify-between">
             <span className="text-xs font-bold text-slate-500">
-              Showing <strong className="text-[#111827]">{filteredCourses.length}</strong> of{' '}
+              Showing <strong className="text-[#001752]">{filteredCourses.length}</strong> of{' '}
               {COURSES.length} courses
             </span>
-            <span className="hidden text-xs font-semibold text-[#0084FF] sm:inline">
+            <span className="hidden text-xs font-semibold text-[#C41E1E] sm:inline">
               ★ All courses include 100% individual workstation training
             </span>
           </div>
@@ -289,7 +289,7 @@ export default function Courses() {
             </div>
           ) : (
             <div className="mx-auto my-12 max-w-md rounded-2xl border border-slate-200 bg-white p-10 text-center shadow-sm">
-              <p className="mb-2 text-base font-bold text-[#111827]">
+              <p className="mb-2 text-base font-bold text-[#001752]">
                 No courses match your filter criteria
               </p>
               <p className="mb-4 text-xs text-slate-500">
@@ -299,7 +299,7 @@ export default function Courses() {
               <button
                 type="button"
                 onClick={handleReset}
-                className="rounded-full bg-[#111827] px-5 py-2.5 text-xs font-bold text-white transition-colors hover:bg-[#0084FF]"
+                className="rounded-full bg-[#001752] px-5 py-2.5 text-xs font-bold text-white transition-colors hover:bg-[#C41E1E]"
               >
                 Reset All Filters
               </button>

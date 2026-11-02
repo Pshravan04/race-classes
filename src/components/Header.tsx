@@ -34,37 +34,37 @@ export default function Header() {
       {/* ─── Sleek Top Announcement Ticker ─── */}
       <aside
         aria-label="Campus Notice"
-        className="bg-[#0B0F19] text-slate-300 text-[11px] py-1.5 px-4 border-b border-slate-800 select-none"
+        className="bg-[#001752] text-slate-200 text-[11px] py-1.5 px-4 border-b border-[#002277] select-none"
       >
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-3">
           
           {/* Station location indicator */}
           <div className="flex items-center gap-2 shrink-0">
-            <span className="bg-[#F5BE4F] text-[#0B0F19] font-black text-[9px] px-1.5 py-0.5 rounded uppercase tracking-wider">
+            <span className="bg-[#C41E1E] text-white font-black text-[9px] px-1.5 py-0.5 rounded uppercase tracking-wider">
               VIRAR EAST
             </span>
-            <span className="font-medium text-slate-300 text-[11px] hidden sm:inline">
+            <span className="font-medium text-slate-200 text-[11px] hidden sm:inline">
               Raut Arcade 202 · Opp. Station Subway &amp; Platform 1
             </span>
           </div>
 
           {/* Offer highlight & Direct phone */}
           <div className="flex items-center gap-4">
-            <span className="hidden md:inline font-semibold text-[#F5BE4F] text-[11px]">
+            <span className="hidden md:inline font-bold text-[#F5BE4F] text-[11px]">
               🔥 Flat 50% Concession on Career Diplomas · Limited Seats
             </span>
 
             <a
               href={`tel:${SITE_CONFIG.contact.phone}`}
-              className="hidden lg:flex items-center gap-1 text-slate-300 hover:text-white transition-colors"
+              className="hidden lg:flex items-center gap-1 text-slate-200 hover:text-white transition-colors"
             >
-              <Phone size={10} className="text-[#0084FF]" />
+              <Phone size={10} className="text-[#F5BE4F]" />
               <span className="font-medium">Call: {SITE_CONFIG.contact.phone}</span>
             </a>
 
             {/* Language Toggle: EN / हिं / मरा */}
             <div
-              className="flex items-center gap-0.5 bg-slate-800/90 p-0.5 rounded-full border border-slate-700/60"
+              className="flex items-center gap-0.5 bg-[#000E33] p-0.5 rounded-full border border-white/15"
               role="group"
               aria-label="Language selection"
             >
@@ -79,8 +79,8 @@ export default function Header() {
                     aria-pressed={isActive}
                     className={`px-2 py-0.5 text-[10px] font-bold rounded-full transition-all ${
                       isActive
-                        ? 'bg-[#0084FF] text-white shadow-xs'
-                        : 'text-slate-400 hover:text-white'
+                        ? 'bg-[#C41E1E] text-white shadow-xs'
+                        : 'text-slate-300 hover:text-white'
                     }`}
                   >
                     {labels[lang]}
@@ -103,7 +103,7 @@ export default function Header() {
           
           {/* Brand Logo & Name */}
           <Link to="/" className="flex items-center gap-3 group shrink-0" aria-label="Race Reddys Home">
-            <div className="w-10 h-10 rounded-xl bg-slate-900 flex items-center justify-center p-1.5 shadow-xs group-hover:scale-105 transition-transform">
+            <div className="w-10 h-10 rounded-xl bg-[#001752] border border-[#002580] flex items-center justify-center p-1.5 shadow-xs group-hover:scale-105 transition-transform">
               <img
                 src="/images/logo-stitch.png"
                 alt="Race Reddys Emblem"
@@ -115,10 +115,10 @@ export default function Header() {
             </div>
 
             <div className="flex flex-col">
-              <span className="font-extrabold text-lg sm:text-xl tracking-tight text-[#111827] leading-none">
+              <span className="font-extrabold text-lg sm:text-xl tracking-tight text-[#001752] leading-none">
                 RACE REDDYS
               </span>
-              <span className="text-[9.5px] font-bold text-[#0084FF] tracking-wider uppercase leading-none mt-1">
+              <span className="text-[9.5px] font-extrabold text-[#C41E1E] tracking-wider uppercase leading-none mt-1">
                 Advanced Computer Education
               </span>
             </div>
@@ -134,13 +134,13 @@ export default function Header() {
                   to={link.to}
                   className={`px-3 py-1.5 rounded-full transition-all whitespace-nowrap flex items-center gap-1.5 ${
                     isActive
-                      ? 'text-[#0084FF] font-semibold bg-sky-50'
-                      : 'hover:text-slate-900 hover:bg-slate-50'
+                      ? 'text-[#001752] font-bold bg-[#F1F4FA] border border-[#D5DFF0]'
+                      : 'hover:text-[#001752] hover:bg-slate-50'
                   }`}
                 >
                   <span>{link.label}</span>
                   {link.badge && (
-                    <span className="px-1.5 py-0.2 bg-amber-100 text-amber-800 text-[10px] font-bold rounded-full">
+                    <span className="px-1.5 py-0.2 bg-[#C41E1E] text-white text-[10px] font-black rounded-full">
                       {link.badge}
                     </span>
                   )}
@@ -149,7 +149,7 @@ export default function Header() {
             })}
           </nav>
 
-          {/* Desktop CTAs (WhatsApp quick link + Signature Blue Pill) */}
+          {/* Desktop CTAs (WhatsApp quick link + Signature Brand Red Pill) */}
           <div className="hidden sm:flex items-center gap-3 shrink-0">
             {/* Quick WhatsApp Link */}
             <a
@@ -164,10 +164,10 @@ export default function Header() {
               <span>WhatsApp</span>
             </a>
 
-            {/* Signature Blue Pill CTA */}
+            {/* Signature Brand Red Pill CTA */}
             <Link
               to="/contact#demo"
-              className="inline-flex items-center justify-center bg-[#0084FF] hover:bg-[#0074E0] text-white text-xs sm:text-sm font-semibold px-5 sm:px-6 py-2.5 rounded-full shadow-sm hover:shadow-md transition-all active:scale-95 whitespace-nowrap"
+              className="inline-flex items-center justify-center bg-[#C41E1E] hover:bg-[#A81717] text-white text-xs sm:text-sm font-bold px-5 sm:px-6 py-2.5 rounded-full shadow-md hover:shadow-lg transition-all active:scale-95 whitespace-nowrap"
             >
               Book a demo
             </Link>
@@ -189,7 +189,7 @@ export default function Header() {
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-[#111827] hover:bg-slate-100 rounded-lg transition-colors"
+              className="p-2 text-[#001752] hover:bg-slate-100 rounded-lg transition-colors"
               aria-expanded={mobileMenuOpen}
               aria-label="Toggle navigation menu"
             >
@@ -203,8 +203,8 @@ export default function Header() {
         {mobileMenuOpen && (
           <div className="lg:hidden border-t border-slate-200 bg-white px-4 pt-4 pb-6 shadow-2xl animate-in slide-in-from-top-2">
             <div className="mb-3 px-3 py-2 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between text-xs font-medium text-slate-700">
-              <span>🔥 50% Concession on Career Diplomas</span>
-              <span className="bg-[#F5BE4F] text-[#111827] font-bold text-[9px] px-1.5 py-0.5 rounded">VIRAR</span>
+              <span className="font-bold text-[#C41E1E]">🔥 50% Concession on Career Diplomas</span>
+              <span className="bg-[#001752] text-white font-bold text-[9px] px-1.5 py-0.5 rounded">VIRAR</span>
             </div>
 
             <nav className="flex flex-col gap-1 mb-4" aria-label="Mobile Navigation">
@@ -217,14 +217,14 @@ export default function Header() {
                     onClick={() => setMobileMenuOpen(false)}
                     className={`px-3 py-2.5 rounded-lg text-sm font-semibold flex items-center justify-between transition-colors ${
                       isActive
-                        ? 'bg-sky-50 text-[#0084FF] font-bold'
+                        ? 'bg-[#F1F4FA] text-[#001752] font-bold border-l-4 border-[#C41E1E]'
                         : 'text-slate-700 hover:bg-slate-50'
                     }`}
                   >
                     <div className="flex items-center gap-2">
                       <span>{link.label}</span>
                       {link.badge && (
-                        <span className="px-1.5 py-0.2 bg-amber-100 text-amber-800 text-[9px] font-bold rounded-full">
+                        <span className="px-1.5 py-0.2 bg-[#C41E1E] text-white text-[9px] font-black rounded-full">
                           {link.badge}
                         </span>
                       )}
@@ -239,9 +239,9 @@ export default function Header() {
             <div className="grid grid-cols-2 gap-2 pt-3 border-t border-slate-200">
               <a
                 href={`tel:${SITE_CONFIG.contact.phone}`}
-                className="flex items-center justify-center gap-1.5 bg-slate-50 border border-slate-200 text-[#111827] text-xs font-bold py-2.5 rounded-xl hover:bg-slate-100 transition-colors"
+                className="flex items-center justify-center gap-1.5 bg-slate-50 border border-slate-200 text-[#001752] text-xs font-bold py-2.5 rounded-xl hover:bg-slate-100 transition-colors"
               >
-                <Phone size={13} className="text-[#0084FF]" />
+                <Phone size={13} className="text-[#C41E1E]" />
                 <span>Call Us</span>
               </a>
               <a
@@ -260,7 +260,7 @@ export default function Header() {
             <Link
               to="/contact#demo"
               onClick={() => setMobileMenuOpen(false)}
-              className="mt-2 w-full flex items-center justify-center bg-[#0084FF] hover:bg-[#0074E0] text-white text-xs font-bold py-3 rounded-xl shadow-sm transition-all"
+              className="mt-2 w-full flex items-center justify-center bg-[#C41E1E] hover:bg-[#A81717] text-white text-xs font-bold py-3 rounded-xl shadow-md transition-all"
             >
               Book a demo
             </Link>

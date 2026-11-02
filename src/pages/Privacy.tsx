@@ -28,9 +28,9 @@ export default function Privacy() {
           <div className="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/90 shadow-sm space-y-8 text-xs sm:text-sm text-slate-600 leading-relaxed">
             
             <div>
-              <div className="flex items-center gap-2 mb-2 text-[#0084FF]">
+              <div className="flex items-center gap-2 mb-2 text-[#C41E1E]">
                 <Shield size={18} />
-                <h2 className="text-base sm:text-lg font-bold text-[#111827]">1. Overview &amp; Commitment</h2>
+                <h2 className="text-base sm:text-lg font-bold text-[#001752]">1. Overview &amp; Commitment</h2>
               </div>
               <p>
                 This Privacy Policy explains how <strong>{SITE_CONFIG.fullName}</strong> (&quot;we&quot;, &quot;us&quot;, or &quot;the institute&quot; located at Raut Arcade, Virar East) handles contact details when prospective students or parents submit admission enquiries or contact our counseling desk.
@@ -38,9 +38,9 @@ export default function Privacy() {
             </div>
 
             <div className="border-t border-slate-100 pt-6">
-              <div className="flex items-center gap-2 mb-2 text-[#0084FF]">
+              <div className="flex items-center gap-2 mb-2 text-[#C41E1E]">
                 <FileText size={18} />
-                <h2 className="text-base sm:text-lg font-bold text-[#111827]">2. Information We Receive</h2>
+                <h2 className="text-base sm:text-lg font-bold text-[#001752]">2. Information We Receive</h2>
               </div>
               <p>When you complete an admission enquiry form or chat with us, we collect:</p>
               <ul className="mt-2.5 space-y-1.5 pl-4 list-disc text-slate-600">
@@ -53,9 +53,9 @@ export default function Privacy() {
             </div>
 
             <div className="border-t border-slate-100 pt-6">
-              <div className="flex items-center gap-2 mb-2 text-[#0084FF]">
+              <div className="flex items-center gap-2 mb-2 text-[#C41E1E]">
                 <Lock size={18} />
-                <h2 className="text-base sm:text-lg font-bold text-[#111827]">3. How We Use Your Details</h2>
+                <h2 className="text-base sm:text-lg font-bold text-[#001752]">3. How We Use Your Details</h2>
               </div>
               <p>
                 Your contact details are used exclusively by our Virar East campus counselor to provide syllabus brochures, fee installment structures, batch availability, and to schedule in-person demo classes. 
@@ -69,9 +69,9 @@ export default function Privacy() {
             </div>
 
             <div className="border-t border-slate-100 pt-6">
-              <div className="flex items-center gap-2 mb-2 text-[#0084FF]">
+              <div className="flex items-center gap-2 mb-2 text-[#C41E1E]">
                 <Shield size={18} />
-                <h2 className="text-base sm:text-lg font-bold text-[#111827]">4. WhatsApp Direct Routing</h2>
+                <h2 className="text-base sm:text-lg font-bold text-[#001752]">4. WhatsApp Direct Routing</h2>
               </div>
               <p>
                 Our inquiry forms pre-format your query into an encrypted WhatsApp conversation with our official admissions team at <strong>{SITE_CONFIG.contact.phoneDisplay}</strong>. You retain full control over the message and can inspect it before pressing send on your device.
@@ -79,21 +79,21 @@ export default function Privacy() {
             </div>
 
             <div className="border-t border-slate-100 pt-6">
-              <h2 className="text-base sm:text-lg font-bold text-[#111827] mb-2">5. Campus Contact Information</h2>
+              <h2 className="text-base sm:text-lg font-bold text-[#001752] mb-2">5. Campus Contact Information</h2>
               <p className="mb-2">For any questions regarding your enquiry details or to update your contact preferences, contact:</p>
               <div className="rounded-2xl bg-[#F8F9FA] border border-slate-200 p-4 text-xs text-slate-700 space-y-1">
                 <strong>{SITE_CONFIG.fullName}</strong>
                 <p>{SITE_CONFIG.address.line1}, {SITE_CONFIG.address.line2}</p>
                 <p>{SITE_CONFIG.address.city}, {SITE_CONFIG.address.state} - {SITE_CONFIG.address.pin}</p>
                 <p className="pt-1">
-                  Direct Phone: <a href={`tel:${SITE_CONFIG.contact.phoneRaw}`} className="text-[#0084FF] font-bold hover:underline">{SITE_CONFIG.contact.phoneDisplay}</a>
+                  Direct Phone: <a href={`tel:${SITE_CONFIG.contact.phoneRaw}`} className="text-[#C41E1E] font-bold hover:underline">{SITE_CONFIG.contact.phoneDisplay}</a>
                 </p>
               </div>
             </div>
 
             <div className="border-t border-slate-100 pt-4 flex items-center justify-between">
               <span className="text-[11px] text-slate-400">© {currentYear} {SITE_CONFIG.name}. All rights reserved.</span>
-              <Link to="/" className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0084FF] hover:underline">
+              <Link to="/" className="inline-flex items-center gap-1.5 text-xs font-bold text-[#001752] hover:text-[#C41E1E] hover:underline">
                 <ArrowLeft size={14} />
                 <span>Return to Home</span>
               </Link>

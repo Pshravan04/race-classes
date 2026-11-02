@@ -1,12 +1,27 @@
 @import "tailwindcss";
 
+@theme {
+  --color-brand-navy: #001752;
+  --color-brand-navy-dark: #000E33;
+  --color-brand-red: #C41E1E;
+  --color-brand-red-dark: #A81717;
+  --color-brand-red-light: #FDF2F2;
+}
+
 /* ─── RACE REDDYS DESIGN SYSTEM TOKENS ─── */
 :root {
+  /* Brand Core Colors (#001752 Navy & #C41E1E Red) */
+  --brand-navy: #001752;
+  --brand-navy-dark: #000E33;
+  --brand-red: #C41E1E;
+  --brand-red-dark: #A81717;
+  --brand-red-light: #FDF2F2;
+
   /* Brand Primary Navy */
-  --navy-950: #040F22;
-  --navy-900: #071B3A;
-  --navy-800: #0E2B5C;
-  --navy-700: #153E82;
+  --navy-950: #000E33;
+  --navy-900: #001752;
+  --navy-800: #002580;
+  --navy-700: #0036B8;
   
   /* Brand Sparing Warm Gold Accent */
   --gold-500: #C59B27;
@@ -15,21 +30,21 @@
   --gold-100: #FBF4E4;
   --gold-50:  #FDFBF5;
 
-  /* Paper / Warm Off-white Base */
-  --paper-bg:     #FBF9F5;
+  /* Paper / Modern Canvas Base */
+  --paper-bg:     #F8F9FA;
   --paper-card:   #FFFFFF;
-  --paper-subtle: #F3EFE6;
-  --paper-border: #E8E2D5;
-  --paper-border-dark: #D4CBC0;
+  --paper-subtle: #F1F4F9;
+  --paper-border: #E2E8F0;
+  --paper-border-dark: #CBD5E1;
 
-  /* Mumbai Local Train Accents */
-  --train-red:    #C0392B;
-  --train-red-light: #FCECEB;
-  --train-yellow: #F39C12;
+  /* Brand Red Accents */
+  --train-red:    #C41E1E;
+  --train-red-light: #FDF2F2;
+  --train-yellow: #F5BE4F;
   --train-yellow-light: #FEF9E7;
 
   /* Text & Readability */
-  --text-main:    #1A2332;
+  --text-main:    #0A142F;
   --text-muted:   #4A5568;
   --text-light:   #718096;
 

@@ -27,12 +27,12 @@ export default function About() {
         title="Grounded in Virar, Built for Practical Tech Careers"
         description="We started Race Reddys with one clear conviction: students, homemakers, and job seekers in Virar and Vasai should not have to spend 4 hours in crowded local trains just to learn quality computer skills."
         aside={
-          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-[#0B1528] via-[#080E1C] to-[#040812] p-6 sm:p-7 text-white shadow-2xl">
-            <div className="absolute -right-12 -top-12 h-48 w-48 rounded-full bg-[#0084FF]/20 blur-[80px] pointer-events-none" />
-            <div className="absolute -left-12 -bottom-12 h-48 w-48 rounded-full bg-[#F5BE4F]/10 blur-[80px] pointer-events-none" />
+          <div className="relative overflow-hidden rounded-3xl border border-[#002B94] bg-gradient-to-br from-[#001752] via-[#000F36] to-[#00081C] p-6 sm:p-7 text-white shadow-2xl">
+            <div className="absolute -right-12 -top-12 h-48 w-48 rounded-full bg-[#C41E1E]/20 blur-[80px] pointer-events-none" />
+            <div className="absolute -left-12 -bottom-12 h-48 w-48 rounded-full bg-[#002277]/30 blur-[80px] pointer-events-none" />
 
             <div className="relative z-10">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#F5BE4F] px-3 py-1 text-[10px] font-black uppercase tracking-wider text-[#111827]">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#C41E1E] px-3 py-1 text-[10px] font-black uppercase tracking-wider text-white shadow-xs">
                 <Sparkles size={12} />
                 Since 2014 in Virar East
               </span>
@@ -78,11 +78,11 @@ export default function About() {
             
             {/* Story Text */}
             <div className="lg:col-span-7 space-y-5 text-slate-600 leading-relaxed text-sm sm:text-base">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-50 text-[#0084FF] border border-sky-100 text-xs font-bold uppercase tracking-wider">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-50 text-[#C41E1E] border border-red-200 text-xs font-bold uppercase tracking-wider">
                 <span>The Suburban Education Challenge</span>
               </div>
 
-              <h2 className="text-2xl sm:text-4xl font-extrabold text-[#111827] tracking-tight">
+              <h2 className="text-2xl sm:text-4xl font-extrabold text-[#001752] tracking-tight">
                 Why Should Virar Students Travel to Mumbai for Computer Education?
               </h2>
 
@@ -91,7 +91,7 @@ export default function About() {
               </p>
 
               <p>
-                <strong className="text-[#111827]">Race Reddys was founded to end this exhausting commute.</strong> Located at 202, Raut Arcade, directly opposite the Virar East railway subway, we bring modern IT curriculums, licensed software, and experienced instructors right to your doorstep in Virar.
+                <strong className="text-[#001752]">Race Reddys was founded to end this exhausting commute.</strong> Located at 202, Raut Arcade, directly opposite the Virar East railway subway, we bring modern IT curriculums, licensed software, and experienced instructors right to your doorstep in Virar.
               </p>
 
               <p>
@@ -99,11 +99,11 @@ export default function About() {
               </p>
 
               <div className="p-4 bg-[#F8F9FA] rounded-2xl border border-slate-200 flex items-center gap-3.5">
-                <div className="w-10 h-10 rounded-xl bg-[#0084FF] text-white flex items-center justify-center shrink-0 font-black text-sm">
+                <div className="w-10 h-10 rounded-xl bg-[#001752] text-white flex items-center justify-center shrink-0 font-black text-sm">
                   1:1
                 </div>
                 <div>
-                  <strong className="block text-xs sm:text-sm text-[#111827] font-bold">
+                  <strong className="block text-xs sm:text-sm text-[#001752] font-bold">
                     Zero Screen Sharing Guarantee
                   </strong>
                   <span className="text-xs text-slate-500">
@@ -155,15 +155,15 @@ export default function About() {
           <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between">
               <div>
-                <div className="w-12 h-12 rounded-2xl bg-sky-50 border border-sky-100 flex items-center justify-center text-[#0084FF] mb-4">
+                <div className="w-12 h-12 rounded-2xl bg-red-50 border border-red-100 flex items-center justify-center text-[#C41E1E] mb-4">
                   <Monitor size={22} />
                 </div>
-                <h3 className="text-base sm:text-lg font-bold text-[#111827] mb-2">100% Practical Training</h3>
+                <h3 className="text-base sm:text-lg font-bold text-[#001752] mb-2">100% Practical Training</h3>
                 <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
                   You sit in front of an active computer terminal from day one. Concepts are practiced immediately with real accounting entries and code.
                 </p>
               </div>
-              <span className="text-[11px] font-bold text-[#0084FF] mt-4 block">1:1 Workstation Ratio</span>
+              <span className="text-[11px] font-bold text-[#C41E1E] mt-4 block">1:1 Workstation Ratio</span>
             </div>
 
             <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between">
@@ -171,7 +171,7 @@ export default function About() {
                 <div className="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-600 mb-4">
                   <Users size={22} />
                 </div>
-                <h3 className="text-base sm:text-lg font-bold text-[#111827] mb-2">Patient Desk Guidance</h3>
+                <h3 className="text-base sm:text-lg font-bold text-[#001752] mb-2">Patient Desk Guidance</h3>
                 <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
                   Trainers sit directly beside you to resolve doubts, correct keyboard finger placement, and walk through mistakes step by step.
                 </p>
@@ -184,7 +184,7 @@ export default function About() {
                 <div className="w-12 h-12 rounded-2xl bg-amber-50 border border-amber-100 flex items-center justify-center text-amber-600 mb-4">
                   <Award size={22} />
                 </div>
-                <h3 className="text-base sm:text-lg font-bold text-[#111827] mb-2">Government &amp; ISO Aligned</h3>
+                <h3 className="text-base sm:text-lg font-bold text-[#001752] mb-2">Government &amp; ISO Aligned</h3>
                 <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
                   Syllabi conform to MKCL exam patterns, GCC-TBC typing criteria, and ISO 9001:2015 standards, making certificates valid for job interviews.
                 </p>
@@ -197,7 +197,7 @@ export default function About() {
                 <div className="w-12 h-12 rounded-2xl bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-600 mb-4">
                   <Clock size={22} />
                 </div>
-                <h3 className="text-base sm:text-lg font-bold text-[#111827] mb-2">Free Lifetime Doubt Support</h3>
+                <h3 className="text-base sm:text-lg font-bold text-[#001752] mb-2">Free Lifetime Doubt Support</h3>
                 <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
                   Even after finishing your course, you can walk in to our lab to practice or ask your teacher for help on actual office tasks.
                 </p>
@@ -221,12 +221,12 @@ export default function About() {
             <div className="p-6 rounded-3xl border border-slate-200 bg-[#F8F9FA] flex flex-col justify-between">
               <div>
                 <span className="text-2xl mb-3 block">🎓</span>
-                <h3 className="text-base font-bold text-[#111827] mb-2">College Students &amp; Freshers</h3>
+                <h3 className="text-base font-bold text-[#001752] mb-2">College Students &amp; Freshers</h3>
                 <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
                   Students from Viva College, St. Joseph, and nearby colleges who want job-ready skills in Tally, Python, and Graphic Design before graduation.
                 </p>
               </div>
-              <div className="mt-4 pt-3 border-t border-slate-200 text-xs font-semibold text-[#0084FF]">
+              <div className="mt-4 pt-3 border-t border-slate-200 text-xs font-semibold text-[#C41E1E]">
                 Batches before &amp; after college hours
               </div>
             </div>
@@ -234,7 +234,7 @@ export default function About() {
             <div className="p-6 rounded-3xl border border-slate-200 bg-[#F8F9FA] flex flex-col justify-between">
               <div>
                 <span className="text-2xl mb-3 block">👩‍💼</span>
-                <h3 className="text-base font-bold text-[#111827] mb-2">Homemakers &amp; Women</h3>
+                <h3 className="text-base font-bold text-[#001752] mb-2">Homemakers &amp; Women</h3>
                 <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
                   Women returning to careers or learning basic computers and office typing for household accounting in our supportive afternoon ladies batch.
                 </p>
@@ -247,7 +247,7 @@ export default function About() {
             <div className="p-6 rounded-3xl border border-slate-200 bg-[#F8F9FA] flex flex-col justify-between">
               <div>
                 <span className="text-2xl mb-3 block">💼</span>
-                <h3 className="text-base font-bold text-[#111827] mb-2">Working Professionals &amp; Business Owners</h3>
+                <h3 className="text-base font-bold text-[#001752] mb-2">Working Professionals &amp; Business Owners</h3>
                 <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
                   Local shopkeepers, traders, and working clerks upgrading to TallyPrime GST invoicing, digital marketing, and advanced Excel spreadsheets.
                 </p>
@@ -270,7 +270,7 @@ export default function About() {
                   <MapPin size={12} />
                   Prime Station Location
                 </span>
-                <h2 className="text-2xl sm:text-3xl font-bold text-[#111827] tracking-tight">
+                <h2 className="text-2xl sm:text-3xl font-bold text-[#001752] tracking-tight">
                   2 Minutes on Foot from Virar Railway Station (Platform 1 Exit)
                 </h2>
                 <p className="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
@@ -288,14 +288,14 @@ export default function About() {
                   href={SITE_CONFIG.address.googleMapsDirectLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 h-12 px-6 rounded-full bg-[#111827] hover:bg-[#1E293B] text-white text-xs sm:text-sm font-bold shadow-md transition-all active:scale-95"
+                  className="inline-flex items-center justify-center gap-2 h-12 px-6 rounded-full bg-[#001752] hover:bg-[#C41E1E] text-white text-xs sm:text-sm font-bold shadow-md transition-all active:scale-95"
                 >
                   <MapPin size={15} className="text-[#F5BE4F]" />
                   <span>Open in Google Maps</span>
                 </a>
                 <Link
                   to="/contact"
-                  className="inline-flex items-center justify-center gap-2 h-12 px-6 rounded-full bg-white text-[#111827] border border-slate-300 hover:border-[#111827] text-xs sm:text-sm font-bold transition-all shadow-xs"
+                  className="inline-flex items-center justify-center gap-2 h-12 px-6 rounded-full bg-white text-[#001752] border border-slate-300 hover:border-[#001752] text-xs sm:text-sm font-bold transition-all shadow-xs"
                 >
                   <span>Book Lab Tour &amp; Demo</span>
                 </Link>
