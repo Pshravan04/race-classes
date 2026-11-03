@@ -22,7 +22,7 @@ export default function Offers() {
   return (
     <>
       <SEO
-        title="Current Offers & Concessions | Race Reddys Virar East"
+        title="Current Offers & Concessions | RACE Virar East"
         description="Save 50% on computer courses in Virar East! Get a FREE Basic Computer Course when you enroll in any career track. Limited seats at Raut Arcade, opposite Virar East station."
         canonical="/offers"
       />
@@ -125,7 +125,7 @@ export default function Offers() {
             <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
               <a
                 href={`${SITE_CONFIG.contact.whatsapp}?text=${encodeURIComponent(
-                  `Hello! I want to claim the 50% discount and Free Basic Computer Course offer at Race Reddys Virar East (Ticket Code: ${OFFERS_CONFIG.ticketCode}).`
+                  `Hello! I want to claim the 50% discount and Free Basic Computer Course offer at RACE Virar East (Ticket Code: ${OFFERS_CONFIG.ticketCode}).`
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"

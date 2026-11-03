@@ -16,7 +16,7 @@ import Offers from './pages/Offers';
 import BatchesAndFees from './pages/BatchesAndFees';
 import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
-import Privacy from './pages/Privacy';
+import Privacy from './pages/Privacy'; 
 import NotFound from './pages/NotFound';
 
 function ScrollToTop() {

@@ -17,7 +17,7 @@ export default function MobileStickyBar() {
 
         <a
           href={`${SITE_CONFIG.contact.whatsapp}?text=${encodeURIComponent(
-            'Hello! I am contacting you from the Race Reddys website. I would like to know more about courses, fees, and batch timings.'
+            'Hello! I am contacting you from the RACE website. I would like to know more about courses, fees, and batch timings.'
           )}`}
           target="_blank"
           rel="noopener noreferrer"

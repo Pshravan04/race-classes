@@ -19,7 +19,7 @@ const GALLERY_ITEMS = [
   },
   {
     image: '/images/real-instructor-mentoring.jpg',
-    alt: 'Faculty assisting student hands-on at computer desk at Race Reddys',
+    alt: 'Faculty assisting student hands-on at computer desk at RACE',
     badge: '1-on-1 Faculty Mentorship',
     badgeClass: 'bg-[#C41E1E] text-white',
     bottomLeft: 'Desk Coaching',
@@ -31,7 +31,7 @@ const GALLERY_ITEMS = [
   },
   {
     image: '/images/real-teacher-lecture.jpg',
-    alt: 'Teacher explaining concept at whiteboard to computer students at Race Reddys',
+    alt: 'Teacher explaining concept at whiteboard to computer students at RACE',
     badge: 'Structured Classroom Batches',
     badgeClass: 'bg-emerald-600 text-white',
     bottomLeft: 'Daily Batches',
@@ -43,7 +43,7 @@ const GALLERY_ITEMS = [
   },
   {
     image: '/images/real-data-chart-session.jpg',
-    alt: 'Students analyzing Excel charts and financial data on screen at Race Reddys',
+    alt: 'Students analyzing Excel charts and financial data on screen at RACE',
     badge: 'Advanced Excel & Business Analytics',
     badgeClass: 'bg-[#001752] text-white',
     bottomLeft: 'TallyPrime + GST',
@@ -67,7 +67,7 @@ const GALLERY_ITEMS = [
   },
   {
     image: '/images/real-lab-aisle.jpg',
-    alt: 'Students seated in booths working with course material at Race Reddys Virar',
+    alt: 'Students seated in booths working with course material at RACE Virar',
     badge: 'Authentic Study Materials',
     badgeClass: 'bg-[#C41E1E] text-white',
     bottomLeft: 'Since 2014',
@@ -83,7 +83,7 @@ export default function Gallery() {
   return (
     <>
       <SEO
-        title="Student Success & Gallery | Race Reddys Virar East"
+        title="Student Success & Gallery | RACE Virar East"
         description="Authentic moments from our computer lab at Raut Arcade, Virar East. Hands-on learning, practical typing tests, and real student achievements."
         canonical="/gallery"
       />
@@ -98,7 +98,7 @@ export default function Gallery() {
               <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-slate-200 bg-slate-900 shadow-sm">
                 <img
                   src="/images/real-lab-classroom.jpg"
-                  alt="Real students learning in the Race Reddys computer lab"
+                  alt="Real students learning in the RACE computer lab"
                   className="h-full w-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
@@ -106,7 +106,7 @@ export default function Gallery() {
               <div className="relative mt-7 aspect-[4/5] overflow-hidden rounded-2xl border border-slate-200 bg-slate-900 shadow-sm">
                 <img
                   src="/images/real-instructor-mentoring.jpg"
-                  alt="Faculty desk guidance at Race Reddys"
+                  alt="Faculty desk guidance at RACE"
                   className="h-full w-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
@@ -122,10 +122,12 @@ export default function Gallery() {
           </div>
         }
       />
-
+                                                                              
       <section className="bg-white py-16 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+
+            
             {GALLERY_ITEMS.map((item) => (
               <div
                 key={item.title}
@@ -166,7 +168,7 @@ export default function Gallery() {
             </div>
 
             <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-[#001752]">
-              Are you an alumni of Race Reddys? Share Your Story!
+              Are you an alumni of RACE? Share Your Story!
             </h2>
 
             <p className="mx-auto mt-2 max-w-xl text-xs leading-relaxed text-slate-600 sm:text-sm">
@@ -177,7 +179,7 @@ export default function Gallery() {
 
             <a
               href={`${SITE_CONFIG.contact.whatsapp}?text=${encodeURIComponent(
-                'Hello Race Reddys! I am an alumni of the institute. I would like to share my review and photo for the website showcase.'
+                'Hello RACE! I am an alumni of the institute. I would like to share my review and photo for the website showcase.'
               )}`}
               target="_blank"
               rel="noopener noreferrer"

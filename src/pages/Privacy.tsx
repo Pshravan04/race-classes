@@ -11,8 +11,8 @@ export default function Privacy() {
   return (
     <>
       <SEO
-        title="Privacy Policy & Terms | Race Reddys Virar East"
-        description="Privacy policy for Race Reddys Advanced Computer Education — transparent student data handling and inquiry communications."
+        title="Privacy Policy & Terms | RACE Virar East"
+        description="Privacy policy for RACE Advanced Computer Education — transparent student data handling and inquiry communications."
         canonical="/privacy"
       />
 

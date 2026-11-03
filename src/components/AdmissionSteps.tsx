@@ -103,7 +103,7 @@ export default function AdmissionSteps() {
           <div className="flex items-center gap-3">
             <a
               href={`${SITE_CONFIG.contact.whatsapp}?text=${encodeURIComponent(
-                'Hello! I would like to book a free demo class at Race Reddys Virar East.'
+                'Hello! I would like to book a free demo class at RACE Virar East.'
               )}`}
               target="_blank"
               rel="noopener noreferrer"

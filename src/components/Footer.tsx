@@ -19,7 +19,7 @@ export default function Footer() {
               <div className="bg-white rounded-2xl p-2.5 inline-block shadow-lg border border-white/20">
                 <img
                   src="/images/logo-full.png"
-                  alt="RACE - Reddy's Advanced Computer Education"
+                  alt="RACE – Advanced Computer Education"
                   className="h-10 sm:h-11 w-auto object-contain"
                 />
               </div>
@@ -134,7 +134,7 @@ export default function Footer() {
             </h4>
 
             <p className="leading-relaxed">
-              <strong className="text-white block mb-1">Race Reddys</strong>
+              <strong className="text-white block mb-1">RACE</strong>
               202, 2nd Floor, Raut Arcade, Opp. Subway / Opp. Virar East Railway Station,
               Virar East, Maharashtra 401305.
             </p>
@@ -180,7 +180,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="pt-7 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <div className="text-center sm:text-left">
-            © 2026 Race Reddys Advanced Computer Education. All rights reserved.
+            © 2026 RACE Advanced Computer Education. All rights reserved.
           </div>
 
           <div className="flex items-center gap-4 text-slate-400 text-[11px]">

@@ -17,15 +17,15 @@ export default function About() {
   return (
     <>
       <SEO
-        title="About Us | Race Reddys Advanced Computer Education Virar East"
-        description="The story of Race Reddys in Virar East: eliminating the stressful commute to Mumbai with 100% practical computer training right outside Virar railway station. 10+ years of empowering local learners."
+        title="About Us | RACE Advanced Computer Education Virar East"
+        description="The story of RACE in Virar East: eliminating the stressful commute to Mumbai with 100% practical computer training right outside Virar railway station. 10+ years of empowering local learners."
         canonical="/about"
       />
 
       <PageHero
         eyebrow="Our Mission &amp; Heritage"
         title="Grounded in Virar, Built for Practical Tech Careers"
-        description="We started Race Reddys with one clear conviction: students, homemakers, and job seekers in Virar and Vasai should not have to spend 4 hours in crowded local trains just to learn quality computer skills."
+        description="We started RACE with one clear conviction: students, homemakers, and job seekers in Virar and Vasai should not have to spend 4 hours in crowded local trains just to learn quality computer skills."
         aside={
           <div className="relative overflow-hidden rounded-3xl border border-[#002B94] bg-gradient-to-br from-[#001752] via-[#000F36] to-[#00081C] p-6 sm:p-7 text-white shadow-2xl">
             <div className="absolute -right-12 -top-12 h-48 w-48 rounded-full bg-[#C41E1E]/20 blur-[80px] pointer-events-none" />
@@ -91,7 +91,7 @@ export default function About() {
               </p>
 
               <p>
-                <strong className="text-[#001752]">Race Reddys was founded to end this exhausting commute.</strong> Located at 202, Raut Arcade, directly opposite the Virar East railway subway, we bring modern IT curriculums, licensed software, and experienced instructors right to your doorstep in Virar.
+                <strong className="text-[#001752]">RACE was founded to end this exhausting commute.</strong> Located at 202, Raut Arcade, directly opposite the Virar East railway subway, we bring modern IT curriculums, licensed software, and experienced instructors right to your doorstep in Virar.
               </p>
 
               <p>
@@ -119,7 +119,7 @@ export default function About() {
                 <div className="aspect-[4/3] w-full relative overflow-hidden">
                   <img
                     src="/images/real-lab-classroom.jpg"
-                    alt="Race Reddys computer lab inside Raut Arcade Virar East"
+                    alt="RACE computer lab inside Raut Arcade Virar East"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
@@ -148,8 +148,8 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             eyebrow="Our Teaching Philosophy"
-            title="How We Teach Differently at Race Reddys"
-            description="Education at Race Reddys is built on practical confidence rather than memorizing textbooks. Here are the four standards we uphold for every enrolled student."
+            title="How We Teach Differently at RACE"
+            description="Education at RACE is built on practical confidence rather than memorizing textbooks. Here are the four standards we uphold for every enrolled student."
           />
 
           <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -213,7 +213,7 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             eyebrow="Community Impact"
-            title="Who Learns at Race Reddys?"
+            title="Who Learns at RACE?"
             description="Our classrooms reflect the diverse community of Virar, Vasai, and Palghar. We welcome learners of all ages and backgrounds."
           />
 

@@ -1,12 +1,12 @@
 // ============================================================
-// SITE CONFIGURATION — RACE REDDYS ADVANCED COMPUTER EDUCATION
+// SITE CONFIGURATION — RACE ADVANCED COMPUTER EDUCATION
 // All business facts, courses, batches, and offers live here.
 // Non-developers can edit values here safely.
 // ============================================================
 
 export const SITE_CONFIG = {
-  name: 'Race Reddys',
-  fullName: 'Race Reddys – Advanced Computer Education',
+  name: 'RACE',
+  fullName: 'RACE – Advanced Computer Education',
   tagline: 'Practical IT & Computer Training in Virar East',
   motto: 'Ab Mumbai jaane ki zarurat nahi — Learn quality IT skills right at your station.',
   description:
@@ -18,7 +18,7 @@ export const SITE_CONFIG = {
     phoneDisplay: '+91 97943 23963',
     whatsapp: 'https://wa.me/919794323963',
     whatsappNumber: '919794323963',
-    whatsappDefaultMessage: encodeURIComponent('Hello! I am interested in admissions at Race Reddys Virar East.'),
+    whatsappDefaultMessage: encodeURIComponent('Hello! I am interested in admissions at RACE Virar East.'),
     timings: 'Monday to Saturday: 9:00 AM – 7:00 PM (Sunday Closed)',
   },
 
@@ -184,7 +184,7 @@ export const COURSES: Course[] = [
     durationPlaceholder: '4 to 6 Weeks (Fast-track available)',
     mode: '100% In-Person Practical Lab (Virar East)',
     certificate: 'Certification of Computer Literacy & Basic Lab Proficiency',
-    whatsappMessage: 'Hello! I want to enquire about the Basic Computer Course at Race Reddys Virar East. Please share batch timings and fee details.',
+    whatsappMessage: 'Hello! I want to enquire about the Basic Computer Course at RACE Virar East. Please share batch timings and fee details.',
   },
   {
     id: 'ms-office',
@@ -203,7 +203,7 @@ export const COURSES: Course[] = [
     durationPlaceholder: '6 to 8 Weeks',
     mode: '100% In-Person Practical Lab (Virar East)',
     certificate: 'MS Office Specialist Practical Certificate',
-    whatsappMessage: 'Hello! I want to enquire about the MS-Office (Word, Excel, PowerPoint) course at Race Reddys Virar East. Please share batch timings and fee details.',
+    whatsappMessage: 'Hello! I want to enquire about the MS-Office (Word, Excel, PowerPoint) course at RACE Virar East. Please share batch timings and fee details.',
   },
   {
     id: 'advanced-tally-with-gst',
@@ -223,7 +223,7 @@ export const COURSES: Course[] = [
     durationPlaceholder: '8 to 10 Weeks',
     mode: '100% In-Person Practical Lab (Virar East)',
     certificate: 'Advanced TallyPrime with GST Industry Certificate',
-    whatsappMessage: 'Hello! I want to enquire about the Advanced Tally with GST course at Race Reddys Virar East. Please share batch timings and fee details.',
+    whatsappMessage: 'Hello! I want to enquire about the Advanced Tally with GST course at RACE Virar East. Please share batch timings and fee details.',
   },
   {
     id: 'gst',
@@ -243,7 +243,7 @@ export const COURSES: Course[] = [
     durationPlaceholder: '4 to 6 Weeks',
     mode: '100% In-Person Practical Lab (Virar East)',
     certificate: 'Certificate in Practical GST Compliance & E-Filing',
-    whatsappMessage: 'Hello! I want to enquire about the GST course at Race Reddys Virar East. Please share batch timings and fee details.',
+    whatsappMessage: 'Hello! I want to enquire about the GST course at RACE Virar East. Please share batch timings and fee details.',
   },
   {
     id: 'ccc',
@@ -264,7 +264,7 @@ export const COURSES: Course[] = [
     durationPlaceholder: '6 to 8 Weeks',
     mode: '100% In-Person Practical Lab (Virar East)',
     certificate: 'CCC Exam Preparation & Institute Completion Certificate',
-    whatsappMessage: 'Hello! I want to enquire about the CCC course at Race Reddys Virar East. Please share batch timings and fee details.',
+    whatsappMessage: 'Hello! I want to enquire about the CCC course at RACE Virar East. Please share batch timings and fee details.',
   },
   {
     id: 'typing-english-marathi',
@@ -284,7 +284,7 @@ export const COURSES: Course[] = [
     durationPlaceholder: '2 to 3 Months (Continuous speed training)',
     mode: '100% In-Person Practical Lab (Virar East)',
     certificate: 'Certificate of Typing Speed Proficiency (English & Marathi)',
-    whatsappMessage: 'Hello! I want to enquire about English & Marathi Typing at Race Reddys Virar East. Please share batch timings and fee details.',
+    whatsappMessage: 'Hello! I want to enquire about English & Marathi Typing at RACE Virar East. Please share batch timings and fee details.',
   },
   {
     id: 'illustrator',
@@ -304,7 +304,7 @@ export const COURSES: Course[] = [
     durationPlaceholder: '6 to 8 Weeks',
     mode: '100% In-Person Practical Lab (Virar East)',
     certificate: 'Certificate in Adobe Illustrator Vector Design',
-    whatsappMessage: 'Hello! I want to enquire about the Illustrator course at Race Reddys Virar East. Please share batch timings and fee details.',
+    whatsappMessage: 'Hello! I want to enquire about the Illustrator course at RACE Virar East. Please share batch timings and fee details.',
   },
   {
     id: 'photoshop',
@@ -324,7 +324,7 @@ export const COURSES: Course[] = [
     durationPlaceholder: '6 to 8 Weeks',
     mode: '100% In-Person Practical Lab (Virar East)',
     certificate: 'Certificate in Adobe Photoshop & Digital Image Editing',
-    whatsappMessage: 'Hello! I want to enquire about the Photoshop course at Race Reddys Virar East. Please share batch timings and fee details.',
+    whatsappMessage: 'Hello! I want to enquire about the Photoshop course at RACE Virar East. Please share batch timings and fee details.',
   },
   {
     id: 'html',
@@ -344,7 +344,7 @@ export const COURSES: Course[] = [
     durationPlaceholder: '4 Weeks',
     mode: '100% In-Person Practical Lab (Virar East)',
     certificate: 'Certificate in HTML5 Web Foundations',
-    whatsappMessage: 'Hello! I want to enquire about the HTML course at Race Reddys Virar East. Please share batch timings and fee details.',
+    whatsappMessage: 'Hello! I want to enquire about the HTML course at RACE Virar East. Please share batch timings and fee details.',
   },
   {
     id: 'css',
@@ -364,7 +364,7 @@ export const COURSES: Course[] = [
     durationPlaceholder: '4 to 6 Weeks',
     mode: '100% In-Person Practical Lab (Virar East)',
     certificate: 'Certificate in CSS3 Responsive Web Styling',
-    whatsappMessage: 'Hello! I want to enquire about the CSS course at Race Reddys Virar East. Please share batch timings and fee details.',
+    whatsappMessage: 'Hello! I want to enquire about the CSS course at RACE Virar East. Please share batch timings and fee details.',
   },
   {
     id: 'hardware',
@@ -384,7 +384,7 @@ export const COURSES: Course[] = [
     durationPlaceholder: '6 to 8 Weeks',
     mode: '100% In-Person Practical Lab (Virar East)',
     certificate: 'Certificate in Computer Hardware Assembly & Troubleshooting',
-    whatsappMessage: 'Hello! I want to enquire about the Hardware course at Race Reddys Virar East. Please share batch timings and fee details.',
+    whatsappMessage: 'Hello! I want to enquire about the Hardware course at RACE Virar East. Please share batch timings and fee details.',
   },
   {
     id: 'a-plus-and-n-plus',
@@ -404,7 +404,7 @@ export const COURSES: Course[] = [
     durationPlaceholder: '8 to 12 Weeks',
     mode: '100% In-Person Practical Lab (Virar East)',
     certificate: 'Certificate in A+ (Hardware Support) and N+ (Networking)',
-    whatsappMessage: 'Hello! I want to enquire about the A+ and N+ course at Race Reddys Virar East. Please share batch timings and fee details.',
+    whatsappMessage: 'Hello! I want to enquire about the A+ and N+ course at RACE Virar East. Please share batch timings and fee details.',
   },
 
   // ─── CAREER-OBJECTIVE COURSES (11) ───
@@ -426,7 +426,7 @@ export const COURSES: Course[] = [
     durationPlaceholder: '4 to 6 Months',
     mode: '100% In-Person Practical Lab (Virar East)',
     certificate: 'Diploma in Software Development & Engineering Foundations',
-    whatsappMessage: 'Hello! I want to enquire about the Software Development career course at Race Reddys Virar East. Please share syllabus, fees, and batch details.',
+    whatsappMessage: 'Hello! I want to enquire about the Software Development career course at RACE Virar East. Please share syllabus, fees, and batch details.',
   },
   {
     id: 'dfa',
@@ -446,7 +446,7 @@ export const COURSES: Course[] = [
     durationPlaceholder: '4 to 6 Months',
     mode: '100% In-Person Practical Lab (Virar East)',
     certificate: 'Professional Diploma in Financial Accounting (DFA)',
-    whatsappMessage: 'Hello! I want to enquire about the DFA (Diploma in Financial Accounting) at Race Reddys Virar East. Please share syllabus, fees, and batch details.',
+    whatsappMessage: 'Hello! I want to enquire about the DFA (Diploma in Financial Accounting) at RACE Virar East. Please share syllabus, fees, and batch details.',
   },
   {
     id: 'animation',
@@ -466,7 +466,7 @@ export const COURSES: Course[] = [
     durationPlaceholder: '4 to 6 Months',
     mode: '100% In-Person Practical Lab (Virar East)',
     certificate: 'Diploma in Digital Animation & Motion Graphics',
-    whatsappMessage: 'Hello! I want to enquire about the Animation course at Race Reddys Virar East. Please share syllabus, fees, and batch details.',
+    whatsappMessage: 'Hello! I want to enquire about the Animation course at RACE Virar East. Please share syllabus, fees, and batch details.',
   },
   {
     id: 'ai-ml',
@@ -486,7 +486,7 @@ export const COURSES: Course[] = [
     durationPlaceholder: '4 to 6 Months',
     mode: '100% In-Person Practical Lab (Virar East)',
     certificate: 'Certificate in Applied AI & Machine Learning Foundations',
-    whatsappMessage: 'Hello! I want to enquire about the AI & ML course at Race Reddys Virar East. Please share syllabus, fees, and batch details.',
+    whatsappMessage: 'Hello! I want to enquire about the AI & ML course at RACE Virar East. Please share syllabus, fees, and batch details.',
   },
   {
     id: 'digital-marketing',
@@ -506,7 +506,7 @@ export const COURSES: Course[] = [
     durationPlaceholder: '3 to 4 Months',
     mode: '100% In-Person Practical Lab (Virar East)',
     certificate: 'Professional Diploma in Digital Marketing & Growth Strategy',
-    whatsappMessage: 'Hello! I want to enquire about the Digital Marketing course at Race Reddys Virar East. Please share syllabus, fees, and batch details.',
+    whatsappMessage: 'Hello! I want to enquire about the Digital Marketing course at RACE Virar East. Please share syllabus, fees, and batch details.',
   },
   {
     id: 'web-and-app-development',
@@ -526,7 +526,7 @@ export const COURSES: Course[] = [
     durationPlaceholder: '5 to 6 Months',
     mode: '100% In-Person Practical Lab (Virar East)',
     certificate: 'Professional Diploma in Full-Stack Web & App Development',
-    whatsappMessage: 'Hello! I want to enquire about the Web & App Development course at Race Reddys Virar East. Please share syllabus, fees, and batch details.',
+    whatsappMessage: 'Hello! I want to enquire about the Web & App Development course at RACE Virar East. Please share syllabus, fees, and batch details.',
   },
   {
     id: 'ethical-hacking',
@@ -546,7 +546,7 @@ export const COURSES: Course[] = [
     durationPlaceholder: '4 to 5 Months',
     mode: '100% In-Person Practical Lab (Virar East)',
     certificate: 'Certificate in Ethical Hacking & Penetration Testing Basics',
-    whatsappMessage: 'Hello! I want to enquire about the Ethical Hacking course at Race Reddys Virar East. Please share syllabus, fees, and batch details.',
+    whatsappMessage: 'Hello! I want to enquire about the Ethical Hacking course at RACE Virar East. Please share syllabus, fees, and batch details.',
   },
   {
     id: 'ai-prompt-engineering',
@@ -566,7 +566,7 @@ export const COURSES: Course[] = [
     durationPlaceholder: '4 to 6 Weeks',
     mode: '100% In-Person Practical Lab (Virar East)',
     certificate: 'Certificate in AI Prompt Engineering & Productivity Workflows',
-    whatsappMessage: 'Hello! I want to enquire about the AI Prompt Engineering course at Race Reddys Virar East. Please share syllabus, fees, and batch details.',
+    whatsappMessage: 'Hello! I want to enquire about the AI Prompt Engineering course at RACE Virar East. Please share syllabus, fees, and batch details.',
   },
   {
     id: 'data-science',
@@ -586,7 +586,7 @@ export const COURSES: Course[] = [
     durationPlaceholder: '5 to 6 Months',
     mode: '100% In-Person Practical Lab (Virar East)',
     certificate: 'Professional Diploma in Practical Data Science & Analytics',
-    whatsappMessage: 'Hello! I want to enquire about the Data Science course at Race Reddys Virar East. Please share syllabus, fees, and batch details.',
+    whatsappMessage: 'Hello! I want to enquire about the Data Science course at RACE Virar East. Please share syllabus, fees, and batch details.',
   },
   {
     id: 'cyber-security',
@@ -606,7 +606,7 @@ export const COURSES: Course[] = [
     durationPlaceholder: '4 to 6 Months',
     mode: '100% In-Person Practical Lab (Virar East)',
     certificate: 'Certificate in Enterprise Cyber Security & System Defense',
-    whatsappMessage: 'Hello! I want to enquire about the Cyber Security course at Race Reddys Virar East. Please share syllabus, fees, and batch details.',
+    whatsappMessage: 'Hello! I want to enquire about the Cyber Security course at RACE Virar East. Please share syllabus, fees, and batch details.',
   },
   {
     id: 'graphic-designing',
@@ -626,7 +626,7 @@ export const COURSES: Course[] = [
     durationPlaceholder: '4 to 6 Months',
     mode: '100% In-Person Practical Lab (Virar East)',
     certificate: 'Professional Diploma in Graphic Designing & Visual Communication',
-    whatsappMessage: 'Hello! I want to enquire about the Graphic Designing career course at Race Reddys Virar East. Please share syllabus, fees, and batch details.',
+    whatsappMessage: 'Hello! I want to enquire about the Graphic Designing career course at RACE Virar East. Please share syllabus, fees, and batch details.',
   },
 ];
 
@@ -667,7 +667,7 @@ export const FAQS_LIST: FAQItem[] = [
   {
     question: 'What if I have doubts after completing my course?',
     answer:
-      'Race Reddys offers Free Lifetime Doubt-Solving Support. Even months or years after completing your training, if you face a difficulty with Tally, coding, GST filing, or design at your workplace, you are welcome to visit the lab and ask our teachers for guidance.',
+      'RACE offers Free Lifetime Doubt-Solving Support. Even months or years after completing your training, if you face a difficulty with Tally, coding, GST filing, or design at your workplace, you are welcome to visit the lab and ask our teachers for guidance.',
   },
   {
     question: 'Do you offer Marathi typing as well as English typing?',

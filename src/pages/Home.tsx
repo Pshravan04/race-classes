@@ -48,7 +48,7 @@ const FAQS = [
   },
   {
     q: '4. Do students receive an authorised certificate?',
-    a: 'Yes. Every student who successfully finishes course requirements and practical tests receives a verified certificate from Race Reddys Advanced Computer Education.',
+    a: 'Yes. Every student who successfully finishes course requirements and practical tests receives a verified certificate from RACE Advanced Computer Education.',
   },
   {
     q: '5. How can I obtain the current fee structure?',
@@ -78,7 +78,7 @@ export default function Home() {
   return (
     <>
       <SEO
-        title="Practical Computer & IT Training in Virar East | Race Reddys"
+        title="Practical Computer & IT Training in Virar East | RACE"
         description="Ab Mumbai jaane ki zarurat nahi. Learn Tally with GST, Typing, Web Development, MS Office, AI & ML right outside Virar East station. 100% practical lab, special ladies batch, 50% discount."
         canonical="/"
       />
@@ -110,7 +110,7 @@ export default function Home() {
 
             {/* Subtitle */}
             <p className="text-base sm:text-lg text-slate-600 max-w-xl leading-relaxed font-normal mb-8">
-              Race Reddys makes it easy for anyone in Virar to master job-ready software, Tally Prime with GST, Typing, and Web Development with dedicated individual computers, personal instruction, and flexible daily batches.
+              RACE makes it easy for anyone in Virar to master job-ready software, Tally Prime with GST, Typing, and Web Development with dedicated individual computers, personal instruction, and flexible daily batches.
             </p>
 
             {/* Dual Action Buttons */}
@@ -179,7 +179,7 @@ export default function Home() {
             {/* Background Lab Photo filling 100% of the right side */}
             <img
               src="/images/real-lab-classroom.jpg"
-              alt="Students learning inside Race Reddys modern computer laboratory in Raut Arcade Virar East"
+              alt="Students learning inside RACE modern computer laboratory in Raut Arcade Virar East"
               className="absolute inset-0 w-full h-full object-cover object-center scale-102 hover:scale-105 transition-transform duration-700 ease-out"
             />
 
@@ -423,7 +423,7 @@ export default function Home() {
               {/* Side-by-Side Modern Action Buttons */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mt-3 w-full">
                 <a
-                  href={`${wa}?text=${encodeURIComponent('Hi! I would like to claim the 50% Admission Concession at Race Reddys Virar East.')}`}
+                  href={`${wa}?text=${encodeURIComponent('Hi! I would like to claim the 50% Admission Concession at RACE Virar East.')}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 h-11 px-4 rounded-xl bg-[#C41E1E] hover:bg-[#A81717] text-white text-xs sm:text-sm font-bold shadow-lg transition-all active:scale-95 cursor-pointer"
@@ -505,13 +505,13 @@ export default function Home() {
       {/* ── 4.5 CAMPUS & LAB INTERACTIVE CAROUSEL SLIDER ───────────── */}
       <CampusCarousel />
 
-      {/* ── 5. WHY RACE REDDYS ─────────────────────────────────────── */}
+      {/* ── 5. WHY RACE ─────────────────────────────────────── */}
       <section className="bg-[#F8F9FA] py-20 border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-14">
             <span className="text-xs text-[#C41E1E] font-extrabold uppercase tracking-widest">Built For Local Success</span>
             <h2 className="text-3xl sm:text-4xl text-[#001752] font-black tracking-tight mt-1">
-              Why Learners Choose <span className="text-[#C41E1E]">Race Reddys</span> in Virar
+              Why Learners Choose <span className="text-[#C41E1E]">RACE</span> in Virar
             </h2>
             <p className="text-base text-slate-600 mt-2 leading-relaxed">
               Clear, verifiable standards designed around the needs of local suburban learners.
@@ -599,7 +599,7 @@ export default function Home() {
               <div className="aspect-[4/3] w-full relative overflow-hidden bg-slate-900">
                 <img
                   src="/images/real-lab-wide.jpg"
-                  alt="Full view of student workstations in Race Reddys Virar East lab"
+                  alt="Full view of student workstations in RACE Virar East lab"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <span className="absolute top-3 left-3 bg-[#001752] text-white px-2.5 py-1 rounded-full text-xs font-bold shadow-sm">
@@ -657,7 +657,7 @@ export default function Home() {
               <div className="aspect-[4/3] w-full relative overflow-hidden bg-slate-900">
                 <img
                   src="/images/real-teacher-lecture.jpg"
-                  alt="Teacher conducting classroom lecture and whiteboard discussion at Race Reddys"
+                  alt="Teacher conducting classroom lecture and whiteboard discussion at RACE"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <span className="absolute top-3 left-3 bg-[#C41E1E] text-white px-2.5 py-1 rounded-full text-xs font-bold shadow-sm">
@@ -735,7 +735,7 @@ export default function Home() {
               <span className="text-sm text-[#001752] font-medium">Have a specific question not addressed above?</span>
             </div>
             <a
-              href={`${wa}?text=${encodeURIComponent('Hi, I have a question about admissions at Race Reddys Virar East.')}`}
+              href={`${wa}?text=${encodeURIComponent('Hi, I have a question about admissions at RACE Virar East.')}`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-sm font-bold text-[#C41E1E] hover:underline"
@@ -767,7 +767,7 @@ export default function Home() {
             </div>
             <div className="flex flex-col sm:flex-row items-center gap-4 shrink-0 w-full lg:w-auto">
               <a
-                href={`${wa}?text=${encodeURIComponent('Hi, I would like to visit Race Reddys or enquire about admissions.')}`}
+                href={`${wa}?text=${encodeURIComponent('Hi, I would like to visit RACE or enquire about admissions.')}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-[#C41E1E] hover:bg-[#A81717] text-white text-sm font-bold shadow-xl active:scale-95 transition-all"

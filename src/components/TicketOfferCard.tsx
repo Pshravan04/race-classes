@@ -87,7 +87,7 @@ export default function TicketOfferCard({ compact = false }: TicketOfferCardProp
           <div className="flex flex-wrap items-center gap-3">
             <a
               href={`${SITE_CONFIG.contact.whatsapp}?text=${encodeURIComponent(
-                `Hello! I want to claim the ${OFFERS_CONFIG.badge} and Free Basic Computer Course offer at Race Reddys Virar East (Ticket code: ${OFFERS_CONFIG.ticketCode}). Please share details.`
+                `Hello! I want to claim the ${OFFERS_CONFIG.badge} and Free Basic Computer Course offer at RACE Virar East (Ticket code: ${OFFERS_CONFIG.ticketCode}). Please share details.`
               )}`}
               target="_blank"
               rel="noopener noreferrer"

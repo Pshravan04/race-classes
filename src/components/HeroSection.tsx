@@ -103,7 +103,7 @@ export default function HeroSection() {
               <div className="relative rounded-xl overflow-hidden aspect-[4/3] bg-[#071B3A] mb-4">
                 <img
                   src="/hero-lab.jpg"
-                  alt="Students practicing in computer laboratory at Race Reddys Virar East"
+                  alt="Students practicing in computer laboratory at RACE Virar East"
                   className="w-full h-full object-cover"
                   loading="eager"
                   onError={(e) => {

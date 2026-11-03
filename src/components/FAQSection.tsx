@@ -71,7 +71,7 @@ export default function FAQSection() {
           <span>Still have a question? </span>
           <a
             href={`${SITE_CONFIG.contact.whatsapp}?text=${encodeURIComponent(
-              'Hello! I have a question regarding courses at Race Reddys Virar East.'
+              'Hello! I have a question regarding courses at RACE Virar East.'
             )}`}
             target="_blank"
             rel="noopener noreferrer"

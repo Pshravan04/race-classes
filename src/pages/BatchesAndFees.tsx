@@ -34,8 +34,8 @@ export default function BatchesAndFees() {
   return (
     <>
       <SEO
-        title="Batch Timings & Fee Details | Race Reddys Virar East"
-        description="Check morning, afternoon ladies, and evening batch timings at Race Reddys, Raut Arcade, opposite Virar East station. Transparent fee counseling and 50% discount."
+        title="Batch Timings & Fee Details | RACE Virar East"
+        description="Check morning, afternoon ladies, and evening batch timings at RACE, Raut Arcade, opposite Virar East station. Transparent fee counseling and 50% discount."
         canonical="/batches"
       />
 
@@ -79,7 +79,7 @@ export default function BatchesAndFees() {
 
               <a
                 href={`${SITE_CONFIG.contact.whatsapp}?text=${encodeURIComponent(
-                  'Hello! I would like to confirm current batch timings and seat availability at Race Reddys Virar East.'
+                  'Hello! I would like to confirm current batch timings and seat availability at RACE Virar East.'
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -167,7 +167,7 @@ export default function BatchesAndFees() {
             <SectionHeading
               eyebrow="Transparent Fee Policy"
               title="How Our Course Fees Work (With 50% Subsidy)"
-              description="Unlike commercial training franchises that push aggressive loans or lock students into expensive contracts, Race Reddys operates on simple, honest, and affordable monthly fee installments for local families."
+              description="Unlike commercial training franchises that push aggressive loans or lock students into expensive contracts, RACE operates on simple, honest, and affordable monthly fee installments for local families."
             />
 
             <div className="mt-7 grid grid-cols-1 gap-4 sm:grid-cols-3">
@@ -202,7 +202,7 @@ export default function BatchesAndFees() {
 
               <a
                 href={`${SITE_CONFIG.contact.whatsapp}?text=${encodeURIComponent(
-                  'Hello! I would like to ask for fee details and current batch timings for courses at Race Reddys Virar East.'
+                  'Hello! I would like to ask for fee details and current batch timings for courses at RACE Virar East.'
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"

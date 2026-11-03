@@ -74,11 +74,11 @@ export default function Header() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
           
           {/* Brand Logo & Name */}
-          <Link to="/" className="flex items-center group shrink-0" aria-label="Race Reddys Home">
+          <Link to="/" className="flex items-center group shrink-0" aria-label="RACE Home">
             {/* Full Official Logo on Tablet & Desktop */}
             <img
               src="/images/logo-full.png"
-              alt="RACE - Reddy's Advanced Computer Education"
+              alt="RACE – Advanced Computer Education"
               className="h-10 sm:h-12 w-auto object-contain hidden sm:block group-hover:opacity-95 transition-opacity"
             />
 
@@ -86,12 +86,12 @@ export default function Header() {
             <div className="flex items-center gap-2.5 sm:hidden">
               <img
                 src="/images/logo-icon.png"
-                alt="Race Reddys Emblem"
+                alt="RACE Emblem"
                 className="h-9 w-auto object-contain"
               />
               <div className="flex flex-col">
                 <span className="font-extrabold text-base tracking-tight text-[#001752] leading-none">
-                  RACE REDDYS
+                  RACE
                 </span>
                 <span className="text-[8.5px] font-extrabold text-[#C41E1E] tracking-wider uppercase leading-none mt-1">
                   Advanced Computer Education
@@ -130,7 +130,7 @@ export default function Header() {
             {/* Quick WhatsApp Link */}
             <a
               href={`${SITE_CONFIG.contact.whatsapp}?text=${encodeURIComponent(
-                'Hello! I would like to enquire about courses and admissions at Race Reddys Virar East.'
+                'Hello! I would like to enquire about courses and admissions at RACE Virar East.'
               )}`}
               target="_blank"
               rel="noopener noreferrer"
@@ -153,7 +153,7 @@ export default function Header() {
           <div className="flex items-center gap-2 lg:hidden">
             <a
               href={`${SITE_CONFIG.contact.whatsapp}?text=${encodeURIComponent(
-                'Hello! I want to enquire about computer courses at Race Reddys Virar East.'
+                'Hello! I want to enquire about computer courses at RACE Virar East.'
               )}`}
               target="_blank"
               rel="noopener noreferrer"
@@ -222,7 +222,7 @@ export default function Header() {
               </a>
               <a
                 href={`${SITE_CONFIG.contact.whatsapp}?text=${encodeURIComponent(
-                  'Hello! I want to enquire about computer courses at Race Reddys Virar East.'
+                  'Hello! I want to enquire about computer courses at RACE Virar East.'
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"

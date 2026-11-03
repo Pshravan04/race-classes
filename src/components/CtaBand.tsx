@@ -46,7 +46,7 @@ export default function CtaBand({
             {children ?? (
               <>
                 <a
-                  href={`${wa}?text=${encodeURIComponent('Hi, I would like to enquire about admissions at Race Reddys Virar East.')}`}
+                  href={`${wa}?text=${encodeURIComponent('Hi, I would like to enquire about admissions at RACE Virar East.')}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-[#C41E1E] hover:bg-[#A81717] text-white text-sm font-bold shadow-xl active:scale-95 transition-all"

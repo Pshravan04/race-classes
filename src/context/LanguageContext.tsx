@@ -2,7 +2,7 @@ import { useState, useEffect, type ReactNode } from 'react';
 import { TRANSLATIONS, type Language } from '../data/translations';
 import { LanguageContext } from './LanguageContextDef';
 
-const STORAGE_KEY = 'race_reddys_language';
+const STORAGE_KEY = 'race_language';
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [language, setLanguageState] = useState<Language>(() => {

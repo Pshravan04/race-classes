@@ -1,7 +1,7 @@
 import { Monitor, Award, Briefcase, Clock, Heart, HelpCircle, Keyboard } from 'lucide-react';
 import { useLanguage } from '../context/useLanguage';
 
-export default function WhyRaceReddys() {
+export default function WhyRace() {
   const { t } = useLanguage();
 
   const reasons = [

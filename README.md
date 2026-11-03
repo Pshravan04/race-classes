@@ -1,6 +1,6 @@
-# Race Reddys – Advanced Computer Education
+# RACE – Advanced Computer Education
 
-A human studio-designed, production-ready website for **Race Reddys – Advanced Computer Education**, a premier computer training institute situated right opposite Virar East railway station in Mumbai MMR (Maharashtra 401305).
+A human studio-designed, production-ready website for **RACE – Advanced Computer Education**, a premier computer training institute situated right opposite Virar East railway station in Mumbai MMR (Maharashtra 401305).
 
 ---
 

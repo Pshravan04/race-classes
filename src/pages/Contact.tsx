@@ -24,7 +24,7 @@ export default function Contact() {
   };
 
   const getWhatsAppPrefillUrl = () => {
-    const text = `Hello Race Reddys! My name is ${fullName || '[Name]'}.
+    const text = `Hello RACE! My name is ${fullName || '[Name]'}.
 Phone: ${phone || '[Phone]'}
 Interested Course: ${course}
 Preferred Batch: ${preferredBatch}
@@ -36,8 +36,8 @@ Message: ${message || 'I would like to enquire about admissions and batch availa
   return (
     <>
       <SEO
-        title="Contact & Visit Us in Virar East | Race Reddys"
-        description="Visit Race Reddys at 202, Raut Arcade, opposite Virar East railway station subway. Mon-Sat 9 AM - 7 PM. Call/WhatsApp 9794323963 or submit an enquiry."
+        title="Contact & Visit Us in Virar East | RACE"
+        description="Visit RACE at 202, Raut Arcade, opposite Virar East railway station subway. Mon-Sat 9 AM - 7 PM. Call/WhatsApp 9794323963 or submit an enquiry."
         canonical="/contact"
       />
 
@@ -77,7 +77,7 @@ Message: ${message || 'I would like to enquire about admissions and batch availa
 
                 <a
                   href={`${SITE_CONFIG.contact.whatsapp}?text=${encodeURIComponent(
-                    'Hello Race Reddys! I would like to enquire about course admissions at your Virar East centre.'
+                    'Hello RACE! I would like to enquire about course admissions at your Virar East centre.'
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -138,7 +138,7 @@ Message: ${message || 'I would like to enquire about admissions and batch availa
                 </div>
               </div>
               <a
-                href={`${SITE_CONFIG.contact.whatsapp}?text=${encodeURIComponent('Hello! I would like to enquire about computer classes at Race Reddys Virar East.')}`}
+                href={`${SITE_CONFIG.contact.whatsapp}?text=${encodeURIComponent('Hello! I would like to enquire about computer classes at RACE Virar East.')}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-4 inline-flex items-center gap-1.5 text-xs font-bold text-emerald-600 hover:underline"
@@ -228,7 +228,7 @@ Message: ${message || 'I would like to enquire about admissions and batch availa
                 <div className="relative aspect-[16/10] overflow-hidden bg-slate-900">
                   <img
                     src="/images/real-instructor-mentoring.jpg"
-                    alt="Instructor guiding students on computers at Race Reddys Virar"
+                    alt="Instructor guiding students on computers at RACE Virar"
                     className="w-full h-full object-cover"
                   />
                   <span className="absolute top-3 left-3 bg-[#001752] text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full shadow-sm">

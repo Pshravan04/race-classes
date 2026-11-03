@@ -26,13 +26,17 @@ export default function CourseDetail() {
   }
 
   const isCareer = course.type === 'career';
-  const relatedCourses = COURSES.filter((c) => c.type === course.type && c.id !== course.id).slice(0, 3);
+  const relatedCourses = COURSES.filter(
+    (c) => c.id !== course.id && (c.type === course.type || c.goals.some((g) => course.goals.includes(g)))
+  ).slice(0, 3);
 
+
+  
   return (
     <>
       <SEO
-        title={`${course.name} Course in Virar East | Race Reddys`}
-        description={`Practical ${course.name} training at Race Reddys Virar East. Hands-on computer lab sessions, certification, flexible batch timings, and 50% discount.`}
+        title={`${course.name} Course in Virar East | RACE`}
+        description={`Practical ${course.name} training at RACE Virar East. Hands-on computer lab sessions, certification, flexible batch timings, and 50% discount.`}
         canonical={`/courses/${course.id}`}
       />
 
@@ -190,7 +194,7 @@ export default function CourseDetail() {
 
                 <a
                   href={`${SITE_CONFIG.contact.whatsapp}?text=${encodeURIComponent(
-                    `Hello! I want to confirm batch timing and fees for ${course.name} at Race Reddys Virar East.`
+                    `Hello! I want to confirm batch timing and fees for ${course.name} at RACE Virar East.`
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -343,7 +347,7 @@ export default function CourseDetail() {
                 <div className="relative aspect-[16/10] overflow-hidden bg-slate-900">
                   <img
                     src="/images/real-instructor-mentoring.jpg"
-                    alt="Students learning on computers at Race Reddys Virar"
+                    alt="Students learning on computers at RACE Virar"
                     className="w-full h-full object-cover"
                   />
                   <span className="absolute top-2.5 left-2.5 bg-[#001752] text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full shadow-sm">

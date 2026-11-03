@@ -73,7 +73,7 @@ export default function MapAddressBlock() {
 
               <a
                 href={`${SITE_CONFIG.contact.whatsapp}?text=${encodeURIComponent(
-                  'Hello! I would like directions or details to visit Race Reddys Virar East.'
+                  'Hello! I would like directions or details to visit RACE Virar East.'
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -90,7 +90,7 @@ export default function MapAddressBlock() {
           <div className="lg:col-span-7 bg-white p-2.5 rounded-2xl border border-[#E8E2D5] shadow-xs overflow-hidden">
             <div className="relative aspect-[16/10] w-full rounded-xl overflow-hidden bg-gray-100">
               <iframe
-                title="Race Reddys Location opposite Virar East Railway Station"
+                title="RACE Location opposite Virar East Railway Station"
                 src={SITE_CONFIG.address.googleMapsEmbedUrl}
                 className="w-full h-full border-0"
                 loading="lazy"

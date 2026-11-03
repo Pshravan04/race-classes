@@ -7,7 +7,7 @@ export default function NotFound() {
     <>
       <SEO
         title="Page Not Found"
-        description="The page you are looking for does not exist. Return to Race Reddys Advanced Computer Education home."
+        description="The page you are looking for does not exist. Return to RACE Advanced Computer Education home."
       />
       <section className="bg-slate-50 min-h-[60vh] flex items-center justify-center text-center px-4 py-20">
         <div className="max-w-md mx-auto">

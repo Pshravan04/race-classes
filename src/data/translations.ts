@@ -48,7 +48,7 @@ export interface TranslationDict {
   whoKidsTitle: string;
   whoKidsDesc: string;
 
-  // "Why Race Reddys"
+  // "Why RACE"
   whyHeading: string;
   whySubheading: string;
   why1Title: string;
@@ -134,7 +134,7 @@ const TRANSLATIONS_EN: TranslationDict = {
   heroBadgePractical: '100% Individual Machine Time',
   heroBadgeDoubt: 'Free Lifetime Doubt-Solving',
 
-  whoHeading: 'Who is Race Reddys For?',
+  whoHeading: 'Who is RACE For?',
   whoSubheading: 'Computer education tailored for every Virar family, student, and business owner.',
   whoStudentsTitle: 'School & College Students',
   whoStudentsDesc: 'Build real project skills in coding, CCC, design, and office productivity alongside your college studies.',
@@ -147,7 +147,7 @@ const TRANSLATIONS_EN: TranslationDict = {
   whoKidsTitle: 'Kids & Young Learners',
   whoKidsDesc: 'Safe, guided digital literacy, typing speed, and foundational coding logic that sets up bright academic success.',
 
-  whyHeading: 'Why Choose Race Reddys in Virar East?',
+  whyHeading: 'Why Choose RACE in Virar East?',
   whySubheading: 'We focus on practical competence, patient teachers, and local accessibility.',
   why1Title: '100% Practical Training',
   why1Desc: 'Every single session takes place directly on a dedicated computer workstation. No endless blackboard lectures.',

@@ -47,7 +47,7 @@ export default function Logo({ variant = 'dark', size = 'md' }: LogoProps) {
           className={`font-black tracking-tight ${titleSizes[size]}`}
           style={{ color: isDark ? '#102B50' : '#FFFFFF' }}
         >
-          RACE REDDYS
+          RACE
         </span>
         <span
           className={`font-bold uppercase mt-1 ${subSizes[size]}`}

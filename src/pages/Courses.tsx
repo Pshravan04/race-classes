@@ -85,7 +85,7 @@ export default function Courses() {
   return (
     <>
       <SEO
-        title="Courses & Programs | Race Reddys Virar East"
+        title="Courses & Programs | RACE Virar East"
         description="Filter all 23 practical computer courses in Virar East: TallyPrime with GST, Typing, Web Development, Data Science, AI & ML, MS Office, Graphic Design. 50% discount available."
         canonical="/courses"
       />
@@ -116,7 +116,7 @@ export default function Courses() {
               <div className="mt-5 grid grid-cols-2 gap-2.5">
                 <a
                   href={`${SITE_CONFIG.contact.whatsapp}?text=${encodeURIComponent(
-                    'Hello! I need help choosing the right computer course at Race Reddys Virar East.'
+                    'Hello! I need help choosing the right computer course at RACE Virar East.'
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"

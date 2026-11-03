@@ -99,7 +99,7 @@ export default function AdmissionPopupModal() {
     sessionStorage.setItem(POPUP_DISMISS_KEY, 'true');
 
     // Build prefilled WhatsApp message
-    const message = `Hello Race Reddys! My name is ${fullName.trim()}. I would like to apply for admission in *${course}* (${batch}). Please share the syllabus, 50% concession fee breakdown, and reserve my demo machine.`;
+    const message = `Hello RACE! My name is ${fullName.trim()}. I would like to apply for admission in *${course}* (${batch}). Please share the syllabus, 50% concession fee breakdown, and reserve my demo machine.`;
     const waUrl = `${SITE_CONFIG.contact.whatsapp}?text=${encodeURIComponent(message)}`;
 
     // Try to open WhatsApp in a new tab smoothly
@@ -111,7 +111,7 @@ export default function AdmissionPopupModal() {
   };
 
   const getWhatsAppUrl = () => {
-    const message = `Hello Race Reddys! My name is ${fullName.trim() || 'Student'}. I want to confirm admission in *${course}* (${batch}) under the Flat 50% Concession Offer.`;
+    const message = `Hello RACE! My name is ${fullName.trim() || 'Student'}. I want to confirm admission in *${course}* (${batch}) under the Flat 50% Concession Offer.`;
     return `${SITE_CONFIG.contact.whatsapp}?text=${encodeURIComponent(message)}`;
   };
 
