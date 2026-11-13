@@ -1,20 +1,21 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { 
-  Check, 
-  MapPin, 
-  Star,
-  Laptop,
-  Monitor,
-  Clock,
-  Award,
-  MessageSquare,
-  Phone,
-  Sparkles
-} from 'lucide-react';
-import SEO from '../components/SEO';
-import CampusCarousel from '../components/CampusCarousel';
-import CourseSlider from '../components/CourseSlider';
+  import { useState } from 'react';
+  import { Link } from 'react-router-dom';
+  import { 
+    Check, 
+    CheckCircle2,
+    MapPin, 
+    Star,
+    Laptop,
+    Monitor,
+    Clock,
+    Award,
+    MessageSquare,
+    Phone,
+    Sparkles
+  } from 'lucide-react';
+  import SEO from '../components/SEO';
+  import CampusCarousel from '../components/CampusCarousel';
+  import CourseSlider from '../components/CourseSlider';
 import { COURSES, SITE_CONFIG, OFFERS_CONFIG } from '../data/config';
 
 // 6 featured courses for homepage preview — hand-picked across both types
@@ -78,8 +79,8 @@ export default function Home() {
   return (
     <>
       <SEO
-        title="Practical Computer & IT Training in Virar East | RACE"
-        description="Ab Mumbai jaane ki zarurat nahi. Learn Tally with GST, Typing, Web Development, MS Office, AI & ML right outside Virar East station. 100% practical lab, special ladies batch, 50% discount."
+        title="Don't Just Learn Computers. Learn Skills That Matter | RACE Vasai-Virar"
+        description="Get hands-on training in AI, Digital Marketing, Programming and Advanced Computer Technologies at RACE, Vasai-Virar. Practical-first learning on real systems."
         canonical="/"
       />
 
@@ -94,7 +95,7 @@ export default function Home() {
             <div className="flex flex-wrap items-center gap-2.5 mb-5">
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#C41E1E] text-white text-xs font-black uppercase tracking-wider shadow-2xs">
                 <MapPin size={12} className="stroke-[2.5]" />
-                Virar East · Opp. Subway
+                Vasai-Virar · Opp. Subway
               </span>
 
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-slate-200 text-[#001752] text-xs font-bold shadow-2xs">
@@ -104,14 +105,36 @@ export default function Home() {
             </div>
 
             {/* Main Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-[54px] xl:text-[62px] font-black text-[#001752] tracking-tight leading-[1.08] mb-5 font-sans">
-              Where your career comes together<span className="inline-block text-[#C41E1E] font-light ml-1.5 -translate-y-1 transform scale-125 select-none">&#x00B4;</span>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[46px] xl:text-[54px] font-black text-[#001752] tracking-tight leading-[1.12] mb-5 font-sans">
+              Don't Just Learn Computers.{' '}
+              <span className="text-[#C41E1E]">Learn Skills That Matter.</span>
             </h1>
 
-            {/* Subtitle */}
-            <p className="text-base sm:text-lg text-slate-600 max-w-xl leading-relaxed font-normal mb-8">
-              RACE makes it easy for anyone in Virar to master job-ready software, Tally Prime with GST, Typing, and Web Development with dedicated individual computers, personal instruction, and flexible daily batches.
+            {/* Subtitle / Lead */}
+            <p className="text-base sm:text-lg text-[#001752] font-semibold max-w-xl leading-snug mb-3">
+              Get hands-on training in AI, Digital Marketing, Programming and Advanced Computer Technologies at RACE, Vasai-Virar.
             </p>
+
+            {/* Practical Proof Description */}
+            <p className="text-sm sm:text-base text-slate-600 max-w-xl leading-relaxed mb-6 font-normal">
+              Learn by practising on real systems, working on practical assignments and building skills that go beyond classroom theory.
+            </p>
+
+            {/* 3 Core Value Pillars */}
+            <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 mb-8">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200/90 text-[#001752] text-xs sm:text-sm font-bold shadow-2xs">
+                <CheckCircle2 size={15} className="text-[#C41E1E] shrink-0" />
+                <span>Practical-first learning</span>
+              </div>
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200/90 text-[#001752] text-xs sm:text-sm font-bold shadow-2xs">
+                <CheckCircle2 size={15} className="text-[#C41E1E] shrink-0" />
+                <span>Industry-relevant courses</span>
+              </div>
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200/90 text-[#001752] text-xs sm:text-sm font-bold shadow-2xs">
+                <CheckCircle2 size={15} className="text-[#C41E1E] shrink-0" />
+                <span>Personal guidance</span>
+              </div>
+            </div>
 
             {/* Dual Action Buttons */}
             <div className="flex flex-wrap items-center gap-3.5 mb-10 sm:mb-14">

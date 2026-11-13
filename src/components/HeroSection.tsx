@@ -26,39 +26,36 @@ export default function HeroSection() {
               </span>
             </div>
 
-            {/* Virar Local Headline */}
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#071B3A] font-serif-heading leading-[1.15] mb-4">
-              <span className="block text-[#C0392B] text-xl sm:text-2xl font-bold tracking-normal uppercase mb-1">
-                {t.stationTagline}
-              </span>
-              {t.heroTitleLine1}{' '}
-              <span className="hand-underline text-[#071B3A]">
-                {t.heroTitleHighlight}
+            {/* Vasai-Virar Headline */}
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#001752] font-serif-heading leading-[1.15] mb-4">
+              Don't Just Learn Computers.{' '}
+              <span className="text-[#C41E1E]">
+                Learn Skills That Matter.
               </span>
             </h1>
 
-            {/* Friendly, Teacher-Like Subheading with "Virar Fast" Wordplay */}
-            <p className="text-base sm:text-lg text-[#334155] leading-relaxed mb-6 font-normal">
-              Catch the <strong className="text-[#071B3A] font-semibold">Virar Fast</strong> to your tech and accounting career — without the draining 2-hour daily local train commute into Mumbai. 100% individual workstation time for students, homemakers, and working professionals.
+            {/* Friendly, Teacher-Like Subheading */}
+            <p className="text-base sm:text-lg text-[#001752] font-semibold leading-relaxed mb-3">
+              Get hands-on training in AI, Digital Marketing, Programming and Advanced Computer Technologies at RACE, Vasai-Virar.
+            </p>
+
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed mb-6 font-normal">
+              Learn by practising on real systems, working on practical assignments and building skills that go beyond classroom theory.
             </p>
 
             {/* Key Selling Points Checklist */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mb-8 text-xs sm:text-sm text-[#1A2332] font-medium">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 mb-8 text-xs sm:text-sm text-[#1A2332] font-medium">
               <div className="flex items-center gap-2 bg-white/80 border border-[#E8E2D5] px-3 py-2 rounded-lg">
-                <CheckCircle size={16} className="text-[#C59B27] shrink-0" />
-                <span>{t.heroBadgePractical}</span>
+                <CheckCircle size={16} className="text-[#C41E1E] shrink-0" />
+                <span>Practical-first learning</span>
               </div>
               <div className="flex items-center gap-2 bg-white/80 border border-[#E8E2D5] px-3 py-2 rounded-lg">
-                <CheckCircle size={16} className="text-[#C59B27] shrink-0" />
-                <span>{t.heroBadgeLadies}</span>
+                <CheckCircle size={16} className="text-[#C41E1E] shrink-0" />
+                <span>Industry-relevant courses</span>
               </div>
               <div className="flex items-center gap-2 bg-white/80 border border-[#E8E2D5] px-3 py-2 rounded-lg">
-                <CheckCircle size={16} className="text-[#C59B27] shrink-0" />
-                <span>{t.heroBadgeDoubt}</span>
-              </div>
-              <div className="flex items-center gap-2 bg-white/80 border border-[#E8E2D5] px-3 py-2 rounded-lg">
-                <CheckCircle size={16} className="text-[#C59B27] shrink-0" />
-                <span>English &amp; Marathi Typing Practice</span>
+                <CheckCircle size={16} className="text-[#C41E1E] shrink-0" />
+                <span>Personal guidance</span>
               </div>
             </div>
 
