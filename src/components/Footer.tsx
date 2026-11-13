@@ -18,9 +18,9 @@ export default function Footer() {
             <div>
               <div className="bg-white rounded-2xl p-2.5 inline-block shadow-lg border border-white/20">
                 <img
-                  src="/images/logo-full.png"
+                  src="/final logo 1.png"
                   alt="RACE – Advanced Computer Education"
-                  className="h-10 sm:h-11 w-auto object-contain"
+                  className="h-10 sm:h-12 w-auto object-contain"
                 />
               </div>
             </div>

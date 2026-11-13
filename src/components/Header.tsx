@@ -75,29 +75,11 @@ export default function Header() {
           
           {/* Brand Logo & Name */}
           <Link to="/" className="flex items-center group shrink-0" aria-label="RACE Home">
-            {/* Full Official Logo on Tablet & Desktop */}
             <img
-              src="/images/logo-full.png"
+              src="/final logo 1.png"
               alt="RACE – Advanced Computer Education"
-              className="h-10 sm:h-12 w-auto object-contain hidden sm:block group-hover:opacity-95 transition-opacity"
+              className="h-9 sm:h-11 md:h-12 w-auto object-contain group-hover:opacity-95 transition-opacity"
             />
-
-            {/* Mobile Compact Emblem + Wordmark */}
-            <div className="flex items-center gap-2.5 sm:hidden">
-              <img
-                src="/images/logo-icon.png"
-                alt="RACE Emblem"
-                className="h-9 w-auto object-contain"
-              />
-              <div className="flex flex-col">
-                <span className="font-extrabold text-base tracking-tight text-[#001752] leading-none">
-                  RACE
-                </span>
-                <span className="text-[8.5px] font-extrabold text-[#C41E1E] tracking-wider uppercase leading-none mt-1">
-                  Advanced Computer Education
-                </span>
-              </div>
-            </div>
           </Link>
 
           {/* Desktop Navigation Links (Spacious, Single-Line, Never Wraps) */}
