@@ -336,145 +336,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── 3. PROMO OFFER BANNER (Smooth High-Conversion Card) ──────────── */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full">
-        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#001752] via-[#000F36] to-[#00081C] text-white p-6 sm:p-9 lg:p-10 shadow-[0_20px_50px_rgba(0,23,82,0.45)] border border-[#002B94]">
-          
-          {/* Subtle Ambient Glow */}
-          <div className="absolute -right-16 -top-16 w-96 h-96 bg-[#C41E1E]/20 rounded-full blur-[100px] pointer-events-none" />
-          <div className="absolute -left-16 -bottom-16 w-96 h-96 bg-[#002277]/30 rounded-full blur-[100px] pointer-events-none" />
-
-          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
-            
-            {/* Left: Badge, Headlines & Highlights (7 cols) */}
-            <div className="lg:col-span-7 flex flex-col justify-center pr-0 lg:pr-4">
-              <div className="flex items-center gap-2 mb-3">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#C41E1E] text-white text-xs font-black uppercase tracking-wider shadow-xs">
-                  <Sparkles size={12} className="text-white" />
-                  Limited-Time Admission Offer
-                </span>
-                <span className="text-[11px] text-slate-300 font-medium hidden sm:inline">
-                  Virar East Campus
-                </span>
-              </div>
-
-              <h3 className="text-2xl sm:text-3xl lg:text-[34px] font-black text-white tracking-tight leading-tight">
-                Flat 50% Concession{' '}
-                <span className="text-[#F5BE4F]">
-                  + Free Basic Course
-                </span>
-              </h3>
-
-              <p className="text-sm sm:text-base text-slate-300 mt-3 leading-relaxed">
-                Enrol in any career-track diploma program this month and receive our complete foundational{' '}
-                <strong className="text-white font-bold">Basic Computer Course</strong> at zero additional cost. Includes 100% individual workstation time and recognized certification.
-              </p>
-
-              {/* Perks list */}
-              <div className="flex flex-wrap items-center gap-x-3 gap-y-2 mt-5 text-xs font-semibold text-slate-300">
-                <span className="flex items-center gap-1.5 bg-white/5 border border-white/10 px-2.5 py-1 rounded-lg">
-                  <Check size={13} className="text-emerald-400 stroke-[3]" />
-                  No Hidden Lab Fees
-                </span>
-                <span className="flex items-center gap-1.5 bg-white/5 border border-white/10 px-2.5 py-1 rounded-lg">
-                  <Check size={13} className="text-emerald-400 stroke-[3]" />
-                  Morning &amp; Ladies Slots
-                </span>
-                <span className="flex items-center gap-1.5 bg-white/5 border border-white/10 px-2.5 py-1 rounded-lg">
-                  <Check size={13} className="text-emerald-400 stroke-[3]" />
-                  Lifetime Doubt Support
-                </span>
-              </div>
-
-              {/* Trust highlight chips */}
-              <div className="mt-5 pt-4 border-t border-white/10 flex flex-wrap items-center gap-3 text-xs">
-                <div className="bg-white/5 border border-white/10 px-3 py-1.5 rounded-full flex items-center gap-2 text-slate-300">
-                  <span className="w-2 h-2 rounded-full bg-[#C41E1E] shadow-[0_0_8px_#C41E1E]" />
-                  <span>Free Course Worth ₹3,500</span>
-                </div>
-                <div className="bg-white/5 border border-white/10 px-3 py-1.5 rounded-full flex items-center gap-2 text-slate-300">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_#34D399]" />
-                  <span>1 Student : 1 Desktop Terminal</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Right: Lab Image + Sleek Integrated Action Buttons (5 cols) */}
-            <div className="lg:col-span-5 flex flex-col w-full">
-              
-              {/* Photo Card with Floating Badges */}
-              <div className="relative rounded-2xl overflow-hidden border border-white/15 shadow-2xl bg-slate-900 group">
-                <div className="aspect-[16/10] w-full relative overflow-hidden">
-                  <img
-                    src="/images/real-instructor-mentoring.jpg"
-                    alt="Instructor guiding students hands-on at computer workstation in Virar East lab"
-                    className="w-full h-full object-cover group-hover:scale-104 transition-transform duration-700 ease-out"
-                  />
-                  {/* Cinematic Vignette */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/10 pointer-events-none" />
-                  <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-2xl pointer-events-none" />
-
-                  {/* Top-left: Location Pill */}
-                  <div className="absolute top-3 left-3 bg-black/55 backdrop-blur-md px-3 py-1 rounded-full border border-white/20 text-[11px] font-semibold text-white flex items-center gap-1.5 shadow-sm">
-                    <Sparkles size={11} className="text-[#F5BE4F]" />
-                    <span>Raut Arcade Lab 202</span>
-                  </div>
-
-                  {/* Top-right: 50% Concession Tag */}
-                  <div className="absolute top-3 right-3 bg-[#C41E1E] text-white font-black text-xs px-3 py-1 rounded-full shadow-lg tracking-wider uppercase border border-red-400/40">
-                    Flat 50% OFF
-                  </div>
-
-                  {/* Bottom: Floating Glass Tag */}
-                  <div className="absolute bottom-3 left-3 right-3 bg-black/60 backdrop-blur-md px-3.5 py-2.5 rounded-xl border border-white/15 text-white flex items-center justify-between shadow-lg">
-                    <div>
-                      <span className="text-[10px] uppercase font-black text-[#F5BE4F] tracking-wider block">
-                        Included Free
-                      </span>
-                      <strong className="text-xs sm:text-sm font-bold text-white block">
-                        Basic Computer Foundation
-                      </strong>
-                    </div>
-                    <div className="text-right shrink-0">
-                      <span className="text-[10px] text-slate-300 block">Workstations</span>
-                      <span className="text-xs font-bold text-emerald-400">1 Student : 1 PC</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Side-by-Side Modern Action Buttons */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mt-3 w-full">
-                <a
-                  href={`${wa}?text=${encodeURIComponent('Hi! I would like to claim the 50% Admission Concession at RACE Virar East.')}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 h-11 px-4 rounded-xl bg-[#C41E1E] hover:bg-[#A81717] text-white text-xs sm:text-sm font-bold shadow-lg transition-all active:scale-95 cursor-pointer"
-                >
-                  <MessageSquare size={16} />
-                  <span>Claim on WhatsApp</span>
-                </a>
-
-                <a
-                  href={`tel:${phone}`}
-                  className="inline-flex items-center justify-center gap-2 h-11 px-4 rounded-xl bg-white/10 hover:bg-white/20 text-white border border-white/20 text-xs sm:text-sm font-bold transition-all active:scale-95 cursor-pointer backdrop-blur-md"
-                >
-                  <Phone size={15} className="text-[#F5BE4F]" />
-                  <span>Call {phone}</span>
-                </a>
-              </div>
-
-              <div className="text-center text-[10px] text-slate-400 font-medium pt-1.5">
-                {OFFERS_CONFIG.validityNote} · Raut Arcade, Virar East
-              </div>
-
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* ── 4. COURSE CATALOG PREVIEW ──────────────────────────────── */}
+      {/* ── 3. COURSE CATALOG PREVIEW ──────────────────────────────── */}
       <section className="bg-white py-20 border-t border-slate-200" id="courses">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-10">
@@ -713,7 +575,147 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── 8. FAQ ─────────────────────────────────────────────────── */}
+      {/* ── 8. CONCESSION OFFER BANNER (Smooth High-Conversion Card) ──────────── */}
+      <section className="bg-[#F8F9FA] py-16 sm:py-20 border-t border-slate-200" id="concession">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#001752] via-[#000F36] to-[#00081C] text-white p-6 sm:p-9 lg:p-10 shadow-[0_20px_50px_rgba(0,23,82,0.45)] border border-[#002B94]">
+            
+            {/* Subtle Ambient Glow */}
+            <div className="absolute -right-16 -top-16 w-96 h-96 bg-[#C41E1E]/20 rounded-full blur-[100px] pointer-events-none" />
+            <div className="absolute -left-16 -bottom-16 w-96 h-96 bg-[#002277]/30 rounded-full blur-[100px] pointer-events-none" />
+
+            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+              
+              {/* Left: Badge, Headlines & Highlights (7 cols) */}
+              <div className="lg:col-span-7 flex flex-col justify-center pr-0 lg:pr-4">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#C41E1E] text-white text-xs font-black uppercase tracking-wider shadow-xs">
+                    <Sparkles size={12} className="text-white" />
+                    Limited-Time Admission Offer
+                  </span>
+                  <span className="text-[11px] text-slate-300 font-medium hidden sm:inline">
+                    Virar East Campus
+                  </span>
+                </div>
+
+                <h3 className="text-2xl sm:text-3xl lg:text-[34px] font-black text-white tracking-tight leading-tight">
+                  Flat 50% Concession{' '}
+                  <span className="text-[#F5BE4F]">
+                    + Free Basic Course
+                  </span>
+                </h3>
+
+                <p className="text-sm sm:text-base text-slate-300 mt-3 leading-relaxed">
+                  Enrol in any career-track diploma program this month and receive our complete foundational{' '}
+                  <strong className="text-white font-bold">Basic Computer Course</strong> at zero additional cost. Includes 100% individual workstation time and recognized certification.
+                </p>
+
+                {/* Perks list */}
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-2 mt-5 text-xs font-semibold text-slate-300">
+                  <span className="flex items-center gap-1.5 bg-white/5 border border-white/10 px-2.5 py-1 rounded-lg">
+                    <Check size={13} className="text-emerald-400 stroke-[3]" />
+                    No Hidden Lab Fees
+                  </span>
+                  <span className="flex items-center gap-1.5 bg-white/5 border border-white/10 px-2.5 py-1 rounded-lg">
+                    <Check size={13} className="text-emerald-400 stroke-[3]" />
+                    Morning &amp; Ladies Slots
+                  </span>
+                  <span className="flex items-center gap-1.5 bg-white/5 border border-white/10 px-2.5 py-1 rounded-lg">
+                    <Check size={13} className="text-emerald-400 stroke-[3]" />
+                    Lifetime Doubt Support
+                  </span>
+                </div>
+
+                {/* Trust highlight chips */}
+                <div className="mt-5 pt-4 border-t border-white/10 flex flex-wrap items-center gap-3 text-xs">
+                  <div className="bg-white/5 border border-white/10 px-3 py-1.5 rounded-full flex items-center gap-2 text-slate-300">
+                    <span className="w-2 h-2 rounded-full bg-[#C41E1E] shadow-[0_0_8px_#C41E1E]" />
+                    <span>Free Course Worth ₹3,500</span>
+                  </div>
+                  <div className="bg-white/5 border border-white/10 px-3 py-1.5 rounded-full flex items-center gap-2 text-slate-300">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_#34D399]" />
+                    <span>1 Student : 1 Desktop Terminal</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right: Lab Image + Sleek Integrated Action Buttons (5 cols) */}
+              <div className="lg:col-span-5 flex flex-col w-full">
+                
+                {/* Photo Card with Floating Badges */}
+                <div className="relative rounded-2xl overflow-hidden border border-white/15 shadow-2xl bg-slate-900 group">
+                  <div className="aspect-[16/10] w-full relative overflow-hidden">
+                    <img
+                      src="/images/real-instructor-mentoring.jpg"
+                      alt="Instructor guiding students hands-on at computer workstation in Virar East lab"
+                      className="w-full h-full object-cover group-hover:scale-104 transition-transform duration-700 ease-out"
+                    />
+                    {/* Cinematic Vignette */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/10 pointer-events-none" />
+                    <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-2xl pointer-events-none" />
+
+                    {/* Top-left: Location Pill */}
+                    <div className="absolute top-3 left-3 bg-black/55 backdrop-blur-md px-3 py-1 rounded-full border border-white/20 text-[11px] font-semibold text-white flex items-center gap-1.5 shadow-sm">
+                      <Sparkles size={11} className="text-[#F5BE4F]" />
+                      <span>Raut Arcade Lab 202</span>
+                    </div>
+
+                    {/* Top-right: 50% Concession Tag */}
+                    <div className="absolute top-3 right-3 bg-[#C41E1E] text-white font-black text-xs px-3 py-1 rounded-full shadow-lg tracking-wider uppercase border border-red-400/40">
+                      Flat 50% OFF
+                    </div>
+
+                    {/* Bottom: Floating Glass Tag */}
+                    <div className="absolute bottom-3 left-3 right-3 bg-black/60 backdrop-blur-md px-3.5 py-2.5 rounded-xl border border-white/15 text-white flex items-center justify-between shadow-lg">
+                      <div>
+                        <span className="text-[10px] uppercase font-black text-[#F5BE4F] tracking-wider block">
+                          Included Free
+                        </span>
+                        <strong className="text-xs sm:text-sm font-bold text-white block">
+                          Basic Computer Foundation
+                        </strong>
+                      </div>
+                      <div className="text-right shrink-0">
+                        <span className="text-[10px] text-slate-300 block">Workstations</span>
+                        <span className="text-xs font-bold text-emerald-400">1 Student : 1 PC</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Side-by-Side Modern Action Buttons */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mt-3 w-full">
+                  <a
+                    href={`${wa}?text=${encodeURIComponent('Hi! I would like to claim the 50% Admission Concession at RACE Virar East.')}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 h-11 px-4 rounded-xl bg-[#C41E1E] hover:bg-[#A81717] text-white text-xs sm:text-sm font-bold shadow-lg transition-all active:scale-95 cursor-pointer"
+                  >
+                    <MessageSquare size={16} />
+                    <span>Claim on WhatsApp</span>
+                  </a>
+
+                  <a
+                    href={`tel:${phone}`}
+                    className="inline-flex items-center justify-center gap-2 h-11 px-4 rounded-xl bg-white/10 hover:bg-white/20 text-white border border-white/20 text-xs sm:text-sm font-bold transition-all active:scale-95 cursor-pointer backdrop-blur-md"
+                  >
+                    <Phone size={15} className="text-[#F5BE4F]" />
+                    <span>Call {phone}</span>
+                  </a>
+                </div>
+
+                <div className="text-center text-[10px] text-slate-400 font-medium pt-1.5">
+                  {OFFERS_CONFIG.validityNote} · Raut Arcade, Virar East
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 9. FAQ ─────────────────────────────────────────────────── */}
       <section className="bg-white py-20 border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-14">
@@ -769,7 +771,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── 9. FINAL CTA BAND ──────────────────────────────────────── */}
+      {/* ── 10. FINAL CTA BAND ──────────────────────────────────────── */}
       <section className="relative bg-gradient-to-r from-[#001752] via-[#000E33] to-[#001752] text-white py-16 lg:py-20 overflow-hidden border-t border-[#002277]">
         <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)', backgroundSize: '20px 20px' }} />
         <div className="absolute -right-20 top-0 w-80 h-80 bg-[#C41E1E]/20 rounded-full blur-[100px] pointer-events-none" />
