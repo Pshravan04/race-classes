@@ -34,8 +34,8 @@ export default function BatchesAndFees() {
   return (
     <>
       <SEO
-        title="Batch Timings & Fee Details | RACE Virar East"
-        description="Check morning, afternoon ladies, and evening batch timings at RACE, Raut Arcade, opposite Virar East station. Transparent fee counseling and 50% discount."
+        title="Batch Timings & Fee Details | RACE"
+        description="Check morning, afternoon ladies, and evening batch timings at RACE. Transparent fee counseling and 50% discount."
         canonical="/batches"
       />
 
@@ -79,7 +79,7 @@ export default function BatchesAndFees() {
 
               <a
                 href={`${SITE_CONFIG.contact.whatsapp}?text=${encodeURIComponent(
-                  'Hello! I would like to confirm current batch timings and seat availability at RACE Virar East.'
+                  'Hello! I would like to confirm current batch timings and seat availability at RACE.'
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -100,7 +100,7 @@ export default function BatchesAndFees() {
             <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#002277] bg-[#001752] p-5 text-white sm:p-6">
               <div>
                 <span className="inline-flex items-center rounded-full bg-[#C41E1E] px-2.5 py-0.5 text-[10px] font-black uppercase tracking-wider text-white">
-                  Virar East
+                  Lab Timetable
                 </span>
                 <h2 className="mt-2 text-xl sm:text-2xl font-bold tracking-tight text-white">
                   Daily Lab Timetable (Mon–Sat)

@@ -36,8 +36,8 @@ Message: ${message || 'I would like to enquire about admissions and batch availa
   return (
     <>
       <SEO
-        title="Contact & Visit Us in Virar East | RACE"
-        description="Visit RACE at 202, Raut Arcade, opposite Virar East railway station subway. Mon-Sat 9 AM - 7 PM. Call/WhatsApp 9794323963 or submit an enquiry."
+        title="Contact &amp; Visit Us | RACE"
+        description="Visit RACE at 202, Raut Arcade, opposite railway station subway. Mon-Sat 9 AM - 7 PM. Call/WhatsApp 9794323963 or submit an enquiry."
         canonical="/contact"
       />
 
@@ -60,7 +60,7 @@ Message: ${message || 'I would like to enquire about admissions and batch availa
                 Immediate Callback on WhatsApp
               </h2>
               <p className="mt-2 text-xs sm:text-sm leading-relaxed text-slate-300">
-                Message our Virar East counselors directly for batch schedules, syllabus brochures, and fee concession details.
+                Message our counselors directly for batch schedules, syllabus brochures, and fee concession details.
               </p>
 
               <div className="mt-5 space-y-2.5">
@@ -77,7 +77,7 @@ Message: ${message || 'I would like to enquire about admissions and batch availa
 
                 <a
                   href={`${SITE_CONFIG.contact.whatsapp}?text=${encodeURIComponent(
-                    'Hello RACE! I would like to enquire about course admissions at your Virar East centre.'
+                    'Hello RACE! I would like to enquire about course admissions.'
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -138,7 +138,7 @@ Message: ${message || 'I would like to enquire about admissions and batch availa
                 </div>
               </div>
               <a
-                href={`${SITE_CONFIG.contact.whatsapp}?text=${encodeURIComponent('Hello! I would like to enquire about computer classes at RACE Virar East.')}`}
+                href={`${SITE_CONFIG.contact.whatsapp}?text=${encodeURIComponent('Hello! I would like to enquire about computer classes at RACE.')}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-4 inline-flex items-center gap-1.5 text-xs font-bold text-emerald-600 hover:underline"
@@ -253,7 +253,7 @@ Message: ${message || 'I would like to enquire about admissions and batch availa
               </h2>
 
               <p className="text-xs sm:text-sm text-slate-500 mb-6 leading-relaxed">
-                Fill out the quick form below. Our Virar East counselor will contact you with the complete syllabus brochure, batch timing options, and 50% concession details.
+                Fill out the quick form below. Our admissions counselor will contact you with the complete syllabus brochure, batch timing options, and 50% concession details.
               </p>
 
               {submitted ? (
@@ -263,7 +263,7 @@ Message: ${message || 'I would like to enquire about admissions and batch availa
                     Enquiry Submitted Successfully!
                   </h3>
                   <p className="text-xs sm:text-sm text-emerald-800 leading-relaxed max-w-md">
-                    Thank you, <strong>{fullName}</strong>. Our Virar East coordinator will reach out to you at <strong>{phone}</strong> regarding <strong>{course}</strong>.
+                    Thank you, <strong>{fullName}</strong>. Our academic coordinator will reach out to you at <strong>{phone}</strong> regarding <strong>{course}</strong>.
                   </p>
 
                   <div className="flex flex-col sm:flex-row gap-3 mt-4 w-full max-w-md">
@@ -385,7 +385,7 @@ Message: ${message || 'I would like to enquire about admissions and batch availa
                   </button>
 
                   <p className="text-[10px] text-slate-400 text-center pt-1">
-                    🔒 Privacy Guarantee: No spam calls. Your details are used strictly by our Virar East coordinator.
+                    🔒 Privacy Guarantee: No spam calls. Your details are used strictly by our admissions coordinator.
                   </p>
                 </form>
               )}

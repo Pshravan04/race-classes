@@ -69,7 +69,7 @@ export default function CourseCard({ course, onSelect }: CourseCardProps) {
         >
           <img
             src={courseImage}
-            alt={`${course.name} practical training at RACE Virar`}
+            alt={`${course.name} practical training at RACE`}
             className="w-full h-full object-cover group-hover:scale-106 transition-transform duration-700 ease-out"
             loading="lazy"
           />
@@ -104,7 +104,7 @@ export default function CourseCard({ course, onSelect }: CourseCardProps) {
               1 Student : 1 PC
             </span>
             <span className="text-[10px] font-black uppercase text-[#F5BE4F] tracking-wider drop-shadow-sm">
-              Virar East Lab
+              Hands-On Lab
             </span>
           </div>
         </div>

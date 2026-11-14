@@ -156,8 +156,8 @@ export default function AdmissionPopupModal() {
                 <Sparkles size={11} className="fill-white" />
                 Admissions Open · 50% Concession
               </span>
-              <span className="text-[10px] text-slate-300 font-bold uppercase tracking-wide">
-                Virar East Station
+              <span className="text-[10px] text-emerald-300 font-bold uppercase tracking-wide">
+                1 Student : 1 PC
               </span>
             </div>
 
@@ -200,8 +200,8 @@ export default function AdmissionPopupModal() {
                   <span className="font-bold text-slate-900">Free Basic Computer Course</span>
                 </div>
                 <div className="flex items-center justify-between text-slate-600">
-                  <span>Institute Location:</span>
-                  <span className="font-bold text-slate-900">Raut Arcade 202, Opp. Virar East Station</span>
+                  <span>Campus Location:</span>
+                  <span className="font-bold text-slate-900">Raut Arcade 202, Opp. Station Subway</span>
                 </div>
               </div>
 

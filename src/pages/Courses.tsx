@@ -85,15 +85,15 @@ export default function Courses() {
   return (
     <>
       <SEO
-        title="Courses & Programs | RACE Virar East"
-        description="Filter all 23 practical computer courses in Virar East: TallyPrime with GST, Typing, Web Development, Data Science, AI & ML, MS Office, Graphic Design. 50% discount available."
+        title="Courses & Programs | RACE"
+        description="Filter all 23 practical computer courses: TallyPrime with GST, Typing, Web Development, Data Science, AI & ML, MS Office, Graphic Design. 50% discount available."
         canonical="/courses"
       />
 
       <PageHero
         eyebrow="Course Catalogue · All 23 Courses"
         title="Explore All 23 Practical Computer & IT Courses"
-        description="Every course is taught on real computers with step-by-step guidance right opposite Virar East station. Filter by your career objective or learning goal below."
+        description="Every course is taught on real computers with step-by-step guidance on dedicated workstations. Filter by your career objective or learning goal below."
         aside={
           <div className="relative overflow-hidden rounded-3xl border border-[#002B94] bg-gradient-to-br from-[#001752] via-[#000F36] to-[#00081C] p-6 text-white shadow-2xl sm:p-7">
             <div className="absolute -right-12 -top-12 h-48 w-48 rounded-full bg-[#C41E1E]/20 blur-[80px] pointer-events-none" />
@@ -116,7 +116,7 @@ export default function Courses() {
               <div className="mt-5 grid grid-cols-2 gap-2.5">
                 <a
                   href={`${SITE_CONFIG.contact.whatsapp}?text=${encodeURIComponent(
-                    'Hello! I need help choosing the right computer course at RACE Virar East.'
+                    'Hello! I need help choosing the right computer course at RACE.'
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -135,7 +135,7 @@ export default function Courses() {
               </div>
 
               <div className="mt-4 border-t border-white/10 pt-3 text-[10px] font-medium text-slate-300">
-                Opp. Virar East Station Subway · Mon–Sat 9 AM–7 PM
+                Mon–Sat 9 AM–7 PM · Dedicated 1:1 Lab Workstations
               </div>
             </div>
           </div>

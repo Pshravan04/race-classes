@@ -204,7 +204,7 @@ export default function CourseSlider({ courses }: CourseSliderProps) {
                 {/* Bottom Overlay Pill on Image */}
                 <div className="absolute bottom-2.5 left-3 right-3 flex items-center justify-between text-white text-[11px] font-semibold">
                   <span className="bg-black/65 backdrop-blur-xs px-2.5 py-1 rounded-md">
-                    Raut Arcade Lab 202
+                    Hands-On Practical
                   </span>
                   <span className="text-emerald-300 bg-black/65 backdrop-blur-xs px-2.5 py-1 rounded-md">
                     1 Student : 1 PC

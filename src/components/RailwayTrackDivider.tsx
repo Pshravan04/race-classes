@@ -31,7 +31,7 @@ export default function RailwayTrackDivider({ label, badge, className = '' }: Ra
         ) : (
           <div className="relative z-10 bg-[#FBF9F5] px-3 py-1 flex items-center gap-2">
             <span className="text-[11px] font-bold text-[#C59B27] uppercase tracking-widest">
-              VIRAR EAST • LOCAL FAST
+              PRACTICAL LEARNING TRACK • 1:1 PC
             </span>
           </div>
         )}

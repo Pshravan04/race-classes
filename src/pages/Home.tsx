@@ -3,7 +3,6 @@
   import { 
     Check, 
     CheckCircle2,
-    MapPin, 
     Star,
     Laptop,
     Monitor,
@@ -83,8 +82,8 @@ export default function Home() {
   return (
     <>
       <SEO
-        title="Don't Just Learn Computers. Learn Skills That Matter | RACE Vasai-Virar"
-        description="Get hands-on training in AI, Digital Marketing, Programming and Advanced Computer Technologies at RACE, Vasai-Virar. Practical-first learning on real systems."
+        title="Don't Just Learn Computers. Learn Skills That Matter | RACE"
+        description="Get hands-on training in AI, Digital Marketing, Programming and Advanced Computer Technologies at RACE. Practical-first learning on real systems."
         canonical="/"
       />
 
@@ -98,8 +97,8 @@ export default function Home() {
             {/* Top Badges */}
             <div className="flex flex-wrap items-center gap-2.5 mb-5">
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#C41E1E] text-white text-xs font-black uppercase tracking-wider shadow-2xs">
-                <MapPin size={12} className="stroke-[2.5]" />
-                Vasai-Virar · Opp. Subway
+                <Monitor size={12} className="stroke-[2.5]" />
+                100% Practical Training
               </span>
 
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-slate-200 text-[#001752] text-xs font-bold shadow-2xs">
@@ -206,7 +205,7 @@ export default function Home() {
             {/* Background Lab Photo filling 100% of the right side */}
             <img
               src="/images/real-lab-classroom.jpg"
-              alt="Students learning inside RACE modern computer laboratory in Raut Arcade Virar East"
+              alt="Students learning inside RACE modern computer laboratory"
               className="absolute inset-0 w-full h-full object-cover object-center scale-102 hover:scale-105 transition-transform duration-700 ease-out"
             />
 
@@ -221,7 +220,7 @@ export default function Home() {
                   Terminal 202
                 </span>
                 <span className="font-bold text-[#001752]">
-                  Raut Arcade · Virar East
+                  Dedicated Workstations
                 </span>
                 <div className="bg-[#C41E1E] text-white text-[10px] font-black px-2 py-0.5 rounded-full flex items-center gap-1">
                   <span>4.9</span>
@@ -250,7 +249,7 @@ export default function Home() {
 
               <div className="mt-3 pt-3 border-t border-slate-200/80 flex items-center justify-between text-[11px]">
                 <span className="font-extrabold text-[#C41E1E]">⚡ 50% Concession + Free Basic Course</span>
-                <span className="text-slate-500 font-medium">Opp. Virar Station</span>
+                <span className="text-slate-500 font-medium">Opp. Station Subway</span>
               </div>
             </div>
 
@@ -398,9 +397,9 @@ export default function Home() {
       <section className="bg-[#F8F9FA] py-20 border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <span className="text-xs text-[#C41E1E] font-extrabold uppercase tracking-widest">Built For Local Success</span>
+            <span className="text-xs text-[#C41E1E] font-extrabold uppercase tracking-widest">Built For Student Success</span>
             <h2 className="text-3xl sm:text-4xl text-[#001752] font-black tracking-tight mt-1">
-              Why Learners Choose <span className="text-[#C41E1E]">RACE</span> in Virar
+              Why Learners Choose <span className="text-[#C41E1E]">RACE</span>
             </h2>
             <p className="text-base text-slate-600 mt-2 leading-relaxed">
               Clear, verifiable standards designed around the needs of local suburban learners.
@@ -477,7 +476,7 @@ export default function Home() {
           <div className="text-center max-w-3xl mx-auto mb-14">
             <span className="text-xs text-[#C41E1E] font-extrabold uppercase tracking-widest">Campus &amp; Facilities</span>
             <h2 className="text-3xl sm:text-4xl text-[#001752] font-black tracking-tight mt-1">
-              Life Inside Our <span className="text-[#C41E1E]">Virar East Lab</span>
+              Life Inside Our <span className="text-[#C41E1E]">Computer Lab</span>
             </h2>
             <p className="text-base text-slate-600 mt-2 leading-relaxed">Genuine glimpses of daily learning sessions at Raut Arcade.</p>
           </div>
@@ -488,7 +487,7 @@ export default function Home() {
               <div className="aspect-[4/3] w-full relative overflow-hidden bg-slate-900">
                 <img
                   src="/images/real-lab-wide.jpg"
-                  alt="Full view of student workstations in RACE Virar East lab"
+                  alt="Full view of student workstations in RACE lab"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <span className="absolute top-3 left-3 bg-[#001752] text-white px-2.5 py-1 rounded-full text-xs font-bold shadow-sm">
@@ -507,7 +506,7 @@ export default function Home() {
                 </div>
                 <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-600">
                   <span className="font-semibold text-emerald-600">Individual Terminals</span>
-                  <span className="text-[#C41E1E] font-bold">Virar East Station</span>
+                  <span className="text-[#C41E1E] font-bold">Station Access</span>
                 </div>
               </div>
             </div>
@@ -598,7 +597,7 @@ export default function Home() {
                     Limited-Time Admission Offer
                   </span>
                   <span className="text-[11px] text-slate-300 font-medium hidden sm:inline">
-                    Virar East Campus
+                    Practical Lab
                   </span>
                 </div>
 
@@ -651,7 +650,7 @@ export default function Home() {
                   <div className="aspect-[16/10] w-full relative overflow-hidden">
                     <img
                       src="/images/real-instructor-mentoring.jpg"
-                      alt="Instructor guiding students hands-on at computer workstation in Virar East lab"
+                      alt="Instructor guiding students hands-on at computer workstation"
                       className="w-full h-full object-cover group-hover:scale-104 transition-transform duration-700 ease-out"
                     />
                     {/* Cinematic Vignette */}
@@ -690,7 +689,7 @@ export default function Home() {
                 {/* Side-by-Side Modern Action Buttons */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mt-3 w-full">
                   <a
-                    href={`${wa}?text=${encodeURIComponent('Hi! I would like to claim the 50% Admission Concession at RACE Virar East.')}`}
+                    href={`${wa}?text=${encodeURIComponent('Hi! I would like to claim the 50% Admission Concession at RACE.')}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center gap-2 h-11 px-4 rounded-xl bg-[#C41E1E] hover:bg-[#A81717] text-white text-xs sm:text-sm font-bold shadow-lg transition-all active:scale-95 cursor-pointer"
@@ -709,7 +708,7 @@ export default function Home() {
                 </div>
 
                 <div className="text-center text-[10px] text-slate-400 font-medium pt-1.5">
-                  {OFFERS_CONFIG.validityNote} · Raut Arcade, Virar East
+                  {OFFERS_CONFIG.validityNote} · Raut Arcade 202
                 </div>
 
               </div>
@@ -764,7 +763,7 @@ export default function Home() {
               <span className="text-sm text-[#001752] font-medium">Have a specific question not addressed above?</span>
             </div>
             <a
-              href={`${wa}?text=${encodeURIComponent('Hi, I have a question about admissions at RACE Virar East.')}`}
+              href={`${wa}?text=${encodeURIComponent('Hi, I have a question about admissions at RACE.')}`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-sm font-bold text-[#C41E1E] hover:underline"

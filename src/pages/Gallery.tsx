@@ -7,15 +7,15 @@ import { SITE_CONFIG } from '../data/config';
 const GALLERY_ITEMS = [
   {
     image: '/images/real-lab-classroom.jpg',
-    alt: 'Students practicing on computers in Virar East lab at Raut Arcade',
+    alt: 'Students practicing on computers in lab at Raut Arcade',
     badge: 'Raut Arcade Lab 202',
     badgeClass: 'bg-[#001752] text-white',
-    bottomLeft: 'Virar East Subway Exit',
+    bottomLeft: 'Practical Session',
     bottomRight: '1 Student : 1 PC',
     bottomRightClass: 'text-emerald-400',
     title: 'Individual Practical Workstations',
     description:
-      'Genuine daily sessions at Raut Arcade 202, opposite Virar East railway subway. Every student has a dedicated computer terminal.',
+      'Genuine daily sessions in our computer lab. Every student has a dedicated computer terminal.',
   },
   {
     image: '/images/real-instructor-mentoring.jpg',

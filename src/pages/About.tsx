@@ -17,15 +17,15 @@ export default function About() {
   return (
     <>
       <SEO
-        title="About Us | RACE Advanced Computer Education Virar East"
-        description="The story of RACE in Virar East: eliminating the stressful commute to Mumbai with 100% practical computer training right outside Virar railway station. 10+ years of empowering local learners."
+        title="About Us | RACE"
+        description="The story of RACE: eliminating the stressful commute to Mumbai with 100% practical computer training right outside the railway station. 10+ years of empowering learners."
         canonical="/about"
       />
 
       <PageHero
         eyebrow="Our Mission &amp; Heritage"
-        title="Grounded in Virar, Built for Practical Tech Careers"
-        description="We started RACE with one clear conviction: students, homemakers, and job seekers in Virar and Vasai should not have to spend 4 hours in crowded local trains just to learn quality computer skills."
+        title="Built for Practical, Career-Ready Skills"
+        description="We started RACE with one clear conviction: students, homemakers, and job seekers should not have to spend 4 hours in crowded local trains just to learn quality computer skills."
         aside={
           <div className="relative overflow-hidden rounded-3xl border border-[#002B94] bg-gradient-to-br from-[#001752] via-[#000F36] to-[#00081C] p-6 sm:p-7 text-white shadow-2xl">
             <div className="absolute -right-12 -top-12 h-48 w-48 rounded-full bg-[#C41E1E]/20 blur-[80px] pointer-events-none" />
@@ -34,7 +34,7 @@ export default function About() {
             <div className="relative z-10">
               <span className="inline-flex items-center gap-1.5 rounded-full bg-[#C41E1E] px-3 py-1 text-[10px] font-black uppercase tracking-wider text-white shadow-xs">
                 <Sparkles size={12} />
-                Since 2014 in Virar East
+                10+ Years of Excellence
               </span>
 
               <h2 className="mt-4 text-2xl font-bold tracking-tight">
@@ -83,11 +83,11 @@ export default function About() {
               </div>
 
               <h2 className="text-2xl sm:text-4xl font-extrabold text-[#001752] tracking-tight">
-                Why Should Virar Students Travel to Mumbai for Computer Education?
+                Why Spend Hours Traveling to Mumbai for Computer Education?
               </h2>
 
               <p>
-                Every morning, thousands of youths and college students from Virar, Nalasopara, and Vasai board crowded Western Railway local trains heading towards Andheri, Dadar, and Churchgate. Many spend up to 4 exhausting hours every day just to attend a 90-minute computer or accounting class in South or Central Mumbai.
+                Every morning, thousands of youths and college students board crowded Western Railway local trains heading towards distant city centers. Many spend up to 4 exhausting hours every day just to attend a 90-minute computer or accounting class in South or Central Mumbai.
               </p>
 
               <p>
@@ -132,7 +132,7 @@ export default function About() {
                       Air-Conditioned Practical Lab Facility
                     </strong>
                     <span className="text-[11px] text-slate-300">
-                      Virar East Station Subway Exit • 2-Minute Walk
+                      Opp. Station Subway Exit • 2-Minute Walk
                     </span>
                   </div>
                 </div>
@@ -214,7 +214,7 @@ export default function About() {
           <SectionHeading
             eyebrow="Community Impact"
             title="Who Learns at RACE?"
-            description="Our classrooms reflect the diverse community of Virar, Vasai, and Palghar. We welcome learners of all ages and backgrounds."
+            description="Our classrooms welcome learners of all ages and backgrounds with supportive, personalized faculty guidance."
           />
 
           <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">

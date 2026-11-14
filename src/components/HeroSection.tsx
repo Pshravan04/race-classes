@@ -16,13 +16,13 @@ export default function HeroSection() {
           {/* Left Column: Local Headline & Direct CTAs */}
           <div className="lg:col-span-7">
             
-            {/* Station Signplate */}
+            {/* Practical Lab Badge */}
             <div className="inline-flex items-center gap-2 mb-4">
               <span className="station-board-yellow text-[11px] font-black uppercase tracking-wider px-2.5 py-1">
-                VIRAR EAST
+                PRACTICAL TRAINING
               </span>
               <span className="text-xs font-bold text-[#071B3A] tracking-wide">
-                Opp. Subway &amp; Station • 2 Min Walk
+                1 Student : 1 PC Guaranteed
               </span>
             </div>
 

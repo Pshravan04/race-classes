@@ -7,7 +7,7 @@
 export const SITE_CONFIG = {
   name: 'RACE',
   fullName: 'RACE – Advanced Computer Education',
-  tagline: 'Practical IT & Computer Training in Virar East',
+  tagline: 'Practical IT & Computer Training',
   motto: 'Ab Mumbai jaane ki zarurat nahi — Learn quality IT skills right at your station.',
   description:
     'Hands-on computer training institute opposite Virar East railway station. 100% practical lab training, certification, placement assistance, flexible morning/evening batches, and special batches for ladies & students.',
@@ -18,7 +18,7 @@ export const SITE_CONFIG = {
     phoneDisplay: '+91 97943 23963',
     whatsapp: 'https://wa.me/919794323963',
     whatsappNumber: '919794323963',
-    whatsappDefaultMessage: encodeURIComponent('Hello! I am interested in admissions at RACE Virar East.'),
+    whatsappDefaultMessage: encodeURIComponent('Hello! I am interested in admissions at RACE.'),
     timings: 'Monday to Saturday: 9:00 AM – 7:00 PM (Sunday Closed)',
   },
 
@@ -65,7 +65,7 @@ export const OFFERS_CONFIG = {
     title: '50% Discount on Course Fees',
     badge: '50% OFF',
     description:
-      'Special community subsidy for local Virar and Palghar district students, housewives, and early batch registrations.',
+      'Special community subsidy for local students, housewives, and early batch registrations.',
     tagline: 'Quality education made accessible without commuting to Mumbai.',
   },
   bonusOffer: {
@@ -209,9 +209,9 @@ export const COURSES: Course[] = [
       'Online bill payments, net banking security, and digital safety',
     ],
     durationPlaceholder: '4 to 6 Weeks (Fast-track available)',
-    mode: '100% In-Person Practical Lab (Virar East)',
+    mode: '100% In-Person Practical Lab (1:1 PC)',
     certificate: 'Certification of Computer Literacy & Basic Lab Proficiency',
-    whatsappMessage: 'Hello! I want to enquire about the Basic Computer Course at RACE Virar East. Please share batch timings and fee details.',
+    whatsappMessage: 'Hello! I want to enquire about the Basic Computer Course at RACE. Please share batch timings and fee details.',
   },
   {
     id: 'ms-office',
@@ -228,9 +228,9 @@ export const COURSES: Course[] = [
       'Printing, PDF conversions, and collaborative Google Docs/Sheets',
     ],
     durationPlaceholder: '6 to 8 Weeks',
-    mode: '100% In-Person Practical Lab (Virar East)',
+    mode: '100% In-Person Practical Lab (1:1 PC)',
     certificate: 'MS Office Specialist Practical Certificate',
-    whatsappMessage: 'Hello! I want to enquire about the MS-Office (Word, Excel, PowerPoint) course at RACE Virar East. Please share batch timings and fee details.',
+    whatsappMessage: 'Hello! I want to enquire about the MS-Office (Word, Excel, PowerPoint) course at RACE. Please share batch timings and fee details.',
   },
   {
     id: 'advanced-tally-with-gst',
@@ -248,9 +248,9 @@ export const COURSES: Course[] = [
       'TallyPrime shortcuts, security controls, and audit trails',
     ],
     durationPlaceholder: '8 to 10 Weeks',
-    mode: '100% In-Person Practical Lab (Virar East)',
+    mode: '100% In-Person Practical Lab (1:1 PC)',
     certificate: 'Advanced TallyPrime with GST Industry Certificate',
-    whatsappMessage: 'Hello! I want to enquire about the Advanced Tally with GST course at RACE Virar East. Please share batch timings and fee details.',
+    whatsappMessage: 'Hello! I want to enquire about the Advanced Tally with GST course at RACE. Please share batch timings and fee details.',
   },
   {
     id: 'gst',
@@ -268,9 +268,9 @@ export const COURSES: Course[] = [
       'Handling GST notices, penalties, and reverse charge mechanism (RCM)',
     ],
     durationPlaceholder: '4 to 6 Weeks',
-    mode: '100% In-Person Practical Lab (Virar East)',
+    mode: '100% In-Person Practical Lab (1:1 PC)',
     certificate: 'Certificate in Practical GST Compliance & E-Filing',
-    whatsappMessage: 'Hello! I want to enquire about the GST course at RACE Virar East. Please share batch timings and fee details.',
+    whatsappMessage: 'Hello! I want to enquire about the GST course at RACE. Please share batch timings and fee details.',
   },
   {
     id: 'ccc',
@@ -289,9 +289,9 @@ export const COURSES: Course[] = [
       'Mock test practice and CCC exam question papers',
     ],
     durationPlaceholder: '6 to 8 Weeks',
-    mode: '100% In-Person Practical Lab (Virar East)',
+    mode: '100% In-Person Practical Lab (1:1 PC)',
     certificate: 'CCC Exam Preparation & Institute Completion Certificate',
-    whatsappMessage: 'Hello! I want to enquire about the CCC course at RACE Virar East. Please share batch timings and fee details.',
+    whatsappMessage: 'Hello! I want to enquire about the CCC course at RACE. Please share batch timings and fee details.',
   },
   {
     id: 'typing-english-marathi',
@@ -309,9 +309,9 @@ export const COURSES: Course[] = [
       'Preparation for GCC-TBC and government commercial certificate exams',
     ],
     durationPlaceholder: '2 to 3 Months (Continuous speed training)',
-    mode: '100% In-Person Practical Lab (Virar East)',
+    mode: '100% In-Person Practical Lab (1:1 PC)',
     certificate: 'Certificate of Typing Speed Proficiency (English & Marathi)',
-    whatsappMessage: 'Hello! I want to enquire about English & Marathi Typing at RACE Virar East. Please share batch timings and fee details.',
+    whatsappMessage: 'Hello! I want to enquire about English & Marathi Typing at RACE. Please share batch timings and fee details.',
   },
   {
     id: 'illustrator',
@@ -329,9 +329,9 @@ export const COURSES: Course[] = [
       'Exporting SVG, EPS, high-res PDF, and web-optimised assets',
     ],
     durationPlaceholder: '6 to 8 Weeks',
-    mode: '100% In-Person Practical Lab (Virar East)',
+    mode: '100% In-Person Practical Lab (1:1 PC)',
     certificate: 'Certificate in Adobe Illustrator Vector Design',
-    whatsappMessage: 'Hello! I want to enquire about the Illustrator course at RACE Virar East. Please share batch timings and fee details.',
+    whatsappMessage: 'Hello! I want to enquire about the Illustrator course at RACE. Please share batch timings and fee details.',
   },
   {
     id: 'photoshop',
@@ -349,9 +349,9 @@ export const COURSES: Course[] = [
       'Image resizing, compression, and print resolution standards (300 DPI)',
     ],
     durationPlaceholder: '6 to 8 Weeks',
-    mode: '100% In-Person Practical Lab (Virar East)',
+    mode: '100% In-Person Practical Lab (1:1 PC)',
     certificate: 'Certificate in Adobe Photoshop & Digital Image Editing',
-    whatsappMessage: 'Hello! I want to enquire about the Photoshop course at RACE Virar East. Please share batch timings and fee details.',
+    whatsappMessage: 'Hello! I want to enquire about the Photoshop course at RACE. Please share batch timings and fee details.',
   },
   {
     id: 'html',
@@ -369,9 +369,9 @@ export const COURSES: Course[] = [
       'SEO meta tags, open graph attributes, and web accessibility (a11y) basics',
     ],
     durationPlaceholder: '4 Weeks',
-    mode: '100% In-Person Practical Lab (Virar East)',
+    mode: '100% In-Person Practical Lab (1:1 PC)',
     certificate: 'Certificate in HTML5 Web Foundations',
-    whatsappMessage: 'Hello! I want to enquire about the HTML course at RACE Virar East. Please share batch timings and fee details.',
+    whatsappMessage: 'Hello! I want to enquire about the HTML course at RACE. Please share batch timings and fee details.',
   },
   {
     id: 'css',
@@ -389,9 +389,9 @@ export const COURSES: Course[] = [
       'Transitions, hover states, keyframe animations, and transform effects',
     ],
     durationPlaceholder: '4 to 6 Weeks',
-    mode: '100% In-Person Practical Lab (Virar East)',
+    mode: '100% In-Person Practical Lab (1:1 PC)',
     certificate: 'Certificate in CSS3 Responsive Web Styling',
-    whatsappMessage: 'Hello! I want to enquire about the CSS course at RACE Virar East. Please share batch timings and fee details.',
+    whatsappMessage: 'Hello! I want to enquire about the CSS course at RACE. Please share batch timings and fee details.',
   },
   {
     id: 'hardware',
@@ -409,9 +409,9 @@ export const COURSES: Course[] = [
       'Diagnosing common hardware issues: Blue Screen (BSOD), overheating, beep codes',
     ],
     durationPlaceholder: '6 to 8 Weeks',
-    mode: '100% In-Person Practical Lab (Virar East)',
+    mode: '100% In-Person Practical Lab (1:1 PC)',
     certificate: 'Certificate in Computer Hardware Assembly & Troubleshooting',
-    whatsappMessage: 'Hello! I want to enquire about the Hardware course at RACE Virar East. Please share batch timings and fee details.',
+    whatsappMessage: 'Hello! I want to enquire about the Hardware course at RACE. Please share batch timings and fee details.',
   },
   {
     id: 'a-plus-and-n-plus',
@@ -429,9 +429,9 @@ export const COURSES: Course[] = [
       'Network security, firewall configuration, remote desktop, and VPN setup',
     ],
     durationPlaceholder: '8 to 12 Weeks',
-    mode: '100% In-Person Practical Lab (Virar East)',
+    mode: '100% In-Person Practical Lab (1:1 PC)',
     certificate: 'Certificate in A+ (Hardware Support) and N+ (Networking)',
-    whatsappMessage: 'Hello! I want to enquire about the A+ and N+ course at RACE Virar East. Please share batch timings and fee details.',
+    whatsappMessage: 'Hello! I want to enquire about the A+ and N+ course at RACE. Please share batch timings and fee details.',
   },
 
   // ─── FLAGSHIP CAREER & PROJECT-ORIENTED PROGRAMS (ITVedant Style) ───
@@ -448,7 +448,7 @@ export const COURSES: Course[] = [
     hours: '280+ Practical Lab Hours',
     caseStudiesCount: '30+ Industry Case Studies & Projects',
     avgSalary: '₹4.5 LPA – ₹9.5 LPA',
-    shortDesc: 'Master Python, SQL, Power BI, Advanced Machine Learning, Deep Learning, and Generative AI. Work on 30+ live business case studies with 100% practical lab training at Virar East.',
+    shortDesc: 'Master Python, SQL, Power BI, Advanced Machine Learning, Deep Learning, and Generative AI. Work on 30+ live business case studies with 100% practical lab training.',
     whoFor: 'Graduates, Engineers, Commerce/Arts students, IT and non-IT professionals looking to transition into high-growth Data Science, BI, and AI engineering roles.',
     tools: [
       'Python', 'SQL', 'Power BI', 'Tableau', 'Advanced Excel', 'Pandas', 'NumPy',
@@ -457,10 +457,10 @@ export const COURSES: Course[] = [
     highlights: [
       '30+ Live Industry Case Studies',
       '10+ Modern Data & AI Tools Mastered',
-      '1:1 Dedicated Desktop Workstation at Virar East',
+      '1:1 Dedicated Desktop Workstation (No Sharing)',
       'Dual Recognized Certification (ISO 9001:2015 & Course Diploma)',
       '100% Interview Prep, Resume Building & Mock Rounds',
-      'Zero Mumbai Commute — Right Outside Virar Station'
+      'Zero Mumbai Commute — Direct Station Subway Access'
     ],
     projects: [
       {
@@ -548,9 +548,9 @@ export const COURSES: Course[] = [
       'Deep Learning, Neural Networks, NLP text processing, and Generative AI workflows',
       'Big Data processing with Apache Spark, Hadoop, and portfolio capstone builds'
     ],
-    mode: '100% In-Person Practical Lab (Virar East)',
+    mode: '100% In-Person Practical Lab (1:1 PC)',
     certificate: 'Master Diploma in Data Science & Analytics with AI',
-    whatsappMessage: 'Hello! I want to enquire about the Data Science & Analytics with AI career course at RACE Virar East. Please share syllabus, fees, and batch details.'
+    whatsappMessage: 'Hello! I want to enquire about the Data Science & Analytics with AI career course at RACE. Please share syllabus, fees, and batch details.'
   },
   {
     id: 'full-stack-developer-course',
@@ -665,9 +665,9 @@ export const COURSES: Course[] = [
       'NoSQL (MongoDB) and Relational (MySQL) database design and queries',
       'Git workflows, Docker containerization, cloud deployment, and portfolio builds'
     ],
-    mode: '100% In-Person Practical Lab (Virar East)',
+    mode: '100% In-Person Practical Lab (1:1 PC)',
     certificate: 'Master Diploma in Full Stack Software Development',
-    whatsappMessage: 'Hello! I want to enquire about the Full Stack Development career course at RACE Virar East. Please share syllabus, fees, and batch details.'
+    whatsappMessage: 'Hello! I want to enquire about the Full Stack Development career course at RACE. Please share syllabus, fees, and batch details.'
   },
   {
     id: 'devops-with-aws-course',
@@ -778,9 +778,9 @@ export const COURSES: Course[] = [
       'Cluster orchestration with Kubernetes and AWS Elastic Kubernetes Service (EKS)',
       'Infrastructure as Code (Terraform) and Prometheus/Grafana monitoring'
     ],
-    mode: '100% In-Person Practical Lab (Virar East)',
+    mode: '100% In-Person Practical Lab (1:1 PC)',
     certificate: 'Master Diploma in DevOps & AWS Cloud Engineering',
-    whatsappMessage: 'Hello! I want to enquire about the DevOps with AWS career course at RACE Virar East. Please share syllabus, fees, and batch details.'
+    whatsappMessage: 'Hello! I want to enquire about the DevOps with AWS career course at RACE. Please share syllabus, fees, and batch details.'
   },
   {
     id: 'digital-marketing-course',
@@ -891,9 +891,9 @@ export const COURSES: Course[] = [
       'Social media content creation, copywriting, and email marketing automation',
       'Google Analytics 4 (GA4) traffic attribution, reporting, and Generative AI tools'
     ],
-    mode: '100% In-Person Practical Lab (Virar East)',
+    mode: '100% In-Person Practical Lab (1:1 PC)',
     certificate: 'Master Diploma in Digital Marketing & Performance AI',
-    whatsappMessage: 'Hello! I want to enquire about the Digital Marketing with AI career course at RACE Virar East. Please share syllabus, fees, and batch details.'
+    whatsappMessage: 'Hello! I want to enquire about the Digital Marketing with AI career course at RACE. Please share syllabus, fees, and batch details.'
   },
   {
     id: 'investment-banking-course',
@@ -1003,9 +1003,9 @@ export const COURSES: Course[] = [
       'Equity research report authoring, pitch book design, and investment memos',
       'AI-powered financial analytics and Power BI corporate reporting dashboards'
     ],
-    mode: '100% In-Person Practical Lab (Virar East)',
+    mode: '100% In-Person Practical Lab (1:1 PC)',
     certificate: 'Master Diploma in Investment Banking & Financial Modeling with AI',
-    whatsappMessage: 'Hello! I want to enquire about the Investment Banking with AI career course at RACE Virar East. Please share syllabus, fees, and batch details.'
+    whatsappMessage: 'Hello! I want to enquire about the Investment Banking with AI career course at RACE. Please share syllabus, fees, and batch details.'
   },
   {
     id: 'software-testing-course',
@@ -1115,9 +1115,9 @@ export const COURSES: Course[] = [
       'API testing, JSON response assertions, and automated collection runs in Postman',
       'Selenium WebDriver automation with Java/Python, Page Object Model, and TestNG'
     ],
-    mode: '100% In-Person Practical Lab (Virar East)',
+    mode: '100% In-Person Practical Lab (1:1 PC)',
     certificate: 'Master Diploma in Software Testing & Automation with AI',
-    whatsappMessage: 'Hello! I want to enquire about the Software Testing With AI career course at RACE Virar East. Please share syllabus, fees, and batch details.'
+    whatsappMessage: 'Hello! I want to enquire about the Software Testing With AI career course at RACE. Please share syllabus, fees, and batch details.'
   },
   {
     id: 'cyber-security-ethical-hacking-with-ai-course',
@@ -1228,9 +1228,9 @@ export const COURSES: Course[] = [
       'Wireshark packet sniffing, network security defense, and incident response reports',
       'Security Operations Center (SOC) fundamentals, log analysis, and AI threat hunting'
     ],
-    mode: '100% In-Person Practical Lab (Virar East)',
+    mode: '100% In-Person Practical Lab (1:1 PC)',
     certificate: 'Master Diploma in Cyber Security & Ethical Hacking with AI',
-    whatsappMessage: 'Hello! I want to enquire about the Cyber Security & Ethical Hacking with AI career course at RACE Virar East. Please share syllabus, fees, and batch details.'
+    whatsappMessage: 'Hello! I want to enquire about the Cyber Security & Ethical Hacking with AI career course at RACE. Please share syllabus, fees, and batch details.'
   },
   {
     id: 'dfa',
@@ -1297,9 +1297,9 @@ export const COURSES: Course[] = [
       'GST returns (GSTR-1, GSTR-3B) and online portal submission',
       'Income Tax fundamentals, TDS return filing, and audit documentation'
     ],
-    mode: '100% In-Person Practical Lab (Virar East)',
+    mode: '100% In-Person Practical Lab (1:1 PC)',
     certificate: 'Professional Diploma in Financial Accounting (DFA)',
-    whatsappMessage: 'Hello! I want to enquire about the DFA (Diploma in Financial Accounting) at RACE Virar East. Please share syllabus, fees, and batch details.'
+    whatsappMessage: 'Hello! I want to enquire about the DFA (Diploma in Financial Accounting) at RACE. Please share syllabus, fees, and batch details.'
   },
   {
     id: 'graphic-designing',
@@ -1366,9 +1366,9 @@ export const COURSES: Course[] = [
       'Social media creative campaigns, print specifications, pre-press checks',
       'Building a professional physical and Behance design portfolio'
     ],
-    mode: '100% In-Person Practical Lab (Virar East)',
+    mode: '100% In-Person Practical Lab (1:1 PC)',
     certificate: 'Professional Diploma in Graphic Designing & Visual Communication',
-    whatsappMessage: 'Hello! I want to enquire about the Graphic Designing career course at RACE Virar East. Please share syllabus, fees, and batch details.'
+    whatsappMessage: 'Hello! I want to enquire about the Graphic Designing career course at RACE. Please share syllabus, fees, and batch details.'
   },
   {
     id: 'animation',
@@ -1400,9 +1400,9 @@ export const COURSES: Course[] = [
       'Motion graphics for advertising, social media reels, and explainer videos',
       'Video editing, sound design integration, and rendering portfolio reels'
     ],
-    mode: '100% In-Person Practical Lab (Virar East)',
+    mode: '100% In-Person Practical Lab (1:1 PC)',
     certificate: 'Diploma in Digital Animation & Motion Graphics',
-    whatsappMessage: 'Hello! I want to enquire about the Animation course at RACE Virar East. Please share syllabus, fees, and batch details.'
+    whatsappMessage: 'Hello! I want to enquire about the Animation course at RACE. Please share syllabus, fees, and batch details.'
   },
   {
     id: 'ai-prompt-engineering',
@@ -1434,9 +1434,9 @@ export const COURSES: Course[] = [
       'AI for image generation: Crafting prompts for Midjourney, DALL-E, and marketing art',
       'Building custom GPTs, workflow automations, and AI ethical best practices'
     ],
-    mode: '100% In-Person Practical Lab (Virar East)',
+    mode: '100% In-Person Practical Lab (1:1 PC)',
     certificate: 'Certificate in AI Prompt Engineering & Productivity Workflows',
-    whatsappMessage: 'Hello! I want to enquire about the AI Prompt Engineering course at RACE Virar East. Please share syllabus, fees, and batch details.'
+    whatsappMessage: 'Hello! I want to enquire about the AI Prompt Engineering course at RACE. Please share syllabus, fees, and batch details.'
   },
 ];
 

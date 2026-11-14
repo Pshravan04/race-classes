@@ -128,7 +128,7 @@ export default function CourseDetail() {
   const courseFaqs = [
     {
       q: `Do I need prior coding or technical background to join ${course.name}?`,
-      a: 'No prior experience is necessary. At RACE Virar East, we start from ground zero fundamentals and build up step-by-step to advanced concepts. Every student receives personalized faculty guidance.'
+      a: 'No prior experience is necessary. At RACE, we start from ground zero fundamentals and build up step-by-step to advanced concepts. Every student receives personalized faculty guidance.'
     },
     {
       q: 'Do students get their own computer or is machine sharing required?',
@@ -143,8 +143,8 @@ export default function CourseDetail() {
       a: 'We offer flexible Morning batches (8 AM–12 PM), Afternoon slots (12 PM–4 PM), Ladies special batches (1 PM–3 PM), and Evening batches (5 PM–9 PM). Weekend batches are also available for college students and working professionals.'
     },
     {
-      q: 'Where is RACE located in Virar?',
-      a: 'We are located at 202, 2nd Floor, Raut Arcade, directly opposite the Virar East Railway Station subway entrance (2-minute walk from Platform 1/2). You do not need an auto or bus.'
+      q: 'Where is the institute located?',
+      a: 'We are located at 202, 2nd Floor, Raut Arcade, directly opposite the railway station subway entrance (2-minute walk from Platform 1/2). You do not need an auto or bus.'
     },
     {
       q: 'What certificate will I receive upon completion?',
@@ -155,8 +155,8 @@ export default function CourseDetail() {
   return (
     <>
       <SEO
-        title={`${course.name} Course in Virar East | RACE`}
-        description={`Practical ${course.name} training at RACE Virar East. ${course.caseStudiesCount || 'Hands-on projects'}, 100% individual lab workstation, recognized certification, flexible batch timings, and flat 50% discount.`}
+        title={`${course.name} Course | RACE`}
+        description={`Practical ${course.name} training at RACE. ${course.caseStudiesCount || 'Hands-on projects'}, 100% individual lab workstation, recognized certification, flexible batch timings, and flat 50% discount.`}
         canonical={`/courses/${course.id}`}
       />
 
@@ -172,7 +172,7 @@ export default function CourseDetail() {
           </Link>
           <div className="flex items-center gap-2">
             <span className="bg-[#F5BE4F] text-[#111827] text-[10px] font-black px-2 py-0.5 rounded uppercase tracking-wider">
-              VIRAR EAST LAB
+              1:1 PRACTICAL LAB
             </span>
             <span className="text-slate-500 hidden sm:inline text-[11px] font-medium">
               Raut Arcade 202 · Opp. Station Subway
@@ -261,12 +261,12 @@ export default function CourseDetail() {
                 <div className="bg-white/5 backdrop-blur-md px-3.5 py-3 rounded-2xl border border-white/10 flex flex-col">
                   <div className="flex items-center gap-1.5 text-[#F5BE4F] mb-1">
                     <MapPin size={15} />
-                    <span className="text-[11px] font-bold text-slate-300 uppercase tracking-wide">Virar Advantage</span>
+                    <span className="text-[11px] font-bold text-slate-300 uppercase tracking-wide">Commute Advantage</span>
                   </div>
                   <strong className="text-base sm:text-lg font-black text-white">
-                    Zero Commute
+                    Zero Mumbai Travel
                   </strong>
-                  <span className="text-[11px] text-[#F5BE4F] mt-0.5">Opp. Virar Subway</span>
+                  <span className="text-[11px] text-[#F5BE4F] mt-0.5">Direct Station Access</span>
                 </div>
               </div>
 
@@ -310,13 +310,13 @@ export default function CourseDetail() {
                 <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden shadow-xs border border-slate-100">
                   <img
                     src={courseImage}
-                    alt={`${course.name} lab at RACE Virar`}
+                    alt={`${course.name} practical training at RACE`}
                     className="w-full h-full object-cover"
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent pointer-events-none" />
                   <span className="absolute bottom-2 left-2.5 text-[10px] font-bold text-white bg-black/65 backdrop-blur-xs px-2.5 py-0.5 rounded-md">
-                    RACE Virar East Lab Workstation
+                    Dedicated Lab Workstation
                   </span>
                 </div>
 
@@ -336,7 +336,7 @@ export default function CourseDetail() {
                   </div>
                   <p className="text-xs text-slate-600 mt-1 font-medium leading-relaxed">
                     {isCareer 
-                      ? 'Admissions Open: Includes FREE Basic Computer Course + 100% individual PC in Virar East!'
+                      ? 'Admissions Open: Includes FREE Basic Computer Course + 100% individual PC training!'
                       : 'Special student and professional discount for upcoming morning, ladies, and evening batches.'}
                   </p>
                 </div>
@@ -351,8 +351,8 @@ export default function CourseDetail() {
                     <strong className="font-bold text-[#C41E1E]">1 Student : 1 PC Guaranteed</strong>
                   </div>
                   <div className="flex items-center justify-between py-1 text-slate-700">
-                    <span className="font-medium text-slate-500">Institute Location:</span>
-                    <strong className="font-bold text-[#111827]">Virar East Station Subway</strong>
+                    <span className="font-medium text-slate-500">Campus Location:</span>
+                    <strong className="font-bold text-[#111827]">Opp. Railway Station Subway</strong>
                   </div>
                   <div className="flex items-center justify-between py-1 text-slate-700">
                     <span className="font-medium text-slate-500">Certification:</span>
@@ -362,7 +362,7 @@ export default function CourseDetail() {
 
                 <a
                   href={`${SITE_CONFIG.contact.whatsapp}?text=${encodeURIComponent(
-                    `Hello! I want to confirm batch timing, fees, and concession for ${course.name} at RACE Virar East.`
+                    `Hello! I want to confirm batch timing, fees, and concession for ${course.name} at RACE.`
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -545,7 +545,7 @@ export default function CourseDetail() {
                     Real-World Projects &amp; Live Case Studies
                   </h2>
                   <p className="text-xs sm:text-sm text-slate-600 mb-6 leading-relaxed">
-                    Employers do not hire based on book theory. At RACE Virar East, you build production-ready projects from scratch on your dedicated computer. Every project is formatted into a portfolio piece for your resume and technical interviews.
+                    Employers do not hire based on book theory. At RACE, you build production-ready projects from scratch on your dedicated computer. Every project is formatted into a portfolio piece for your resume and technical interviews.
                   </p>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -595,14 +595,14 @@ export default function CourseDetail() {
                           Want to inspect past student project demos?
                         </strong>
                         <span className="text-[11px] text-slate-500">
-                          Visit our Virar East lab or request live demo repositories on WhatsApp.
+                          Visit our lab or request live demo repositories on WhatsApp.
                         </span>
                       </div>
                     </div>
 
                     <a
                       href={`${SITE_CONFIG.contact.whatsapp}?text=${encodeURIComponent(
-                        `Hello! I want to see project demos and student assignments for ${course.name} at RACE Virar East.`
+                        `Hello! I want to see project demos and student assignments for ${course.name} at RACE.`
                       )}`}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -871,23 +871,23 @@ export default function CourseDetail() {
                 </div>
               )}
 
-              {/* ─── 6. WHY RACE VIRAR EAST VS MUMBAI COMMUTE ─── */}
+              {/* ─── 6. WHY RACE VS DISTANT MUMBAI COMMUTE ─── */}
               <div id="why-race" className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/90 shadow-sm scroll-mt-28">
                 <div className="flex items-center gap-2 mb-3">
                   <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 text-amber-900 text-xs font-bold uppercase tracking-wider border border-amber-200">
                     <MapPin size={13} className="text-[#C41E1E]" />
-                    Local Advantage
+                    Commute &amp; Learning Advantage
                   </span>
                   <span className="text-xs font-bold text-slate-500">
-                    Virar East vs Mumbai Institutes
+                    Smart Learning Choice
                   </span>
                 </div>
 
                 <h2 className="text-2xl sm:text-3xl font-black text-[#001752] mb-2">
-                  Why Study at RACE Virar East Instead of Traveling to Mumbai?
+                  Why Choose RACE Instead of Traveling to Distant Centers?
                 </h2>
                 <p className="text-xs sm:text-sm text-slate-600 mb-6 leading-relaxed">
-                  Students from Virar, Nalasopara, and Vasai often waste 3+ hours every single day traveling in crowded local trains to institutes in Andheri, Dadar, or Thane. Here is why studying locally right outside Virar Station gives you a massive advantage:
+                  Suburban students often waste 3+ hours every single day traveling in crowded local trains to institutes in Andheri, Dadar, or Thane. Here is why studying right beside the station gives you a massive advantage:
                 </p>
 
                 <div className="overflow-x-auto rounded-2xl border border-slate-200">
@@ -895,15 +895,15 @@ export default function CourseDetail() {
                     <thead>
                       <tr className="bg-slate-100 text-[#001752] font-black border-b border-slate-200">
                         <th className="p-3 sm:p-4">Key Factor</th>
-                        <th className="p-3 sm:p-4 bg-red-50 text-[#C41E1E]">RACE Virar East</th>
-                        <th className="p-3 sm:p-4 text-slate-500">Mumbai Institutes (Andheri/Dadar)</th>
+                        <th className="p-3 sm:p-4 bg-red-50 text-[#C41E1E]">RACE</th>
+                        <th className="p-3 sm:p-4 text-slate-500">Mumbai Centers (Andheri/Dadar)</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-slate-200 text-slate-600">
                       <tr>
                         <td className="p-3 sm:p-4 font-bold text-[#001752]">Daily Travel Time</td>
                         <td className="p-3 sm:p-4 bg-red-50/50 font-bold text-emerald-700">
-                          2-minute walk from Virar station subway (0 hrs train travel)
+                          2-minute walk from station subway (0 hrs travel fatigue)
                         </td>
                         <td className="p-3 sm:p-4 text-rose-600">
                           2.5 to 3.5 hours every day in packed local trains
@@ -1073,7 +1073,7 @@ export default function CourseDetail() {
                 <div className="pt-2 border-t border-slate-100 space-y-2.5">
                   <a
                     href={`${SITE_CONFIG.contact.whatsapp}?text=${encodeURIComponent(
-                      `Hello! I want to book a batch slot for ${course.name} at RACE Virar East.`
+                      `Hello! I want to book a batch slot for ${course.name} at RACE.`
                     )}`}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -1096,7 +1096,7 @@ export default function CourseDetail() {
                 <div className="pt-3 border-t border-slate-100 text-[11px] text-slate-500 flex items-start gap-2">
                   <MapPin size={14} className="text-[#C41E1E] shrink-0 mt-0.5" />
                   <span>
-                    <strong>Raut Arcade 202, 2nd Floor</strong>, Opposite Virar East Railway Station Subway. Just 2 mins walk.
+                    <strong>Raut Arcade 202, 2nd Floor</strong>, Opposite Railway Station Subway. Just 2 mins walk.
                   </span>
                 </div>
               </div>
@@ -1116,7 +1116,7 @@ export default function CourseDetail() {
                 Explore Alternative Career Pathways
               </span>
               <h2 className="text-2xl sm:text-3xl font-black text-[#001752] tracking-tight mt-1">
-                Other Career Programs at RACE Virar East
+                Other Career Programs at RACE
               </h2>
             </div>
             <Link
@@ -1192,8 +1192,8 @@ export default function CourseDetail() {
       {/* ─── CTA Band ─── */}
       <CtaBand
         eyebrow="Admissions Open · Raut Arcade 202"
-        title="Ready to Start Your Career & Project Journey?"
-        description="Visit Raut Arcade 202 opposite Virar East station subway. Get your free personalized counseling, hands-on lab demo, and special 50% concession."
+        title="Ready to Start Your Career &amp; Project Journey?"
+        description="Visit Raut Arcade 202 opposite the railway station subway. Get your free personalized counseling, hands-on lab demo, and special 50% concession."
       />
     </>
   );

@@ -16,7 +16,7 @@ const SLIDES: Slide[] = [
   {
     id: 1,
     image: '/images/real-lab-classroom.jpg',
-    badge: 'Raut Arcade Lab 202 · Virar East',
+    badge: 'Modern Computer Lab · Terminal 202',
     badgeColor: 'bg-[#F5BE4F] text-[#001752]',
     title: '100% Practical Machine Time for Every Learner',
     description: 'Every student learns directly on their own confirmed desktop workstation with uninterrupted power and high-speed internet. Zero screen sharing or theory-only lectures.',
@@ -58,7 +58,7 @@ const SLIDES: Slide[] = [
     badge: 'TallyPrime, Excel & Data Analytics',
     badgeColor: 'bg-[#001752] text-white',
     title: 'Live Business Data, Financial Reports & Chart Analysis',
-    description: 'Master live company accounts, GST return filing, MIS reports, dynamic charts, and automated Excel workbooks for immediate employability in Virar, Vasai, and Mumbai.',
+    description: 'Master live company accounts, GST return filing, MIS reports, dynamic charts, and automated Excel workbooks for immediate career employability.',
     stats: [
       { label: 'Curriculum', value: 'TallyPrime + Adv Excel' },
       { label: 'Target', value: 'Job & Business' },
@@ -68,10 +68,10 @@ const SLIDES: Slide[] = [
   {
     id: 5,
     image: '/images/real-lab-wide.jpg',
-    badge: 'Opposite Virar East Station Subway Exit',
+    badge: 'Direct Railway Station Access',
     badgeColor: 'bg-[#001752] text-white',
     title: 'Modern Lab Infrastructure · 5,000+ Alumni Since 2014',
-    description: 'High-speed broadband, uninterrupted power backup, ergonomic seating, and licensed software. Eliminate the exhausting 4-hour commute to South Mumbai.',
+    description: 'High-speed broadband, uninterrupted power backup, ergonomic seating, and licensed software. Eliminate exhausting travel to distant cities.',
     stats: [
       { label: 'Walk from Station', value: '2 Minutes Flat' },
       { label: 'Alumni Network', value: '5,000+ Trained' },

@@ -42,7 +42,7 @@ export default function FeaturedCourses() {
               Featured Job-Ready Courses
             </h2>
             <p className="text-sm sm:text-base text-[#4A5568] mt-1 max-w-xl">
-              High-demand practical skills for students, commerce graduates, and business owners in Virar.
+              High-demand practical skills for students, commerce graduates, and business owners.
             </p>
           </div>
 

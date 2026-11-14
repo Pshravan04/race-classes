@@ -26,8 +26,8 @@ export default function Footer() {
             </div>
 
             <p className="text-slate-300 text-xs leading-relaxed">
-              Virar East’s dedicated computer training institute. Offering 100% practical lab training,
-              industry certification, and personal mentoring right opposite Virar station.
+              Dedicated practical computer training institute offering 100% individual workstation time,
+              recognized certification, and personal mentoring right opposite the railway station subway.
             </p>
 
             <div className="flex items-center gap-2">

@@ -61,7 +61,7 @@ export default function CourseDrawer({ course, onClose }: CourseDrawerProps) {
                 {course.badge || (isCareer ? 'Career-Objective Course' : 'Short-Term Skill Module')}
               </span>
               <span className="text-[11px] font-bold text-[#F5BE4F]">
-                Virar East Branch
+                1 Student : 1 PC
               </span>
             </div>
 

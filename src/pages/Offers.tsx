@@ -22,15 +22,15 @@ export default function Offers() {
   return (
     <>
       <SEO
-        title="Current Offers & Concessions | RACE Virar East"
-        description="Save 50% on computer courses in Virar East! Get a FREE Basic Computer Course when you enroll in any career track. Limited seats at Raut Arcade, opposite Virar East station."
+        title="Current Offers & Concessions | RACE"
+        description="Save 50% on computer courses! Get a FREE Basic Computer Course when you enroll in any career track. Limited seats at Raut Arcade, opposite station subway."
         canonical="/offers"
       />
 
       <PageHero
         eyebrow="Special Concession Scheme"
         title={OFFERS_CONFIG.bannerHeadline}
-        description="We believe quality computer education should be affordable to every family in Virar East and Palghar district. Avail our limited-time subsidies below."
+        description="We believe quality computer education should be affordable to every family and student. Avail our limited-time subsidies below."
       />
 
       <section className="bg-[#F8F9FA] py-16 sm:py-20">
@@ -125,7 +125,7 @@ export default function Offers() {
             <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
               <a
                 href={`${SITE_CONFIG.contact.whatsapp}?text=${encodeURIComponent(
-                  `Hello! I want to claim the 50% discount and Free Basic Computer Course offer at RACE Virar East (Ticket Code: ${OFFERS_CONFIG.ticketCode}).`
+                  `Hello! I want to claim the 50% discount and Free Basic Computer Course offer at RACE (Ticket Code: ${OFFERS_CONFIG.ticketCode}).`
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
