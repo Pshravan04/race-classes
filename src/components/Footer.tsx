@@ -86,42 +86,47 @@ export default function Footer() {
           {/* Popular courses */}
           <div className="space-y-3">
             <h4 className="text-[11px] font-black uppercase tracking-wider text-[#F5BE4F]">
-              Popular Courses
+              Career &amp; Project Courses
             </h4>
             <ul className="space-y-2.5 text-xs text-slate-300">
               <li>
+                <Link to="/courses/data-science-and-ai" className="hover:text-white transition-colors">
+                  Data Science &amp; Analytics with AI
+                </Link>
+              </li>
+              <li>
+                <Link to="/courses/full-stack-developer-course" className="hover:text-white transition-colors">
+                  Full Stack Development
+                </Link>
+              </li>
+              <li>
+                <Link to="/courses/devops-with-aws-course" className="hover:text-white transition-colors">
+                  DevOps with AWS
+                </Link>
+              </li>
+              <li>
+                <Link to="/courses/digital-marketing-course" className="hover:text-white transition-colors">
+                  Digital Marketing with AI
+                </Link>
+              </li>
+              <li>
+                <Link to="/courses/cyber-security-ethical-hacking-with-ai-course" className="hover:text-white transition-colors">
+                  Cyber Security &amp; Ethical Hacking
+                </Link>
+              </li>
+              <li>
+                <Link to="/courses/software-testing-course" className="hover:text-white transition-colors">
+                  Software Testing with AI
+                </Link>
+              </li>
+              <li>
+                <Link to="/courses/investment-banking-course" className="hover:text-white transition-colors">
+                  Investment Banking with AI
+                </Link>
+              </li>
+              <li>
                 <Link to="/courses/advanced-tally-with-gst" className="hover:text-white transition-colors">
                   Advanced Tally with GST
-                </Link>
-              </li>
-              <li>
-                <Link to="/courses/typing-english-marathi" className="hover:text-white transition-colors">
-                  English &amp; Marathi Typing
-                </Link>
-              </li>
-              <li>
-                <Link to="/courses/ms-office" className="hover:text-white transition-colors">
-                  MS-Office (Word, Excel, PowerPoint)
-                </Link>
-              </li>
-              <li>
-                <Link to="/courses/web-and-app-development" className="hover:text-white transition-colors">
-                  Full-Stack Web &amp; App Development
-                </Link>
-              </li>
-              <li>
-                <Link to="/courses/digital-marketing" className="hover:text-white transition-colors">
-                  Digital Marketing &amp; SEO
-                </Link>
-              </li>
-              <li>
-                <Link to="/courses/ai-prompt-engineering" className="hover:text-white transition-colors">
-                  AI Prompt Engineering
-                </Link>
-              </li>
-              <li>
-                <Link to="/courses/ccc" className="hover:text-white transition-colors">
-                  CCC (Govt Exam Preparation)
                 </Link>
               </li>
             </ul>

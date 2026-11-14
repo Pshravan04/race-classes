@@ -18,14 +18,18 @@
   import CourseSlider from '../components/CourseSlider';
 import { COURSES, SITE_CONFIG, OFFERS_CONFIG } from '../data/config';
 
-// 6 featured courses for homepage preview — hand-picked across both types
+// Featured career & foundational courses for homepage preview
 const FEATURED_COURSE_IDS = [
+  'data-science-and-ai',
+  'full-stack-developer-course',
+  'devops-with-aws-course',
+  'digital-marketing-course',
+  'cyber-security-ethical-hacking-with-ai-course',
+  'software-testing-course',
+  'investment-banking-course',
   'advanced-tally-with-gst',
-  'software-development',
-  'ms-office',
   'graphic-designing',
   'basic-computer',
-  'ai-ml',
 ];
 
 const FILTER_TABS = [

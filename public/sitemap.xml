@@ -50,7 +50,16 @@
   <url><loc>https://racereddys.com/courses/hardware</loc><priority>0.7</priority></url>
   <url><loc>https://racereddys.com/courses/a-plus-and-n-plus</loc><priority>0.7</priority></url>
 
-  <!-- 11 Career-objective courses -->
+  <!-- Flagship Career & Project-Oriented Courses (ITVedant Tracks) -->
+  <url><loc>https://racereddys.com/courses/data-science-and-ai</loc><priority>0.9</priority></url>
+  <url><loc>https://racereddys.com/courses/full-stack-developer-course</loc><priority>0.9</priority></url>
+  <url><loc>https://racereddys.com/courses/devops-with-aws-course</loc><priority>0.9</priority></url>
+  <url><loc>https://racereddys.com/courses/digital-marketing-course</loc><priority>0.9</priority></url>
+  <url><loc>https://racereddys.com/courses/investment-banking-course</loc><priority>0.9</priority></url>
+  <url><loc>https://racereddys.com/courses/software-testing-course</loc><priority>0.9</priority></url>
+  <url><loc>https://racereddys.com/courses/cyber-security-ethical-hacking-with-ai-course</loc><priority>0.9</priority></url>
+
+  <!-- Career-objective and Specialized Diplomas -->
   <url><loc>https://racereddys.com/courses/software-development</loc><priority>0.8</priority></url>
   <url><loc>https://racereddys.com/courses/dfa</loc><priority>0.8</priority></url>
   <url><loc>https://racereddys.com/courses/animation</loc><priority>0.7</priority></url>

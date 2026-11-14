@@ -147,6 +147,19 @@ export const BATCHES_SCHEDULE: BatchSlot[] = [
 export type CourseType = 'short-term' | 'career';
 export type CourseGoal = 'job' | 'business' | 'skill' | 'kids';
 
+export interface CourseProject {
+  title: string;
+  desc: string;
+  tech: string;
+  category?: string;
+}
+
+export interface CourseModule {
+  title: string;
+  duration?: string;
+  topics: string[];
+}
+
 export interface Course {
   id: string;
   name: string;
@@ -159,6 +172,20 @@ export interface Course {
   mode: string;
   certificate: string;
   whatsappMessage: string;
+
+  // Career & Project-Oriented Enhancements (ITVedant Pattern)
+  badge?: string;
+  rating?: string;
+  reviewsCount?: string;
+  hours?: string;
+  caseStudiesCount?: string;
+  tools?: string[];
+  projects?: CourseProject[];
+  modules?: CourseModule[];
+  careerRoles?: string[];
+  avgSalary?: string;
+  highlights?: string[];
+  aliases?: string[];
 }
 
 // Exactly 23 distinct courses from prompt:
@@ -407,226 +434,1009 @@ export const COURSES: Course[] = [
     whatsappMessage: 'Hello! I want to enquire about the A+ and N+ course at RACE Virar East. Please share batch timings and fee details.',
   },
 
-  // ─── CAREER-OBJECTIVE COURSES (11) ───
+  // ─── FLAGSHIP CAREER & PROJECT-ORIENTED PROGRAMS (ITVedant Style) ───
   {
-    id: 'software-development',
-    name: 'Software Development',
+    id: 'data-science-and-ai',
+    aliases: ['data-science', 'ai-ml'],
+    name: 'Data Science & Analytics with AI',
     type: 'career',
-    goals: ['job'],
-    shortDesc: 'Comprehensive coding career track covering core programming logic, algorithms, OOP, database design, and real-world project builds.',
-    whoFor: 'BCA, BSc IT, engineering students, graduates, and career switchers wanting software developer jobs.',
-    topics: [
-      'Programming fundamentals: Variables, data types, control flow, loops, functions',
-      'Object-Oriented Programming (OOP): Classes, inheritance, polymorphism, encapsulation',
-      'Data Structures & Algorithms: Arrays, lists, stacks, queues, searching & sorting',
-      'Relational Database Management with SQL (MySQL / PostgreSQL)',
-      'Git version control, GitHub repositories, and collaborative branching workflows',
-      'Building a complete end-to-end capstone software application',
+    badge: "Master's Career Program · AI Integrated",
+    goals: ['job', 'skill'],
+    rating: '4.9/5',
+    reviewsCount: '5,200+ Alumni',
+    durationPlaceholder: '6 Months (280+ Live Session Hours)',
+    hours: '280+ Practical Lab Hours',
+    caseStudiesCount: '30+ Industry Case Studies & Projects',
+    avgSalary: '₹4.5 LPA – ₹9.5 LPA',
+    shortDesc: 'Master Python, SQL, Power BI, Advanced Machine Learning, Deep Learning, and Generative AI. Work on 30+ live business case studies with 100% practical lab training at Virar East.',
+    whoFor: 'Graduates, Engineers, Commerce/Arts students, IT and non-IT professionals looking to transition into high-growth Data Science, BI, and AI engineering roles.',
+    tools: [
+      'Python', 'SQL', 'Power BI', 'Tableau', 'Advanced Excel', 'Pandas', 'NumPy',
+      'Scikit-Learn', 'Matplotlib', 'Seaborn', 'Apache Spark', 'Hadoop', 'ChatGPT', 'TensorFlow'
     ],
-    durationPlaceholder: '4 to 6 Months',
+    highlights: [
+      '30+ Live Industry Case Studies',
+      '10+ Modern Data & AI Tools Mastered',
+      '1:1 Dedicated Desktop Workstation at Virar East',
+      'Dual Recognized Certification (ISO 9001:2015 & Course Diploma)',
+      '100% Interview Prep, Resume Building & Mock Rounds',
+      'Zero Mumbai Commute — Right Outside Virar Station'
+    ],
+    projects: [
+      {
+        title: 'Global E-Commerce Sales BI Dashboard',
+        desc: 'Constructed an interactive multi-page Power BI dashboard connected to live SQL relational databases to visualize customer retention, SKU margins, and regional sales velocity.',
+        tech: 'Power BI, SQL, Advanced Excel'
+      },
+      {
+        title: 'Predictive Customer Churn Classifier',
+        desc: 'Engineered an end-to-end Machine Learning classification pipeline using Pandas, NumPy, and Scikit-Learn to forecast customer churn with 89% precision.',
+        tech: 'Python, Scikit-Learn, Pandas'
+      },
+      {
+        title: 'Healthcare Diagnostics Classification AI',
+        desc: 'Implemented deep learning neural networks and computer vision to automate medical diagnostic pattern recognition and structured report categorisation.',
+        tech: 'Python, TensorFlow, Deep Learning'
+      },
+      {
+        title: 'Big Data Streaming Pipeline',
+        desc: 'Configured high-volume distributed data processing with Apache Spark and Hadoop for real-time financial market analytics and transaction fraud detection.',
+        tech: 'Apache Spark, Hadoop, PySpark'
+      }
+    ],
+    modules: [
+      {
+        title: 'Module 1: Python for Data Science & SQL Architecture',
+        duration: '60 Hours',
+        topics: [
+          'Python syntax, data types, loops, functions, and Object-Oriented Programming (OOP)',
+          'Data manipulation with NumPy arrays and multi-dimensional indexing',
+          'Relational database architecture: SQL queries, joins, aggregations, subqueries, and window functions',
+          'Database schema design, normalization, and connecting Python with live SQL databases'
+        ]
+      },
+      {
+        title: 'Module 2: Exploratory Data Analysis & Business Intelligence (Power BI & Tableau)',
+        duration: '55 Hours',
+        topics: [
+          'Advanced Excel: Pivot tables, VLOOKUP/XLOOKUP, and business financial modelling',
+          'Power BI: DAX formulas, interactive relationship models, KPI cards, and custom reporting',
+          'Tableau visual storytelling, dynamic filters, and executive dashboard delivery',
+          'Data visualization aesthetics using Matplotlib, Seaborn, and statistical heatmaps'
+        ]
+      },
+      {
+        title: 'Module 3: Machine Learning & Predictive Modeling',
+        duration: '65 Hours',
+        topics: [
+          'Supervised Learning: Linear Regression, Logistic Regression, Decision Trees, Random Forests, XGBoost',
+          'Unsupervised Learning: K-Means clustering, hierarchical clustering, and PCA dimensionality reduction',
+          'Model evaluation metrics: Confusion matrix, Precision, Recall, F1 Score, and ROC-AUC curves',
+          'Hyperparameter tuning, cross-validation, and pipeline building with Scikit-Learn'
+        ]
+      },
+      {
+        title: 'Module 4: Deep Learning, NLP & Generative AI',
+        duration: '50 Hours',
+        topics: [
+          'Neural network foundations: Perceptrons, activation functions, backpropagation, and loss functions',
+          'Natural Language Processing (NLP): Tokenization, TF-IDF, sentiment analysis, and word embeddings',
+          'Generative AI workflows: Prompt engineering, LLM fine-tuning concepts, and integrating OpenAI/Claude APIs',
+          'Computer vision fundamentals and image classification using convolutional layers'
+        ]
+      },
+      {
+        title: 'Module 5: Big Data Engineering & Capstone Portfolio',
+        duration: '50 Hours',
+        topics: [
+          'Introduction to Big Data ecosystems: Hadoop distributed architecture and HDFS',
+          'PySpark distributed processing, DataFrame transformations, and Spark SQL',
+          'Building end-to-end industry capstone projects with full documentation and GitHub hosting',
+          'Technical mock interviews, corporate resume structuring, and recruiter showcase preparation'
+        ]
+      }
+    ],
+    careerRoles: [
+      'Data Scientist', 'Data Analyst', 'Business Intelligence (BI) Analyst',
+      'Machine Learning Associate', 'AI Data Specialist', 'Python Data Engineer'
+    ],
+    topics: [
+      'Python programming, NumPy arrays, Pandas DataFrames & statistical analysis',
+      'SQL querying, database joins, window functions, and schema architecture',
+      'Power BI DAX formulas, interactive KPI dashboards, and Tableau visual storytelling',
+      'Supervised & Unsupervised Machine Learning (Regression, Classification, Clustering)',
+      'Deep Learning, Neural Networks, NLP text processing, and Generative AI workflows',
+      'Big Data processing with Apache Spark, Hadoop, and portfolio capstone builds'
+    ],
     mode: '100% In-Person Practical Lab (Virar East)',
-    certificate: 'Diploma in Software Development & Engineering Foundations',
-    whatsappMessage: 'Hello! I want to enquire about the Software Development career course at RACE Virar East. Please share syllabus, fees, and batch details.',
+    certificate: 'Master Diploma in Data Science & Analytics with AI',
+    whatsappMessage: 'Hello! I want to enquire about the Data Science & Analytics with AI career course at RACE Virar East. Please share syllabus, fees, and batch details.'
+  },
+  {
+    id: 'full-stack-developer-course',
+    aliases: ['software-development', 'web-and-app-development'],
+    name: 'Full Stack Development',
+    type: 'career',
+    badge: 'Master Software Engineering Track',
+    goals: ['job', 'skill'],
+    rating: '4.9/5',
+    reviewsCount: '6,400+ Alumni',
+    durationPlaceholder: '6 Months (300+ Live Lab Hours)',
+    hours: '300+ Practical Lab Hours',
+    caseStudiesCount: '30+ Web Projects & Case Studies',
+    avgSalary: '₹4.2 LPA – ₹9.0 LPA',
+    shortDesc: 'Project-First Full Stack software development covering Modern JavaScript, React.js, Node.js, Express, MongoDB, SQL, and Cloud Deployment. Build real web apps from scratch.',
+    whoFor: 'Aspiring software engineers, college students (BCA, BSc IT, BE, BTech), career changers from non-coding fields, and self-taught coders wanting job-ready portfolio projects.',
+    tools: [
+      'HTML5', 'CSS3', 'JavaScript (ES6+)', 'React.js', 'Node.js', 'Express.js',
+      'MongoDB', 'MySQL', 'Git & GitHub', 'Postman', 'TailwindCSS', 'Redux Toolkit', 'Docker', 'REST APIs'
+    ],
+    highlights: [
+      '30+ Industry Web Projects & Case Studies',
+      'Production-Grade MERN Architecture',
+      '100% In-Person Coding at Station Lab',
+      'GitHub Portfolio & Clean Code Reviews',
+      'Technical Interview Question Bank',
+      'Placement Drives Across Mumbai MMR'
+    ],
+    projects: [
+      {
+        title: 'BiteBox - Full Stack Food Ordering Application',
+        desc: 'Developed a production-ready food delivery portal with dynamic menu filtering, cart state management with Redux, and user authentication.',
+        tech: 'React.js, Node.js, Express, MongoDB, TailwindCSS'
+      },
+      {
+        title: 'DevConnect - Tech Professional Network',
+        desc: 'Engineered a LinkedIn-style networking portal featuring developer portfolios, post feeds, comments, and real-time MongoDB database syncing.',
+        tech: 'MERN Stack, JWT Auth, REST APIs'
+      },
+      {
+        title: 'StreamHub - Live Video & Interactive Community',
+        desc: 'Created a responsive video streaming and content delivery web platform using React, Node.js microservices, and third-party media APIs.',
+        tech: 'React.js, Node.js, Cloud Storage'
+      },
+      {
+        title: 'Secure PayGate - Payment Gateway Integration',
+        desc: 'Implemented end-to-end checkout with Razorpay/Stripe API, JWT token validation, order tracking, and automated PDF invoice generation.',
+        tech: 'Node.js, Express, Stripe/Razorpay API'
+      }
+    ],
+    modules: [
+      {
+        title: 'Module 1: Web Foundations & Responsive UI Engineering',
+        duration: '50 Hours',
+        topics: [
+          'Semantic HTML5, CSS3, Flexbox, CSS Grid, and TailwindCSS utility-first layout',
+          'Mobile-first responsive design, accessibility (WCAG), and modern UI patterns',
+          'CSS animations, micro-interactions, and component-level visual styling',
+          'Git version control, local repos, commits, and pushing code to GitHub'
+        ]
+      },
+      {
+        title: 'Module 2: Core & Advanced JavaScript (ES6+)',
+        duration: '60 Hours',
+        topics: [
+          'Asynchronous programming, Promises, Async/Await, and Fetch API',
+          'DOM manipulation, event bubbling, event delegation, and browser storage (LocalStorage)',
+          'Closures, prototypes, lexical scope, execution context, and the JavaScript Event Loop',
+          'Modular JavaScript, ES modules, npm package management, and Vite tooling'
+        ]
+      },
+      {
+        title: 'Module 3: Frontend Mastery with React.js & Redux',
+        duration: '70 Hours',
+        topics: [
+          'React component hierarchy, JSX syntax, props, and unidirectional data flow',
+          'React Hooks: useState, useEffect, useRef, useMemo, useCallback, and custom hooks',
+          'Client-side routing with React Router, nested routes, and route protection',
+          'Global state management with Redux Toolkit and asynchronous data fetching'
+        ]
+      },
+      {
+        title: 'Module 4: Backend Engineering with Node.js & Express',
+        duration: '60 Hours',
+        topics: [
+          'Node.js runtime architecture, event-driven I/O, and file system operations',
+          'Express.js server setup, routing, middleware chaining, and error handling',
+          'RESTful API architecture, HTTP status codes, request validation, and Postman testing',
+          'User authentication: JWT tokens, bcrypt password hashing, and cookie sessions'
+        ]
+      },
+      {
+        title: 'Module 5: Database Engineering, Docker & Cloud Deployment',
+        duration: '60 Hours',
+        topics: [
+          'MongoDB schema modelling with Mongoose ODM, validation, and aggregation pipelines',
+          'Relational database design with MySQL: Joins, indexing, and foreign key relations',
+          'Docker containerization basics, environment variable configuration, and security practices',
+          'Cloud deployment on Render, Vercel, or AWS, custom domains, and portfolio hosting'
+        ]
+      }
+    ],
+    careerRoles: [
+      'Full Stack Developer', 'React Frontend Developer', 'Node.js Backend Developer',
+      'Software Engineer', 'MERN Stack Developer', 'Web Application Engineer'
+    ],
+    topics: [
+      'HTML5, modern CSS3, responsive layouts, and TailwindCSS design systems',
+      'Deep dive into JavaScript (ES6+), asynchronous programming & DOM architecture',
+      'React.js SPA development, hooks, state management, and Redux Toolkit',
+      'Backend REST API engineering using Node.js, Express, and security middleware',
+      'NoSQL (MongoDB) and Relational (MySQL) database design and queries',
+      'Git workflows, Docker containerization, cloud deployment, and portfolio builds'
+    ],
+    mode: '100% In-Person Practical Lab (Virar East)',
+    certificate: 'Master Diploma in Full Stack Software Development',
+    whatsappMessage: 'Hello! I want to enquire about the Full Stack Development career course at RACE Virar East. Please share syllabus, fees, and batch details.'
+  },
+  {
+    id: 'devops-with-aws-course',
+    name: 'DevOps with AWS',
+    type: 'career',
+    badge: 'Cloud Architecture & Automation Track',
+    goals: ['job', 'skill'],
+    rating: '4.9/5',
+    reviewsCount: '3,800+ Alumni',
+    durationPlaceholder: '5 to 6 Months (240+ Live Lab Hours)',
+    hours: '240+ Practical Lab Hours',
+    caseStudiesCount: '12+ Enterprise CI/CD & Cloud Deployments',
+    avgSalary: '₹5.0 LPA – ₹11.0 LPA',
+    shortDesc: 'Master Linux administration, AWS Cloud services, CI/CD pipelines with Jenkins & GitHub Actions, Docker containerization, Kubernetes orchestration, and Terraform Infrastructure as Code.',
+    whoFor: 'IT support engineers, system administrators, software developers, and engineering graduates wanting to enter high-paying cloud and infrastructure automation roles.',
+    tools: [
+      'AWS (EC2, S3, VPC, EKS)', 'Linux / Bash', 'Git & GitHub', 'Docker', 'Kubernetes',
+      'Jenkins', 'GitHub Actions', 'Terraform', 'Ansible', 'Prometheus', 'Grafana', 'Maven'
+    ],
+    highlights: [
+      '12+ Enterprise Deployment Labs',
+      'AWS Certified Curriculum Pattern',
+      'Hands-On Terminal Machine at Virar East Lab',
+      'Production Cloud Infrastructure Case Studies',
+      'DevOps Resume & Scenario Mock Interviews',
+      'Direct Train Station Access for Working Professionals'
+    ],
+    projects: [
+      {
+        title: 'CloudScale - Automated Multi-Tier AWS Infrastructure',
+        desc: 'Scripted complete multi-region VPC networking, private subnets, auto-scaling groups, and Application Load Balancers using Terraform Infrastructure as Code (IaC).',
+        tech: 'Terraform, AWS VPC, EC2, ALB'
+      },
+      {
+        title: 'ShipFast - Zero-Downtime Automated CI/CD Pipeline',
+        desc: 'Built automated Jenkins pipeline triggering automated testing, Docker image creation, security scanning, and container registry publishing.',
+        tech: 'Jenkins, Docker, GitHub Actions, Maven'
+      },
+      {
+        title: 'KubeGrid - Enterprise Microservices on AWS EKS',
+        desc: 'Deployed scalable microservices on Kubernetes with automated rolling updates, pod horizontal auto-scaling (HPA), and ingress controllers.',
+        tech: 'Kubernetes, AWS EKS, Kubectl, Docker'
+      },
+      {
+        title: 'ObservaMetrics - Real-Time Observability Dashboard',
+        desc: 'Configured Prometheus metrics scraping and Grafana dashboards for cluster health, server resource utilization, and proactive Slack alerts.',
+        tech: 'Prometheus, Grafana, AWS CloudWatch'
+      }
+    ],
+    modules: [
+      {
+        title: 'Module 1: Linux Administration & Shell Scripting',
+        duration: '40 Hours',
+        topics: [
+          'Linux directory hierarchy, user permissions, process management, and package systems',
+          'Networking commands, ports, DNS lookup, SSH key configuration, and firewall rules',
+          'Automated Bash scripting, cron job scheduling, and server health check scripts'
+        ]
+      },
+      {
+        title: 'Module 2: Core AWS Cloud Architecture',
+        duration: '55 Hours',
+        topics: [
+          'AWS global infrastructure, regions, availability zones, and IAM security governance',
+          'VPC networking: Public/private subnets, NAT Gateways, Route Tables, and Security Groups',
+          'Compute & Storage: EC2 instance lifecycle, EBS volumes, S3 buckets, and lifecycle policies',
+          'High Availability: Auto-scaling groups, Elastic Load Balancers (ALB/NLB), and Route 53 DNS'
+        ]
+      },
+      {
+        title: 'Module 3: Continuous Integration & Continuous Deployment (CI/CD)',
+        duration: '50 Hours',
+        topics: [
+          'Git collaborative branching models (GitFlow, feature branches, pull requests)',
+          'Jenkins master-slave architecture, declarative pipelines, and webhook triggers',
+          'Automated testing integration, Maven builds, and GitHub Actions CI workflows'
+        ]
+      },
+      {
+        title: 'Module 4: Containerization & Kubernetes Orchestration',
+        duration: '55 Hours',
+        topics: [
+          'Docker architecture: Images, containers, multi-stage Dockerfiles, and Docker Compose',
+          'Container networking, storage volumes, and publishing images to Amazon ECR',
+          'Kubernetes core concepts: Pods, Deployments, ReplicaSets, Services, and ConfigMaps',
+          'Deploying and managing production workloads on AWS Elastic Kubernetes Service (EKS)'
+        ]
+      },
+      {
+        title: 'Module 5: Infrastructure as Code (Terraform) & Monitoring',
+        duration: '40 Hours',
+        topics: [
+          'Terraform HCL syntax, state management, providers, modules, and plan/apply workflows',
+          'Ansible playbooks for automated configuration management and server hardening',
+          'Observability setup: Prometheus metrics, node exporters, and custom Grafana dashboards'
+        ]
+      }
+    ],
+    careerRoles: [
+      'DevOps Engineer', 'Cloud Engineer (AWS)', 'Site Reliability Engineer (SRE)',
+      'Build & Release Engineer', 'Infrastructure Automation Engineer', 'Cloud Operations Associate'
+    ],
+    topics: [
+      'Linux system administration, shell scripting, and server security hardening',
+      'AWS Cloud computing: VPC networking, EC2, S3, IAM, and High-Availability design',
+      'CI/CD pipeline automation using Jenkins, Maven, and GitHub Actions',
+      'Containerization with Docker and multi-container apps with Docker Compose',
+      'Cluster orchestration with Kubernetes and AWS Elastic Kubernetes Service (EKS)',
+      'Infrastructure as Code (Terraform) and Prometheus/Grafana monitoring'
+    ],
+    mode: '100% In-Person Practical Lab (Virar East)',
+    certificate: 'Master Diploma in DevOps & AWS Cloud Engineering',
+    whatsappMessage: 'Hello! I want to enquire about the DevOps with AWS career course at RACE Virar East. Please share syllabus, fees, and batch details.'
+  },
+  {
+    id: 'digital-marketing-course',
+    aliases: ['digital-marketing'],
+    name: 'Digital Marketing with AI',
+    type: 'career',
+    badge: 'Performance Marketing & AI Growth Track',
+    goals: ['job', 'business', 'skill'],
+    rating: '4.8/5',
+    reviewsCount: '4,700+ Alumni',
+    durationPlaceholder: '4 to 5 Months (200+ Live Lab Hours)',
+    hours: '200+ Practical Lab Hours',
+    caseStudiesCount: '15+ Live Brand Campaigns & Portfolios',
+    avgSalary: '₹3.5 LPA – ₹7.5 LPA',
+    shortDesc: 'Learn data-driven marketing: SEO, Google Ads (Search & Display), Meta Ads Manager, Content Marketing, WordPress Website creation, GA4 Analytics, and Generative AI marketing workflows.',
+    whoFor: 'Job seekers, creative graduates, business owners, freelancers, and entrepreneurs who want to generate leads, scale brand visibility, and master corporate digital campaigns.',
+    tools: [
+      'Google Ads', 'Meta Ads Manager', 'Google Analytics 4 (GA4)', 'Google Search Console',
+      'WordPress', 'Elementor', 'Canva Pro', 'ChatGPT / Gemini', 'Mailchimp', 'SEMrush', 'YouTube Studio'
+    ],
+    highlights: [
+      '15+ Live Brand Case Studies',
+      'Manage Real Advertising Budgets',
+      'Live WordPress Digital Hub Creation',
+      'Google & Meta Certified Guidance',
+      'Generative AI for Copywriting & Art',
+      '100% Placement & Agency Connections'
+    ],
+    projects: [
+      {
+        title: 'Live Brand Digital Web Presence',
+        desc: 'Designed and deployed a live commercial WordPress website using Elementor with on-page SEO, speed optimization, and lead capture forms.',
+        tech: 'WordPress, Elementor, Technical SEO'
+      },
+      {
+        title: 'High-Conversion Google Search & PPC Campaign',
+        desc: 'Built keyword clusters, ad copy variants, negative keyword lists, and bidding strategies with conversion tracking.',
+        tech: 'Google Ads, Search Console, GA4'
+      },
+      {
+        title: 'Meta Multi-Stage Social Acquisition Funnel',
+        desc: 'Formulated awareness, engagement, and retargeting custom audience funnels on Facebook and Instagram Ads Manager.',
+        tech: 'Meta Ads Manager, Custom Audiences, Pixel'
+      },
+      {
+        title: 'AI Content & Organic Search Growth Strategy',
+        desc: 'Executed an end-to-end organic ranking strategy leveraging AI tools for topic research, content drafting, backlink audits, and GA4 tracking.',
+        tech: 'ChatGPT, SEMrush, Google Analytics 4'
+      }
+    ],
+    modules: [
+      {
+        title: 'Module 1: Digital Strategy & WordPress Website Design',
+        duration: '40 Hours',
+        topics: [
+          'Domain and hosting setup, DNS records, SSL installation, and WordPress dashboard',
+          'Elementor visual page builder, mobile responsive design, and conversion-optimized landing pages',
+          'Lead capture forms, WhatsApp chat integration, and call-to-action placement'
+        ]
+      },
+      {
+        title: 'Module 2: Search Engine Optimization (SEO)',
+        duration: '45 Hours',
+        topics: [
+          'Keyword research frameworks, search intent, search volume analysis, and competitor gap audits',
+          'On-Page SEO: Title tags, meta descriptions, heading structures, image alt tags, and internal linking',
+          'Technical SEO: Core Web Vitals, XML sitemaps, robots.txt, schema markup, and crawlability',
+          'Off-Page SEO: High-authority backlinks, guest posting, and local Google Business Profile ranking'
+        ]
+      },
+      {
+        title: 'Module 3: Performance Marketing (Google Ads & PPC)',
+        duration: '45 Hours',
+        topics: [
+          'Google Search campaigns: Match types, negative keywords, Quality Score, and Ad Rank mechanics',
+          'Display Network, YouTube video ads, Performance Max campaigns, and remarketing lists',
+          'Conversion tracking setup via Google Tag Manager and budget bidding optimization'
+        ]
+      },
+      {
+        title: 'Module 4: Social Media Strategy & Meta Paid Ads',
+        duration: '40 Hours',
+        topics: [
+          'Organic brand building on Instagram, LinkedIn, and YouTube with content calendars',
+          'Meta Business Suite, Meta Pixel installation, Standard Events, and custom conversion events',
+          'Building cold, warm, and hot retargeting audiences with Lookalike models'
+        ]
+      },
+      {
+        title: 'Module 5: Generative AI for Marketers & Web Analytics (GA4)',
+        duration: '30 Hours',
+        topics: [
+          'ChatGPT prompt engineering for ad headlines, social posts, video scripts, and marketing emails',
+          'Canva Pro design workflows for high-CTR ad creatives and social carousels',
+          'Google Analytics 4 (GA4): User journeys, event tracking, custom funnels, and executive ROI reports'
+        ]
+      }
+    ],
+    careerRoles: [
+      'Digital Marketing Executive', 'Performance Marketing Specialist', 'SEO Specialist',
+      'Social Media Manager', 'PPC & Google Ads Expert', 'Freelance Digital Marketer'
+    ],
+    topics: [
+      'WordPress website design, Elementor layouts, and high-converting landing pages',
+      'Complete Search Engine Optimization (On-Page, Technical, Off-Page & Local SEO)',
+      'Google Ads search, display, and video campaigns with conversion tracking',
+      'Meta Ads Manager (Facebook & Instagram) funnel targeting and custom audiences',
+      'Social media content creation, copywriting, and email marketing automation',
+      'Google Analytics 4 (GA4) traffic attribution, reporting, and Generative AI tools'
+    ],
+    mode: '100% In-Person Practical Lab (Virar East)',
+    certificate: 'Master Diploma in Digital Marketing & Performance AI',
+    whatsappMessage: 'Hello! I want to enquire about the Digital Marketing with AI career course at RACE Virar East. Please share syllabus, fees, and batch details.'
+  },
+  {
+    id: 'investment-banking-course',
+    name: 'Investment Banking with AI',
+    type: 'career',
+    badge: 'Financial Modeling & Corporate Advisory Track',
+    goals: ['job', 'business'],
+    rating: '4.9/5',
+    reviewsCount: '2,600+ Alumni',
+    durationPlaceholder: '4 to 6 Months (220+ Live Lab Hours)',
+    hours: '220+ Practical Lab Hours',
+    caseStudiesCount: '12+ Wall Street & Dalal Street Case Studies',
+    avgSalary: '₹4.5 LPA – ₹9.0 LPA',
+    shortDesc: 'Master Financial Statement Analysis, Advanced Excel Financial Modeling, Business Valuation (DCF, Comps, LBO), M&A deal structuring, Equity Research, and AI-assisted financial analytics.',
+    whoFor: 'Commerce (B.Com, BAF, BBI, BFM), MBA Finance students, chartered accountant aspirants, and finance professionals aiming for investment banks and global MNC analytical hubs.',
+    tools: [
+      'Advanced MS Excel', 'Power BI for Finance', 'Python for Finance', 'ChatGPT & Claude for Finance',
+      'Bloomberg / NSE Market Data', 'Canva for Pitch Books', 'Financial Data APIs'
+    ],
+    highlights: [
+      '12+ Real Corporate Case Studies & Deal Simulations',
+      'Dynamic Financial Modeling in Excel & Power BI',
+      'Valuation Frameworks: DCF, Comps, LBO & Precedent Deals',
+      'AI-Powered Equity Research & Financial Summarization',
+      'Direct Railway Subway Proximity at Virar East',
+      'Mock Technical Finance Interviews with Corporate Mentors'
+    ],
+    projects: [
+      {
+        title: 'MarketLens - Global Capital Markets Analysis',
+        desc: 'Simulated real-time equity and derivatives research using NSE/BSE corporate filings, trade life cycles, and macroeconomic indicators.',
+        tech: 'Power BI, Advanced Excel, NSE Data'
+      },
+      {
+        title: 'YieldCraft - Fixed Income & Bond Portfolio Optimization',
+        desc: 'Evaluated yield curves, bond duration, credit risk spreads, and debt instrument pricing across varied interest rate regimes.',
+        tech: 'Financial Modeling, Excel, Bond Yield Models'
+      },
+      {
+        title: 'FinModel Pro - Integrated 3-Statement Dynamic Model',
+        desc: 'Built dynamic financial statement linkages (Income Statement, Balance Sheet, Cash Flow) with debt schedules, working capital, and scenario toggles.',
+        tech: 'Advanced Excel, Dynamic Financial Formulas'
+      },
+      {
+        title: 'DealCraft - Mergers & Acquisitions (M&A) Pitch Book',
+        desc: 'Drafted a professional 15-page acquisition pitch book including DCF valuation, accretion/dilution analysis, and executive investment memo.',
+        tech: 'DCF Valuation, WACC, Pitch Book Design'
+      }
+    ],
+    modules: [
+      {
+        title: 'Module 1: Corporate Finance & Financial Statement Analysis',
+        duration: '40 Hours',
+        topics: [
+          'Reading and interpreting annual reports (10-K, P&L, Balance Sheet, Cash Flow)',
+          'Financial ratio analysis: Liquidity, solvency, profitability, and operational efficiency ratios',
+          'Working capital cycle dynamics, debt covenants, and capital structure optimization'
+        ]
+      },
+      {
+        title: 'Module 2: Advanced Financial Modeling in Excel',
+        duration: '50 Hours',
+        topics: [
+          'Advanced Excel for finance: Dynamic arrays, XLOOKUP, INDEX/MATCH, INDIRECT, and OFFSET',
+          'Designing integrated 3-statement models from blank spreadsheets with dynamic formulas',
+          'Scenario managers, data tables, sensitivity analysis, and debt amortization schedules'
+        ]
+      },
+      {
+        title: 'Module 3: Core Business Valuation Methodologies',
+        duration: '50 Hours',
+        topics: [
+          'Discounted Cash Flow (DCF): Unlevered free cash flows, WACC calculation, terminal value (Gordon Growth & Exit Multiple)',
+          'Comparable Company Analysis (Trading Comps): EV/EBITDA, P/E, EV/Sales benchmarking',
+          'Precedent Transaction Analysis (Deal Comps) and Leveraged Buyout (LBO) fundamentals'
+        ]
+      },
+      {
+        title: 'Module 4: Mergers, Acquisitions (M&A) & IPO Transactions',
+        duration: '45 Hours',
+        topics: [
+          'M&A transaction lifecycle: Deal origination, strategic rationale, due diligence, and synergy estimation',
+          'Accretion/Dilution modeling, stock vs cash transaction impact on EPS',
+          'Initial Public Offering (IPO) structuring, DRHP filings, underwriting, and book-building processes',
+          'Creating multi-slide pitch books and confidential information memorandums (CIM)'
+        ]
+      },
+      {
+        title: 'Module 5: AI-Driven Equity Research & Market Analytics',
+        duration: '35 Hours',
+        topics: [
+          'Using Generative AI (ChatGPT, Claude) for earnings call transcript parsing and sentiment scoring',
+          'Building interactive executive financial dashboards using Power BI',
+          'Writing professional initiation of coverage equity research reports and valuation summaries'
+        ]
+      }
+    ],
+    careerRoles: [
+      'Investment Banking Analyst', 'Financial Modeler', 'Equity Research Associate',
+      'Corporate Finance Analyst', 'M&A Advisory Analyst', 'Valuation Consultant'
+    ],
+    topics: [
+      'Financial statement analysis, corporate finance fundamentals, and cash flow health',
+      'Dynamic 3-statement financial modeling from scratch in Microsoft Excel',
+      'Business valuation frameworks: Discounted Cash Flow (DCF), WACC, Trading Comps, LBO',
+      'Mergers & Acquisitions (M&A) advisory, synergy estimation, and IPO deal structuring',
+      'Equity research report authoring, pitch book design, and investment memos',
+      'AI-powered financial analytics and Power BI corporate reporting dashboards'
+    ],
+    mode: '100% In-Person Practical Lab (Virar East)',
+    certificate: 'Master Diploma in Investment Banking & Financial Modeling with AI',
+    whatsappMessage: 'Hello! I want to enquire about the Investment Banking with AI career course at RACE Virar East. Please share syllabus, fees, and batch details.'
+  },
+  {
+    id: 'software-testing-course',
+    name: 'Software Testing With AI',
+    type: 'career',
+    badge: 'Quality Assurance & Automation Engineering Track',
+    goals: ['job', 'skill'],
+    rating: '4.8/5',
+    reviewsCount: '3,900+ Alumni',
+    durationPlaceholder: '4 Months (180+ Live Lab Hours)',
+    hours: '180+ Practical Lab Hours',
+    caseStudiesCount: '10+ Live Enterprise QA Case Studies',
+    avgSalary: '₹3.5 LPA – ₹6.5 LPA',
+    shortDesc: 'Master Manual Testing, Agile QA, JIRA defect management, API Testing with Postman, Test Automation with Selenium WebDriver & Java/Python, and AI-accelerated test case creation.',
+    whoFor: 'Fresh graduates (IT or Non-IT), CS/IT diploma holders, manual testers wanting to upgrade to automation, and career switchers entering tech without complex mathematical coding.',
+    tools: [
+      'Selenium WebDriver', 'Java / Python', 'JIRA', 'Postman', 'Git & GitHub',
+      'TestNG', 'SQL Queries', 'Bugasura', 'ChatGPT for Test Generation', 'Cucumber BDD'
+    ],
+    highlights: [
+      '10+ Live Software Projects Tested',
+      'Selenium WebDriver Automation with Java/Python',
+      'JIRA & Bugasura Defect Management',
+      'Individual Lab Workstations in Virar East',
+      'Resume & Technical Mock QA Rounds',
+      'Beginner-Friendly Coding Track'
+    ],
+    projects: [
+      {
+        title: 'CartSure - Comprehensive E-Commerce Platform Testing',
+        desc: 'Authored 120+ test scenarios, executed functional, sanity, regression, and cross-browser testing with JIRA defect tracking for an online marketplace.',
+        tech: 'JIRA, Manual Testing, Bug Life Cycle'
+      },
+      {
+        title: 'FinCheck - Core Banking Backend & SQL Verification',
+        desc: 'Conducted transaction integrity checks, database validation using SQL queries, and simulated edge-case ledger reconciliation.',
+        tech: 'SQL, Database Testing, Data Integrity'
+      },
+      {
+        title: 'ApiShield - Automated REST API Test Suite',
+        desc: 'Created collection runs in Postman, automated assertions, response schema validation, and status code verification for web APIs.',
+        tech: 'Postman, REST APIs, JSON Validation'
+      },
+      {
+        title: 'AutoWeb - Selenium Automation Framework',
+        desc: 'Designed a modular Page Object Model (POM) test automation suite with TestNG, cross-browser execution, and automated HTML test reports.',
+        tech: 'Selenium WebDriver, Java, TestNG, Git'
+      }
+    ],
+    modules: [
+      {
+        title: 'Module 1: Software Testing Fundamentals & SDLC/STLC',
+        duration: '35 Hours',
+        topics: [
+          'Software Development Life Cycle (SDLC) models: Waterfall, V-Model, and Agile Scrum methodology',
+          'Software Testing Life Cycle (STLC): Requirement analysis, test plan creation, test design, and execution',
+          'Verification vs Validation, static testing, dynamic testing, and quality assurance principles'
+        ]
+      },
+      {
+        title: 'Module 2: Test Design Techniques & JIRA Defect Lifecycle',
+        duration: '40 Hours',
+        topics: [
+          'Black box test design: Boundary Value Analysis (BVA), Equivalence Class Partitioning (ECP), Decision Tables',
+          'Functional, Sanity, Smoke, Retesting, Regression, and User Acceptance Testing (UAT)',
+          'Defect management: Severity vs Priority, bug lifecycles, writing detailed bug reports in JIRA'
+        ]
+      },
+      {
+        title: 'Module 3: Database & SQL Verification Testing',
+        duration: '30 Hours',
+        topics: [
+          'Relational database architecture for QA professionals, SQL SELECT queries, filters, and joins',
+          'Testing data integrity, primary/foreign key constraints, and backend transaction validation',
+          'Executing backend data comparison with UI inputs to identify data corruption'
+        ]
+      },
+      {
+        title: 'Module 4: API Testing with Postman & Web Services',
+        duration: '35 Hours',
+        topics: [
+          'Web service fundamentals: REST architecture, endpoints, headers, query params, and JSON payloads',
+          'Postman test collections, environment variables, Bearer tokens, and automated assertion scripts',
+          'Validating HTTP status codes (200, 201, 400, 401, 404, 500) and response response time benchmarks'
+        ]
+      },
+      {
+        title: 'Module 5: Test Automation with Selenium WebDriver & AI Tools',
+        duration: '40 Hours',
+        topics: [
+          'Selenium architecture, WebDriver setup, element locators (XPath, CSS selectors, ID, Name)',
+          'Handling dynamic dropdowns, alerts, iframes, window handles, and implicit/explicit waits',
+          'Page Object Model (POM) framework, TestNG assertions, test suites, and HTML report generation',
+          'AI-assisted testing: Using ChatGPT and Bugasura for rapid test scenario and edge-case generation'
+        ]
+      }
+    ],
+    careerRoles: [
+      'QA Automation Engineer', 'Software Tester', 'Manual QA Analyst',
+      'SDET Associate', 'API Test Engineer', 'Quality Assurance Specialist'
+    ],
+    topics: [
+      'SDLC, STLC, Agile Scrum methodologies, and software quality assurance principles',
+      'Test case design techniques: Boundary Value Analysis, Equivalence Partitioning',
+      'Defect logging, severity/priority assignment, and tracking in JIRA and Bugasura',
+      'SQL database verification testing and backend data integrity validation',
+      'API testing, JSON response assertions, and automated collection runs in Postman',
+      'Selenium WebDriver automation with Java/Python, Page Object Model, and TestNG'
+    ],
+    mode: '100% In-Person Practical Lab (Virar East)',
+    certificate: 'Master Diploma in Software Testing & Automation with AI',
+    whatsappMessage: 'Hello! I want to enquire about the Software Testing With AI career course at RACE Virar East. Please share syllabus, fees, and batch details.'
+  },
+  {
+    id: 'cyber-security-ethical-hacking-with-ai-course',
+    aliases: ['cyber-security', 'ethical-hacking'],
+    name: 'Cyber Security & Ethical Hacking with AI',
+    type: 'career',
+    badge: 'Offensive & Defensive Security Operations Track',
+    goals: ['job', 'skill'],
+    rating: '4.9/5',
+    reviewsCount: '4,100+ Alumni',
+    durationPlaceholder: '5 to 6 Months (240+ Live Lab Hours)',
+    hours: '240+ Practical Lab Hours',
+    caseStudiesCount: '18+ Live Ethical Hacking Labs & Simulations',
+    avgSalary: '₹4.5 LPA – ₹10.0 LPA',
+    shortDesc: 'Hands-on ethical hacking in dedicated virtualized labs: Kali Linux, Wireshark packet analysis, Metasploit, Nmap reconnaissance, OWASP Top 10 web penetration, and AI threat hunting.',
+    whoFor: 'Engineers, BCA/BSc IT students, networking technicians, system administrators, and security enthusiasts wanting to become certified ethical hackers and SOC analysts.',
+    tools: [
+      'Kali Linux', 'Wireshark', 'Metasploit Framework', 'Nmap', 'Burp Suite',
+      'Cisco Packet Tracer', 'Python for Security', 'Nessus', 'ShellGPT', 'John the Ripper'
+    ],
+    highlights: [
+      '18+ Live Attack & Defense Labs',
+      'Dedicated Isolated Lab Machines in Virar East Lab',
+      'Kali Linux & OWASP Top 10 Web Penetration Mastery',
+      'Network Sniffing, Threat Hunting & SOC Log Analysis',
+      'Industry-Aligned Security Certification Path',
+      'Technical Red-Team / Blue-Team Scenario Mocks'
+    ],
+    projects: [
+      {
+        title: 'NetSecure Lab - Enterprise Network Hardening',
+        desc: 'Designed and secured a virtual corporate LAN network using Packet Tracer, configured firewalls, and executed penetration tests.',
+        tech: 'Packet Tracer, Firewalls, Network Security'
+      },
+      {
+        title: 'PySecure - Python Automated Security Scanner',
+        desc: 'Developed a custom Python vulnerability scanner to perform network reconnaissance, open port scanning, and banner grabbing.',
+        tech: 'Python, Socket Programming, Port Scanners'
+      },
+      {
+        title: 'WebPwn - OWASP Top 10 Penetration Testing',
+        desc: 'Performed vulnerability assessments on test web servers identifying SQL Injection, Cross-Site Scripting (XSS), and Broken Authentication.',
+        tech: 'Burp Suite, OWASP Top 10, Kali Linux'
+      },
+      {
+        title: 'SOCGuard - Real-Time Threat Analysis & Packet Inspection',
+        desc: 'Analyzed live network traffic dumps in Wireshark, detected rogue ARP spoofing, brute force attacks, and drafted incident response reports.',
+        tech: 'Wireshark, Log Analysis, Incident Response'
+      }
+    ],
+    modules: [
+      {
+        title: 'Module 1: Networking Protocols & Linux Security Foundations',
+        duration: '40 Hours',
+        topics: [
+          'OSI model deep dive, TCP/IP 3-way handshake, subnetting, IPv4/IPv6, and routing concepts',
+          'Linux security fundamentals: Root privileges, user management, file permissions, and shell scripting',
+          'Setting up virtualized penetration testing labs using Oracle VirtualBox and Kali Linux'
+        ]
+      },
+      {
+        title: 'Module 2: Network Reconnaissance & Vulnerability Scanning',
+        duration: '45 Hours',
+        topics: [
+          'Footprinting & reconnaissance: OSINT tools, Google Dorking, WHOIS lookup, and DNS enumeration',
+          'Network scanning with Nmap: SYN scan, UDP scan, OS fingerprinting, and NSE scripting',
+          'Automated vulnerability assessment with Nessus and identifying unpatched server CVEs'
+        ]
+      },
+      {
+        title: 'Module 3: Web Application Penetration Testing (OWASP Top 10)',
+        duration: '55 Hours',
+        topics: [
+          'Web application architecture, HTTP request/response headers, cookies, and session tokens',
+          'Interception proxy configuration with Burp Suite (repeater, intruder, decoder)',
+          'Exploiting OWASP Top 10: SQL Injection (SQLi), Cross-Site Scripting (XSS), CSRF, IDOR, and Broken Authentication'
+        ]
+      },
+      {
+        title: 'Module 4: System Hacking, Exploitation & Malware Analysis',
+        duration: '50 Hours',
+        topics: [
+          'Metasploit Framework: Exploit modules, payloads, listeners, and Meterpreter sessions',
+          'Privilege escalation techniques on Windows and Linux targets',
+          'Password auditing: Hash formats (MD5, SHA256), wordlists, Hydra, and John the Ripper',
+          'Social engineering attack vectors, phishing simulation awareness, and defense protocols'
+        ]
+      },
+      {
+        title: 'Module 5: Security Operations Center (SOC), Threat Intelligence & AI',
+        duration: '50 Hours',
+        topics: [
+          'Network traffic analysis with Wireshark: Detecting ARP poisoning, SYN floods, and cleartext credentials',
+          'SIEM fundamentals, system event logs, incident triage, and digital forensics methodology',
+          'AI in cybersecurity: Leveraging ShellGPT for automating security scripts and rapid log parsing'
+        ]
+      }
+    ],
+    careerRoles: [
+      'Ethical Hacker / Penetration Tester', 'Cyber Security Analyst', 'SOC Analyst (L1/L2)',
+      'Network Security Associate', 'Information Security Officer', 'Vulnerability Assessor'
+    ],
+    topics: [
+      'TCP/IP networking, OSI layers, Linux commands, and virtualization lab setup',
+      'Reconnaissance, Nmap port scanning, OSINT, and Nessus vulnerability assessments',
+      'Web application penetration testing: OWASP Top 10, SQLi, XSS, and Burp Suite',
+      'System hacking with Metasploit Framework, payload creation, and password auditing',
+      'Wireshark packet sniffing, network security defense, and incident response reports',
+      'Security Operations Center (SOC) fundamentals, log analysis, and AI threat hunting'
+    ],
+    mode: '100% In-Person Practical Lab (Virar East)',
+    certificate: 'Master Diploma in Cyber Security & Ethical Hacking with AI',
+    whatsappMessage: 'Hello! I want to enquire about the Cyber Security & Ethical Hacking with AI career course at RACE Virar East. Please share syllabus, fees, and batch details.'
   },
   {
     id: 'dfa',
     name: 'DFA (Diploma in Financial Accounting)',
     type: 'career',
+    badge: 'Corporate Accounting & Taxation Track',
     goals: ['job', 'business'],
+    rating: '4.8/5',
+    reviewsCount: '3,200+ Alumni',
+    durationPlaceholder: '4 to 6 Months',
+    hours: '180+ Practical Lab Hours',
+    caseStudiesCount: '15+ Corporate Business Accounts Handled',
+    avgSalary: '₹3.0 LPA – ₹5.5 LPA',
     shortDesc: 'Complete corporate accounting diploma integrating Manual Accounting, Advanced TallyPrime, GST E-filing, Payroll, and Taxation.',
     whoFor: 'Commerce graduates, accountants seeking promotions, and small business managers.',
+    tools: ['TallyPrime', 'GST Portal', 'Excel Advanced', 'TDS Software', 'Payroll Systems'],
+    highlights: [
+      '100% Practical Ledger & Voucher Posting',
+      'Live GST Returns (GSTR-1 & 3B) Portal Filing',
+      'Complete Corporate Payroll & TDS Management',
+      'Real Invoices from Mumbai MMR Businesses',
+      'Placement Assistance for Local Accounting Firms'
+    ],
+    projects: [
+      {
+        title: 'Full Corporate Fiscal Year Finalization',
+        desc: 'Processed a year of purchase, sales, and expense vouchers, generating final Balance Sheets, Profit & Loss accounts, and GST reconciliation.',
+        tech: 'TallyPrime, Advanced Excel'
+      },
+      {
+        title: 'Multi-Employee Payroll & Statutory Compliance',
+        desc: 'Constructed corporate payroll systems calculating PF, ESI, Professional Tax, and TDS with automated payslips.',
+        tech: 'TallyPrime Payroll, Tax Tables'
+      }
+    ],
+    modules: [
+      {
+        title: 'Module 1: Principles of Accounting & Manual Accounting',
+        duration: '35 Hours',
+        topics: ['Golden rules of accounting, journal entries, ledger posting, trial balance, and depreciation accounting']
+      },
+      {
+        title: 'Module 2: TallyPrime Advanced with GST & Inventory',
+        duration: '50 Hours',
+        topics: ['Company creation, multi-currency, bill-wise accounting, cost centers, order processing, and godown inventory']
+      },
+      {
+        title: 'Module 3: Taxation & E-Filing Protocols',
+        duration: '45 Hours',
+        topics: ['CGST, SGST, IGST calculations, Input Tax Credit (ITC) reconciliation, E-Way bills, and online GST portal filing']
+      },
+      {
+        title: 'Module 4: Corporate Payroll & Income Tax',
+        duration: '50 Hours',
+        topics: ['Payroll configuration, employee master creation, salary structures, TDS deduction rules, and Form 16 basics']
+      }
+    ],
+    careerRoles: ['Senior Accountant', 'Accounts Executive', 'Tax Consultant Associate', 'Billing & GST Executive'],
     topics: [
       'Fundamental principles of accounting, golden rules, journal entries & ledgers',
       'Trial Balance, Profit & Loss Accounts, and Balance Sheet finalisation',
       'TallyPrime with GST, Inventory control, cost centres, and multi-currency',
       'Payroll management in Tally: PF, ESI, TDS calculation, salary slips',
       'GST returns (GSTR-1, GSTR-3B) and online portal submission',
-      'Income Tax fundamentals, TDS return filing, and audit documentation',
+      'Income Tax fundamentals, TDS return filing, and audit documentation'
     ],
-    durationPlaceholder: '4 to 6 Months',
     mode: '100% In-Person Practical Lab (Virar East)',
     certificate: 'Professional Diploma in Financial Accounting (DFA)',
-    whatsappMessage: 'Hello! I want to enquire about the DFA (Diploma in Financial Accounting) at RACE Virar East. Please share syllabus, fees, and batch details.',
-  },
-  {
-    id: 'animation',
-    name: 'Animation',
-    type: 'career',
-    goals: ['job', 'skill'],
-    shortDesc: 'Step into the creative world of 2D/3D animation, character rigging, motion timing, visual storytelling, and video production.',
-    whoFor: 'Creative students, visual artists, aspiring animators, and game/multimedia enthusiasts.',
-    topics: [
-      'The 12 golden principles of animation (squash & stretch, anticipation, timing)',
-      'Storyboarding, character concept sketch, and visual narrative planning',
-      'Vector animation, digital puppets, and character rigging techniques',
-      'Keyframe animation, lip-syncing with audio, and walk cycles',
-      'Motion graphics for advertising, social media reels, and explainer videos',
-      'Video editing, sound design integration, and rendering portfolio reels',
-    ],
-    durationPlaceholder: '4 to 6 Months',
-    mode: '100% In-Person Practical Lab (Virar East)',
-    certificate: 'Diploma in Digital Animation & Motion Graphics',
-    whatsappMessage: 'Hello! I want to enquire about the Animation course at RACE Virar East. Please share syllabus, fees, and batch details.',
-  },
-  {
-    id: 'ai-ml',
-    name: 'AI & ML',
-    type: 'career',
-    goals: ['job', 'skill'],
-    shortDesc: 'Demystify Machine Learning and Artificial Intelligence with Python: linear models, classifiers, neural networks, and computer vision.',
-    whoFor: 'Tech graduates, programmers, data analysts, and engineering students.',
-    topics: [
-      'Python for Machine Learning: NumPy arrays, Pandas DataFrames, Matplotlib',
-      'Supervised Learning: Linear regression, logistic regression, decision trees',
-      'Unsupervised Learning: K-Means clustering, PCA dimensionality reduction',
-      'Model evaluation: Train-test split, cross-validation, precision, recall, F1 score',
-      'Introduction to Neural Networks, Deep Learning, and TensorFlow/PyTorch concepts',
-      'Deploying an ML model as a functional web application',
-    ],
-    durationPlaceholder: '4 to 6 Months',
-    mode: '100% In-Person Practical Lab (Virar East)',
-    certificate: 'Certificate in Applied AI & Machine Learning Foundations',
-    whatsappMessage: 'Hello! I want to enquire about the AI & ML course at RACE Virar East. Please share syllabus, fees, and batch details.',
-  },
-  {
-    id: 'digital-marketing',
-    name: 'Digital Marketing',
-    type: 'career',
-    goals: ['job', 'business'],
-    shortDesc: 'Launch client campaigns with Search Engine Optimisation (SEO), Meta Ads, Google Search Ads, Social Media Marketing, and Analytics.',
-    whoFor: 'Job seekers, marketing graduates, freelancers, and business owners wanting online customers.',
-    topics: [
-      'SEO fundamentals: Keyword research, on-page optimization, backlink strategies',
-      'Local SEO & Google Business Profile optimization for Virar/Mumbai shops',
-      'Meta Ads Manager: Facebook and Instagram lead generation and retargeting campaigns',
-      'Google Ads: Search campaigns, PPC bidding, quality score, and conversion tracking',
-      'Content marketing, Canva banner design, copy strategies, and email campaigns',
-      'Google Analytics (GA4) traffic measurement and client ROI reporting',
-    ],
-    durationPlaceholder: '3 to 4 Months',
-    mode: '100% In-Person Practical Lab (Virar East)',
-    certificate: 'Professional Diploma in Digital Marketing & Growth Strategy',
-    whatsappMessage: 'Hello! I want to enquire about the Digital Marketing course at RACE Virar East. Please share syllabus, fees, and batch details.',
-  },
-  {
-    id: 'web-and-app-development',
-    name: 'Web & App Development',
-    type: 'career',
-    goals: ['job', 'business'],
-    shortDesc: 'Full-stack development: build modern responsive web applications and mobile apps from database schema to cloud deployment.',
-    whoFor: 'Aspiring web developers, full-stack engineers, and tech entrepreneurs.',
-    topics: [
-      'Frontend mastery: HTML5, CSS3, modern JavaScript (ES6+), and responsive UI',
-      'Component-driven frontend architecture with React / Vue concepts',
-      'Backend server development: Node.js, Express REST APIs, authentication (JWT)',
-      'Database integration: MongoDB / PostgreSQL CRUD operations',
-      'Mobile-first and hybrid mobile app foundations with web technologies',
-      'Cloud deployment (Vercel, Netlify, Render), domains, and live project launch',
-    ],
-    durationPlaceholder: '5 to 6 Months',
-    mode: '100% In-Person Practical Lab (Virar East)',
-    certificate: 'Professional Diploma in Full-Stack Web & App Development',
-    whatsappMessage: 'Hello! I want to enquire about the Web & App Development course at RACE Virar East. Please share syllabus, fees, and batch details.',
-  },
-  {
-    id: 'ethical-hacking',
-    name: 'Ethical Hacking',
-    type: 'career',
-    goals: ['job', 'skill'],
-    shortDesc: 'Learn defensive and offensive cybersecurity techniques, penetration testing, vulnerability assessment, and network defence.',
-    whoFor: 'IT students, networking professionals, and security career aspirants.',
-    topics: [
-      'Ethical hacking laws, compliance, and cybercrime jurisdiction in India',
-      'Reconnaissance and footprinting: Nmap port scanning, OSINT techniques',
-      'Network penetration testing: Wireshark packet analysis, man-in-the-middle attacks',
-      'Web application vulnerabilities: OWASP Top 10 (SQL injection, XSS, CSRF)',
-      'Wireless security testing, password auditing tools, and security hardening',
-      'Vulnerability scanning reports and client remediation guidelines',
-    ],
-    durationPlaceholder: '4 to 5 Months',
-    mode: '100% In-Person Practical Lab (Virar East)',
-    certificate: 'Certificate in Ethical Hacking & Penetration Testing Basics',
-    whatsappMessage: 'Hello! I want to enquire about the Ethical Hacking course at RACE Virar East. Please share syllabus, fees, and batch details.',
-  },
-  {
-    id: 'ai-prompt-engineering',
-    name: 'AI Prompt Engineering',
-    type: 'career',
-    goals: ['job', 'business', 'skill'],
-    shortDesc: 'Master generative AI workflows with ChatGPT, Gemini, Midjourney, and Claude to multiply work productivity by 10x.',
-    whoFor: 'Working professionals, content writers, business owners, students, and consultants.',
-    topics: [
-      'How Large Language Models (LLMs) work: Tokens, temperature, and hallucinations',
-      'Prompt crafting frameworks: Few-shot prompting, chain-of-thought, role persona prompts',
-      'Automating office work: Drafting reports, summarizing long documents, creating emails',
-      'Coding assistance: Writing, debugging, and explaining code with AI',
-      'AI for image generation: Crafting prompts for Midjourney, DALL-E, and marketing art',
-      'Building custom GPTs, workflow automations, and AI ethical best practices',
-    ],
-    durationPlaceholder: '4 to 6 Weeks',
-    mode: '100% In-Person Practical Lab (Virar East)',
-    certificate: 'Certificate in AI Prompt Engineering & Productivity Workflows',
-    whatsappMessage: 'Hello! I want to enquire about the AI Prompt Engineering course at RACE Virar East. Please share syllabus, fees, and batch details.',
-  },
-  {
-    id: 'data-science',
-    name: 'Data Science',
-    type: 'career',
-    goals: ['job', 'skill'],
-    shortDesc: 'Extract valuable business insights from raw data: Python programming, exploratory data analysis, statistical modeling, and dashboards.',
-    whoFor: 'Graduates in math, stats, engineering, commerce, or anyone seeking high-paying data analyst jobs.',
-    topics: [
-      'Python for data analysis: Data structures, NumPy, Pandas wrangling & cleaning',
-      'Data visualization: Matplotlib, Seaborn, interactive Power BI / Tableau dashboards',
-      'Statistical inference: Probability distributions, hypothesis testing, correlation analysis',
-      'Feature engineering, handling missing data, outlier detection, scaling',
-      'Predictive modeling algorithms: Regression, classification, customer segmentation',
-      'Presenting data stories and insights to business stakeholders',
-    ],
-    durationPlaceholder: '5 to 6 Months',
-    mode: '100% In-Person Practical Lab (Virar East)',
-    certificate: 'Professional Diploma in Practical Data Science & Analytics',
-    whatsappMessage: 'Hello! I want to enquire about the Data Science course at RACE Virar East. Please share syllabus, fees, and batch details.',
-  },
-  {
-    id: 'cyber-security',
-    name: 'Cyber Security',
-    type: 'career',
-    goals: ['job', 'skill'],
-    shortDesc: 'Protect enterprise servers, corporate data, and personal devices from malware, ransomware, identity theft, and cyber threats.',
-    whoFor: 'System administrators, IT graduates, and security operations center (SOC) aspirants.',
-    topics: [
-      'Cybersecurity landscape: Threat actors, attack vectors, defense in depth',
-      'Operating system hardening: Windows Server & Linux security policies',
-      'Network defense: Firewalls, IDS/IPS, secure network segmentation, and zero trust',
-      'Cryptography: Symmetric vs asymmetric encryption, hashing, SSL/TLS certificates',
-      'Incident response and digital forensics: Log analysis, malware triage',
-      'Security compliance, data protection standards, and ISO 27001 awareness',
-    ],
-    durationPlaceholder: '4 to 6 Months',
-    mode: '100% In-Person Practical Lab (Virar East)',
-    certificate: 'Certificate in Enterprise Cyber Security & System Defense',
-    whatsappMessage: 'Hello! I want to enquire about the Cyber Security course at RACE Virar East. Please share syllabus, fees, and batch details.',
+    whatsappMessage: 'Hello! I want to enquire about the DFA (Diploma in Financial Accounting) at RACE Virar East. Please share syllabus, fees, and batch details.'
   },
   {
     id: 'graphic-designing',
     name: 'Graphic Designing',
     type: 'career',
+    badge: 'Creative Visual Media & Brand Identity Track',
     goals: ['job', 'business', 'skill'],
+    rating: '4.8/5',
+    reviewsCount: '4,500+ Alumni',
+    durationPlaceholder: '4 to 6 Months',
+    hours: '200+ Practical Lab Hours',
+    caseStudiesCount: '20+ Brand Identity & Social Campaigns',
+    avgSalary: '₹3.2 LPA – ₹6.0 LPA',
     shortDesc: 'Comprehensive professional design career diploma covering Photoshop, Illustrator, CorelDraw/InDesign, visual identity, and advertising.',
     whoFor: 'Creative students, freelancers, print shop operators, and advertising agency aspirants.',
+    tools: ['Adobe Photoshop', 'Adobe Illustrator', 'CorelDraw', 'InDesign', 'Canva', 'Behance'],
+    highlights: [
+      '100% Workstation Design Practice',
+      'Complete Corporate Brand Identity Creation',
+      'Print Pre-Press & Digital Spec Mastery',
+      'Personal Portfolio on Behance & Instagram',
+      'Agency Placement & Freelance Mentorship'
+    ],
+    projects: [
+      {
+        title: 'Complete Corporate Visual Identity Package',
+        desc: 'Designed primary vector logos, business stationery, typography guidelines, brand manuals, and packaging mockups.',
+        tech: 'Adobe Illustrator, Adobe Photoshop'
+      },
+      {
+        title: 'High-Impact Social Media Marketing Campaign',
+        desc: 'Formulated 15 visual creative assets, Instagram carousels, advertising banners, and promotional festival creatives.',
+        tech: 'Photoshop, Color Theory, Typography'
+      }
+    ],
+    modules: [
+      {
+        title: 'Module 1: Visual Design Fundamentals & Typography',
+        duration: '35 Hours',
+        topics: ['Color harmonies, typography hierarchy, visual balance, grid systems, and brand storytelling']
+      },
+      {
+        title: 'Module 2: Raster Mastery with Adobe Photoshop',
+        duration: '55 Hours',
+        topics: ['Layers, layer masks, pen tool selection, photo retouching, photo manipulation, matte painting, and social media banners']
+      },
+      {
+        title: 'Module 3: Vector Art with Adobe Illustrator',
+        duration: '55 Hours',
+        topics: ['Pen tool precision, geometric vector logos, brand identity guides, icons, typography art, and packaging mockups']
+      },
+      {
+        title: 'Module 4: Print Production with CorelDraw & InDesign',
+        duration: '55 Hours',
+        topics: ['Multi-page brochures, restaurant menus, magazines, packaging cut-lines, CMYK pre-press checks, and Behance portfolio setup']
+      }
+    ],
+    careerRoles: ['Graphic Designer', 'Brand Identity Designer', 'UI/Visual Designer', 'Social Media Creative Executive', 'Packaging Designer'],
     topics: [
       'Design fundamentals: Color theory, typography hierarchy, layout composition',
       'Adobe Photoshop: Image manipulation, photo composition, digital matte painting',
       'Adobe Illustrator: Vector logo creation, icon design, brand identity systems',
       'CorelDraw / InDesign: Multi-page catalogues, newspapers, packaging design',
       'Social media creative campaigns, print specifications, pre-press checks',
-      'Building a professional physical and Behance design portfolio',
+      'Building a professional physical and Behance design portfolio'
     ],
-    durationPlaceholder: '4 to 6 Months',
     mode: '100% In-Person Practical Lab (Virar East)',
     certificate: 'Professional Diploma in Graphic Designing & Visual Communication',
-    whatsappMessage: 'Hello! I want to enquire about the Graphic Designing career course at RACE Virar East. Please share syllabus, fees, and batch details.',
+    whatsappMessage: 'Hello! I want to enquire about the Graphic Designing career course at RACE Virar East. Please share syllabus, fees, and batch details.'
+  },
+  {
+    id: 'animation',
+    name: 'Animation',
+    type: 'career',
+    badge: '2D/3D Motion Graphics Track',
+    goals: ['job', 'skill'],
+    rating: '4.7/5',
+    reviewsCount: '2,100+ Alumni',
+    durationPlaceholder: '4 to 6 Months',
+    hours: '180+ Practical Lab Hours',
+    caseStudiesCount: '10+ Character & Motion Projects',
+    avgSalary: '₹3.5 LPA – ₹6.5 LPA',
+    shortDesc: 'Step into the creative world of 2D/3D animation, character rigging, motion timing, visual storytelling, and video production.',
+    whoFor: 'Creative students, visual artists, aspiring animators, and game/multimedia enthusiasts.',
+    tools: ['Adobe Animate', 'After Effects', 'Premiere Pro', 'Photoshop', 'Blender basics'],
+    projects: [
+      {
+        title: '2D Character Walk Cycle & Dialogue Rig',
+        desc: 'Created fully rigged 2D vector characters with keyframe walk cycles, expressive facial lip-syncing, and audio timing.',
+        tech: 'Adobe Animate, After Effects'
+      }
+    ],
+    topics: [
+      'The 12 golden principles of animation (squash & stretch, anticipation, timing)',
+      'Storyboarding, character concept sketch, and visual narrative planning',
+      'Vector animation, digital puppets, and character rigging techniques',
+      'Keyframe animation, lip-syncing with audio, and walk cycles',
+      'Motion graphics for advertising, social media reels, and explainer videos',
+      'Video editing, sound design integration, and rendering portfolio reels'
+    ],
+    mode: '100% In-Person Practical Lab (Virar East)',
+    certificate: 'Diploma in Digital Animation & Motion Graphics',
+    whatsappMessage: 'Hello! I want to enquire about the Animation course at RACE Virar East. Please share syllabus, fees, and batch details.'
+  },
+  {
+    id: 'ai-prompt-engineering',
+    name: 'AI Prompt Engineering',
+    type: 'career',
+    badge: 'Generative AI Productivity Track',
+    goals: ['job', 'business', 'skill'],
+    rating: '4.9/5',
+    reviewsCount: '1,800+ Alumni',
+    durationPlaceholder: '4 to 6 Weeks',
+    hours: '60+ Practical Lab Hours',
+    caseStudiesCount: '15+ Custom GPTs & Automations Built',
+    avgSalary: 'Productivity 10x Boost for Professionals',
+    shortDesc: 'Master generative AI workflows with ChatGPT, Gemini, Midjourney, and Claude to multiply work productivity by 10x.',
+    whoFor: 'Working professionals, content writers, business owners, students, and consultants.',
+    tools: ['ChatGPT', 'Claude 3.5 Sonnet', 'Google Gemini', 'Midjourney', 'DALL-E 3', 'Make.com'],
+    projects: [
+      {
+        title: 'Custom Enterprise Support GPT',
+        desc: 'Built custom GPT bots with domain knowledge base uploads, API actions, and automated email response drafting.',
+        tech: 'ChatGPT Custom GPTs, Prompt Architecture'
+      }
+    ],
+    topics: [
+      'How Large Language Models (LLMs) work: Tokens, temperature, and hallucinations',
+      'Prompt crafting frameworks: Few-shot prompting, chain-of-thought, role persona prompts',
+      'Automating office work: Drafting reports, summarizing long documents, creating emails',
+      'Coding assistance: Writing, debugging, and explaining code with AI',
+      'AI for image generation: Crafting prompts for Midjourney, DALL-E, and marketing art',
+      'Building custom GPTs, workflow automations, and AI ethical best practices'
+    ],
+    mode: '100% In-Person Practical Lab (Virar East)',
+    certificate: 'Certificate in AI Prompt Engineering & Productivity Workflows',
+    whatsappMessage: 'Hello! I want to enquire about the AI Prompt Engineering course at RACE Virar East. Please share syllabus, fees, and batch details.'
   },
 ];
 

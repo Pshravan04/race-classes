@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
-import { X, MessageSquare, Phone, CheckCircle2, Clock, Award, Laptop } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { X, MessageSquare, Phone, CheckCircle2, Clock, Award, Laptop, Code2, ArrowRight, Layers } from 'lucide-react';
 import type { Course } from '../data/config';
 import { SITE_CONFIG, OFFERS_CONFIG } from '../data/config';
 
@@ -57,7 +58,7 @@ export default function CourseDrawer({ course, onClose }: CourseDrawerProps) {
                   isCareer ? 'bg-[#C41E1E] text-white shadow-xs' : 'bg-white/10 text-white border border-white/15'
                 }`}
               >
-                {isCareer ? 'Career-Objective Course' : 'Short-Term Skill Module'}
+                {course.badge || (isCareer ? 'Career-Objective Course' : 'Short-Term Skill Module')}
               </span>
               <span className="text-[11px] font-bold text-[#F5BE4F]">
                 Virar East Branch
@@ -123,6 +124,45 @@ export default function CourseDrawer({ course, onClose }: CourseDrawerProps) {
             </div>
           </div>
 
+          {/* Tools Mastered (ITVedant style) */}
+          {course.tools && course.tools.length > 0 && (
+            <div>
+              <h3 className="text-[11px] font-black uppercase tracking-wider text-[#001752] mb-2 flex items-center gap-1.5">
+                <Layers size={13} className="text-[#C41E1E]" />
+                Tools &amp; Technologies Mastered ({course.tools.length})
+              </h3>
+              <div className="flex flex-wrap gap-1.5">
+                {course.tools.map((t, idx) => (
+                  <span
+                    key={idx}
+                    className="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-xs font-semibold text-[#001752]"
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Capstone Projects (ITVedant style) */}
+          {course.projects && course.projects.length > 0 && (
+            <div>
+              <h3 className="text-[11px] font-black uppercase tracking-wider text-[#001752] mb-2 flex items-center gap-1.5">
+                <Code2 size={13} className="text-emerald-600" />
+                Featured Industry Projects ({course.projects.length})
+              </h3>
+              <div className="space-y-2">
+                {course.projects.slice(0, 2).map((p, idx) => (
+                  <div key={idx} className="p-3 bg-white rounded-xl border border-slate-200 text-xs">
+                    <strong className="text-[#001752] font-bold block mb-0.5">{p.title}</strong>
+                    <p className="text-slate-600 text-[11px] leading-relaxed line-clamp-2">{p.desc}</p>
+                    <span className="text-[10px] font-bold text-[#C41E1E] mt-1.5 inline-block">{p.tech}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
           <div>
             <h3 className="text-[11px] font-black uppercase tracking-wider text-[#C41E1E] mb-1.5">
               Who is this course for?
@@ -137,7 +177,7 @@ export default function CourseDrawer({ course, onClose }: CourseDrawerProps) {
               What You Will Learn (Practical Modules)
             </h3>
             <ul className="space-y-2.5 bg-white p-4 rounded-2xl border border-slate-200">
-              {course.topics.map((topic, i) => (
+              {course.topics.slice(0, 5).map((topic, i) => (
                 <li key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600">
                   <CheckCircle2 size={16} className="text-[#C41E1E] shrink-0 mt-0.5" />
                   <span>{topic}</span>
@@ -164,24 +204,35 @@ export default function CourseDrawer({ course, onClose }: CourseDrawerProps) {
         </div>
 
         {/* Footer */}
-        <div className="p-4 sm:p-5 bg-white border-t border-slate-200 flex flex-wrap items-center justify-between gap-3">
-          <a
-            href={`tel:${SITE_CONFIG.contact.phone}`}
-            className="inline-flex items-center gap-1.5 text-xs font-bold text-[#001752] hover:bg-slate-50 px-3 py-2.5 rounded-full border border-slate-200 transition-colors"
+        <div className="p-4 sm:p-5 bg-white border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <Link
+            to={`/courses/${course.id}`}
+            onClick={onClose}
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 bg-[#001752] hover:bg-[#002277] text-white text-xs sm:text-sm font-bold px-5 py-2.5 rounded-full transition-colors"
           >
-            <Phone size={14} className="text-[#C41E1E]" />
-            <span>Call Institute</span>
-          </a>
+            <span>Full Syllabus &amp; Projects</span>
+            <ArrowRight size={14} />
+          </Link>
 
-          <a
-            href={`${SITE_CONFIG.contact.whatsapp}?text=${encodeURIComponent(course.whatsappMessage)}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20BA5A] text-white text-xs sm:text-sm font-bold px-5 py-2.5 rounded-full shadow-sm transition-all active:scale-95"
-          >
-            <MessageSquare size={16} />
-            <span>Enquire on WhatsApp</span>
-          </a>
+          <div className="flex items-center gap-2 w-full sm:w-auto justify-end">
+            <a
+              href={`tel:${SITE_CONFIG.contact.phone}`}
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-[#001752] hover:bg-slate-50 px-3 py-2.5 rounded-full border border-slate-200 transition-colors"
+            >
+              <Phone size={14} className="text-[#C41E1E]" />
+              <span>Call</span>
+            </a>
+
+            <a
+              href={`${SITE_CONFIG.contact.whatsapp}?text=${encodeURIComponent(course.whatsappMessage)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20BA5A] text-white text-xs sm:text-sm font-bold px-5 py-2.5 rounded-full shadow-sm transition-all active:scale-95"
+            >
+              <MessageSquare size={16} />
+              <span>WhatsApp</span>
+            </a>
+          </div>
         </div>
       </div>
     </div>
