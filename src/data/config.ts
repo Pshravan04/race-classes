@@ -603,53 +603,80 @@ export const COURSES: Course[] = [
     ],
     modules: [
       {
-        title: 'Module 1: Web Foundations & Responsive UI Engineering',
-        duration: '50 Hours',
+        title: 'Web Design',
+        duration: '5.4 Weeks',
         topics: [
-          'Semantic HTML5, CSS3, Flexbox, CSS Grid, and TailwindCSS utility-first layout',
-          'Mobile-first responsive design, accessibility (WCAG), and modern UI patterns',
-          'CSS animations, micro-interactions, and component-level visual styling',
-          'Git version control, local repos, commits, and pushing code to GitHub'
+          'Weaving the World Wide Web',
+          'Text Formatting tags',
+          'HTML structures',
+          'Transformers of the Web (CSS)',
+          'Unlocking creative toolbox (CSS Properties)',
+          'Responsive Utilities',
+          'Bootstrap & Tailwind Layouts',
+          'Introduction to Javascript',
+          'Conditional and Control Statements',
+          'Javascript Function',
+          'Javascript Objects',
+          'Document Object Model (DOM)',
+          'Modern Javascript (ES6+)'
         ]
       },
       {
-        title: 'Module 2: Core & Advanced JavaScript (ES6+)',
-        duration: '60 Hours',
+        title: 'React',
+        duration: '3 Weeks',
         topics: [
-          'Asynchronous programming, Promises, Async/Await, and Fetch API',
-          'DOM manipulation, event bubbling, event delegation, and browser storage (LocalStorage)',
-          'Closures, prototypes, lexical scope, execution context, and the JavaScript Event Loop',
-          'Modular JavaScript, ES modules, npm package management, and Vite tooling'
+          'React Component Architecture & JSX',
+          'State Management with Hooks (useState, useEffect)',
+          'Component Lifecycle & Event Handling',
+          'Single Page Applications (SPA) with React Router',
+          'Context API & Global State Management',
+          'Form Handling, Validation & Formik',
+          'Redux Toolkit & Asynchronous Thunks',
+          'Consuming REST APIs with Axios'
         ]
       },
       {
-        title: 'Module 3: Frontend Mastery with React.js & Redux',
-        duration: '70 Hours',
+        title: 'SQL',
+        duration: '4.4 Weeks',
         topics: [
-          'React component hierarchy, JSX syntax, props, and unidirectional data flow',
-          'React Hooks: useState, useEffect, useRef, useMemo, useCallback, and custom hooks',
-          'Client-side routing with React Router, nested routes, and route protection',
-          'Global state management with Redux Toolkit and asynchronous data fetching'
+          'Relational Database Management Concepts',
+          'SQL DDL, DML, and DCL Operations',
+          'Filtering, Sorting & Group By Clauses',
+          'Mastering SQL Joins (Inner, Left, Right, Full)',
+          'Aggregations, Subqueries & Nested Queries',
+          'Database Normalization (1NF, 2NF, 3NF)',
+          'Stored Procedures, Triggers & Views',
+          'Indexing Strategies & Performance Optimization'
         ]
       },
       {
-        title: 'Module 4: Backend Engineering with Node.js & Express',
-        duration: '60 Hours',
+        title: 'Java',
+        duration: '6.4 Weeks',
         topics: [
-          'Node.js runtime architecture, event-driven I/O, and file system operations',
-          'Express.js server setup, routing, middleware chaining, and error handling',
-          'RESTful API architecture, HTTP status codes, request validation, and Postman testing',
-          'User authentication: JWT tokens, bcrypt password hashing, and cookie sessions'
+          'Java Environment, JVM, JRE & JDK Setup',
+          'Variables, Data Types & Operators',
+          'Control Statements, Loops & Branching',
+          'Object-Oriented Programming (OOP) Principles',
+          'Inheritance, Polymorphism, Encapsulation & Abstraction',
+          'Exception Handling (Try-Catch, Finally, Custom)',
+          'Java Collections Framework (List, Set, Map)',
+          'Multithreading, Concurrency & Stream API',
+          'Java Database Connectivity (JDBC Architecture)'
         ]
       },
       {
-        title: 'Module 5: Database Engineering, Docker & Cloud Deployment',
-        duration: '60 Hours',
+        title: 'Spring Boot',
+        duration: '5.6 Weeks',
         topics: [
-          'MongoDB schema modelling with Mongoose ODM, validation, and aggregation pipelines',
-          'Relational database design with MySQL: Joins, indexing, and foreign key relations',
-          'Docker containerization basics, environment variable configuration, and security practices',
-          'Cloud deployment on Render, Vercel, or AWS, custom domains, and portfolio hosting'
+          'Spring Framework Architecture & IoC Container',
+          'Dependency Injection & Spring Beans',
+          'Building RESTful APIs with Spring Boot',
+          'Spring Data JPA, Hibernate ORM & Entity Mappings',
+          'Spring Security & JWT Token Authentication',
+          'Microservices Architecture & API Gateway',
+          'Docker Containerization for Spring Boot',
+          'Unit Testing with JUnit 5 & Mockito',
+          'AWS Cloud Deployment & Production Monitoring'
         ]
       }
     ],

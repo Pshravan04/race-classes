@@ -24,12 +24,12 @@ import {
   Check,
   X,
   HelpCircle,
-  FileText,
   Download,
   Laptop
 } from 'lucide-react';
 import SEO from '../components/SEO';
 import CtaBand from '../components/CtaBand';
+import CourseJourneyCurriculum from '../components/CourseJourneyCurriculum';
 import { COURSES, SITE_CONFIG } from '../data/config';
 
 const COURSE_IMAGES: Record<string, string> = {
@@ -84,32 +84,6 @@ export default function CourseDetail() {
       (c) => c.id !== course.id && (c.type === course.type || c.goals.some((g) => course.goals.includes(g)))
     ).slice(0, 3);
   }, [course]);
-
-  // Modules accordion state: open first 2 by default
-  const [openModules, setOpenModules] = useState<Record<number, boolean>>({
-    0: true,
-    1: true,
-  });
-
-  const toggleModule = (index: number) => {
-    setOpenModules((prev) => ({
-      ...prev,
-      [index]: !prev[index],
-    }));
-  };
-
-  const expandAllModules = () => {
-    if (!course.modules) return;
-    const allOpen: Record<number, boolean> = {};
-    course.modules.forEach((_, idx) => {
-      allOpen[idx] = true;
-    });
-    setOpenModules(allOpen);
-  };
-
-  const collapseAllModules = () => {
-    setOpenModules({});
-  };
 
   // FAQ accordion state
   const [openFaq, setOpenFaq] = useState<number | null>(0);
@@ -789,134 +763,12 @@ export default function CourseDetail() {
                 </div>
               )}
 
-              {/* ─── 4. DETAILED CURRICULUM MODULES (Accordion) ─── */}
-              <div id="curriculum" className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/90 shadow-sm scroll-mt-32">
-                <div className="flex flex-wrap items-center justify-between gap-3 mb-3">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 text-amber-900 text-xs font-bold uppercase tracking-wider border border-amber-200">
-                    <FileText size={13} className="text-amber-700" />
-                    Structured Syllabus
-                  </span>
-
-                  {course.modules && course.modules.length > 0 && (
-                    <div className="flex items-center gap-2 text-xs">
-                      <button
-                        onClick={expandAllModules}
-                        className="font-bold text-[#001752] hover:text-[#C41E1E] transition-colors"
-                      >
-                        Expand All
-                      </button>
-                      <span className="text-slate-300">|</span>
-                      <button
-                        onClick={collapseAllModules}
-                        className="font-bold text-slate-500 hover:text-[#001752] transition-colors"
-                      >
-                        Collapse All
-                      </button>
-                    </div>
-                  )}
-                </div>
-
-                <h2 className="text-2xl sm:text-3xl font-black text-[#001752] mb-2">
-                  Comprehensive Practical Curriculum
-                </h2>
-                <p className="text-xs sm:text-sm text-slate-600 mb-6 leading-relaxed">
-                  Every module is structured progressively so beginners gain confidence rapidly before advancing to enterprise workflows.
-                </p>
-
-                {/* If course has rich modules array (ITVedant style) */}
-                {course.modules && course.modules.length > 0 ? (
-                  <div className="space-y-3">
-                    {course.modules.map((mod, idx) => {
-                      const isOpen = !!openModules[idx];
-                      return (
-                        <div
-                          key={idx}
-                          className="rounded-2xl border border-slate-200 overflow-hidden transition-all shadow-xs hover:border-[#001752]/40"
-                        >
-                          <button
-                            type="button"
-                            onClick={() => toggleModule(idx)}
-                            className="w-full p-4 sm:p-5 text-left bg-slate-50/70 hover:bg-slate-100/70 transition-colors flex items-center justify-between gap-4"
-                          >
-                            <div className="flex items-center gap-3">
-                              <span className="w-8 h-8 rounded-xl bg-[#001752] text-white text-xs font-bold flex items-center justify-center shrink-0">
-                                {idx < 9 ? `0${idx + 1}` : idx + 1}
-                              </span>
-                              <div>
-                                <h3 className="text-sm sm:text-base font-bold text-[#001752]">
-                                  {mod.title}
-                                </h3>
-                                <div className="flex items-center gap-3 mt-0.5">
-                                  {mod.duration && (
-                                    <span className="text-[11px] font-semibold text-emerald-700">
-                                      Duration: {mod.duration}
-                                    </span>
-                                  )}
-                                  <span className="text-[11px] text-slate-400">
-                                    • {mod.topics.length} In-Depth Topics
-                                  </span>
-                                </div>
-                              </div>
-                            </div>
-
-                            <div className="shrink-0 text-slate-400 p-1 rounded-full hover:bg-white transition-colors">
-                              {isOpen ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
-                            </div>
-                          </button>
-
-                          {isOpen && (
-                            <div className="p-4 sm:p-5 bg-white border-t border-slate-100 space-y-2.5">
-                              {mod.topics.map((topic, tIdx) => (
-                                <div key={tIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600">
-                                  <Check size={14} className="text-[#C41E1E] shrink-0 mt-0.5 stroke-[2.5]" />
-                                  <span className="leading-relaxed">{topic}</span>
-                                </div>
-                              ))}
-                            </div>
-                          )}
-                        </div>
-                      );
-                    })}
-                  </div>
-                ) : (
-                  // Fallback for short-term courses
-                  <div className="space-y-2.5">
-                    {course.topics.map((topic, i) => (
-                      <div key={i} className="flex items-start gap-3 p-3.5 bg-slate-50 rounded-2xl border border-slate-200/80">
-                        <CheckCircle2 size={18} className="text-emerald-500 shrink-0 mt-0.5" />
-                        <span className="text-xs sm:text-sm text-[#001752] font-medium leading-relaxed">
-                          {topic}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                )}
-
-                {/* Download Syllabus Banner */}
-                <div className="mt-6 p-4 rounded-2xl bg-amber-50/70 border border-amber-200/80 flex flex-col sm:flex-row items-center justify-between gap-4">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-amber-500 text-white flex items-center justify-center shrink-0">
-                      <Download size={18} />
-                    </div>
-                    <div>
-                      <strong className="text-xs sm:text-sm font-bold text-[#001752] block">
-                        Need the Complete Module-by-Module Printable Syllabus?
-                      </strong>
-                      <span className="text-[11px] text-slate-600">
-                        Get the PDF delivered instantly to your WhatsApp along with batch timings.
-                      </span>
-                    </div>
-                  </div>
-
-                  <button
-                    type="button"
-                    onClick={() => openModal('syllabus')}
-                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#001752] text-white text-xs font-bold hover:bg-[#002277] transition-colors shrink-0 shadow-xs"
-                  >
-                    <Download size={13} />
-                    <span>Download PDF Syllabus</span>
-                  </button>
-                </div>
+              {/* ─── 4. DETAILED CURRICULUM MODULES (ITVedant Timeline Journey) ─── */}
+              <div id="curriculum" className="scroll-mt-32">
+                <CourseJourneyCurriculum
+                  course={course}
+                  onDownloadBrochure={() => openModal('syllabus')}
+                />
               </div>
 
               {/* ─── 5. CAREER OUTCOMES & SALARY BENCHMARKS ─── */}
