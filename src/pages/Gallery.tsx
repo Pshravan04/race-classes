@@ -83,15 +83,15 @@ export default function Gallery() {
   return (
     <>
       <SEO
-        title="Student Success & Gallery | RACE Virar East"
-        description="Authentic moments from our computer lab at Raut Arcade, Virar East. Hands-on learning, practical typing tests, and real student achievements."
+        title="Student Success &amp; Gallery | RACE"
+        description="Authentic moments from our computer lab at Raut Arcade, opposite station subway. Hands-on learning, practical typing tests, and real student achievements."
         canonical="/gallery"
       />
 
       <PageHero
         eyebrow="Authentic Lab Moments"
-        title="Gallery & Student Learning Journey"
-        description="We stand for genuine, grounded education. Explore authentic daily sessions, active workstation practice, and student certification milestones at Raut Arcade, Virar East."
+        title="Gallery &amp; Student Learning Journey"
+        description="We stand for genuine, grounded education. Explore authentic daily sessions, active workstation practice, and student certification milestones at Raut Arcade, opposite railway station subway."
         aside={
           <div className="relative">
             <div className="grid grid-cols-2 gap-3">
@@ -195,7 +195,7 @@ export default function Gallery() {
       <CtaBand
         eyebrow="Visit Our Lab"
         title="Experience our 1 Student : 1 PC learning environment in person"
-        description="Walk in anytime between 9:00 AM and 7:00 PM at Raut Arcade, opposite Virar East railway subway. Sit down for a free demo session on any workstation."
+        description="Walk in anytime between 9:00 AM and 7:00 PM at Raut Arcade, opposite railway station subway. Sit down for a free demo session on any workstation."
       />
     </>
   );

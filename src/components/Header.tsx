@@ -40,10 +40,10 @@ export default function Header() {
           {/* Station location indicator */}
           <div className="flex items-center gap-2 shrink-0">
             <span className="bg-[#C41E1E] text-white font-black text-[9px] px-1.5 py-0.5 rounded uppercase tracking-wider">
-              VIRAR EAST
+              1:1 LAB
             </span>
             <span className="font-medium text-slate-200 text-[11px] hidden sm:inline">
-              Raut Arcade 202 · Opp. Station Subway &amp; Platform 1
+              Raut Arcade 202 · Opp. Station Subway
             </span>
           </div>
 
@@ -112,7 +112,7 @@ export default function Header() {
             {/* Quick WhatsApp Link */}
             <a
               href={`${SITE_CONFIG.contact.whatsapp}?text=${encodeURIComponent(
-                'Hello! I would like to enquire about courses and admissions at RACE Virar East.'
+                'Hello! I would like to enquire about courses and admissions at RACE.'
               )}`}
               target="_blank"
               rel="noopener noreferrer"
@@ -125,9 +125,9 @@ export default function Header() {
             {/* Signature Brand Red Pill CTA */}
             <Link
               to="/contact#demo"
-              className="inline-flex items-center justify-center bg-[#C41E1E] hover:bg-[#A81717] text-white text-xs sm:text-sm font-bold px-5 sm:px-6 py-2.5 rounded-full shadow-md hover:shadow-lg transition-all active:scale-95 whitespace-nowrap"
+              className="inline-flex items-center justify-center bg-[#C41E1E] hover:bg-[#A81717] text-white text-xs sm:text-sm font-bold px-5 sm:px-6 py-2.5 rounded-full shadow-md hover:shadow-lg transition-all active:scale-95 whitespace-nowrap btn-press"
             >
-              Book a demo
+              Book a Free Demo
             </Link>
           </div>
 
@@ -135,7 +135,7 @@ export default function Header() {
           <div className="flex items-center gap-2 lg:hidden">
             <a
               href={`${SITE_CONFIG.contact.whatsapp}?text=${encodeURIComponent(
-                'Hello! I want to enquire about computer courses at RACE Virar East.'
+                'Hello! I want to enquire about computer courses at RACE.'
               )}`}
               target="_blank"
               rel="noopener noreferrer"

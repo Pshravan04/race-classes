@@ -44,7 +44,7 @@ Message: ${message || 'I would like to enquire about admissions and batch availa
       <PageHero
         eyebrow="Contact &amp; Location"
         title="Visit Our Centre or Chat With Our Instructors"
-        description="We are located directly opposite the Virar East railway subway. Just 2 minutes on foot from Platform 1/2 exit. Walk in anytime during working hours for a free demo session."
+        description="We are located directly opposite the railway station subway entrance. Just 2 minutes on foot from Platform 1/2 exit. Walk in anytime during working hours for a free demo session."
         aside={
           <div className="relative overflow-hidden rounded-3xl border border-[#002B94] bg-gradient-to-br from-[#001752] via-[#000F36] to-[#00081C] p-6 sm:p-7 text-white shadow-2xl">
             <div className="absolute -right-12 -top-12 h-48 w-48 rounded-full bg-[#C41E1E]/20 blur-[80px] pointer-events-none" />
@@ -397,7 +397,7 @@ Message: ${message || 'I would like to enquire about admissions and batch availa
 
       <CtaBand
         title="Prefer to talk directly to an instructor?"
-        description="Call 9794323963 or walk directly into our lab at 202, Raut Arcade, right across the Virar East railway subway. We are happy to help."
+        description="Call 9794323963 or walk directly into our lab at 202, Raut Arcade, right across the railway station subway. We are happy to help."
       />
     </>
   );

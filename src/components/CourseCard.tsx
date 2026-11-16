@@ -51,12 +51,12 @@ export default function CourseCard({ course, onSelect }: CourseCardProps) {
   const courseImage = getCourseImage(course.id, course.type);
 
   return (
-    <div className="group flex h-full flex-col justify-between rounded-2xl border border-slate-200 bg-white overflow-hidden shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#C41E1E]/50 hover:shadow-xl">
+    <div className="group flex h-full flex-col justify-between rounded-3xl border border-slate-200 bg-white overflow-hidden shadow-xs hover-lift transition-all duration-300 hover:border-[#001752]/30">
       <div>
         {/* Top Photographic Course Banner */}
         <div 
           onClick={() => onSelect(course)}
-          className="relative aspect-[16/10] w-full overflow-hidden bg-slate-900 cursor-pointer block"
+          className="relative aspect-[16/10] w-full overflow-hidden bg-slate-900 cursor-pointer block img-frame"
           role="button"
           tabIndex={0}
           onKeyDown={(e) => {
@@ -70,7 +70,7 @@ export default function CourseCard({ course, onSelect }: CourseCardProps) {
           <img
             src={courseImage}
             alt={`${course.name} practical training at RACE`}
-            className="w-full h-full object-cover group-hover:scale-106 transition-transform duration-700 ease-out"
+            className="w-full h-full object-cover img-zoom"
             loading="lazy"
           />
 
@@ -168,7 +168,7 @@ export default function CourseCard({ course, onSelect }: CourseCardProps) {
         <div className="flex items-center justify-between gap-2">
           <Link
             to={`/courses/${course.id}`}
-            className="inline-flex items-center gap-1 text-xs font-bold text-[#001752] transition-colors hover:text-[#C41E1E]"
+            className="inline-flex items-center gap-1 text-xs font-bold text-[#001752] transition-colors hover:text-[#C41E1E] btn-press"
             aria-label={`View full details for ${course.name}`}
           >
             <span>Full Syllabus &amp; Projects</span>
@@ -179,7 +179,7 @@ export default function CourseCard({ course, onSelect }: CourseCardProps) {
             href={`${SITE_CONFIG.contact.whatsapp}?text=${encodeURIComponent(course.whatsappMessage)}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-full bg-[#25D366]/10 px-3 py-1.5 text-xs font-bold text-[#128C7E] transition-all hover:bg-[#25D366] hover:text-white"
+            className="inline-flex items-center gap-1.5 rounded-full bg-[#25D366]/10 px-3 py-1.5 text-xs font-bold text-[#128C7E] transition-all hover:bg-[#25D366] hover:text-white btn-press"
             aria-label={`Enquire about ${course.name} on WhatsApp`}
           >
             <MessageSquare size={13} />

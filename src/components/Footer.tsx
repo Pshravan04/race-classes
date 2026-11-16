@@ -67,7 +67,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link to="/about" className="hover:text-white transition-colors">
-                  About Our Virar Lab
+                  About RACE
                 </Link>
               </li>
               <li>
@@ -199,7 +199,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="hover:text-white flex items-center gap-1 transition-colors"
             >
-              <span>Virar East Subway Exit</span>
+              <span>Opp. Station Subway</span>
               <ArrowUpRight size={12} />
             </a>
           </div>
