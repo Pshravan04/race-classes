@@ -48,6 +48,9 @@ function getModuleTag(title: string, index: number, courseId: string): string {
   if (t.includes('testing') || t.includes('selenium') || t.includes('qa') || t.includes('jira')) {
     return '#QA';
   }
+  if (t.includes('english') || t.includes('spoken') || t.includes('fluency') || t.includes('grammar') || t.includes('speech') || t.includes('interview')) {
+    return '#Communication';
+  }
   if (t.includes('design') || t.includes('photoshop') || t.includes('illustrator')) {
     return '#Design';
   }

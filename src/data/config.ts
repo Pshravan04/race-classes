@@ -152,6 +152,8 @@ export interface CourseProject {
   desc: string;
   tech: string;
   category?: string;
+  outcome?: string;
+  tools?: string[];
 }
 
 export interface CourseModule {
@@ -292,6 +294,123 @@ export const COURSES: Course[] = [
     mode: '100% In-Person Practical Lab (1:1 PC)',
     certificate: 'CCC Exam Preparation & Institute Completion Certificate',
     whatsappMessage: 'Hello! I want to enquire about the CCC course at RACE. Please share batch timings and fee details.',
+  },
+  {
+    id: 'english-speaking',
+    name: 'Spoken English & Personality Development',
+    type: 'short-term',
+    goals: ['job', 'skill', 'kids'],
+    badge: 'CONFIDENCE & FLUENCY BOOSTER',
+    rating: '4.9',
+    reviewsCount: '420+',
+    hours: '60+ Hours Live Lab & Drills',
+    caseStudiesCount: '35+ Practical Speaking Drills',
+    shortDesc: 'Speak fluent English with unshakeable confidence. Daily speaking drills, grammar fundamentals, accent correction, vocabulary building, and interview preparation.',
+    whoFor: 'School & college students, job seekers preparing for interviews, homemakers, working professionals, and anyone feeling hesitant or nervous when speaking in English.',
+    topics: [
+      'Hesitation removal & daily conversational fluency drills',
+      'Essential functional grammar: Tenses, active/passive voice, prepositions, sentence framing',
+      'Rich everyday & corporate vocabulary building with idioms, phrases, and conversational connectors',
+      'Clear pronunciation, phonetic sounds, accent neutralization & voice modulation',
+      'Public speaking, extempore talks, speech delivery, and stage fear eradication',
+      'Group Discussion (GD) tactics: Initiating, expressing opinions, agreeing & disagreeing politely',
+      'Corporate email writing, formal telephone etiquette, and professional digital messaging',
+      'Job interview mastery: "Tell me about yourself", handling tricky HR questions, mock interviews & body language',
+    ],
+    durationPlaceholder: '8 to 10 Weeks (Fast-track & Weekend options)',
+    mode: 'Interactive In-Person Speaking Lab & Classroom (Special Ladies Batch 12:30–4 PM)',
+    certificate: 'Certificate in Spoken English & Corporate Communication Skills',
+    whatsappMessage: 'Hello RACE! I want to enquire about the Spoken English & Personality Development Course. Please share batch timings and 50% concession details.',
+    tools: ['Fluency Drills', 'Grammar Lab', 'Phonics & Accent', 'GD & Extempore', 'Interview Prep'],
+    careerRoles: [
+      'Customer Support / BPO Executive',
+      'Front Desk & Client Relations Specialist',
+      'Sales & Business Development Associate',
+      'Administrative & Office Coordinator',
+      'Corporate Communications Associate',
+    ],
+    avgSalary: '₹2.5 LPA – ₹5.0 LPA',
+    highlights: [
+      'Zero-fear, supportive, and judgment-free speaking environment',
+      'Special batches for ladies & homemakers (12:30 PM to 4:00 PM)',
+      'Daily 1-on-1 speaking time with mentor feedback',
+      'Complete job interview preparation with video-recorded mock interviews',
+      '50% concession offer applicable for early registrations',
+    ],
+    projects: [
+      {
+        title: 'Extempore & Public Speaking Showcase',
+        desc: 'Deliver a 3-minute impromptu speech on current affairs and workplace scenarios in front of the batch, overcoming stage fright and nervous habits.',
+        tech: 'Speech Delivery, Voice Modulation, Body Language',
+        outcome: 'Eliminated stage hesitation, achieved natural pacing, eye contact, and structured thought delivery.',
+        tools: ['Speech Delivery', 'Body Language', 'Voice Modulation'],
+      },
+      {
+        title: 'Corporate Email & Business Communication Portfolio',
+        desc: 'Draft professional client proposals, leave requests, complaint escalations, and meeting minutes adhering to international corporate email etiquette.',
+        tech: 'Business Writing, Email Etiquette, Grammar Lab',
+        outcome: 'Mastered formal writing conventions, concise email structure, and professional tone.',
+        tools: ['Email Etiquette', 'Grammar Lab', 'Business Writing'],
+      },
+      {
+        title: 'Full-Cycle Job Interview & Group Discussion Simulation',
+        desc: 'Participate in a 1-on-1 panel interview covering HR and situational questions, followed by an 8-candidate group discussion on business case studies.',
+        tech: 'Mock Interviews, STAR Technique, GD Mastery',
+        outcome: 'Secured high confidence scores, refined answer frameworks (STAR technique), and polished resume pitch.',
+        tools: ['STAR Framework', 'Mock Interviews', 'GD Mastery'],
+      },
+    ],
+    modules: [
+      {
+        title: 'Module 1: Hesitation Removal & Everyday Conversational Fluency',
+        duration: '2.5 Weeks',
+        topics: [
+          'Breaking the hesitation barrier & overcoming language anxiety',
+          'Self-introductions, daily routines, and ice-breaker conversations',
+          'Asking & answering questions: Wh- questions and conversational flow',
+          'Everyday situational English: Bank, railway station, shopping, doctor visits',
+          'Pronunciation basics: Vowel sounds, consonant articulation, and clarity',
+          'Listening comprehension and quick-response speaking drills',
+        ],
+      },
+      {
+        title: 'Module 2: Functional Grammar, Tenses & Sentence Construction',
+        duration: '2.5 Weeks',
+        topics: [
+          'Present, past, and future tenses applied to real-life storytelling',
+          'Subject-verb agreement and common grammatical pitfall corrections',
+          'Prepositions of time, place, and direction made simple',
+          'Active vs. passive voice in modern spoken and written contexts',
+          'Direct and indirect speech for reporting conversations',
+          'Eliminating native language (mother-tongue) translation habit',
+        ],
+      },
+      {
+        title: 'Module 3: Vocabulary Enrichment, Idioms & Public Speaking',
+        duration: '2.5 Weeks',
+        topics: [
+          '500+ high-utility everyday words and corporate vocabulary',
+          'Idiomatic expressions, phrasal verbs, and smart conversational connectors',
+          'Extempore speaking: 1-minute to 3-minute impromptu speeches',
+          'Body language essentials: Posture, eye contact, gestures, and smile',
+          'Voice modulation, pitch variation, and strategic pausing',
+          'Group discussions: Brainstorming, defending viewpoints, and polite rebuttals',
+        ],
+      },
+      {
+        title: 'Module 4: Professional Communication, Email Etiquette & Interview Mastery',
+        duration: '2.5 Weeks',
+        topics: [
+          'Corporate telephone etiquette and professional WhatsApp communications',
+          'Formal email drafting: Inquiries, follow-ups, and meeting requests',
+          'Resume review and personal pitch preparation ("Tell me about yourself")',
+          'STAR methodology for answering behavioral interview questions',
+          'Salary negotiation basics and handling gap years with confidence',
+          'Final recorded mock interview with comprehensive faculty scorecard',
+        ],
+      },
+    ],
+    aliases: ['english-speaking', 'spoken-english', 'english-speaking-course', 'spoken-english-personality-development'],
   },
   {
     id: 'typing-english-marathi',

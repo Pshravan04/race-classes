@@ -182,8 +182,8 @@ const TRANSLATIONS_EN: TranslationDict = {
   batchTimingNote: 'Batches run in 1.5-hour hands-on lab slots. Contact the institute to reserve a machine in your preferred slot.',
 
   filterAll: 'All Courses',
-  filterShortTerm: 'Short-Term Courses (12)',
-  filterCareer: 'Career-Objective Courses (11)',
+  filterShortTerm: 'Short-Term Courses',
+  filterCareer: 'Career-Objective Courses',
   filterGoalAll: 'All Goals',
   filterGoalJob: 'For Job Seekers',
   filterGoalBusiness: 'For Business & Shopkeepers',

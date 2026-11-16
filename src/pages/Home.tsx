@@ -23,6 +23,7 @@ import { COURSES, SITE_CONFIG, OFFERS_CONFIG } from '../data/config';
 
 // Featured career & foundational courses for homepage preview
 const FEATURED_COURSE_IDS = [
+  'english-speaking',
   'data-science-and-ai',
   'full-stack-developer-course',
   'devops-with-aws-course',
@@ -35,10 +36,13 @@ const FEATURED_COURSE_IDS = [
   'basic-computer',
 ];
 
+const shortTermCount = COURSES.filter((c) => c.type === 'short-term').length;
+const careerCount = COURSES.filter((c) => c.type === 'career').length;
+
 const FILTER_TABS = [
-  { label: 'All Courses (23)', value: 'all' },
-  { label: 'Career Master Programs (11)', value: 'career' },
-  { label: 'Short-Term Certificates (12)', value: 'short-term' },
+  { label: `All Courses (${COURSES.length})`, value: 'all' },
+  { label: `Career Master Programs (${careerCount})`, value: 'career' },
+  { label: `Short-Term Certificates (${shortTermCount})`, value: 'short-term' },
 ];
 
 const FAQS = [

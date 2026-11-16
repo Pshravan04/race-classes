@@ -282,6 +282,61 @@ export function ToolLogo({ name, className = 'w-5 h-5' }: ToolLogoProps) {
     );
   }
 
+  // Fluency / Speech / Voice
+  if (n.includes('fluency') || n.includes('speech') || n.includes('voice')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24" fill="none">
+        <rect width="24" height="24" rx="4" fill="#0284C7" />
+        <path d="M12 4a3 3 0 00-3 3v5a3 3 0 006 0V7a3 3 0 00-3-3z" fill="#FFFFFF" />
+        <path d="M19 10v2a7 7 0 01-14 0v-2M12 19v3m-4 0h8" stroke="#FFFFFF" strokeWidth="1.8" strokeLinecap="round" />
+      </svg>
+    );
+  }
+
+  // Grammar / Writing
+  if (n.includes('grammar') || n.includes('writing') || n.includes('words')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24" fill="none">
+        <rect width="24" height="24" rx="4" fill="#7C3AED" />
+        <path d="M5 6a2 2 0 012-2h10a2 2 0 012 2v12a2 2 0 01-2 2H7a2 2 0 01-2-2V6z" stroke="#FFFFFF" strokeWidth="1.8" />
+        <path d="M8 8h8M8 12h8M8 16h5" stroke="#FFFFFF" strokeWidth="1.8" strokeLinecap="round" />
+      </svg>
+    );
+  }
+
+  // Phonics / Accent / Audio
+  if (n.includes('phonics') || n.includes('accent') || n.includes('pronunciation')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24" fill="none">
+        <rect width="24" height="24" rx="4" fill="#0D9488" />
+        <path d="M4 10h4l5-4v12l-5-4H4v-4z" fill="#FFFFFF" />
+        <path d="M16 9a4 4 0 010 6M18.5 7a7 7 0 010 10" stroke="#FFFFFF" strokeWidth="1.8" strokeLinecap="round" />
+      </svg>
+    );
+  }
+
+  // GD / Group Discussion / Extempore
+  if (n.includes('gd') || n.includes('discussion') || n.includes('extempore') || n.includes('public')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24" fill="none">
+        <rect width="24" height="24" rx="4" fill="#EA580C" />
+        <path d="M7 8h10M7 12h7m-4 6l-4 2v-2H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-9z" stroke="#FFFFFF" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    );
+  }
+
+  // Interview Prep / Career
+  if (n.includes('interview') || n.includes('prep') || n.includes('hr')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24" fill="none">
+        <rect width="24" height="24" rx="4" fill="#15803D" />
+        <path d="M16 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" stroke="#FFFFFF" strokeWidth="1.8" strokeLinecap="round" />
+        <circle cx="10" cy="7" r="4" stroke="#FFFFFF" strokeWidth="1.8" />
+        <path d="M16 11l2 2 4-4" stroke="#A2D016" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    );
+  }
+
   // Default tech chip
   return (
     <svg className={className} viewBox="0 0 24 24">
@@ -326,6 +381,9 @@ export function getCuratedToolsForCourse(courseId: string, courseName: string, e
   }
   if (id.includes('typing') || name.includes('typing')) {
     return ['GCC-TBC', 'Speed 30WPM', 'Speed 40WPM', 'Accuracy', 'Typing Master'];
+  }
+  if (id.includes('english') || id.includes('spoken') || name.includes('english') || name.includes('spoken')) {
+    return ['Fluency Drills', 'Grammar Lab', 'Phonics & Accent', 'GD & Extempore', 'Interview Prep'];
   }
   if (id.includes('basic') || name.includes('basic')) {
     return ['Windows 11', 'MS Paint', 'Typing', 'Internet', 'Gmail'];
