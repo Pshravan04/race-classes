@@ -708,7 +708,22 @@ Please send syllabus details.`;
         </section>
       )}
 
-      {/* ─── 12. Clean Interactive Modal (Download Syllabus / Book Demo) ─── */}
+      {/* ─── 12. Sticky Corner Action Button for Form ─── */}
+      <button
+        type="button"
+        onClick={() => openModal('demo')}
+        className="fixed bottom-22 right-4 sm:right-6 z-40 flex items-center gap-2.5 bg-[#001752] hover:bg-[#002277] text-white px-4 py-3 rounded-full shadow-2xl border-2 border-white text-xs sm:text-sm font-bold transition-all hover:scale-105 active:scale-95 cursor-pointer group"
+        aria-label="Open Course Enquiry & Demo Form"
+      >
+        <span className="relative flex h-2.5 w-2.5">
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#A2D016] opacity-75" />
+          <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#A2D016]" />
+        </span>
+        <Sparkles size={16} className="text-[#A2D016] group-hover:rotate-12 transition-transform" />
+        <span>Enquire / Book Demo</span>
+      </button>
+
+      {/* ─── 13. Clean Interactive Modal (Download Syllabus / Book Demo) ─── */}
       {isModalOpen && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/60 backdrop-blur-xs animate-in fade-in duration-200"
@@ -727,8 +742,34 @@ Please send syllabus details.`;
               <X size={16} />
             </button>
 
+            {/* Mode Switcher Tabs */}
+            <div className="flex items-center gap-1.5 p-1 bg-slate-100 rounded-xl mb-4 pr-10">
+              <button
+                type="button"
+                onClick={() => setModalMode('demo')}
+                className={`flex-1 py-1.5 px-3 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                  modalMode === 'demo'
+                    ? 'bg-white text-[#001752] shadow-xs'
+                    : 'text-slate-600 hover:text-slate-900'
+                }`}
+              >
+                Book Free Demo
+              </button>
+              <button
+                type="button"
+                onClick={() => setModalMode('syllabus')}
+                className={`flex-1 py-1.5 px-3 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                  modalMode === 'syllabus'
+                    ? 'bg-white text-[#001752] shadow-xs'
+                    : 'text-slate-600 hover:text-slate-900'
+                }`}
+              >
+                Syllabus &amp; Fees
+              </button>
+            </div>
+
             <div className="mb-5">
-              <span className="text-[10.5px] font-bold text-[#A2D016] uppercase tracking-wider block mb-1">
+              <span className="text-[10.5px] font-bold text-[#001752] uppercase tracking-wider block mb-1">
                 {modalMode === 'syllabus' ? 'Official Syllabus PDF' : 'Free 1:1 Lab Session'}
               </span>
               <h3 className="text-xl font-black text-[#001752] leading-tight">
