@@ -14,7 +14,8 @@ import {
   Sparkles,
   ArrowRight,
   ChevronDown,
-  ChevronUp
+  ChevronUp,
+  Play
 } from 'lucide-react';
 import SEO from '../components/SEO';
 import CourseSlider from '../components/CourseSlider';
@@ -598,23 +599,36 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Bottom Stack 3: Wide Facility View */}
-            <div className="md:col-span-4 rounded-3xl overflow-hidden bg-slate-900 border border-slate-200 shadow-sm img-frame group relative aspect-[16/10]">
+            {/* Bottom Stack 3: Lab 202 Video Walkthrough */}
+            <Link
+              to="/gallery"
+              className="md:col-span-4 rounded-3xl overflow-hidden bg-slate-900 border border-slate-200 shadow-sm img-frame group relative aspect-[16/10] block"
+              aria-label="Watch Lab 202 Video Tour in Gallery"
+            >
               <img
                 src="/images/real-lab-wide.jpg"
-                alt="Full panoramic view of workstation aisles"
-                className="w-full h-full object-cover img-zoom"
+                alt="Full panoramic view of workstation aisles and lab video tour"
+                className="w-full h-full object-cover img-zoom opacity-90"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent pointer-events-none" />
               <div className="absolute top-4 left-4">
-                <span className="bg-[#001752] text-white text-[10.5px] font-bold px-2.5 py-0.5 rounded-full shadow-xs">
-                  Air-Conditioned Lab
+                <span className="bg-[#C41E1E] text-white text-[10.5px] font-bold px-2.5 py-0.5 rounded-full shadow-xs flex items-center gap-1">
+                  <Play size={10} className="fill-current" />
+                  <span>Video Tour</span>
                 </span>
               </div>
-              <div className="absolute bottom-4 left-4 right-4 text-white text-xs font-bold">
-                Dedicated Student Workstations
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-11 h-11 rounded-full bg-white/95 text-[#001752] flex items-center justify-center shadow-lg transition-transform group-hover:scale-110 group-hover:bg-[#A2D016]">
+                  <Play size={18} className="fill-current ml-0.5" />
+                </div>
               </div>
-            </div>
+              <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white text-xs font-bold">
+                <span>Lab 202 Walkthrough</span>
+                <span className="text-[#A2D016] font-mono text-[10px] bg-black/60 px-2 py-0.5 rounded-md">
+                  1:15 min
+                </span>
+              </div>
+            </Link>
 
           </div>
         </div>
