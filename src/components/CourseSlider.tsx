@@ -1,50 +1,11 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
-import { Link } from 'react-router-dom';
-import { ChevronLeft, ChevronRight, Check, MessageSquare, Clock, Sparkles } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Sparkles } from 'lucide-react';
 import type { Course } from '../data/config';
-import { SITE_CONFIG } from '../data/config';
+import CourseCard from './CourseCard';
 
 interface CourseSliderProps {
   courses: Course[];
-  activeFilter: 'all' | 'career' | 'short-term';
-}
-
-const COURSE_IMAGES: Record<string, string> = {
-  'basic-computer': '/images/real-lab-classroom.jpg',
-  'ms-office': '/images/course-excel-office.jpg',
-  'advanced-tally-with-gst': '/images/tally-practice.jpg',
-  'gst': '/images/real-data-chart-session.jpg',
-  'ccc': '/images/course-excel-office.jpg',
-  'typing-english-marathi': '/images/student-coding.jpg',
-  'illustrator': '/images/course-graphic-design.jpg',
-  'photoshop': '/images/course-graphic-design.jpg',
-  'html': '/images/student-coding.jpg',
-  'css': '/images/student-coding.jpg',
-  'hardware': '/images/real-lab-aisle.jpg',
-  'a-plus-and-n-plus': '/images/real-lab-wide.jpg',
-  'data-science-and-ai': '/images/real-data-chart-session.jpg',
-  'full-stack-developer-course': '/images/student-coding.jpg',
-  'devops-with-aws-course': '/images/real-lab-aisle.jpg',
-  'digital-marketing-course': '/images/course-graphic-design.jpg',
-  'investment-banking-course': '/images/tally-practice.jpg',
-  'software-testing-course': '/images/real-students-presentation.jpg',
-  'cyber-security-ethical-hacking-with-ai-course': '/images/real-instructor-mentoring.jpg',
-  'software-development': '/images/student-coding.jpg',
-  'dfa': '/images/tally-practice.jpg',
-  'animation': '/images/course-graphic-design.jpg',
-  'ai-ml': '/images/course-ai-ml.jpg',
-  'digital-marketing': '/images/real-data-chart-session.jpg',
-  'web-and-app-development': '/images/student-coding.jpg',
-  'ethical-hacking': '/images/real-students-presentation.jpg',
-  'ai-prompt-engineering': '/images/course-ai-ml.jpg',
-  'data-science': '/images/real-data-chart-session.jpg',
-  'cyber-security': '/images/real-students-presentation.jpg',
-  'graphic-designing': '/images/course-graphic-design.jpg',
-};
-
-function getCourseImage(id: string, type: 'career' | 'short-term'): string {
-  if (COURSE_IMAGES[id]) return COURSE_IMAGES[id];
-  return type === 'career' ? '/images/student-coding.jpg' : '/images/lab-students.jpg';
+  activeFilter?: 'all' | 'career' | 'short-term';
 }
 
 export default function CourseSlider({ courses }: CourseSliderProps) {
@@ -52,8 +13,6 @@ export default function CourseSlider({ courses }: CourseSliderProps) {
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
-
-  const wa = SITE_CONFIG.contact.whatsapp;
 
   const updateScrollButtons = useCallback(() => {
     if (!sliderRef.current) return;
@@ -107,8 +66,8 @@ export default function CourseSlider({ courses }: CourseSliderProps) {
             Showing {courses.length} Courses
           </span>
           <span className="hidden sm:inline-block w-1.5 h-1.5 rounded-full bg-slate-300" />
-          <span className="hidden sm:inline-flex items-center gap-1 text-xs text-[#C41E1E] font-semibold">
-            <Sparkles size={12} />
+          <span className="hidden sm:inline-flex items-center gap-1 text-xs text-[#001752] font-semibold">
+            <Sparkles size={12} className="text-[#A2D016]" />
             Slide left &amp; right to explore
           </span>
         </div>
@@ -154,119 +113,14 @@ export default function CourseSlider({ courses }: CourseSliderProps) {
           msOverflowStyle: 'none',
         }}
       >
-        {courses.map((course, idx) => {
-          const isCareer = course.type === 'career';
-          const isPopular = idx === 1 || course.id === 'advanced-tally-with-gst' || course.id === 'software-development';
-          const courseImage = getCourseImage(course.id, course.type);
-
-          return (
-            <div
-              key={course.id}
-              className={`w-[85vw] sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-14px)] shrink-0 snap-start bg-white rounded-2xl border overflow-hidden shadow-xs hover:shadow-lg hover:-translate-y-1 transition-all flex flex-col justify-between group ${
-                isPopular ? 'border-[#C41E1E]/50 ring-1 ring-[#C41E1E]/20' : 'border-slate-200'
-              }`}
-            >
-              {/* Card Image Banner */}
-              <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-900 shrink-0">
-                <img
-                  src={courseImage}
-                  alt={course.name}
-                  className="w-full h-full object-cover group-hover:scale-106 transition-transform duration-700"
-                  loading="lazy"
-                />
-                
-                {/* Contrast Vignette Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-black/15 pointer-events-none" />
-
-                {/* Top Left: Category Badge */}
-                <span
-                  className={`absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-wider shadow-sm ${
-                    isCareer
-                      ? 'bg-[#C41E1E] text-white'
-                      : 'bg-[#001752] text-white'
-                  }`}
-                >
-                  {isCareer ? 'Career Diploma' : 'Short-Term Skill'}
-                </span>
-
-                {/* Top Right: Popular Badge or Duration */}
-                {isPopular ? (
-                  <span className="absolute top-3 right-3 bg-[#C41E1E] text-white text-[9px] uppercase font-black tracking-wider px-2.5 py-1 rounded-full shadow-sm">
-                    Popular Choice
-                  </span>
-                ) : (
-                  <span className="absolute top-3 right-3 bg-black/60 backdrop-blur-xs text-white text-[10px] font-bold px-2 py-0.5 rounded-full border border-white/20 flex items-center gap-1">
-                    <Clock size={11} className="text-[#F5BE4F]" />
-                    {course.durationPlaceholder.split('(')[0].trim()}
-                  </span>
-                )}
-
-                {/* Bottom Overlay Pill on Image */}
-                <div className="absolute bottom-2.5 left-3 right-3 flex items-center justify-between text-white text-[11px] font-semibold">
-                  <span className="bg-black/65 backdrop-blur-xs px-2.5 py-1 rounded-md">
-                    Hands-On Practical
-                  </span>
-                  <span className="text-emerald-300 bg-black/65 backdrop-blur-xs px-2.5 py-1 rounded-md">
-                    1 Student : 1 PC
-                  </span>
-                </div>
-              </div>
-
-              {/* Card Content */}
-              <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between">
-                <div>
-                  {/* Duration row if popular */}
-                  {isPopular && (
-                    <div className="flex items-center gap-1.5 text-xs text-slate-500 font-semibold mb-1.5">
-                      <Clock size={13} className="text-[#C41E1E]" />
-                      <span>Duration: {course.durationPlaceholder.split('(')[0].trim()}</span>
-                    </div>
-                  )}
-
-                  {/* Course Title */}
-                  <h3 className="text-base sm:text-lg font-bold text-[#001752] group-hover:text-[#C41E1E] transition-colors leading-snug line-clamp-1">
-                    {course.name}
-                  </h3>
-
-                  {/* Short Description */}
-                  <p className="text-xs text-slate-500 mt-1.5 line-clamp-2 leading-relaxed">
-                    {course.shortDesc}
-                  </p>
-
-                  {/* 2 Bullet Points */}
-                  <div className="mt-3.5 pt-3 border-t border-slate-100 space-y-1.5">
-                    {course.topics.slice(0, 2).map((topic, i) => (
-                      <div key={i} className="flex items-start gap-2 text-[11px] text-slate-600">
-                        <Check size={12} className="text-[#C41E1E] shrink-0 stroke-[2.5] mt-0.5" />
-                        <span className="line-clamp-1">{topic}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Actions */}
-                <div className="pt-4 mt-4 flex items-center gap-2 border-t border-slate-100">
-                  <Link
-                    to={`/courses/${course.id}`}
-                    className="flex-1 inline-flex items-center justify-center h-10 px-4 rounded-full text-xs font-bold bg-[#001752] text-white hover:bg-[#C41E1E] transition-all shadow-xs active:scale-95"
-                  >
-                    View Details &amp; Syllabus →
-                  </Link>
-                  <a
-                    href={`${wa}?text=${encodeURIComponent(course.whatsappMessage)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    title={`WhatsApp Enquiry for ${course.name}`}
-                    className="h-10 w-10 rounded-full bg-[#25D366] hover:bg-[#20BA5A] text-white flex items-center justify-center transition-all shrink-0 shadow-xs active:scale-95"
-                  >
-                    <MessageSquare size={16} />
-                  </a>
-                </div>
-
-              </div>
-            </div>
-          );
-        })}
+        {courses.map((course) => (
+          <div
+            key={course.id}
+            className="w-[88vw] sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-14px)] shrink-0 snap-start flex flex-col"
+          >
+            <CourseCard course={course} />
+          </div>
+        ))}
       </div>
 
       {/* Slider Progress Bar / Dot Indicators */}
@@ -282,7 +136,7 @@ export default function CourseSlider({ courses }: CourseSliderProps) {
             }}
             className={`transition-all rounded-full cursor-pointer ${
               i === currentIndex
-                ? 'w-6 h-2 bg-[#C41E1E]'
+                ? 'w-6 h-2 bg-[#001752]'
                 : 'w-2 h-2 bg-slate-300 hover:bg-slate-400'
             }`}
             aria-label={`Go to slide ${i + 1}`}
