@@ -1,69 +1,100 @@
 import { Link } from 'react-router-dom';
-import { Phone, MessageSquare, Clock, ArrowUpRight, MapPin } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import { SITE_CONFIG } from '../data/config';
-import { useLanguage } from '../context/useLanguage';
-import BrandSpeedStripes from './BrandSpeedStripes';
 
 export default function Footer() {
-  const { t } = useLanguage();
-
   return (
-    <footer className="relative bg-[#001752] text-white border-t border-[#00113E] pt-16 pb-24 md:pb-12 text-xs sm:text-sm overflow-hidden select-none">
-      {/* Subtle Glows */}
-      <div className="absolute -right-24 top-0 w-80 h-80 bg-[#C41E1E]/15 rounded-full blur-[110px] pointer-events-none" />
-      <div className="absolute -left-24 bottom-0 w-80 h-80 bg-[#263A6C]/30 rounded-full blur-[110px] pointer-events-none" />
-
-      {/* Subtle Oversized Brand Watermark */}
-      <div 
-        className="absolute bottom-6 right-6 text-white/[0.03] text-[120px] sm:text-[180px] lg:text-[240px] font-black tracking-tighter leading-none pointer-events-none select-none font-heading"
-        aria-hidden="true"
-      >
-        RACE
-      </div>
-
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
+    <footer className="relative bg-[#001752] text-white pt-16 pb-12 text-xs sm:text-sm overflow-hidden select-none">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Top 4 Columns */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-white/10">
           
-          {/* Brand & Introduction Column (4 cols) */}
-          <div className="lg:col-span-4 space-y-5">
+          {/* Column 1: RACE Brand (4 cols) */}
+          <div className="lg:col-span-4 space-y-4">
             <div>
-              <div className="bg-white rounded-2xl p-2.5 inline-block shadow-lg border border-white/20">
-                <img
-                  src="/final logo 1.png"
-                  alt="RACE – Advanced Computer Education"
-                  className="h-10 sm:h-12 w-auto object-contain"
-                />
-              </div>
+              <span className="text-2xl sm:text-3xl font-black text-white tracking-tight font-heading block">
+                RACE
+              </span>
+              <span className="text-xs font-semibold text-[#DF8383] tracking-wide block mt-0.5">
+                Reddys Advanced Computer Education
+              </span>
             </div>
 
-            <p className="text-slate-300 text-xs sm:text-[13px] leading-relaxed max-w-sm">
-              Dedicated practical computer education institute in Vasai-Virar offering 100% individual workstation time, industry-standard certifications, and 1:1 desk mentorship right opposite Virar East railway station subway.
+            <p className="text-slate-300 text-xs sm:text-[13px] leading-relaxed max-w-sm font-normal">
+              Practical IT &amp; computer training in Vasai-Virar. Guaranteed 1 Student : 1 PC ratio, hands-on lab projects, and ISO 9001:2015 accredited certifications.
             </p>
 
-            <div className="flex items-center gap-3">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#C41E1E] px-3 py-1 text-[10px] font-black uppercase tracking-wider text-white shadow-xs">
-                <MapPin size={11} />
-                Opp. Station Subway
-              </span>
-              <BrandSpeedStripes size="xs" />
-              <span className="text-slate-300 text-[11px] font-medium">{t.stationTagline}</span>
+            <div className="text-xs text-slate-300 space-y-1 pt-1">
+              <p className="font-medium text-white">Raut Arcade 202, 2nd Floor</p>
+              <p className="text-slate-400">Opp. Subway / Virar East Railway Station, Maharashtra 401305.</p>
             </div>
           </div>
 
-          {/* Column 1: Company (2 cols) */}
-          <div className="lg:col-span-2 space-y-3.5">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-[#F5BE4F]">
-              Company
+          {/* Column 2: Courses (3 cols) */}
+          <div className="lg:col-span-3 space-y-3">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-white">
+              Courses
             </h4>
-            <ul className="space-y-2.5 text-xs text-slate-300">
+            <ul className="space-y-2 text-xs text-slate-300">
               <li>
-                <Link to="/about" className="hover:text-white transition-colors">
-                  About Us
+                <Link to="/courses/advanced-tally-with-gst" className="hover:text-white transition-colors">
+                  Advanced Tally with GST
                 </Link>
               </li>
               <li>
-                <Link to="/about#team" className="hover:text-white transition-colors">
-                  Our Faculty &amp; Team
+                <Link to="/courses/full-stack-developer-course" className="hover:text-white transition-colors">
+                  Full Stack Development
+                </Link>
+              </li>
+              <li>
+                <Link to="/courses/data-science-and-ai" className="hover:text-white transition-colors">
+                  Data Science &amp; Analytics with AI
+                </Link>
+              </li>
+              <li>
+                <Link to="/courses/english-speaking" className="hover:text-white transition-colors">
+                  Spoken English &amp; Personality
+                </Link>
+              </li>
+              <li>
+                <Link to="/courses/digital-marketing-course" className="hover:text-white transition-colors">
+                  Digital Marketing
+                </Link>
+              </li>
+              <li className="pt-1">
+                <Link to="/courses" className="text-[#DF8383] hover:text-white font-bold transition-colors inline-flex items-center gap-1">
+                  <span>View all 23 courses</span>
+                  <ArrowUpRight size={12} />
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 3: Information (2 cols) */}
+          <div className="lg:col-span-2 space-y-3">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-white">
+              Information
+            </h4>
+            <ul className="space-y-2 text-xs text-slate-300">
+              <li>
+                <Link to="/about" className="hover:text-white transition-colors">
+                  About RACE
+                </Link>
+              </li>
+              <li>
+                <Link to="/batches" className="hover:text-white transition-colors">
+                  Batch Timings
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact#demo" className="hover:text-white transition-colors">
+                  Free Demo Class
+                </Link>
+              </li>
+              <li>
+                <Link to="/offers" className="hover:text-white transition-colors">
+                  50% Concession Pass
                 </Link>
               </li>
               <li>
@@ -73,143 +104,91 @@ export default function Footer() {
               </li>
               <li>
                 <Link to="/contact" className="hover:text-white transition-colors">
-                  Contact Us
+                  Contact Admissions
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Column 2: Courses (3 cols) */}
-          <div className="lg:col-span-3 space-y-3.5">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-[#F5BE4F]">
-              Courses &amp; Programs
-            </h4>
-            <ul className="space-y-2 text-xs text-slate-300">
-              <li>
-                <Link to="/courses/data-science-and-ai" className="hover:text-white transition-colors">
-                  Data Science &amp; AI
-                </Link>
-              </li>
-              <li>
-                <Link to="/courses/full-stack-developer-course" className="hover:text-white transition-colors">
-                  Full Stack Development
-                </Link>
-              </li>
-              <li>
-                <Link to="/courses/english-speaking" className="hover:text-white transition-colors">
-                  Spoken English &amp; Personality
-                </Link>
-              </li>
-              <li>
-                <Link to="/courses/advanced-tally-with-gst" className="hover:text-white transition-colors">
-                  Advanced Tally with GST
-                </Link>
-              </li>
-              <li>
-                <Link to="/courses/digital-marketing-course" className="hover:text-white transition-colors">
-                  Digital Marketing with AI
-                </Link>
-              </li>
-              <li className="pt-1">
-                <Link to="/courses" className="text-[#DF8383] hover:text-white font-bold transition-colors inline-flex items-center gap-1">
-                  <span>View All 23 Courses</span>
-                  <ArrowUpRight size={12} />
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Column 3: Support & Admissions (3 cols) */}
+          {/* Column 4: Contact Us (3 cols) */}
           <div className="lg:col-span-3 space-y-3 text-xs text-slate-300">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-[#F5BE4F]">
-              Support &amp; Admissions
+            <h4 className="text-xs font-bold uppercase tracking-wider text-white">
+              Contact Us
             </h4>
 
-            <p className="leading-relaxed">
-              <strong className="text-white block mb-0.5">RACE Campus:</strong>
-              202, 2nd Floor, Raut Arcade, Directly Opposite Virar East Railway Station Subway, Maharashtra 401305.
-            </p>
-
-            <div className="pt-1 space-y-2.5">
-              <div className="flex items-start gap-2">
-                <Phone size={14} className="text-[#C41E1E] mt-0.5 shrink-0" />
-                <div className="space-y-0.5 text-xs">
-                  <div className="text-[11px] text-slate-400 font-medium">Helpline &amp; Enquiries:</div>
-                  <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 font-bold">
-                    <a href="tel:8793314239" className="hover:text-white transition-colors">
-                      8793314239
-                    </a>
-                    <span className="text-slate-600 font-normal">/</span>
-                    <a href="tel:8482881614" className="hover:text-white transition-colors">
-                      8482881614
-                    </a>
-                    <span className="text-slate-600 font-normal">/</span>
-                    <a href="tel:9794323963" className="hover:text-white transition-colors">
-                      9794323963
-                    </a>
-                  </div>
+            <div className="space-y-2">
+              <div>
+                <span className="text-[11px] text-slate-400 block">Admissions Helpline:</span>
+                <div className="font-bold text-white text-xs sm:text-sm mt-0.5 space-x-2">
+                  <a href="tel:8793314239" className="hover:text-[#DF8383] transition-colors">8793314239</a>
+                  <span>/</span>
+                  <a href="tel:8482881614" className="hover:text-[#DF8383] transition-colors">8482881614</a>
                 </div>
               </div>
 
-              <div className="flex items-center gap-2">
-                <MessageSquare size={14} className="text-[#25D366] shrink-0" />
+              <div>
+                <span className="text-[11px] text-slate-400 block">Direct WhatsApp Desk:</span>
                 <a
                   href={SITE_CONFIG.contact.whatsapp}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-white font-semibold text-[#4ADE80] text-xs"
+                  className="font-bold text-[#4ADE80] hover:underline"
                 >
-                  WhatsApp: 9794323963
+                  9794323963
                 </a>
               </div>
 
-              <div className="flex items-center gap-2 text-slate-400 text-xs">
-                <Clock size={14} className="text-[#F5BE4F] shrink-0" />
-                <span>Mon–Sat: 9:00 AM – 7:00 PM</span>
+              <div className="text-slate-300">
+                <span className="text-[11px] text-slate-400 block">Centre Timing:</span>
+                <span>Mon–Sat: 9:00 AM – 7:00 PM (Sunday Closed)</span>
               </div>
             </div>
-
-            <div className="pt-1">
-              <a
-                href={SITE_CONFIG.address.googleMapsDirectLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-[11px] font-semibold text-slate-200 hover:bg-white/10 hover:text-white transition-colors"
-              >
-                <span>Google Maps Directions</span>
-                <ArrowUpRight size={12} className="text-[#F5BE4F]" />
-              </a>
-            </div>
           </div>
 
         </div>
 
-        {/* Bottom Bar: Copyright & Terms */}
-        <div className="pt-7 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
-          <div className="text-center sm:text-left">
+        {/* Middle Address Bar */}
+        <div className="py-6 border-b border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+          <p>
+            202, 2nd Floor, Raut Arcade, Directly Opposite Virar East Railway Station Subway, Maharashtra 401305.
+          </p>
+          <a
+            href={SITE_CONFIG.address.googleMapsDirectLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white hover:text-[#DF8383] font-semibold inline-flex items-center gap-1 transition-colors shrink-0"
+          >
+            <span>Get directions</span>
+            <ArrowUpRight size={13} />
+          </a>
+        </div>
+
+        {/* Subtle Giant Watermark Area */}
+        <div className="pt-10 pb-6 text-center relative overflow-hidden select-none pointer-events-none">
+          <span className="text-[10px] font-mono tracking-[0.25em] uppercase text-slate-400 block mb-2">
+            LEARN. PRACTICE. PROGRESS.
+          </span>
+          <div className="text-[80px] sm:text-[140px] md:text-[180px] lg:text-[220px] font-black text-white/[0.04] leading-none font-heading tracking-tighter">
+            RACE
+          </div>
+        </div>
+
+        {/* Bottom Copyright Bar */}
+        <div className="pt-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-400">
+          <div>
             © 2026 RACE – Reddys Advanced Computer Education. All rights reserved.
           </div>
-
-          <div className="flex items-center gap-4 text-slate-400 text-[11px]">
+          <div className="flex items-center gap-4 text-xs">
             <Link to="/privacy" className="hover:text-white transition-colors">
-              Privacy Policy &amp; Terms
+              Privacy Policy
             </Link>
-            <span>•</span>
-            <Link to="/batches" className="hover:text-white transition-colors">
-              Batch Schedules
-            </Link>
-            <span>•</span>
-            <Link to="/offers" className="hover:text-white transition-colors">
-              50% Concession Pass
+            <span>·</span>
+            <Link to="/privacy" className="hover:text-white transition-colors">
+              Terms &amp; Conditions
             </Link>
           </div>
         </div>
-      </div>
 
-      {/* Signature RACE Dual Speed Stripes Accent Bar */}
-      <div className="w-full h-1.5 flex mt-8" aria-hidden="true">
-        <div className="w-2/3 bg-[#001752]" />
-        <div className="w-1/3 bg-[#C41E1E]" />
       </div>
     </footer>
   );
