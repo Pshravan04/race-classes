@@ -1,957 +1,996 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { 
-  Check, 
   CheckCircle2, 
-  X,
-  Star, 
-  Laptop, 
+  Sparkles, 
   Monitor, 
   Clock, 
-  Award, 
   MessageSquare, 
-  Phone, 
-  Sparkles,
-  ArrowRight,
-  ChevronDown,
-  ChevronUp,
-  Play
+  ArrowRight, 
+  ChevronLeft, 
+  ChevronRight, 
+  Plus, 
+  Minus, 
+  ArrowUpRight,
+  Users
 } from 'lucide-react';
 import SEO from '../components/SEO';
-import CourseSlider from '../components/CourseSlider';
+import BrandSpeedStripes from '../components/BrandSpeedStripes';
 import { COURSES, SITE_CONFIG, OFFERS_CONFIG } from '../data/config';
 
-// Featured career & foundational courses for homepage preview
+// Curated featured courses for homepage carousel
 const FEATURED_COURSE_IDS = [
-  'english-speaking',
   'data-science-and-ai',
   'full-stack-developer-course',
+  'english-speaking',
   'devops-with-aws-course',
+  'advanced-tally-with-gst',
   'digital-marketing-course',
   'cyber-security-ethical-hacking-with-ai-course',
-  'software-testing-course',
-  'investment-banking-course',
-  'advanced-tally-with-gst',
-  'graphic-designing',
   'basic-computer',
+  'graphic-designing',
+  'software-testing-course',
 ];
 
-const shortTermCount = COURSES.filter((c) => c.type === 'short-term').length;
-const careerCount = COURSES.filter((c) => c.type === 'career').length;
+const COURSE_IMAGES: Record<string, string> = {
+  'basic-computer': '/images/real-lab-classroom.jpg',
+  'ms-office': '/images/course-excel-office.jpg',
+  'advanced-tally-with-gst': '/images/tally-practice.jpg',
+  'gst': '/images/real-data-chart-session.jpg',
+  'ccc': '/images/course-excel-office.jpg',
+  'english-speaking': '/images/real-teacher-lecture.jpg',
+  'typing-english-marathi': '/images/student-coding.jpg',
+  'illustrator': '/images/course-graphic-design.jpg',
+  'photoshop': '/images/course-graphic-design.jpg',
+  'html': '/images/student-coding.jpg',
+  'css': '/images/student-coding.jpg',
+  'hardware': '/images/real-lab-aisle.jpg',
+  'a-plus-and-n-plus': '/images/real-lab-wide.jpg',
+  'data-science-and-ai': '/images/real-data-chart-session.jpg',
+  'full-stack-developer-course': '/images/student-coding.jpg',
+  'devops-with-aws-course': '/images/real-lab-aisle.jpg',
+  'digital-marketing-course': '/images/course-graphic-design.jpg',
+  'investment-banking-course': '/images/tally-practice.jpg',
+  'software-testing-course': '/images/real-students-presentation.jpg',
+  'cyber-security-ethical-hacking-with-ai-course': '/images/real-instructor-mentoring.jpg',
+  'software-development': '/images/student-coding.jpg',
+  'graphic-designing': '/images/course-graphic-design.jpg',
+};
 
-const FILTER_TABS = [
-  { label: `All Courses (${COURSES.length})`, value: 'all' },
-  { label: `Career Master Programs (${careerCount})`, value: 'career' },
-  { label: `Short-Term Certificates (${shortTermCount})`, value: 'short-term' },
-];
+function getCourseImage(id: string, type: 'career' | 'short-term'): string {
+  if (COURSE_IMAGES[id]) return COURSE_IMAGES[id];
+  return type === 'career' ? '/images/student-coding.jpg' : '/images/real-lab-classroom.jpg';
+}
 
 const FAQS = [
   {
-    q: 'Do I need prior computer knowledge to join?',
-    a: 'No prior experience is necessary. Our instructors begin with foundational mouse and keyboard skills before advancing into specialized accounting, programming, or AI modules. Every student receives patient 1:1 guidance.',
+    q: 'Do I need prior computer knowledge to join RACE?',
+    a: 'No prior computer experience is necessary. Our instructors begin with foundational mouse, keyboard, and Windows OS operations before advancing into specialized accounting, coding, AI, or graphic design software. Every student receives patient 1-on-1 guidance.',
   },
   {
-    q: 'Is there a dedicated batch for ladies and homemakers?',
-    a: 'Yes. We offer special afternoon slots (12:30 PM – 2:00 PM and 1:00 PM – 3:00 PM) with personalized, patient guidance specifically suited for homemakers, working women, and first-time female learners.',
+    q: 'Is there an individual computer guarantee for every student?',
+    a: 'Yes, absolutely. We strictly guarantee a 1 Student : 1 PC ratio. You will never share a computer terminal with anyone. Every minute of class is hands-on, individual practical training on your own workstation.',
+  },
+  {
+    q: 'What batch timings are available for students and working professionals?',
+    a: 'We offer flexible batches Monday to Saturday from 9:00 AM to 7:00 PM. We have Morning slots (8 AM – 11 AM), an afternoon Special Ladies Batch (12:30 PM – 3 PM) for homemakers, and Evening slots (5 PM – 7 PM) for college commuters.',
   },
   {
     q: 'What is included in the free Basic Computer Course offer?',
-    a: 'When you enroll in any career-track diploma program, the complete foundational Basic Computer module is included without extra tuition charge, covering Windows OS navigation, internet safety, and typing fundamentals.',
+    a: 'When you enroll in any career-track diploma program at RACE, the foundational Basic Computer module is included completely free of charge, covering computer fundamentals, typing, file management, and internet productivity.',
   },
   {
     q: 'Do students receive an authorized certificate upon completion?',
-    a: 'Yes. Every student who successfully finishes course requirements and practical tests receives a verified certificate from RACE along with ISO 9001:2015 accredited credentials recognized by employers.',
+    a: 'Yes. Upon successfully finishing your practical tests and coursework, you will receive an authorized certificate from RACE along with ISO 9001:2015 accredited course completion credentials recognized by recruiters across Maharashtra.',
   },
   {
-    q: 'How can I obtain the current fee structure?',
-    a: 'Please call our admissions desk at 8793314239 / 8482881614 / 9794323963 or send us a WhatsApp message. Our counselors share the exact syllabus breakdown and installment fee options transparently with zero hidden costs.',
-  },
-  {
-    q: 'Where is the institute located and how close is the station?',
-    a: 'We are located at 202, 2nd Floor, Raut Arcade, directly opposite the railway station subway entrance. It is less than a two-minute walk from Platform 1/2 exit, saving you 3+ hours daily compared to Mumbai commutes.',
+    q: 'Where is the institute located and how close is the railway station?',
+    a: 'We are located at 202, 2nd Floor, Raut Arcade, directly opposite the Virar East railway station subway entrance. It is a 2-minute walk from Platform 1/2 exit, saving you 3+ hours of grueling Mumbai train commutes daily.',
   },
 ];
 
 export default function Home() {
-  const [activeFilter, setActiveFilter] = useState<'all' | 'career' | 'short-term'>('all');
+  const [courseCategory, setCourseCategory] = useState<'all' | 'career' | 'short-term'>('all');
   const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const sliderRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
 
-  const filteredCourses =
-    activeFilter === 'all'
-      ? [
-          ...COURSES.filter((c) => FEATURED_COURSE_IDS.includes(c.id)),
-          ...COURSES.filter((c) => !FEATURED_COURSE_IDS.includes(c.id)),
-        ]
-      : COURSES.filter((c) => c.type === activeFilter);
+  // Filtered courses for slider
+  const displayedCourses = COURSES.filter((c) => {
+    if (courseCategory === 'all') {
+      return FEATURED_COURSE_IDS.includes(c.id);
+    }
+    return c.type === courseCategory;
+  });
 
-  const wa = SITE_CONFIG.contact.whatsapp;
-  const phone = SITE_CONFIG.contact.phone;
+  const updateScrollButtons = useCallback(() => {
+    if (!sliderRef.current) return;
+    const { scrollLeft, scrollWidth, clientWidth } = sliderRef.current;
+    setCanScrollLeft(scrollLeft > 10);
+    setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
+  }, []);
+
+  useEffect(() => {
+    const slider = sliderRef.current;
+    if (!slider) return;
+    slider.addEventListener('scroll', updateScrollButtons, { passive: true });
+    updateScrollButtons();
+    return () => slider.removeEventListener('scroll', updateScrollButtons);
+  }, [displayedCourses, updateScrollButtons]);
+
+  const slideLeft = () => {
+    if (!sliderRef.current) return;
+    sliderRef.current.scrollBy({ left: -sliderRef.current.clientWidth * 0.75, behavior: 'smooth' });
+  };
+
+  const slideRight = () => {
+    if (!sliderRef.current) return;
+    sliderRef.current.scrollBy({ left: sliderRef.current.clientWidth * 0.75, behavior: 'smooth' });
+  };
+
+  const toggleFaq = (index: number) => {
+    setOpenFaq(openFaq === index ? null : index);
+  };
 
   return (
     <>
       <SEO
-        title="Don't Just Learn Computers. Learn Skills That Matter | RACE"
-        description="Get hands-on training in AI, Digital Marketing, Programming and Advanced Computer Technologies at RACE. 100% practical-first learning on real systems."
+        title="RACE | Practical Computer & IT Training Institute Virar East"
+        description="Learn practical computer courses in Virar East. 1 Student : 1 PC guaranteed, 100% lab practice, ISO 9001:2015 certification, and 50% concession on career diplomas. Directly opposite railway station subway."
         canonical="/"
       />
 
-      {/* ─── 1. HERO SECTION (Split-Screen, Content Left, Real Lab Photo Right) ─── */}
-      <section className="relative w-full bg-[#F8F9FA] text-[#0e2340] border-b border-slate-200/80 overflow-hidden">
-        <div className="w-full grid grid-cols-1 lg:grid-cols-12 min-h-[580px] lg:min-h-[660px]">
+      <div className="bg-[#F6F7F9] min-h-screen text-[#0B0B0B] font-body selection:bg-[#C41E1E] selection:text-white pb-16">
+        
+        {/* Outer Canvas Container */}
+        <div className="max-w-[1440px] mx-auto px-3 sm:px-5 lg:px-8 pt-4 sm:pt-6 space-y-6 sm:space-y-8">
 
-          {/* Left Column: Authentic Copy & Actions (7 cols) */}
-          <div className="lg:col-span-7 flex flex-col justify-center px-6 sm:px-10 lg:px-14 xl:px-18 py-12 sm:py-16 lg:py-20 max-w-3xl lg:max-w-none ml-auto">
-            
-            {/* Top Badges */}
-            <div className="flex flex-wrap items-center gap-2 mb-4">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#c6383b] text-white text-[11px] font-black uppercase tracking-wider shadow-xs">
-                <Monitor size={12} className="stroke-[2.5]" />
-                100% Practical Training
-              </span>
-
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-slate-200 text-[#0e2340] text-[11px] font-bold shadow-xs">
-                <Sparkles size={12} className="text-[#c6383b]" />
-                Flat 50% Concession Admissions Open
-              </span>
-            </div>
-
-            {/* Main Headline */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[44px] xl:text-[50px] font-black text-[#0e2340] tracking-tight leading-[1.14] mb-4">
-              Don't Just Learn Computers.{' '}
-              <span className="text-[#c6383b]">Learn Skills That Matter.</span>
-            </h1>
-
-            {/* Subtitle / Lead */}
-            <p className="text-base sm:text-lg text-[#0e2340] font-semibold max-w-xl leading-snug mb-3">
-              Get hands-on training in AI, Digital Marketing, Programming and Advanced Computer Technologies at RACE.
-            </p>
-
-            {/* Practical Proof Description */}
-            <p className="text-sm sm:text-base text-slate-600 max-w-xl leading-relaxed mb-6 font-normal">
-              Learn by practising on real systems, working on practical assignments and building skills that go beyond classroom theory.
-            </p>
-
-            {/* 3 Core Value Pillars */}
-            <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 mb-8">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200/90 text-[#0e2340] text-xs sm:text-sm font-bold shadow-xs hover-lift">
-                <CheckCircle2 size={15} className="text-[#c6383b] shrink-0" />
-                <span>Practical-first learning</span>
+          {/* ══════════════════════════════════════════════════════════════════════
+              SECTION 01 – HEADER AND HERO (Rounded Editorial Hero Container)
+              ══════════════════════════════════════════════════════════════════════ */}
+          <section 
+            aria-label="Hero Section"
+            className="relative bg-white rounded-[28px] sm:rounded-[36px] border border-[#E5E7EB] shadow-xs p-6 sm:p-10 lg:p-14 overflow-hidden"
+          >
+            {/* Top Micro-bar: Subtle Status & Subway Tag */}
+            <div className="flex flex-wrap items-center justify-between gap-3 mb-8 sm:mb-12 border-b border-slate-100 pb-5">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#F2F3F6] border border-[#E0E3EA] text-xs font-semibold text-[#001752]">
+                <BrandSpeedStripes size="xs" />
+                <span className="font-bold tracking-tight">RACE · Practical IT &amp; Computer Education</span>
               </div>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200/90 text-[#0e2340] text-xs sm:text-sm font-bold shadow-xs hover-lift">
-                <CheckCircle2 size={15} className="text-[#c6383b] shrink-0" />
-                <span>Industry-relevant courses</span>
-              </div>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200/90 text-[#0e2340] text-xs sm:text-sm font-bold shadow-xs hover-lift">
-                <CheckCircle2 size={15} className="text-[#c6383b] shrink-0" />
-                <span>Personal guidance</span>
+
+              <div className="hidden sm:flex items-center gap-2 text-xs font-medium text-slate-500">
+                <span className="w-2 h-2 rounded-full bg-[#10b981] animate-pulse" />
+                <span>1 Student : 1 PC Guaranteed · Opp. Virar East Subway</span>
               </div>
             </div>
 
-            {/* Dual Action Buttons */}
-            <div className="flex flex-wrap items-center gap-3.5 mb-10">
-              <a
-                href={`tel:${phone}`}
-                className="inline-flex items-center justify-center h-12 sm:h-13 px-8 rounded-full bg-[#c6383b] hover:bg-[#a82b2e] text-white font-bold text-sm sm:text-base shadow-lg shadow-[#c6383b]/25 btn-press transition-all"
-              >
-                Book a Free Demo
-              </a>
-
-              <Link
-                to="/courses"
-                className="inline-flex items-center justify-center h-12 sm:h-13 px-7 rounded-full bg-white text-[#0e2340] border border-[#0e2340] hover:bg-[#0e2340] hover:text-white font-bold text-sm sm:text-base btn-press transition-all shadow-xs"
-              >
-                Explore All 23 Courses
-              </Link>
-            </div>
-
-            {/* Trusted Industry Standards & Accredited Certifications */}
-            <div className="w-full max-w-xl pt-5 border-t border-slate-200">
-              <span className="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-3">
-                Accredited Standards &amp; Industry Alignment
-              </span>
-
-              <div className="flex flex-wrap items-center gap-x-6 gap-y-2.5 text-xs text-slate-700 font-semibold">
-                <div className="flex items-center gap-1.5">
-                  <span className="w-4 h-4 rounded-full bg-[#E51B24] text-white text-[9px] font-black flex items-center justify-center">T</span>
-                  <span>TallyPrime Authorised</span>
-                </div>
-                <div className="flex items-center gap-1.5">
-                  <span className="grid grid-cols-2 gap-0.5 w-3 h-3">
-                    <span className="bg-[#F25022]"></span>
-                    <span className="bg-[#7FBA00]"></span>
-                    <span className="bg-[#00A4EF]"></span>
-                    <span className="bg-[#FFB900]"></span>
-                  </span>
-                  <span>Microsoft Standard</span>
-                </div>
-                <div className="border border-slate-300 px-2 py-0.5 rounded text-[10.5px] font-bold text-slate-700">
-                  ISO 9001:2015
-                </div>
-                <div className="text-slate-600">
-                  MKCL Pattern
-                </div>
-                <div className="text-slate-600">
-                  GCC-TBC Typing
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-          {/* Right Column: Real Lab Photo (5 cols) */}
-          <div className="lg:col-span-5 relative w-full h-[420px] sm:h-[500px] lg:h-auto overflow-hidden bg-slate-900 flex flex-col justify-between p-6 sm:p-8 img-frame group">
-            
-            {/* Background Lab Photo */}
-            <img
-              src="/images/real-lab-classroom.jpg"
-              alt="Students learning inside RACE computer laboratory"
-              className="absolute inset-0 w-full h-full object-cover object-center img-zoom"
-            />
-
-            {/* Vignette Overlays for Contrast */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-black/30 pointer-events-none" />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent pointer-events-none hidden lg:block" />
-
-            {/* Top Right Proximity Tag */}
-            <div className="relative z-10 self-end">
-              <div className="bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-2xl shadow-xl border border-white/60 flex items-center gap-2.5 text-xs">
-                <span className="bg-[#0e2340] text-white text-[10px] font-black px-2 py-0.5 rounded uppercase">
-                  Terminal 202
-                </span>
-                <span className="font-bold text-[#0e2340]">
-                  Station Subway 2 Min
-                </span>
-                <div className="bg-[#c6383b] text-white text-[10px] font-black px-1.5 py-0.5 rounded-full flex items-center gap-0.5">
-                  <span>4.9</span>
-                  <Star size={9} className="fill-white text-white" />
-                </div>
-              </div>
-            </div>
-
-            {/* Bottom Verification Card */}
-            <div className="relative z-10 max-w-sm bg-white/95 backdrop-blur-md p-4 sm:p-5 rounded-3xl shadow-2xl border border-white/60">
-              <div className="flex items-center justify-between gap-3 mb-2">
-                <div className="flex items-center gap-2">
-                  <div className="w-5 h-5 rounded-full bg-emerald-500 text-white flex items-center justify-center shrink-0">
-                    <Check size={12} strokeWidth={3} />
-                  </div>
-                  <span className="text-xs font-bold text-[#0e2340]">1 Student : 1 Machine Lab</span>
-                </div>
-                <span className="bg-red-50 text-[#c6383b] text-[10px] font-black px-2 py-0.5 rounded-full border border-red-200">
-                  Confirmed PC
-                </span>
-              </div>
-
-              <p className="text-xs text-slate-600 leading-snug">
-                Every session is 100% practical on your own dedicated desktop computer. Admissions open for morning, ladies, and evening batches.
-              </p>
-
-              <div className="mt-3 pt-2.5 border-t border-slate-200/80 flex items-center justify-between text-[11px]">
-                <span className="font-extrabold text-[#c6383b]">⚡ 50% Concession Available</span>
-                <span className="text-slate-500 font-medium">Opp. Station Subway</span>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-      {/* ─── 2. CORE PILLARS & STATS (Clean 4-Box Bento Strip) ─── */}
-      <section className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6 sm:-mt-8 w-full">
-        <div className="bg-white rounded-3xl shadow-xl border border-slate-200/90 p-5 sm:p-7">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-4 lg:divide-x divide-slate-100">
-            
-            {/* Pillar 1 */}
-            <div className="flex items-center gap-3.5 px-3">
-              <div className="w-12 h-12 rounded-2xl bg-[#fdeaea] border border-[#FAD4D4] flex items-center justify-center text-[#c6383b] shrink-0">
-                <Laptop size={22} strokeWidth={2.2} />
-              </div>
-              <div>
-                <div className="text-xl sm:text-2xl font-black text-[#0e2340] tracking-tight leading-tight">
-                  23+ Courses
-                </div>
-                <div className="text-xs font-semibold text-slate-700 mt-0.5">
-                  Job-Oriented Curriculums
-                </div>
-                <div className="text-[11px] text-slate-500 font-medium">
-                  AI, Full Stack, Tally, Testing &amp; Design
-                </div>
-              </div>
-            </div>
-
-            {/* Pillar 2 */}
-            <div className="flex items-center gap-3.5 px-3">
-              <div className="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-600 shrink-0">
-                <Monitor size={22} strokeWidth={2.2} />
-              </div>
-              <div>
-                <div className="text-xl sm:text-2xl font-black text-[#0e2340] tracking-tight leading-tight">
-                  1 : 1 Machine
-                </div>
-                <div className="text-xs font-semibold text-slate-700 mt-0.5">
-                  100% Practical Guarantee
-                </div>
-                <div className="text-[11px] text-slate-500 font-medium">
-                  Dedicated PC, zero machine sharing
-                </div>
-              </div>
-            </div>
-
-            {/* Pillar 3 */}
-            <div className="flex items-center gap-3.5 px-3">
-              <div className="w-12 h-12 rounded-2xl bg-[#0e2340]/5 border border-[#0e2340]/15 flex items-center justify-center text-[#0e2340] shrink-0">
-                <Clock size={22} strokeWidth={2.2} />
-              </div>
-              <div>
-                <div className="text-xl sm:text-2xl font-black text-[#0e2340] tracking-tight leading-tight">
-                  8 AM – 8:30 PM
-                </div>
-                <div className="text-xs font-semibold text-slate-700 mt-0.5">
-                  Flexible Daily Batches
-                </div>
-                <div className="text-[11px] text-slate-500 font-medium">
-                  Morning, Evening &amp; Ladies Slots
-                </div>
-              </div>
-            </div>
-
-            {/* Pillar 4 */}
-            <div className="flex items-center gap-3.5 px-3">
-              <div className="w-12 h-12 rounded-2xl bg-amber-50 border border-amber-100 flex items-center justify-center text-amber-600 shrink-0">
-                <Award size={22} strokeWidth={2.2} />
-              </div>
-              <div>
-                <div className="text-xl sm:text-2xl font-black text-[#0e2340] tracking-tight leading-tight">
-                  Certification
-                </div>
-                <div className="text-xs font-semibold text-slate-700 mt-0.5">
-                  Authorized &amp; ISO 9001:2015
-                </div>
-                <div className="text-[11px] text-slate-500 font-medium">
-                  MNC, Corporate &amp; Exam Recognized
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* ─── 3. COURSE CATALOG PREVIEW ─── */}
-      <section className="bg-white py-16 sm:py-20 border-t border-slate-200 mt-12" id="courses">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8">
-            <div>
-              <span className="text-xs text-[#c6383b] font-extrabold uppercase tracking-widest">
-                Career &amp; Project-Oriented Pedagogy
-              </span>
-              <h2 className="text-3xl sm:text-4xl text-[#0e2340] font-black tracking-tight mt-1">
-                Explore Our <span className="text-[#c6383b]">23 Practical Courses</span>
-              </h2>
-              <p className="text-sm sm:text-base text-slate-600 max-w-2xl mt-1.5 leading-relaxed">
-                Choose from foundational software modules to comprehensive career-track master programs with live capstones.
-              </p>
-            </div>
-            <div className="shrink-0">
-              <span className="text-xs bg-[#F1F4FA] border border-[#D5DFF0] px-3.5 py-1.5 rounded-full text-[#0e2340] font-bold">
-                1:1 Individual Workstation Guaranteed
-              </span>
-            </div>
-          </div>
-
-          {/* Filter tabs */}
-          <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-8 no-scrollbar">
-            {FILTER_TABS.map((tab) => (
-              <button
-                key={tab.value}
-                type="button"
-                onClick={() => setActiveFilter(tab.value as typeof activeFilter)}
-                className={`px-5 py-2 rounded-full text-xs sm:text-sm font-bold shrink-0 transition-all cursor-pointer ${
-                  activeFilter === tab.value
-                    ? 'bg-[#0e2340] text-white shadow-xs'
-                    : 'bg-[#F1F4FA] text-slate-600 hover:text-[#0e2340] hover:bg-slate-200/70'
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
-          </div>
-
-          {/* Course Cards Interactive Slider */}
-          <CourseSlider courses={filteredCourses} activeFilter={activeFilter} />
-
-          <div className="mt-10 text-center">
-            <Link
-              to="/courses"
-              className="inline-flex items-center justify-center h-12 px-8 rounded-full bg-[#0e2340] hover:bg-[#c6383b] text-white text-xs sm:text-sm font-bold shadow-md transition-all active:scale-95"
-            >
-              <span>View All 23 Course Syllabi &amp; Modules</span>
-              <ArrowRight size={14} className="ml-2" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── 4. WHY RACE OVER 3-HOUR DISTANT COMMUTE (Comparison Matrix) ─── */}
-      <section className="bg-[#F8F9FA] py-16 sm:py-20 border-t border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <span className="text-xs text-[#c6383b] font-extrabold uppercase tracking-widest">
-              Smart Suburban Learning Choice
-            </span>
-            <h2 className="text-3xl sm:text-4xl text-[#0e2340] font-black tracking-tight mt-1">
-              Why Choose RACE Over <span className="text-[#c6383b]">Traveling to Distant Centers?</span>
-            </h2>
-            <p className="text-sm sm:text-base text-slate-600 mt-2 leading-relaxed">
-              Suburban learners often waste 3+ hours every day in packed local trains to institutes in Andheri, Dadar, or Thane. Here is why studying right beside the railway subway gives you a massive practical edge:
-            </p>
-          </div>
-
-          <div className="overflow-x-auto rounded-3xl border border-slate-200 bg-white shadow-sm">
-            <table className="w-full text-left text-xs sm:text-sm border-collapse">
-              <thead>
-                <tr className="bg-slate-100 text-[#0e2340] font-black border-b border-slate-200">
-                  <th className="p-4 sm:p-5">Key Factor</th>
-                  <th className="p-4 sm:p-5 bg-red-50 text-[#c6383b] font-black">RACE (Station Subway)</th>
-                  <th className="p-4 sm:p-5 text-slate-500 font-bold">Distant Mumbai Centers (Andheri/Dadar)</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-200 text-slate-700">
-                <tr>
-                  <td className="p-4 sm:p-5 font-bold text-[#0e2340]">Daily Travel Time</td>
-                  <td className="p-4 sm:p-5 bg-red-50/50 font-bold text-emerald-700">
-                    <span className="inline-flex items-center gap-1.5">
-                      <Check size={15} className="text-emerald-600 stroke-[3]" />
-                      2-min walk from subway (0 hrs train fatigue)
-                    </span>
-                  </td>
-                  <td className="p-4 sm:p-5 text-rose-600">
-                    <span className="inline-flex items-center gap-1.5">
-                      <X size={15} className="text-rose-500 stroke-[3]" />
-                      2.5 to 3.5 hours every day in crowded local trains
-                    </span>
-                  </td>
-                </tr>
-                <tr>
-                  <td className="p-4 sm:p-5 font-bold text-[#0e2340]">Workstation Guarantee</td>
-                  <td className="p-4 sm:p-5 bg-red-50/50 font-bold text-[#c6383b]">
-                    <span className="inline-flex items-center gap-1.5">
-                      <Check size={15} className="text-[#c6383b] stroke-[3]" />
-                      1 Student : 1 PC Guaranteed (Never share machines)
-                    </span>
-                  </td>
-                  <td className="p-4 sm:p-5 text-slate-500">
-                    <span className="inline-flex items-center gap-1.5">
-                      <X size={15} className="text-slate-400 stroke-[3]" />
-                      Often 2 students per computer in overcrowded batches
-                    </span>
-                  </td>
-                </tr>
-                <tr>
-                  <td className="p-4 sm:p-5 font-bold text-[#0e2340]">Practical Lab Time</td>
-                  <td className="p-4 sm:p-5 bg-red-50/50 font-bold text-emerald-700">
-                    <span className="inline-flex items-center gap-1.5">
-                      <Check size={15} className="text-emerald-600 stroke-[3]" />
-                      Extra lab practice hours anytime during 8 AM – 8 PM
-                    </span>
-                  </td>
-                  <td className="p-4 sm:p-5 text-slate-500">
-                    <span className="inline-flex items-center gap-1.5">
-                      <X size={15} className="text-slate-400 stroke-[3]" />
-                      Strict time limits; asked to vacate for next batch
-                    </span>
-                  </td>
-                </tr>
-                <tr>
-                  <td className="p-4 sm:p-5 font-bold text-[#0e2340]">Course Fees &amp; Savings</td>
-                  <td className="p-4 sm:p-5 bg-red-50/50 font-bold text-[#0e2340]">
-                    <span className="inline-flex items-center gap-1.5">
-                      <Check size={15} className="text-emerald-600 stroke-[3]" />
-                      Flat 50% Concession + FREE Basic Computer Course
-                    </span>
-                  </td>
-                  <td className="p-4 sm:p-5 text-slate-500">
-                    <span className="inline-flex items-center gap-1.5">
-                      <X size={15} className="text-slate-400 stroke-[3]" />
-                      High commercial overhead fees (₹60k – ₹1.2 Lakhs)
-                    </span>
-                  </td>
-                </tr>
-                <tr>
-                  <td className="p-4 sm:p-5 font-bold text-[#0e2340]">Faculty Mentorship</td>
-                  <td className="p-4 sm:p-5 bg-red-50/50 font-bold text-[#0e2340]">
-                    <span className="inline-flex items-center gap-1.5">
-                      <Check size={15} className="text-emerald-600 stroke-[3]" />
-                      Personal 1:1 desk coaching, questions answered face-to-face
-                    </span>
-                  </td>
-                  <td className="p-4 sm:p-5 text-slate-500">
-                    <span className="inline-flex items-center gap-1.5">
-                      <X size={15} className="text-slate-400 stroke-[3]" />
-                      Large batches of 40–60 students; impersonal instruction
-                    </span>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── 5. AUTHENTIC LAB & CAMPUS SHOWCASE (Bento Grid, No Captions) ─── */}
-      <section className="bg-white py-16 sm:py-20 border-t border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
-            <div>
-              <span className="text-xs text-[#c6383b] font-extrabold uppercase tracking-widest">
-                Genuine Campus Facilities
-              </span>
-              <h2 className="text-3xl sm:text-4xl text-[#0e2340] font-black tracking-tight mt-1">
-                Life Inside Our <span className="text-[#c6383b]">Computer Lab</span>
-              </h2>
-              <p className="text-sm sm:text-base text-slate-600 max-w-2xl mt-1.5 leading-relaxed">
-                Authentic glimpses of daily sessions at Raut Arcade 202. Dedicated desktop computers, desk-to-desk mentorship, and quiet study booths.
-              </p>
-            </div>
-
-            <Link
-              to="/gallery"
-              className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#0e2340] hover:text-[#c6383b] transition-colors shrink-0"
-            >
-              <span>View Full Campus Photo Gallery</span>
-              <ArrowRight size={14} />
-            </Link>
-          </div>
-
-          {/* Bento Photo Grid (House Rule 1: No captions underneath) */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-5">
-            
-            {/* Big Feature Photo: Main Lab */}
-            <div className="md:col-span-7 rounded-3xl overflow-hidden bg-slate-900 border border-slate-200 shadow-sm img-frame group relative aspect-[16/10] sm:aspect-[16/11]">
-              <img
-                src="/images/real-lab-classroom.jpg"
-                alt="Students practicing on computers in RACE laboratory"
-                className="w-full h-full object-cover img-zoom"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent pointer-events-none" />
-              <div className="absolute top-4 left-4">
-                <span className="bg-[#0e2340] text-white text-[11px] font-bold px-3 py-1 rounded-full shadow-xs">
-                  Active Practical Session
-                </span>
-              </div>
-              <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white text-xs">
-                <span className="font-bold">Raut Arcade Lab 202</span>
-                <span className="text-emerald-400 font-semibold bg-black/60 px-2.5 py-0.5 rounded-md">
-                  1 Student : 1 PC
-                </span>
-              </div>
-            </div>
-
-            {/* Side Stack 1: Instructor Mentoring */}
-            <div className="md:col-span-5 rounded-3xl overflow-hidden bg-slate-900 border border-slate-200 shadow-sm img-frame group relative aspect-[16/10] sm:aspect-[16/11]">
-              <img
-                src="/images/real-instructor-mentoring.jpg"
-                alt="Instructor providing 1-on-1 desk coaching at RACE"
-                className="w-full h-full object-cover img-zoom"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent pointer-events-none" />
-              <div className="absolute top-4 left-4">
-                <span className="bg-[#c6383b] text-white text-[11px] font-bold px-3 py-1 rounded-full shadow-xs">
-                  1-on-1 Desk Coaching
-                </span>
-              </div>
-              <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white text-xs">
-                <span className="font-bold">Personalized Guidance</span>
-                <span className="text-slate-300 font-medium">Ladies Special Batch</span>
-              </div>
-            </div>
-
-            {/* Bottom Stack 1: Whiteboard Lecture */}
-            <div className="md:col-span-4 rounded-3xl overflow-hidden bg-slate-900 border border-slate-200 shadow-sm img-frame group relative aspect-[16/10]">
-              <img
-                src="/images/real-teacher-lecture.jpg"
-                alt="Interactive whiteboard lecture at RACE"
-                className="w-full h-full object-cover img-zoom"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent pointer-events-none" />
-              <div className="absolute top-4 left-4">
-                <span className="bg-emerald-700 text-white text-[10.5px] font-bold px-2.5 py-0.5 rounded-full shadow-xs">
-                  Concept Clarity
-                </span>
-              </div>
-              <div className="absolute bottom-4 left-4 right-4 text-white text-xs font-bold">
-                Daily Theory &amp; Whiteboard Prep
-              </div>
-            </div>
-
-            {/* Bottom Stack 2: Data Analytics & Tally */}
-            <div className="md:col-span-4 rounded-3xl overflow-hidden bg-slate-900 border border-slate-200 shadow-sm img-frame group relative aspect-[16/10]">
-              <img
-                src="/images/real-data-chart-session.jpg"
-                alt="Data chart and accounting analysis session"
-                className="w-full h-full object-cover img-zoom"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent pointer-events-none" />
-              <div className="absolute top-4 left-4">
-                <span className="bg-[#0e2340] text-white text-[10.5px] font-bold px-2.5 py-0.5 rounded-full shadow-xs">
-                  Tally &amp; Excel Lab
-                </span>
-              </div>
-              <div className="absolute bottom-4 left-4 right-4 text-white text-xs font-bold">
-                Live Business Accounts Practice
-              </div>
-            </div>
-
-            {/* Bottom Stack 3: Lab 202 Video Walkthrough */}
-            <Link
-              to="/gallery"
-              className="md:col-span-4 rounded-3xl overflow-hidden bg-slate-900 border border-slate-200 shadow-sm img-frame group relative aspect-[16/10] block"
-              aria-label="Watch Lab 202 Video Tour in Gallery"
-            >
-              <img
-                src="/images/real-lab-wide.jpg"
-                alt="Full panoramic view of workstation aisles and lab video tour"
-                className="w-full h-full object-cover img-zoom opacity-90"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent pointer-events-none" />
-              <div className="absolute top-4 left-4">
-                <span className="bg-[#c6383b] text-white text-[10.5px] font-bold px-2.5 py-0.5 rounded-full shadow-xs flex items-center gap-1">
-                  <Play size={10} className="fill-current" />
-                  <span>Video Tour</span>
-                </span>
-              </div>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-11 h-11 rounded-full bg-white/95 text-[#0e2340] flex items-center justify-center shadow-lg transition-transform group-hover:scale-110 group-hover:bg-[#A2D016]">
-                  <Play size={18} className="fill-current ml-0.5" />
-                </div>
-              </div>
-              <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white text-xs font-bold">
-                <span>Lab 202 Walkthrough</span>
-                <span className="text-[#A2D016] font-mono text-[10px] bg-black/60 px-2 py-0.5 rounded-md">
-                  1:15 min
-                </span>
-              </div>
-            </Link>
-
-          </div>
-        </div>
-      </section>
-
-      {/* ─── 6. ADMISSION PROCESS (3-Step Practical Flow) ─── */}
-      <section className="bg-[#F8F9FA] py-16 sm:py-20 border-t border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-14">
-            <span className="text-xs text-[#c6383b] font-extrabold uppercase tracking-widest">
-              Straightforward Enrolment
-            </span>
-            <h2 className="text-3xl sm:text-4xl text-[#0e2340] font-black tracking-tight mt-1">
-              Begin Your Training in <span className="text-[#c6383b]">3 Simple Steps</span>
-            </h2>
-            <p className="text-sm sm:text-base text-slate-600 mt-2 leading-relaxed">
-              Experience practical computer learning without bureaucratic delays or confusing forms.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="p-6 sm:p-7 bg-white rounded-3xl border border-slate-200 shadow-sm flex flex-col justify-between hover-lift">
-              <div>
-                <span className="w-12 h-12 rounded-2xl bg-[#0e2340] text-white text-base font-black flex items-center justify-center mb-5">
-                  01
-                </span>
-                <h3 className="text-lg font-bold text-[#0e2340] mb-2">
-                  Connect &amp; Free Counseling
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  Call or WhatsApp our team. Discuss your goals whether you want a corporate job, want to manage family business accounts, or are starting from scratch.
-                </p>
-              </div>
-              <div className="mt-5 pt-3 border-t border-slate-100 text-xs font-semibold text-[#0e2340]">
-                Instant WhatsApp guidance
-              </div>
-            </div>
-
-            <div className="p-6 sm:p-7 bg-white rounded-3xl border border-[#c6383b]/40 shadow-sm flex flex-col justify-between hover-lift relative overflow-hidden">
-              <span className="absolute top-3 right-3 bg-red-50 text-[#c6383b] text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full border border-red-200">
-                Zero Obligation
-              </span>
-              <div>
-                <span className="w-12 h-12 rounded-2xl bg-[#c6383b] text-white text-base font-black flex items-center justify-center mb-5 shadow-md shadow-red-950/20">
-                  02
-                </span>
-                <h3 className="text-lg font-bold text-[#0e2340] mb-2">
-                  Attend a Free 1:1 Lab Demo
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  Visit our Raut Arcade lab opposite the subway. Sit at a workstation, experience a practical lesson, and inspect the curriculum firsthand before enrolling.
-                </p>
-              </div>
-              <div className="mt-5 pt-3 border-t border-slate-100 text-xs font-semibold text-[#c6383b]">
-                1:1 Computer test drive
-              </div>
-            </div>
-
-            <div className="p-6 sm:p-7 bg-white rounded-3xl border border-slate-200 shadow-sm flex flex-col justify-between hover-lift">
-              <div>
-                <span className="w-12 h-12 rounded-2xl bg-[#0e2340] text-white text-base font-black flex items-center justify-center mb-5">
-                  03
-                </span>
-                <h3 className="text-lg font-bold text-[#0e2340] mb-2">
-                  Allot Workstation &amp; Start
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  Pick your preferred timing slot (Morning, Afternoon, Ladies Special, or Evening) and get your dedicated PC allotted immediately with your 50% concession.
-                </p>
-              </div>
-              <div className="mt-5 pt-3 border-t border-slate-100 text-xs font-semibold text-emerald-700">
-                100% individual PC training
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── 7. CONCESSION OFFER BANNER (Placed at the bottom side) ─── */}
-      <section className="bg-[#F8F9FA] py-16 sm:py-20 border-t border-slate-200" id="concession">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#0e2340] via-[#16345c] to-[#071324] text-white p-6 sm:p-9 lg:p-11 shadow-2xl border border-[#16345c]">
-            
-            {/* Subtle Mesh Ambient Glow */}
-            <div className="absolute -right-20 -top-20 w-[420px] h-[420px] bg-[#c6383b]/20 rounded-full blur-[110px] pointer-events-none" />
-            <div className="absolute -left-20 -bottom-20 w-[420px] h-[420px] bg-[#16345c]/35 rounded-full blur-[120px] pointer-events-none" />
-
-            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+            {/* Editorial Split Hero Layout */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start mb-8 sm:mb-12">
               
-              {/* Left Column: Headlines & Highlights (7 cols) */}
-              <div className="lg:col-span-7 flex flex-col justify-center pr-0 lg:pr-4">
-                <div className="flex items-center gap-2 mb-3">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#c6383b] text-white text-xs font-black uppercase tracking-wider shadow-xs">
-                    <Sparkles size={12} className="text-white" />
-                    Limited-Time Admission Offer
-                  </span>
-                  <span className="text-[11px] text-slate-300 font-medium hidden sm:inline">
-                    Terminal 202
-                  </span>
-                </div>
+              {/* Left Column: Massive Bold Heading & Two Action Buttons */}
+              <div className="lg:col-span-7 space-y-6">
+                <h1 className="text-4xl sm:text-5xl lg:text-[64px] font-black tracking-tight text-[#001752] font-heading leading-[1.08]">
+                  Build Skills.<br />
+                  <span className="text-[#C41E1E]">Shape Your Future.</span>
+                </h1>
 
-                <h3 className="text-2xl sm:text-3xl lg:text-[34px] font-black text-white tracking-tight leading-tight">
-                  Flat 50% Concession{' '}
-                  <span className="text-[#F5BE4F]">
-                    + Free Basic Computer Course
-                  </span>
-                </h3>
-
-                <p className="text-sm sm:text-base text-slate-300 mt-3 leading-relaxed">
-                  Enrol in any career-track diploma program this month and receive our complete foundational{' '}
-                  <strong className="text-white font-bold">Basic Computer Course</strong> at zero additional cost. Includes 100% individual workstation time and recognized certification.
+                <p className="text-base sm:text-lg text-[#444444] leading-relaxed max-w-xl font-normal">
+                  Practical, career-focused computer education in Vasai-Virar. Learn in modern air-conditioned labs with dedicated 1:1 workstations, personalized faculty mentorship, and industry-recognized certifications.
                 </p>
 
-                {/* Perks list */}
-                <div className="flex flex-wrap items-center gap-x-3 gap-y-2 mt-5 text-xs font-semibold text-slate-300">
-                  <span className="flex items-center gap-1.5 bg-white/5 border border-white/10 px-2.5 py-1 rounded-lg">
-                    <Check size={13} className="text-emerald-400 stroke-[3]" />
-                    No Hidden Lab Fees
-                  </span>
-                  <span className="flex items-center gap-1.5 bg-white/5 border border-white/10 px-2.5 py-1 rounded-lg">
-                    <Check size={13} className="text-emerald-400 stroke-[3]" />
-                    Morning &amp; Ladies Slots
-                  </span>
-                  <span className="flex items-center gap-1.5 bg-white/5 border border-white/10 px-2.5 py-1 rounded-lg">
-                    <Check size={13} className="text-emerald-400 stroke-[3]" />
-                    Lifetime Doubt Support
-                  </span>
-                </div>
+                {/* Two Action Buttons: Explore Courses & Enquire Now */}
+                <div className="flex flex-wrap items-center gap-3.5 pt-2">
+                  <Link
+                    to="/courses"
+                    className="inline-flex items-center justify-center gap-2 bg-[#C41E1E] hover:bg-[#931616] text-white font-bold text-sm sm:text-base px-7 py-3.5 rounded-full shadow-md hover:shadow-lg transition-all active:scale-95 cursor-pointer btn-press"
+                  >
+                    <span>Explore Courses</span>
+                    <ArrowRight size={16} />
+                  </Link>
 
-                {/* Trust highlight chips */}
-                <div className="mt-5 pt-4 border-t border-white/10 flex flex-wrap items-center gap-3 text-xs">
-                  <div className="bg-white/5 border border-white/10 px-3 py-1.5 rounded-full flex items-center gap-2 text-slate-300">
-                    <span className="w-2 h-2 rounded-full bg-[#c6383b]" />
-                    <span>Free Course Worth ₹3,500</span>
-                  </div>
-                  <div className="bg-white/5 border border-white/10 px-3 py-1.5 rounded-full flex items-center gap-2 text-slate-300">
-                    <span className="w-2 h-2 rounded-full bg-emerald-400" />
-                    <span>1 Student : 1 Desktop Terminal</span>
-                  </div>
+                  <Link
+                    to="/contact#enquiry"
+                    className="inline-flex items-center justify-center gap-2 bg-transparent hover:bg-[#001752] text-[#001752] hover:text-white border-2 border-[#001752] font-bold text-sm sm:text-base px-7 py-3.5 rounded-full transition-all active:scale-95 cursor-pointer"
+                  >
+                    <span>Enquire Now</span>
+                  </Link>
                 </div>
               </div>
 
-              {/* Right Column: Lab Photo & Dual Actions (5 cols) */}
-              <div className="lg:col-span-5 flex flex-col w-full">
-                
-                {/* Photo Card with Floating Badges */}
-                <div className="relative rounded-2xl overflow-hidden border border-white/15 shadow-2xl bg-slate-900 group img-frame">
-                  <div className="aspect-[16/10] w-full relative overflow-hidden">
-                    <img
-                      src="/images/real-instructor-mentoring.jpg"
-                      alt="Instructor guiding students hands-on at computer workstation"
-                      className="w-full h-full object-cover img-zoom"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/10 pointer-events-none" />
+              {/* Right Column: Editorial Overview & Trust Capsule */}
+              <div className="lg:col-span-5 flex flex-col justify-between h-full space-y-6 lg:pl-6 lg:border-l border-slate-100">
+                <div className="space-y-4">
+                  <span className="text-xs font-bold uppercase tracking-widest text-[#C41E1E] block">
+                    Why Commute To Mumbai?
+                  </span>
+                  <p className="text-sm text-slate-600 leading-relaxed">
+                    Founded for ambitious local learners, RACE eliminates 4 hours of exhausting local train travel. Get direct hands-on practice on real business software right across Platform 1/2 subway.
+                  </p>
+                </div>
 
-                    {/* Top-left: Location Pill */}
-                    <div className="absolute top-3 left-3 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full border border-white/20 text-[11px] font-semibold text-white flex items-center gap-1.5">
-                      <Sparkles size={11} className="text-[#F5BE4F]" />
-                      <span>Raut Arcade Lab 202</span>
-                    </div>
-
-                    {/* Top-right: 50% Concession Tag */}
-                    <div className="absolute top-3 right-3 bg-[#c6383b] text-white font-black text-xs px-3 py-1 rounded-full shadow-lg tracking-wider uppercase border border-red-400/40">
-                      Flat 50% OFF
-                    </div>
-
-                    {/* Bottom: Floating Glass Tag */}
-                    <div className="absolute bottom-3 left-3 right-3 bg-black/60 backdrop-blur-md px-3.5 py-2.5 rounded-xl border border-white/15 text-white flex items-center justify-between">
-                      <div>
-                        <span className="text-[10px] uppercase font-black text-[#F5BE4F] tracking-wider block">
-                          Included Free
-                        </span>
-                        <strong className="text-xs sm:text-sm font-bold text-white block">
-                          Basic Computer Foundation
-                        </strong>
-                      </div>
-                      <div className="text-right shrink-0">
-                        <span className="text-[10px] text-slate-300 block">Workstations</span>
-                        <span className="text-xs font-bold text-emerald-400">1 Student : 1 PC</span>
-                      </div>
-                    </div>
+                <div className="p-4 rounded-2xl bg-[#F6F7F9] border border-[#E5E7EB] space-y-2.5">
+                  <div className="flex items-center justify-between text-xs font-bold text-[#001752]">
+                    <span>Admissions Open (2026 Batch)</span>
+                    <span className="text-[#C41E1E] uppercase">{OFFERS_CONFIG.badge}</span>
+                  </div>
+                  <div className="w-full bg-slate-200 h-1.5 rounded-full overflow-hidden">
+                    <div className="bg-[#C41E1E] h-full w-4/5 rounded-full" />
+                  </div>
+                  <div className="flex items-center justify-between text-[11px] text-slate-500">
+                    <span>Fast-filling weekend &amp; weekday slots</span>
+                    <span className="font-semibold text-slate-700">Limited Seats</span>
                   </div>
                 </div>
-
-                {/* Side-by-Side Action Buttons */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mt-3 w-full">
-                  <a
-                    href={`${wa}?text=${encodeURIComponent('Hi! I would like to claim the 50% Admission Concession at RACE.')}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 h-11 px-4 rounded-xl bg-[#c6383b] hover:bg-[#a82b2e] text-white text-xs sm:text-sm font-bold shadow-lg btn-press cursor-pointer"
-                  >
-                    <MessageSquare size={16} />
-                    <span>Claim on WhatsApp</span>
-                  </a>
-
-                  <a
-                    href={`tel:${phone}`}
-                    className="inline-flex items-center justify-center gap-2 h-11 px-4 rounded-xl bg-white/10 hover:bg-white/20 text-white border border-white/20 text-xs sm:text-sm font-bold btn-press cursor-pointer backdrop-blur-md"
-                  >
-                    <Phone size={15} className="text-[#F5BE4F]" />
-                    <span>Call {phone}</span>
-                  </a>
-                </div>
-
-                <div className="text-center text-[10px] text-slate-400 font-medium pt-1.5">
-                  {OFFERS_CONFIG.validityNote} · Raut Arcade 202
-                </div>
-
               </div>
 
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* ─── 8. FREQUENTLY ASKED QUESTIONS ─── */}
-      <section className="bg-white py-16 sm:py-20 border-t border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <span className="text-xs text-[#c6383b] font-extrabold uppercase tracking-widest">
-              Clear Information
-            </span>
-            <h2 className="text-3xl sm:text-4xl text-[#0e2340] font-black tracking-tight mt-1">
-              Frequently Asked <span className="text-[#c6383b]">Questions</span>
-            </h2>
-            <p className="text-sm sm:text-base text-slate-600 mt-2">
-              Everything you need to know about joining our classes at Raut Arcade.
-            </p>
-          </div>
+            {/* Dominant Hero Image: Wide, Rounded, Editorial Photography */}
+            <div className="relative w-full rounded-2xl sm:rounded-3xl overflow-hidden aspect-[16/9] sm:aspect-[21/9] lg:aspect-[2.4/1] bg-slate-900 border border-slate-200 shadow-md group">
+              <img
+                src="/hero-lab.jpg"
+                alt="Students practicing in computer lab at RACE Virar East"
+                className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-700"
+                loading="eager"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = '/images/real-lab-classroom.jpg';
+                }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#00113E]/80 via-transparent to-transparent pointer-events-none" />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-start max-w-5xl mx-auto">
-            {FAQS.map((faq, idx) => {
-              const isOpen = openFaq === idx;
-              return (
-                <div
-                  key={idx}
-                  className="rounded-2xl border border-slate-200 bg-[#F8F9FA] overflow-hidden transition-all shadow-xs"
-                >
+              {/* Floating Live Lab Tag */}
+              <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 flex flex-wrap items-center justify-between gap-3 text-white text-xs z-10">
+                <div className="flex items-center gap-2.5 bg-black/60 backdrop-blur-md px-3.5 py-2 rounded-full border border-white/20">
+                  <span className="w-2 h-2 rounded-full bg-[#10b981] animate-pulse" />
+                  <span className="font-bold">Live Lab Sessions at Raut Arcade 202</span>
+                  <span className="text-slate-300 hidden sm:inline">· 1 Student : 1 PC</span>
+                </div>
+
+                <div className="hidden sm:flex items-center gap-3 bg-white/95 text-[#001752] px-4 py-2 rounded-full font-bold shadow-md">
+                  <Clock size={14} className="text-[#C41E1E]" />
+                  <span>Mon–Sat: 9:00 AM – 7:00 PM</span>
+                </div>
+              </div>
+            </div>
+
+          </section>
+
+
+          {/* ══════════════════════════════════════════════════════════════════════
+              SECTION 02 – RACE INTRODUCTION AND KEY HIGHLIGHTS (3 Metric Cards)
+              ══════════════════════════════════════════════════════════════════════ */}
+          <section 
+            aria-label="Institute Overview and Highlights"
+            className="relative bg-[#F2F3F6] rounded-[28px] sm:rounded-[36px] border border-[#E0E3EA] p-6 sm:p-10 lg:p-14 overflow-hidden"
+          >
+            {/* Top Two-Column Editorial Introduction */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10 items-start mb-10 sm:mb-14">
+              
+              <div className="lg:col-span-7 space-y-3">
+                <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#C41E1E]">
+                  <BrandSpeedStripes size="xs" />
+                  <span>Institutional Heritage</span>
+                </div>
+                <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-black text-[#001752] font-heading leading-tight tracking-tight">
+                  Empowering the Next Generation with Digital Skills
+                </h2>
+                <p className="text-sm sm:text-base text-[#444444] leading-relaxed pt-1">
+                  Since 2014, Reddys Advanced Computer Education has set the benchmark for practical, job-oriented learning in the Vasai-Virar region. We bridge the gap between abstract academic theory and actual workplace software proficiency.
+                </p>
+              </div>
+
+              <div className="lg:col-span-5 lg:pl-6 lg:border-l border-slate-300/60 pt-2 lg:pt-6">
+                <p className="text-sm text-slate-600 leading-relaxed font-normal">
+                  Our classroom philosophy is built on genuine desk-to-desk coaching: every student learns on an individual desktop computer, working through live company case studies, business invoices, and functional software projects with immediate faculty support.
+                </p>
+              </div>
+
+            </div>
+
+            {/* Three Large White Metric Cards with Subtle Red Bottom Accents */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              
+              {/* Card 1: Experience */}
+              <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#E5E7EB] shadow-xs relative overflow-hidden flex flex-col justify-between hover:shadow-md transition-shadow group">
+                <div className="flex items-start justify-between gap-4 mb-6">
+                  <div>
+                    <span className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#001752] font-heading block tracking-tight">
+                      10+
+                    </span>
+                    <span className="text-sm font-bold text-slate-500 uppercase tracking-wider block mt-1">
+                      Years Experience
+                    </span>
+                  </div>
+                  <div className="w-10 h-10 rounded-2xl bg-[#F2F3F6] text-[#001752] flex items-center justify-center shrink-0">
+                    <Sparkles size={18} />
+                  </div>
+                </div>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  Over a decade of dedicated computer education and practical skills development directly opposite Virar East railway subway.
+                </p>
+                {/* Subtle Red Bottom Accent */}
+                <div className="w-full h-1.5 bg-[#C41E1E] rounded-full mt-6" />
+              </div>
+
+              {/* Card 2: Students Trained */}
+              <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#E5E7EB] shadow-xs relative overflow-hidden flex flex-col justify-between hover:shadow-md transition-shadow group">
+                <div className="flex items-start justify-between gap-4 mb-6">
+                  <div>
+                    <span className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#001752] font-heading block tracking-tight">
+                      5,000+
+                    </span>
+                    <span className="text-sm font-bold text-slate-500 uppercase tracking-wider block mt-1">
+                      Students Trained
+                    </span>
+                  </div>
+                  <div className="w-10 h-10 rounded-2xl bg-[#F2F3F6] text-[#001752] flex items-center justify-center shrink-0">
+                    <Users size={18} />
+                  </div>
+                </div>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  Local graduates, school students, homemakers, and professionals certified across IT, software, accounting, and office skills.
+                </p>
+                {/* Subtle Red Bottom Accent */}
+                <div className="w-full h-1.5 bg-[#C41E1E] rounded-full mt-6" />
+              </div>
+
+              {/* Card 3: 1:1 PC Ratio */}
+              <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#E5E7EB] shadow-xs relative overflow-hidden flex flex-col justify-between hover:shadow-md transition-shadow group">
+                <div className="flex items-start justify-between gap-4 mb-6">
+                  <div>
+                    <span className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#001752] font-heading block tracking-tight">
+                      100%
+                    </span>
+                    <span className="text-sm font-bold text-slate-500 uppercase tracking-wider block mt-1">
+                      1:1 Dedicated PC
+                    </span>
+                  </div>
+                  <div className="w-10 h-10 rounded-2xl bg-[#F2F3F6] text-[#001752] flex items-center justify-center shrink-0">
+                    <Monitor size={18} />
+                  </div>
+                </div>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  Guaranteed individual workstation for every enrolled student. Zero machine sharing during your entire training tenure.
+                </p>
+                {/* Subtle Red Bottom Accent */}
+                <div className="w-full h-1.5 bg-[#C41E1E] rounded-full mt-6" />
+              </div>
+
+            </div>
+
+          </section>
+
+
+          {/* ══════════════════════════════════════════════════════════════════════
+              SECTION 03 – EXPLORE OUR COURSES (Editorial Split + Horizontal Slider)
+              ══════════════════════════════════════════════════════════════════════ */}
+          <section 
+            aria-label="Course Programs"
+            className="bg-white rounded-[28px] sm:rounded-[36px] border border-[#E5E7EB] shadow-xs p-6 sm:p-10 lg:p-14 overflow-hidden"
+          >
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+              
+              {/* Left Column: Heading, Paragraph, Filter Pills, and Carousel Arrows */}
+              <div className="lg:col-span-4 space-y-6">
+                <div>
+                  <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#C41E1E] mb-2">
+                    <BrandSpeedStripes size="xs" />
+                    <span>Explore Courses</span>
+                  </div>
+                  <h2 className="text-3xl sm:text-4xl font-black text-[#001752] font-heading leading-tight tracking-tight">
+                    Find the Right Course for Your Future
+                  </h2>
+                </div>
+
+                <p className="text-sm text-slate-600 leading-relaxed">
+                  Choose from 23 certified programs tailored for complete beginners, high-school students, and ambitious career switchers. All taught with hands-on lab assignments.
+                </p>
+
+                {/* Filter Tabs */}
+                <div className="flex flex-wrap gap-2">
                   <button
                     type="button"
-                    onClick={() => setOpenFaq(isOpen ? null : idx)}
-                    className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-3 cursor-pointer hover:bg-slate-100/70 transition-colors"
+                    onClick={() => setCourseCategory('all')}
+                    className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
+                      courseCategory === 'all'
+                        ? 'bg-[#001752] text-white shadow-xs'
+                        : 'bg-[#F2F3F6] text-slate-700 hover:bg-slate-200'
+                    }`}
                   >
-                    <span className="text-xs sm:text-sm font-bold text-[#0e2340]">
-                      {faq.q}
-                    </span>
-                    <span className="text-slate-400 shrink-0">
-                      {isOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
-                    </span>
+                    All Featured
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setCourseCategory('career')}
+                    className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
+                      courseCategory === 'career'
+                        ? 'bg-[#001752] text-white shadow-xs'
+                        : 'bg-[#F2F3F6] text-slate-700 hover:bg-slate-200'
+                    }`}
+                  >
+                    Career Diplomas
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setCourseCategory('short-term')}
+                    className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
+                      courseCategory === 'short-term'
+                        ? 'bg-[#001752] text-white shadow-xs'
+                        : 'bg-[#F2F3F6] text-slate-700 hover:bg-slate-200'
+                    }`}
+                  >
+                    Short-Term Certificates
+                  </button>
+                </div>
+
+                {/* Carousel Controls: Circular Left / Right Arrow Buttons */}
+                <div className="pt-2 flex items-center gap-3">
+                  <button
+                    type="button"
+                    onClick={slideLeft}
+                    disabled={!canScrollLeft}
+                    className={`w-11 h-11 rounded-full flex items-center justify-center transition-all cursor-pointer ${
+                      canScrollLeft
+                        ? 'bg-[#001752] text-white hover:bg-[#263A6C] shadow-sm'
+                        : 'bg-slate-100 text-slate-300 cursor-not-allowed'
+                    }`}
+                    aria-label="Previous courses"
+                  >
+                    <ChevronLeft size={20} />
                   </button>
 
-                  {isOpen && (
-                    <div className="p-4 sm:p-5 bg-white border-t border-slate-200 text-xs sm:text-sm text-slate-600 leading-relaxed">
-                      {faq.a}
-                    </div>
-                  )}
+                  <button
+                    type="button"
+                    onClick={slideRight}
+                    disabled={!canScrollRight}
+                    className={`w-11 h-11 rounded-full flex items-center justify-center transition-all cursor-pointer ${
+                      canScrollRight
+                        ? 'bg-[#001752] text-white hover:bg-[#263A6C] shadow-sm'
+                        : 'bg-slate-100 text-slate-300 cursor-not-allowed'
+                    }`}
+                    aria-label="Next courses"
+                  >
+                    <ChevronRight size={20} />
+                  </button>
+
+                  <Link
+                    to="/courses"
+                    className="text-xs font-bold text-[#C41E1E] hover:underline ml-2"
+                  >
+                    View All 23 Courses →
+                  </Link>
                 </div>
-              );
-            })}
-          </div>
+              </div>
 
-          <div className="mt-10 p-5 rounded-2xl bg-[#F8F9FA] border border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4 max-w-5xl mx-auto">
-            <div className="flex items-center gap-3">
-              <span className="text-[#c6383b] text-2xl">💬</span>
-              <span className="text-xs sm:text-sm text-[#0e2340] font-medium">
-                Have a specific question not addressed above?
-              </span>
+              {/* Right Column: Horizontal Scrolling Course Cards */}
+              <div className="lg:col-span-8 overflow-hidden">
+                <div
+                  ref={sliderRef}
+                  className="flex gap-5 overflow-x-auto no-scrollbar scroll-smooth pb-4 pt-1 snap-x snap-mandatory"
+                  tabIndex={0}
+                  role="region"
+                  aria-label="Courses Carousel"
+                >
+                  {displayedCourses.map((c) => {
+                    const isCareer = c.type === 'career';
+                    const img = getCourseImage(c.id, c.type);
+
+                    return (
+                      <div
+                        key={c.id}
+                        className="w-[280px] sm:w-[320px] shrink-0 snap-start bg-[#F6F7F9] rounded-3xl border border-[#E5E7EB] overflow-hidden flex flex-col justify-between hover:shadow-lg transition-all duration-300 group"
+                      >
+                        {/* Course Image */}
+                        <div>
+                          <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-900">
+                            <img
+                              src={img}
+                              alt={c.name}
+                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                              loading="lazy"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent pointer-events-none" />
+                            
+                            <div className="absolute top-3 left-3 z-10">
+                              <span className="bg-[#001752]/90 backdrop-blur-xs text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md border border-white/20">
+                                {isCareer ? 'Career Program' : 'Certificate'}
+                              </span>
+                            </div>
+
+                            <div className="absolute bottom-2.5 left-3 right-3 flex items-center justify-between text-[10px] text-white font-bold z-10">
+                              <span className="bg-black/60 px-2 py-0.5 rounded-sm">
+                                100% Practical
+                              </span>
+                              <span className="bg-[#C41E1E] px-2 py-0.5 rounded-sm">
+                                1:1 PC
+                              </span>
+                            </div>
+                          </div>
+
+                          {/* Card Content */}
+                          <div className="p-5">
+                            <h3 className="text-base font-bold text-[#001752] mb-1.5 line-clamp-1 group-hover:text-[#C41E1E] transition-colors">
+                              <Link to={`/courses/${c.id}`}>
+                                {c.name}
+                              </Link>
+                            </h3>
+                            <p className="text-xs text-slate-600 leading-relaxed line-clamp-2 min-h-[2.5rem] mb-3">
+                              {c.shortDesc}
+                            </p>
+                            
+                            <div className="flex items-center gap-2 text-xs font-medium text-slate-500 pt-2 border-t border-slate-200">
+                              <Clock size={13} className="text-[#C41E1E]" />
+                              <span>{c.durationPlaceholder.split('(')[0].trim()}</span>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Card Action Buttons */}
+                        <div className="p-5 pt-0 grid grid-cols-2 gap-2">
+                          <Link
+                            to={`/courses/${c.id}`}
+                            className="py-2.5 px-3 rounded-xl border border-slate-300 bg-white hover:bg-slate-100 text-[#001752] text-xs font-bold text-center transition-colors"
+                          >
+                            View Details
+                          </Link>
+                          <Link
+                            to="/contact#enquiry"
+                            className="py-2.5 px-3 rounded-xl bg-[#C41E1E] hover:bg-[#931616] text-white text-xs font-bold text-center transition-colors shadow-2xs"
+                          >
+                            Enquire Now
+                          </Link>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+
             </div>
-            <a
-              href={`${wa}?text=${encodeURIComponent('Hi! I have a question about admissions at RACE.')}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#c6383b] hover:underline shrink-0"
-            >
-              <span>Ask our counsellor on WhatsApp</span>
-              <ArrowRight size={14} />
-            </a>
-          </div>
-        </div>
-      </section>
+          </section>
 
-      {/* ─── 9. FINAL CTA BAND ─── */}
-      <section className="relative bg-gradient-to-r from-[#071324] via-[#0e2340] to-[#071324] text-white py-16 sm:py-20 overflow-hidden border-t border-[#16345c]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
-            <div className="flex-1 text-center lg:text-left">
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white text-xs font-bold uppercase tracking-wider mb-3 border border-white/15">
-                <span className="w-2 h-2 rounded-full bg-[#c6383b]" />
-                Direct Station Subway Access
-              </span>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight text-white leading-tight">
-                Visit Our Campus or <span className="text-[#F5BE4F]">Enquire Online</span> Today
+
+          {/* ══════════════════════════════════════════════════════════════════════
+              SECTION 04 – HOW WE HELP YOU LEARN (Asymmetrical Process Layout)
+              ══════════════════════════════════════════════════════════════════════ */}
+          <section 
+            aria-label="Training Methodology"
+            className="bg-[#F2F3F6] rounded-[28px] sm:rounded-[36px] border border-[#E0E3EA] p-6 sm:p-10 lg:p-14 overflow-hidden"
+          >
+            <div className="max-w-3xl mb-10 sm:mb-12">
+              <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#C41E1E] mb-2">
+                <BrandSpeedStripes size="xs" />
+                <span>Our Learning Blueprint</span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-black text-[#001752] font-heading leading-tight tracking-tight">
+                From Learning to Real-World Skills.
               </h2>
-              <p className="text-xs sm:text-sm text-slate-300 mt-2 max-w-2xl leading-relaxed">
-                202, 2nd Floor, Raut Arcade, opposite railway station subway entrance. Open Monday to Saturday from 8:00 AM to 8:30 PM.
+              <p className="text-sm sm:text-base text-[#444444] mt-2 leading-relaxed">
+                A structured, practical four-stage training methodology engineered to turn beginners into capable, industry-ready professionals.
               </p>
             </div>
-            <div className="flex flex-col sm:flex-row items-center gap-3.5 shrink-0 w-full lg:w-auto">
-              <a
-                href={`${wa}?text=${encodeURIComponent('Hi, I would like to visit RACE or enquire about admissions.')}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center px-7 py-3.5 rounded-full bg-[#c6383b] hover:bg-[#a82b2e] text-white text-xs sm:text-sm font-bold shadow-xl btn-press"
-              >
-                <MessageSquare size={16} className="mr-2" />
-                Chat on WhatsApp
-              </a>
-              <a
-                href={`tel:${phone}`}
-                className="w-full sm:w-auto inline-flex items-center justify-center px-7 py-3.5 rounded-full bg-white/10 text-white border border-white/20 text-xs sm:text-sm font-bold hover:bg-white/20 btn-press"
-              >
-                <Phone size={15} className="mr-2 text-[#F5BE4F]" />
-                Call {phone}
-              </a>
+
+            {/* Asymmetrical Process Grid: 3 Vertical Cards on Top, Wide Navy Card on Bottom */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+              
+              {/* Step 01: Understand Your Goals */}
+              <div className="bg-white rounded-3xl p-6 sm:p-7 border border-[#E5E7EB] shadow-xs flex flex-col justify-between hover:shadow-md transition-shadow">
+                <div>
+                  <span className="text-xs font-mono font-black text-[#C41E1E] uppercase tracking-wider block mb-3">
+                    Step 01
+                  </span>
+                  <h3 className="text-xl font-bold text-[#001752] mb-3">
+                    Understand Your Goals
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-5">
+                    Personalized 1-on-1 counseling to evaluate your academic qualification, time availability, and career aspirations before choosing a track.
+                  </p>
+                </div>
+                <div className="relative rounded-2xl overflow-hidden aspect-[4/3] bg-slate-900 border border-slate-100">
+                  <img
+                    src="/images/real-instructor-mentoring.jpg"
+                    alt="Student counseling at RACE"
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+
+              {/* Step 02: Learn Through Practical Training */}
+              <div className="bg-white rounded-3xl p-6 sm:p-7 border border-[#E5E7EB] shadow-xs flex flex-col justify-between hover:shadow-md transition-shadow">
+                <div>
+                  <span className="text-xs font-mono font-black text-[#C41E1E] uppercase tracking-wider block mb-3">
+                    Step 02
+                  </span>
+                  <h3 className="text-xl font-bold text-[#001752] mb-3">
+                    Learn Through Practical Training
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-5">
+                    100% lab practice on your personal workstation. You write code, enter Tally vouchers, and design graphics directly on software tools.
+                  </p>
+                </div>
+                <div className="relative rounded-2xl overflow-hidden aspect-[4/3] bg-slate-900 border border-slate-100">
+                  <img
+                    src="/images/real-lab-classroom.jpg"
+                    alt="Practical training at RACE lab"
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+
+              {/* Step 03: Build Real Projects */}
+              <div className="bg-white rounded-3xl p-6 sm:p-7 border border-[#E5E7EB] shadow-xs flex flex-col justify-between hover:shadow-md transition-shadow">
+                <div>
+                  <span className="text-xs font-mono font-black text-[#C41E1E] uppercase tracking-wider block mb-3">
+                    Step 03
+                  </span>
+                  <h3 className="text-xl font-bold text-[#001752] mb-3">
+                    Build Real Projects
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-5">
+                    Execute real-world portfolio projects: balance sheet reconciliations, live web apps, database pipelines, and branding kits.
+                  </p>
+                </div>
+                <div className="relative rounded-2xl overflow-hidden aspect-[4/3] bg-slate-900 border border-slate-100">
+                  <img
+                    src="/images/student-coding.jpg"
+                    alt="Student working on projects"
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+
             </div>
-          </div>
+
+            {/* Step 04: Wide Deep Navy Card */}
+            <div className="bg-[#001752] text-white rounded-3xl p-6 sm:p-9 lg:p-10 border border-[#00113E] shadow-xl relative overflow-hidden">
+              <div className="absolute -right-20 -top-20 w-80 h-80 bg-[#C41E1E]/20 rounded-full blur-[90px] pointer-events-none" />
+              
+              <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
+                <div className="lg:col-span-8 space-y-3">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-[#DF8383] text-xs font-mono font-bold uppercase tracking-wider border border-white/15">
+                    Step 04 · Career Acceleration
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-black text-white font-heading tracking-tight">
+                    Prepare for Career Opportunities &amp; Verified Certification
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-2xl">
+                    Upon module completion, students participate in resume formatting workshops, mock technical interviews, and receive an ISO 9001:2015 accredited course certificate recognized by recruiters across Mumbai MMR.
+                  </p>
+                </div>
+
+                <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3 justify-end items-start lg:items-end">
+                  <Link
+                    to="/contact#demo"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#C41E1E] hover:bg-[#931616] text-white font-bold text-xs sm:text-sm px-6 py-3 rounded-xl shadow-md transition-all active:scale-95 text-center"
+                  >
+                    <span>Book Free Lab Demo</span>
+                    <ArrowRight size={14} />
+                  </Link>
+                  <span className="text-[11px] text-slate-300 font-medium">
+                    Opp. Virar East Railway Station Subway
+                  </span>
+                </div>
+              </div>
+            </div>
+
+          </section>
+
+
+          {/* ══════════════════════════════════════════════════════════════════════
+              SECTION 05 – THE RACE EXPERIENCE / VISUAL GALLERY (Editorial Masonry)
+              ══════════════════════════════════════════════════════════════════════ */}
+          <section 
+            aria-label="Campus Experience"
+            className="bg-white rounded-[28px] sm:rounded-[36px] border border-[#E5E7EB] shadow-xs p-6 sm:p-10 lg:p-14 overflow-hidden"
+          >
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start mb-10 sm:mb-12">
+              
+              {/* Left Column: Heading, Description & Gallery CTA */}
+              <div className="lg:col-span-5 space-y-5">
+                <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#C41E1E]">
+                  <BrandSpeedStripes size="xs" />
+                  <span>Campus Life</span>
+                </div>
+
+                <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-black text-[#001752] font-heading leading-tight tracking-tight">
+                  More Than Just Learning. It's About Building Your Future.
+                </h2>
+
+                <p className="text-sm text-slate-600 leading-relaxed font-normal">
+                  Take an authentic look inside our computer labs at Raut Arcade 202. Real students, real workstations, and patient 1-on-1 faculty coaching—no artificial stock photos.
+                </p>
+
+                {/* Micro Features */}
+                <ul className="space-y-2.5 text-xs sm:text-sm text-slate-700 font-medium pt-2">
+                  <li className="flex items-center gap-2.5">
+                    <CheckCircle2 size={16} className="text-[#C41E1E] shrink-0" />
+                    <span>2-minute walk from Virar East station subway</span>
+                  </li>
+                  <li className="flex items-center gap-2.5">
+                    <CheckCircle2 size={16} className="text-[#C41E1E] shrink-0" />
+                    <span>Dedicated 1 Student : 1 PC terminal guarantee</span>
+                  </li>
+                  <li className="flex items-center gap-2.5">
+                    <CheckCircle2 size={16} className="text-[#C41E1E] shrink-0" />
+                    <span>Fully air-conditioned lab with individual power backups</span>
+                  </li>
+                  <li className="flex items-center gap-2.5">
+                    <CheckCircle2 size={16} className="text-[#C41E1E] shrink-0" />
+                    <span>Special afternoon slots for ladies and homemakers</span>
+                  </li>
+                </ul>
+
+                <div className="pt-2">
+                  <Link
+                    to="/gallery"
+                    className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[#001752] hover:text-[#C41E1E] transition-colors"
+                  >
+                    <span>View All Campus Photos &amp; Video Tour</span>
+                    <ArrowUpRight size={16} />
+                  </Link>
+                </div>
+              </div>
+
+              {/* Right Column: Asymmetric Masonry Image Grid */}
+              <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-3.5 sm:gap-4">
+                
+                {/* Image 1: Tall */}
+                <div className="sm:row-span-2 relative rounded-2xl overflow-hidden bg-slate-900 border border-slate-200 group">
+                  <img
+                    src="/images/real-instructor-mentoring.jpg"
+                    alt="Faculty 1-on-1 coaching"
+                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-104 transition-all duration-500"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
+                  <span className="absolute bottom-3 left-3 text-[11px] font-bold text-white bg-black/60 px-2 py-0.5 rounded backdrop-blur-xs">
+                    1-on-1 Mentoring
+                  </span>
+                </div>
+
+                {/* Image 2: Wide */}
+                <div className="sm:col-span-2 relative rounded-2xl overflow-hidden aspect-[16/9] bg-slate-900 border border-slate-200 group">
+                  <img
+                    src="/images/real-lab-classroom.jpg"
+                    alt="RACE Computer Laboratory"
+                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-104 transition-all duration-500"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
+                  <span className="absolute bottom-3 left-3 text-[11px] font-bold text-white bg-black/60 px-2 py-0.5 rounded backdrop-blur-xs">
+                    Air-Conditioned Lab 202
+                  </span>
+                </div>
+
+                {/* Image 3: Square */}
+                <div className="relative rounded-2xl overflow-hidden aspect-square bg-slate-900 border border-slate-200 group">
+                  <img
+                    src="/images/student-coding.jpg"
+                    alt="Student coding exercises"
+                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-104 transition-all duration-500"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
+                  <span className="absolute bottom-2.5 left-2.5 text-[10px] font-bold text-white bg-black/60 px-2 py-0.5 rounded backdrop-blur-xs">
+                    Coding Practice
+                  </span>
+                </div>
+
+                {/* Image 4: Square */}
+                <div className="relative rounded-2xl overflow-hidden aspect-square bg-slate-900 border border-slate-200 group">
+                  <img
+                    src="/images/real-data-chart-session.jpg"
+                    alt="Advanced Excel and Tally"
+                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-104 transition-all duration-500"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
+                  <span className="absolute bottom-2.5 left-2.5 text-[10px] font-bold text-white bg-black/60 px-2 py-0.5 rounded backdrop-blur-xs">
+                    Tally &amp; GST Live
+                  </span>
+                </div>
+
+              </div>
+
+            </div>
+          </section>
+
+
+          {/* ══════════════════════════════════════════════════════════════════════
+              SECTION 06 – FEATURED CTA (Large Navy Promotional Banner)
+              ══════════════════════════════════════════════════════════════════════ */}
+          <section 
+            aria-label="Promotional Admission Banner"
+            className="relative bg-gradient-to-br from-[#00113E] via-[#001752] to-[#263A6C] rounded-[28px] sm:rounded-[36px] p-8 sm:p-12 lg:p-16 text-white overflow-hidden shadow-2xl border border-[#00113E]"
+          >
+            {/* Red Accent Radial Glow */}
+            <div className="absolute -right-20 -top-20 w-[450px] h-[450px] bg-[#C41E1E]/25 rounded-full blur-[120px] pointer-events-none" />
+            <div className="absolute -left-20 -bottom-20 w-[350px] h-[350px] bg-[#263A6C]/40 rounded-full blur-[100px] pointer-events-none" />
+
+            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+              
+              {/* Left Column: Headlines & Dual CTAs */}
+              <div className="lg:col-span-8 space-y-5">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#C41E1E] text-white text-xs font-bold uppercase tracking-wider shadow-xs">
+                  <Sparkles size={12} />
+                  <span>Limited-Time 50% Concession Pass</span>
+                </div>
+
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white font-heading leading-tight">
+                  Ready to Take the Next Step in Your Career?
+                </h2>
+
+                <p className="text-sm sm:text-base text-slate-200 leading-relaxed max-w-2xl">
+                  Discover practical learning opportunities and build the skills that move your future forward. Enquire today to claim an upfront 50% fee concession on career diplomas, plus a foundational Basic Computer course free of charge.
+                </p>
+
+                {/* Primary & Secondary Action Buttons */}
+                <div className="flex flex-wrap items-center gap-4 pt-2">
+                  <Link
+                    to="/courses"
+                    className="inline-flex items-center justify-center gap-2 bg-[#C41E1E] hover:bg-[#931616] text-white font-bold text-sm sm:text-base px-7 py-3.5 rounded-full shadow-lg transition-all active:scale-95 cursor-pointer"
+                  >
+                    <span>Explore Courses</span>
+                    <ArrowRight size={16} />
+                  </Link>
+
+                  <Link
+                    to="/contact"
+                    className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/30 font-bold text-sm sm:text-base px-7 py-3.5 rounded-full transition-all active:scale-95 cursor-pointer backdrop-blur-xs"
+                  >
+                    <span>Contact RACE</span>
+                  </Link>
+                </div>
+
+                <div className="pt-2 text-xs text-slate-300 font-medium">
+                  Direct Admissions Helpline: <strong className="text-white">8793314239</strong> / <strong className="text-white">8482881614</strong> / <strong className="text-white">9794323963</strong>
+                </div>
+              </div>
+
+              {/* Right Column: Visual Terminal Feature Card */}
+              <div className="lg:col-span-4 relative">
+                <div className="bg-white/10 backdrop-blur-md rounded-3xl p-6 border border-white/20 shadow-2xl space-y-4">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-bold text-[#DF8383] uppercase tracking-wider">
+                      Batch Guarantee
+                    </span>
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#10b981] animate-pulse" />
+                  </div>
+
+                  <div className="space-y-1">
+                    <span className="text-2xl font-black text-white font-heading block">
+                      1 Student = 1 PC
+                    </span>
+                    <p className="text-xs text-slate-300">
+                      Zero machine sharing. Dedicated terminal for practical learning every single day.
+                    </p>
+                  </div>
+
+                  <div className="pt-3 border-t border-white/15 space-y-2 text-xs text-slate-200">
+                    <div className="flex items-center justify-between">
+                      <span className="text-slate-300">Station Proximity:</span>
+                      <strong className="text-white">2 Min Subway Walk</strong>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-slate-300">Accreditation:</span>
+                      <strong className="text-white">ISO 9001:2015</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </section>
+
+
+          {/* ══════════════════════════════════════════════════════════════════════
+              SECTION 07 – FAQ (Two-Column: Info Card Left + Accordion Right)
+              ══════════════════════════════════════════════════════════════════════ */}
+          <section 
+            id="faq"
+            aria-label="Frequently Asked Questions"
+            className="bg-white rounded-[28px] sm:rounded-[36px] border border-[#E5E7EB] shadow-xs p-6 sm:p-10 lg:p-14 overflow-hidden"
+          >
+            {/* Centered Heading */}
+            <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
+              <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#C41E1E] mb-2">
+                <BrandSpeedStripes size="xs" />
+                <span>Got Questions?</span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-black text-[#001752] font-heading leading-tight tracking-tight">
+                Frequently Asked Questions
+              </h2>
+              <p className="text-sm text-slate-600 mt-2">
+                Clear, transparent answers about our computer courses, batch schedules, certifications, and admissions.
+              </p>
+            </div>
+
+            {/* Two-Column Layout */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+              
+              {/* Left Column: Deep Navy / Red Visual Information Card */}
+              <div className="lg:col-span-4 bg-[#001752] text-white rounded-3xl p-6 sm:p-8 border border-[#00113E] shadow-lg space-y-6 relative overflow-hidden">
+                <div className="w-12 h-12 rounded-2xl bg-[#C41E1E] flex items-center justify-center text-white shrink-0 shadow-md">
+                  <MessageSquare size={22} />
+                </div>
+
+                <div className="space-y-2">
+                  <h3 className="text-xl sm:text-2xl font-bold font-heading text-white">
+                    Have Questions About Our Courses?
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                    Our expert counsellors are available daily from 9:00 AM to 7:00 PM at Raut Arcade 202, right opposite Virar East station subway.
+                  </p>
+                </div>
+
+                <div className="space-y-3 pt-2">
+                  <Link
+                    to="/contact#demo"
+                    className="w-full inline-flex items-center justify-center gap-2 bg-[#C41E1E] hover:bg-[#931616] text-white font-bold text-xs sm:text-sm py-3 px-5 rounded-xl transition-all shadow-md active:scale-95"
+                  >
+                    <span>Contact Admissions Desk</span>
+                  </Link>
+
+                  <a
+                    href={`${SITE_CONFIG.contact.whatsapp}?text=${encodeURIComponent(
+                      'Hello! I have questions regarding course admissions and fees at RACE.'
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-bold text-xs sm:text-sm py-3 px-5 rounded-xl transition-all border border-white/20"
+                  >
+                    <MessageSquare size={14} className="text-[#10b981]" />
+                    <span>Chat on WhatsApp</span>
+                  </a>
+                </div>
+
+                <div className="pt-2 border-t border-white/15 text-[11px] text-slate-300">
+                  Call helpline: <a href="tel:8793314239" className="text-white font-bold underline">8793314239</a>
+                </div>
+              </div>
+
+              {/* Right Column: Elegant Accordion */}
+              <div className="lg:col-span-8 space-y-3">
+                {FAQS.map((faq, idx) => {
+                  const isOpen = openFaq === idx;
+
+                  return (
+                    <div
+                      key={idx}
+                      className="border border-[#E5E7EB] rounded-2xl overflow-hidden transition-colors bg-white hover:border-slate-300"
+                    >
+                      <button
+                        type="button"
+                        onClick={() => toggleFaq(idx)}
+                        className="w-full p-5 text-left flex items-center justify-between gap-4 font-bold text-sm sm:text-base text-[#001752] hover:text-[#C41E1E] transition-colors cursor-pointer"
+                        aria-expanded={isOpen}
+                      >
+                        <span className="leading-snug">{faq.q}</span>
+                        <div className="w-8 h-8 rounded-full bg-[#F2F3F6] flex items-center justify-center shrink-0 text-[#001752]">
+                          {isOpen ? <Minus size={16} /> : <Plus size={16} />}
+                        </div>
+                      </button>
+
+                      {isOpen && (
+                        <div className="px-5 pb-5 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 bg-[#F6F7F9]/50 animate-in fade-in duration-200">
+                          {faq.a}
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+
+            </div>
+          </section>
+
         </div>
-      </section>
+      </div>
     </>
   );
 }

@@ -2,14 +2,12 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, MessageSquare } from 'lucide-react';
 import { SITE_CONFIG } from '../data/config';
-import { useLanguage } from '../context/useLanguage';
 import BrandSpeedStripes from './BrandSpeedStripes';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
-  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,13 +18,12 @@ export default function Header() {
   }, []);
 
   const navLinks = [
-    { to: '/', label: t.navHome },
-    { to: '/courses', label: t.navCourses },
-    { to: '/batches', label: t.navBatches },
-    { to: '/offers', label: t.navOffers, badge: '50%' },
-    { to: '/about', label: t.navAbout },
-    { to: '/gallery', label: t.navGallery },
-    { to: '/contact', label: t.navContact },
+    { to: '/', label: 'Home' },
+    { to: '/about', label: 'About Us' },
+    { to: '/courses', label: 'Courses' },
+    { to: '/batches', label: 'Programs' },
+    { to: '/gallery', label: 'Placements' },
+    { to: '/contact', label: 'Contact' },
   ];
 
   return (
@@ -34,18 +31,18 @@ export default function Header() {
       {/* ─── Sleek Top Announcement Ticker ─── */}
       <aside
         aria-label="Campus Notice"
-        className="bg-[#0e2340] text-slate-200 text-[11px] py-1.5 px-4 border-b border-[#16345c] select-none"
+        className="bg-[#001752] text-slate-200 text-[11px] py-1.5 px-4 border-b border-[#00113E] select-none"
       >
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-3">
           
           {/* Station location indicator */}
           <div className="flex items-center gap-2 shrink-0">
             <BrandSpeedStripes size="xs" />
-            <span className="bg-[#c6383b] text-white font-black text-[9px] px-1.5 py-0.5 rounded uppercase tracking-wider">
+            <span className="bg-[#C41E1E] text-white font-black text-[9px] px-1.5 py-0.5 rounded uppercase tracking-wider">
               1:1 LAB
             </span>
             <span className="font-medium text-slate-200 text-[11px] hidden sm:inline">
-              Raut Arcade 202 · Opp. Station Subway
+              Raut Arcade 202 · Opp. Virar East Station Subway
             </span>
           </div>
 
@@ -78,7 +75,7 @@ export default function Header() {
       {/* ─── Main Navigation Header ─── */}
       <header
         className={`w-full z-40 transition-all duration-200 bg-white/95 backdrop-blur-md border-b border-slate-200/80 ${
-          scrolled ? 'sticky top-0 shadow-xs py-2.5' : 'relative py-3.5'
+          scrolled ? 'sticky top-0 shadow-sm py-2.5' : 'relative py-3.5'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
@@ -92,7 +89,7 @@ export default function Header() {
             />
           </Link>
 
-          {/* Desktop Navigation Links (Spacious, Single-Line, Never Wraps) */}
+          {/* Desktop Navigation Links (Compact, Single-Line, Never Wraps) */}
           <nav className="hidden lg:flex items-center gap-1 text-[13.5px] font-medium text-slate-600" aria-label="Main Navigation">
             {navLinks.map((link) => {
               const isActive = location.pathname === link.to;
@@ -100,24 +97,19 @@ export default function Header() {
                 <Link
                   key={link.to}
                   to={link.to}
-                  className={`px-3 py-1.5 rounded-full transition-all whitespace-nowrap flex items-center gap-1.5 ${
+                  className={`px-3.5 py-1.5 rounded-full transition-all whitespace-nowrap flex items-center gap-1.5 ${
                     isActive
-                      ? 'text-[#0e2340] font-bold bg-[#e6f0f8] border border-[#7ba3c7]/40'
-                      : 'hover:text-[#0e2340] hover:bg-slate-50'
+                      ? 'text-[#001752] font-bold bg-[#E0E3EA]/50 border border-[#BFC5D4]'
+                      : 'hover:text-[#001752] hover:bg-slate-50'
                   }`}
                 >
                   <span>{link.label}</span>
-                  {link.badge && (
-                    <span className="px-1.5 py-0.2 bg-[#c6383b] text-white text-[10px] font-black rounded-full">
-                      {link.badge}
-                    </span>
-                  )}
                 </Link>
               );
             })}
           </nav>
 
-          {/* Desktop CTAs (WhatsApp quick link + Signature Brand Red Pill) */}
+          {/* Desktop CTAs (WhatsApp quick link + Signature Brand Red Enquire Now Button) */}
           <div className="hidden sm:flex items-center gap-3 shrink-0">
             {/* Quick WhatsApp Link */}
             <a
@@ -126,18 +118,18 @@ export default function Header() {
               )}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden xl:inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600 hover:text-emerald-600 transition-colors px-2 py-1 rounded-lg hover:bg-emerald-50/60"
+              className="hidden xl:inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600 hover:text-emerald-600 transition-colors px-2.5 py-1.5 rounded-lg hover:bg-emerald-50/60"
             >
               <MessageSquare size={13} className="text-emerald-600" />
               <span>WhatsApp</span>
             </a>
 
-            {/* Signature Brand Red Pill CTA */}
+            {/* Signature Brand Red Enquire Now CTA Button */}
             <Link
-              to="/contact#demo"
-              className="inline-flex items-center justify-center bg-[#c6383b] hover:bg-[#a82b2e] text-white text-xs sm:text-sm font-bold px-5 sm:px-6 py-2.5 rounded-full shadow-md hover:shadow-lg transition-all active:scale-95 whitespace-nowrap btn-press"
+              to="/contact#enquiry"
+              className="inline-flex items-center justify-center bg-[#C41E1E] hover:bg-[#931616] text-white text-xs sm:text-sm font-bold px-5 sm:px-6 py-2.5 rounded-full shadow-md hover:shadow-lg transition-all active:scale-95 whitespace-nowrap btn-press"
             >
-              Book a Free Demo
+              Enquire Now
             </Link>
           </div>
 
@@ -171,8 +163,8 @@ export default function Header() {
         {mobileMenuOpen && (
           <div className="lg:hidden border-t border-slate-200 bg-white px-4 pt-4 pb-6 shadow-2xl animate-in slide-in-from-top-2">
             <div className="mb-3 px-3 py-2 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between text-xs font-medium text-slate-700">
-              <span className="font-bold text-[#c6383b]">🔥 50% Concession on Career Diplomas</span>
-              <span className="bg-[#0e2340] text-white font-bold text-[9px] px-1.5 py-0.5 rounded">VIRAR</span>
+              <span className="font-bold text-[#C41E1E]">🔥 50% Concession on Career Diplomas</span>
+              <span className="bg-[#001752] text-white font-bold text-[9px] px-1.5 py-0.5 rounded">VIRAR</span>
             </div>
 
             <nav className="flex flex-col gap-1 mb-4" aria-label="Mobile Navigation">
@@ -183,20 +175,13 @@ export default function Header() {
                     key={link.to}
                     to={link.to}
                     onClick={() => setMobileMenuOpen(false)}
-                    className={`px-3 py-2.5 rounded-lg text-sm font-semibold flex items-center justify-between transition-colors ${
+                    className={`px-3.5 py-2.5 rounded-lg text-sm font-semibold flex items-center justify-between transition-colors ${
                       isActive
-                        ? 'bg-[#e6f0f8] text-[#0e2340] font-bold border-l-4 border-[#c6383b]'
+                        ? 'bg-[#E0E3EA]/50 text-[#001752] font-bold border-l-4 border-[#C41E1E]'
                         : 'text-slate-700 hover:bg-slate-50'
                     }`}
                   >
-                    <div className="flex items-center gap-2">
-                      <span>{link.label}</span>
-                      {link.badge && (
-                        <span className="px-1.5 py-0.2 bg-[#c6383b] text-white text-[9px] font-black rounded-full">
-                          {link.badge}
-                        </span>
-                      )}
-                    </div>
+                    <span>{link.label}</span>
                     <span className="text-xs text-slate-400">→</span>
                   </Link>
                 );
@@ -213,7 +198,7 @@ export default function Header() {
                   <a
                     key={p.number}
                     href={`tel:${p.number}`}
-                    className="flex flex-col items-center justify-center p-2 rounded-xl bg-slate-50 border border-slate-200 text-[#0e2340] hover:bg-slate-100 transition-colors text-center"
+                    className="flex flex-col items-center justify-center p-2 rounded-xl bg-slate-50 border border-slate-200 text-[#001752] hover:bg-slate-100 transition-colors text-center"
                   >
                     <span className="text-[9px] text-slate-500 font-medium">{p.label}</span>
                     <span className="text-[11px] font-bold mt-0.5">{p.number}</span>
@@ -234,11 +219,11 @@ export default function Header() {
             </div>
 
             <Link
-              to="/contact#demo"
+              to="/contact#enquiry"
               onClick={() => setMobileMenuOpen(false)}
-              className="mt-2 w-full flex items-center justify-center bg-[#c6383b] hover:bg-[#a82b2e] text-white text-xs font-bold py-3 rounded-xl shadow-md transition-all"
+              className="mt-2 w-full flex items-center justify-center bg-[#C41E1E] hover:bg-[#931616] text-white text-xs font-bold py-3 rounded-xl shadow-md transition-all"
             >
-              Book a demo
+              Enquire Now
             </Link>
           </div>
         )}
