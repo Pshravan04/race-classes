@@ -8,7 +8,6 @@ import {
   Minus,
   CheckCircle2,
   Clock,
-  Sparkles,
   Monitor
 } from 'lucide-react';
 import SEO from '../components/SEO';
@@ -755,14 +754,11 @@ export default function Home() {
                     <div className="p-5 space-y-3">
                       
                       <div>
-                        <h3 className="text-base sm:text-lg font-bold text-[#001752] group-hover:text-[#C41E1E] transition-colors leading-snug line-clamp-2 min-h-[3rem]">
+                        <h3 className="text-base sm:text-lg font-bold text-[#001752] group-hover:text-[#C41E1E] transition-colors leading-snug line-clamp-2 min-h-[2.75rem]">
                           <Link to={course.link}>
                             {course.title}
                           </Link>
                         </h3>
-                        <p className="text-xs text-slate-600 line-clamp-2 leading-relaxed mt-1 font-normal">
-                          {course.shortDesc}
-                        </p>
                       </div>
 
                       {/* Key Features Bullets */}
@@ -786,17 +782,6 @@ export default function Home() {
                           <span>{course.mode}</span>
                         </div>
                       </div>
-
-                      {/* Concession / Bonus Offer Tag */}
-                      {course.offerBadge && (
-                        <div className="mt-2 px-2.5 py-1 rounded-md bg-[#FCF4F4] border border-[#F8E4E4] flex items-center justify-between text-[11px] font-semibold text-[#C41E1E]">
-                          <span className="flex items-center gap-1">
-                            <Sparkles size={11} className="shrink-0" />
-                            <span>{course.offerBadge}</span>
-                          </span>
-                          <span className="text-[10px] text-slate-400 font-normal">Virar East</span>
-                        </div>
-                      )}
 
                     </div>
                   </div>
