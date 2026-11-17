@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   ArrowRight, 
@@ -6,52 +6,280 @@ import {
   ChevronRight, 
   Plus, 
   Minus,
-  CheckCircle2
+  CheckCircle2,
+  Clock,
+  Sparkles,
+  Monitor
 } from 'lucide-react';
 import SEO from '../components/SEO';
 import { SITE_CONFIG } from '../data/config';
+import { ToolLogo } from '../components/ToolIcons';
 
-interface CourseCardData {
+interface FeaturedCourse {
   id: string;
   category: string;
+  categoryGroup: 'all' | 'career' | 'coding-ai' | 'accounting' | 'design-marketing' | 'foundations';
   title: string;
   duration: string;
+  hours: string;
+  mode: string;
   image: string;
   link: string;
+  shortDesc: string;
+  urgency: string;
+  seatsLeft: number;
+  tools: string[];
+  features: string[];
+  offerBadge?: string;
 }
 
-const COURSES_DATA: CourseCardData[] = [
-  {
-    id: 'advanced-tally-with-gst',
-    category: 'ACCOUNTING & TAX',
-    title: 'Advanced Tally with GST',
-    duration: '3 Months · Daily / Weekend',
-    image: '/images/tally-practice.jpg',
-    link: '/courses/advanced-tally-with-gst',
-  },
+const CATEGORIES = [
+  { id: 'all', label: 'All Courses' },
+  { id: 'career', label: 'Career Diplomas' },
+  { id: 'coding-ai', label: 'Software & AI' },
+  { id: 'accounting', label: 'Accounting & Banking' },
+  { id: 'design-marketing', label: 'Design & Marketing' },
+  { id: 'foundations', label: 'Spoken English & Basics' },
+];
+
+const FEATURED_COURSES: FeaturedCourse[] = [
   {
     id: 'full-stack-developer-course',
-    category: 'FULL STACK',
-    title: 'Full Stack Development',
-    duration: '6 Months · Project-Based',
+    category: 'CAREER DIPLOMA',
+    categoryGroup: 'coding-ai',
+    title: 'Full Stack Web Development',
+    duration: '6 Months',
+    hours: '300+ Lab Hours',
+    mode: '1:1 PC · Daily / Weekend',
     image: '/images/student-coding.jpg',
     link: '/courses/full-stack-developer-course',
+    shortDesc: 'Master front-end, back-end APIs, cloud deployment, and database architecture through live commercial projects.',
+    urgency: 'Next batch starts Monday',
+    seatsLeft: 3,
+    tools: ['AWS', 'Java', 'JavaScript', 'CSS', 'HTML'],
+    features: ['Front-end + Back-end + DB', 'Live Production Capstone', '100% Placement Support'],
+    offerBadge: '50% Concession Eligible',
   },
   {
     id: 'data-science-and-ai',
-    category: 'DATA & AI',
+    category: 'CAREER DIPLOMA',
+    categoryGroup: 'coding-ai',
     title: 'Data Science & Analytics with AI',
-    duration: '6 Months · AI Tools',
+    duration: '6 Months',
+    hours: '280+ Lab Hours',
+    mode: '1:1 PC · Daily / Weekend',
     image: '/images/real-data-chart-session.jpg',
     link: '/courses/data-science-and-ai',
+    shortDesc: 'Hands-on Python, SQL, Tableau dashboards, predictive analytics, and practical AI models on real corporate datasets.',
+    urgency: 'Filling fast',
+    seatsLeft: 4,
+    tools: ['Python', 'Tableau', 'NumPy', 'TensorFlow', 'Excel'],
+    features: ['Live Tableau Dashboards', 'Predictive ML Modeling', 'Free Basic Course Included'],
+    offerBadge: '50% Concession Eligible',
+  },
+  {
+    id: 'english-speaking',
+    category: 'COMMUNICATION',
+    categoryGroup: 'foundations',
+    title: 'Spoken English & Personality Development',
+    duration: '8 to 10 Weeks',
+    hours: '60+ Practice Hours',
+    mode: '1:1 Desk Mentoring',
+    image: '/images/real-students-presentation.jpg',
+    link: '/courses/english-speaking',
+    shortDesc: 'Overcome hesitation, master corporate fluency, group discussions, vocabulary drills, and interview simulations.',
+    urgency: 'Special Evening Batch',
+    seatsLeft: 5,
+    tools: ['Fluency Drills', 'Grammar Lab', 'Phonics & Accent', 'GD & Extempore', 'Interview Prep'],
+    features: ['Daily Extempore & GD', 'Confidence Building Drills', 'Mock HR Interviews'],
+    offerBadge: 'Popular Career Add-on',
+  },
+  {
+    id: 'advanced-tally-with-gst',
+    category: 'ACCOUNTING & TAX',
+    categoryGroup: 'accounting',
+    title: 'Advanced Tally with GST',
+    duration: '8 to 10 Weeks',
+    hours: '80+ Lab Hours',
+    mode: '1:1 PC · Flexible Batches',
+    image: '/images/tally-practice.jpg',
+    link: '/courses/advanced-tally-with-gst',
+    shortDesc: 'Corporate bookkeeping, real voucher entries, GST returns filing, E-way bills, TDS, and payroll management.',
+    urgency: 'Morning & Afternoon Batches',
+    seatsLeft: 2,
+    tools: ['TallyPrime', 'GST', 'Excel', 'E-Way Bill', 'Income Tax'],
+    features: ['Live GST Portal Simulation', 'Bank & Accounts Reconciliation', 'Govt. Recognized Certification'],
+    offerBadge: 'Free Basic Computer Included',
+  },
+  {
+    id: 'devops-with-aws-course',
+    category: 'CAREER DIPLOMA',
+    categoryGroup: 'coding-ai',
+    title: 'DevOps with AWS Cloud',
+    duration: '5 to 6 Months',
+    hours: '240+ Lab Hours',
+    mode: '1:1 PC · Weekend & Weekday',
+    image: '/images/real-instructor-mentoring.jpg',
+    link: '/courses/devops-with-aws-course',
+    shortDesc: 'Containerize with Docker, orchestrate with Kubernetes, automate CI/CD pipelines, and manage AWS infrastructure.',
+    urgency: 'Admissions Open',
+    seatsLeft: 4,
+    tools: ['Grafana', 'Prometheus', 'Ansible', 'Jenkins', 'Docker'],
+    features: ['CI/CD Pipeline Automation', 'AWS Architecture Practice', 'Interview Preparation'],
+    offerBadge: '50% Concession Eligible',
   },
   {
     id: 'digital-marketing-course',
-    category: 'MARKETING',
-    title: 'Digital Marketing',
-    duration: '4 Months · Live Campaigns',
+    category: 'CAREER DIPLOMA',
+    categoryGroup: 'design-marketing',
+    title: 'Digital Marketing with AI',
+    duration: '4 to 5 Months',
+    hours: '200+ Lab Hours',
+    mode: '1:1 PC · Hands-on Campaigns',
     image: '/images/course-graphic-design.jpg',
     link: '/courses/digital-marketing-course',
+    shortDesc: 'Run live Google Ads campaigns, Meta advertising, technical SEO audits, social media growth, and conversion analytics.',
+    urgency: 'Filling Fast',
+    seatsLeft: 5,
+    tools: ['Google Ads', 'Meta Ads', 'GA4', 'SEO', 'Canva'],
+    features: ['Live Ad Budget Execution', 'Google & Meta Certification', '100% Placement Assistance'],
+    offerBadge: '50% Concession Eligible',
+  },
+  {
+    id: 'cyber-security-ethical-hacking-with-ai-course',
+    category: 'CAREER DIPLOMA',
+    categoryGroup: 'coding-ai',
+    title: 'Cyber Security & Ethical Hacking with AI',
+    duration: '5 to 6 Months',
+    hours: '240+ Lab Hours',
+    mode: '1:1 PC · Isolated Sandbox',
+    image: '/images/real-lab-classroom.jpg',
+    link: '/courses/cyber-security-ethical-hacking-with-ai-course',
+    shortDesc: 'Vulnerability assessment, network penetration testing, defensive hardening, OWASP Top 10, and Kali Linux toolchains.',
+    urgency: 'Limited Intake',
+    seatsLeft: 3,
+    tools: ['Kali Linux', 'Wireshark', 'Metasploit', 'Nmap', 'Python'],
+    features: ['Sandboxed Penetration Labs', 'OWASP Top 10 Hardening', 'Govt. Recognized Certification'],
+    offerBadge: '50% Concession Eligible',
+  },
+  {
+    id: 'software-testing-course',
+    category: 'CAREER DIPLOMA',
+    categoryGroup: 'coding-ai',
+    title: 'Software Testing with AI',
+    duration: '4 Months',
+    hours: '180+ Lab Hours',
+    mode: '1:1 PC · Practical Lab',
+    image: '/images/real-lab-aisle.jpg',
+    link: '/courses/software-testing-course',
+    shortDesc: 'Manual test cases, automated Selenium testing with Java, API testing using Postman, and Jira bug logging.',
+    urgency: 'Next batch starting soon',
+    seatsLeft: 4,
+    tools: ['Selenium', 'Java', 'Jira', 'Postman', 'SQL'],
+    features: ['Manual + Automation Testing', 'API & Database Validation', 'Live Bug Tracking Projects'],
+    offerBadge: '50% Concession Eligible',
+  },
+  {
+    id: 'investment-banking-course',
+    category: 'CAREER DIPLOMA',
+    categoryGroup: 'accounting',
+    title: 'Investment Banking with AI',
+    duration: '4 to 6 Months',
+    hours: '220+ Lab Hours',
+    mode: '1:1 PC · Practical Modeling',
+    image: '/images/real-teacher-lecture.jpg',
+    link: '/courses/investment-banking-course',
+    shortDesc: 'Financial modeling, three-statement projections, discounted cash flow (DCF) valuation, M&A, and equity research.',
+    urgency: 'Admissions Open',
+    seatsLeft: 3,
+    tools: ['Excel', 'FinModel', 'Valuation', 'M&A', 'PowerPoint'],
+    features: ['Three-Statement Financial Models', 'Real Company DCF Valuation', 'Corporate Finance Guidance'],
+    offerBadge: '50% Concession Eligible',
+  },
+  {
+    id: 'graphic-designing',
+    category: 'CAREER DIPLOMA',
+    categoryGroup: 'design-marketing',
+    title: 'Graphic Designing Masterclass',
+    duration: '4 to 6 Months',
+    hours: '180+ Lab Hours',
+    mode: '1:1 PC · Studio Practice',
+    image: '/images/course-graphic-design.jpg',
+    link: '/courses/graphic-designing',
+    shortDesc: 'Create brand identities, social media creatives, print layouts, vector illustrations, and commercial design portfolios.',
+    urgency: 'Special Afternoon Slot',
+    seatsLeft: 4,
+    tools: ['Photoshop', 'Illustrator', 'CorelDRAW', 'InDesign', 'Canva'],
+    features: ['Logo & Branding Kit Creation', 'Print & Packaging Workflows', 'Client Portfolio Development'],
+    offerBadge: '50% Concession Eligible',
+  },
+  {
+    id: 'dfa',
+    category: 'CAREER DIPLOMA',
+    categoryGroup: 'accounting',
+    title: 'DFA – Diploma in Financial Accounting',
+    duration: '4 to 6 Months',
+    hours: '160+ Lab Hours',
+    mode: '1:1 PC · Flexible Batches',
+    image: '/images/tally-practice.jpg',
+    link: '/courses/dfa',
+    shortDesc: 'Comprehensive commercial accounting: TallyPrime, advanced Excel, GST portal filings, TDS calculation, and balance sheets.',
+    urgency: 'Filling Fast',
+    seatsLeft: 3,
+    tools: ['TallyPrime', 'GST', 'Excel', 'TDS', 'Income Tax'],
+    features: ['End-to-End Accounting Lifecycle', 'Statutory Returns Compliance', 'Job Placement Support'],
+    offerBadge: '50% Concession Eligible',
+  },
+  {
+    id: 'basic-computer',
+    category: 'FOUNDATION',
+    categoryGroup: 'foundations',
+    title: 'Basic Computer Foundation',
+    duration: '4 to 6 Weeks',
+    hours: '40+ Lab Hours',
+    mode: '1:1 PC · Rolling Batches',
+    image: '/images/ladies-guidance.jpg',
+    link: '/courses/basic-computer',
+    shortDesc: 'Start from absolute scratch: Windows 11 navigation, keyboarding, folder management, email, and safe internet browsing.',
+    urgency: 'Daily Rolling Batches',
+    seatsLeft: 6,
+    tools: ['Windows 11', 'MS Paint', 'Typing', 'Internet', 'Gmail'],
+    features: ['Zero Prior Knowledge Required', 'Individual Instructor Desk Help', 'Free with Career Courses'],
+    offerBadge: 'FREE with Any Career Course',
+  },
+  {
+    id: 'ms-office',
+    category: 'OFFICE PRODUCTIVITY',
+    categoryGroup: 'foundations',
+    title: 'MS-Office (Word, Excel, PowerPoint)',
+    duration: '6 to 8 Weeks',
+    hours: '60+ Lab Hours',
+    mode: '1:1 PC · Ladies Batch (12:30 PM)',
+    image: '/images/course-excel-office.jpg',
+    link: '/courses/ms-office',
+    shortDesc: 'VLOOKUP, Pivot Tables, SUMIFS, corporate letter drafting, presentation decks, and automated business workflows.',
+    urgency: 'Special Afternoon Slot',
+    seatsLeft: 4,
+    tools: ['Word', 'Excel', 'PowerPoint', 'Outlook', 'OneDrive'],
+    features: ['Advanced Excel Formulas & Charts', 'Office Reporting Automation', 'ISO Certified Credential'],
+    offerBadge: 'Practical Job Skills',
+  },
+  {
+    id: 'typing-english-marathi',
+    category: 'GOVT. CERTIFICATION',
+    categoryGroup: 'foundations',
+    title: 'GCC-TBC Typing (English & Marathi)',
+    duration: '2 to 3 Months',
+    hours: 'Continuous Speed Drills',
+    mode: '1:1 PC · Flexible Slots',
+    image: '/images/lab-students.jpg',
+    link: '/courses/typing-english-marathi',
+    shortDesc: 'Master touch typing with 30 WPM and 40 WPM speed benchmarks, passage accuracy drills, and GCC-TBC exam preparation.',
+    urgency: 'Continuous Practice Slots',
+    seatsLeft: 5,
+    tools: ['GCC-TBC', 'Speed 30WPM', 'Speed 40WPM', 'Accuracy', 'Typing Master'],
+    features: ['Government Exam Simulation', 'Speed Benchmark Tracking', 'Zero Terminal Sharing'],
+    offerBadge: 'Exam-Ready Training',
   },
 ];
 
@@ -84,24 +312,86 @@ const FAQS_DATA = [
 
 export default function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
-  const [courseIndex, setCourseIndex] = useState(0);
+  const [activeCategory, setActiveCategory] = useState('all');
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+  const [isMouseDown, setIsMouseDown] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeftPos, setScrollLeftPos] = useState(0);
+
+  const sliderRef = useRef<HTMLDivElement>(null);
 
   const toggleFaq = (idx: number) => {
     setOpenFaq(openFaq === idx ? null : idx);
   };
 
-  const nextCourses = () => {
-    setCourseIndex((prev) => (prev + 1) % COURSES_DATA.length);
+  const filteredCourses = FEATURED_COURSES.filter((course) => {
+    if (activeCategory === 'all') return true;
+    if (activeCategory === 'career') return course.category === 'CAREER DIPLOMA';
+    return course.categoryGroup === activeCategory;
+  });
+
+  const checkScrollState = useCallback(() => {
+    if (!sliderRef.current) return;
+    const { scrollLeft, scrollWidth, clientWidth } = sliderRef.current;
+    setCanScrollLeft(scrollLeft > 15);
+    setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 15);
+
+    const cardWidth = 350 + 20;
+    const index = Math.round(scrollLeft / cardWidth);
+    setCurrentSlideIndex(Math.max(0, Math.min(index, filteredCourses.length - 1)));
+  }, [filteredCourses.length]);
+
+  useEffect(() => {
+    const el = sliderRef.current;
+    if (!el) return;
+    el.addEventListener('scroll', checkScrollState, { passive: true });
+    window.addEventListener('resize', checkScrollState);
+    checkScrollState();
+    return () => {
+      el.removeEventListener('scroll', checkScrollState);
+      window.removeEventListener('resize', checkScrollState);
+    };
+  }, [checkScrollState, activeCategory]);
+
+  const slideLeft = () => {
+    if (!sliderRef.current) return;
+    const scrollAmount = Math.max(340, sliderRef.current.clientWidth * 0.75);
+    sliderRef.current.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
   };
 
-  const prevCourses = () => {
-    setCourseIndex((prev) => (prev - 1 + COURSES_DATA.length) % COURSES_DATA.length);
+  const slideRight = () => {
+    if (!sliderRef.current) return;
+    const scrollAmount = Math.max(340, sliderRef.current.clientWidth * 0.75);
+    sliderRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
   };
 
-  const visibleCourses = [
-    ...COURSES_DATA.slice(courseIndex),
-    ...COURSES_DATA.slice(0, courseIndex),
-  ];
+  const handleCategorySelect = (catId: string) => {
+    setActiveCategory(catId);
+    if (sliderRef.current) {
+      sliderRef.current.scrollTo({ left: 0, behavior: 'smooth' });
+    }
+  };
+
+  const onMouseDown = (e: React.MouseEvent) => {
+    if (!sliderRef.current) return;
+    setIsMouseDown(true);
+    setStartX(e.pageX - sliderRef.current.offsetLeft);
+    setScrollLeftPos(sliderRef.current.scrollLeft);
+  };
+
+  const onMouseLeaveOrUp = () => {
+    setIsMouseDown(false);
+  };
+
+  const onMouseMove = (e: React.MouseEvent) => {
+    if (!isMouseDown || !sliderRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - sliderRef.current.offsetLeft;
+    const walk = (x - startX) * 1.3;
+    sliderRef.current.scrollLeft = scrollLeftPos - walk;
+  };
 
   return (
     <>
@@ -289,112 +579,264 @@ export default function Home() {
 
 
         {/* ══════════════════════════════════════════════════════════════════════
-            SECTION 03 – FIND YOUR NEXT STEP (Full-Width White Section)
+            SECTION 03 – EXPLORE OUR COURSES (Rich Slider & Category Filter)
             ══════════════════════════════════════════════════════════════════════ */}
-        <section aria-label="Courses" className="bg-white py-16 sm:py-24">
+        <section aria-label="Explore Our Courses" className="bg-white py-16 sm:py-24 overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
             {/* Top Eyebrow */}
-            <div className="mb-4">
+            <div className="mb-3">
               <span className="text-[#C41E1E] text-xs font-bold tracking-wider uppercase">
                 EXPLORE OUR COURSES
               </span>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+            {/* Split Header Row: Heading + Subtitle on Left, Controls on Right */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-end mb-8">
               
-              {/* Left Column: Heading, Subtitle, All Courses Link, Nav Arrows */}
-              <div className="lg:col-span-3 space-y-4">
-                <h2 className="text-3xl sm:text-4xl font-bold text-[#001752] font-heading leading-tight tracking-tight">
-                  Find your<br />
-                  next step.
+              <div className="lg:col-span-8 space-y-2">
+                <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-[#001752] font-heading leading-tight tracking-tight">
+                  Find your next step.
                 </h2>
-
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  Practical programs tailored for career growth.
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal max-w-2xl">
+                  Practical, career-focused computer courses tailored for local students, graduates, and working professionals in Vasai-Virar. 100% individual workstation time with verified ISO certification.
                 </p>
-
-                <div className="pt-2">
-                  <Link
-                    to="/courses"
-                    className="text-xs font-bold text-slate-900 hover:text-[#C41E1E] transition-colors inline-flex items-center gap-1"
-                  >
-                    <span>All 23 courses</span>
-                    <ArrowRight size={13} />
-                  </Link>
-                </div>
-
-                {/* Circular Arrow Dots */}
-                <div className="pt-4 flex items-center gap-2">
-                  <button
-                    type="button"
-                    onClick={prevCourses}
-                    className="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-colors cursor-pointer"
-                    aria-label="Previous courses"
-                  >
-                    <ChevronLeft size={16} />
-                  </button>
-                  <button
-                    type="button"
-                    onClick={nextCourses}
-                    className="w-8 h-8 rounded-full bg-[#001752] hover:bg-[#16345c] text-white flex items-center justify-center transition-colors cursor-pointer"
-                    aria-label="Next courses"
-                  >
-                    <ChevronRight size={16} />
-                  </button>
-                </div>
               </div>
 
-              {/* Right Column: 4 Course Cards Grid */}
-              <div className="lg:col-span-9 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                {visibleCourses.map((course) => (
-                  <div
-                    key={course.id}
-                    className="bg-white rounded-2xl border border-[#E5E7EB] overflow-hidden flex flex-col justify-between hover:shadow-md transition-shadow group"
+              {/* Slider Controls & Slide Counter */}
+              <div className="lg:col-span-4 flex items-center justify-between lg:justify-end gap-4">
+                
+                {/* Slide Counter */}
+                <div className="text-xs font-bold text-slate-400 font-mono tracking-wider">
+                  <span className="text-[#001752] text-sm">
+                    {String(Math.min(currentSlideIndex + 1, filteredCourses.length)).padStart(2, '0')}
+                  </span>
+                  <span className="mx-1.5 text-slate-300">/</span>
+                  <span>{String(filteredCourses.length).padStart(2, '0')}</span>
+                </div>
+
+                {/* Circular Navigation Buttons */}
+                <div className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={slideLeft}
+                    disabled={!canScrollLeft}
+                    className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full border flex items-center justify-center transition-all ${
+                      canScrollLeft
+                        ? 'border-slate-300 bg-white text-slate-800 hover:border-[#001752] hover:bg-slate-50 active:scale-95 cursor-pointer shadow-2xs'
+                        : 'border-slate-200 bg-slate-100 text-slate-300 cursor-not-allowed'
+                    }`}
+                    aria-label="Previous courses"
                   >
-                    <div>
-                      {/* Image Frame */}
-                      <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-900">
-                        <img
-                          src={course.image}
-                          alt={course.title}
-                          className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-500"
-                          loading="lazy"
-                        />
-                        <div className="absolute top-2.5 left-2.5">
-                          <span className="bg-[#001752]/90 backdrop-blur-xs text-white text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded">
-                            {course.category}
-                          </span>
-                        </div>
+                    <ChevronLeft size={18} />
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={slideRight}
+                    disabled={!canScrollRight}
+                    className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition-all ${
+                      canScrollRight
+                        ? 'bg-[#001752] hover:bg-[#16345c] text-white active:scale-95 cursor-pointer shadow-xs'
+                        : 'bg-slate-200 text-slate-400 cursor-not-allowed'
+                    }`}
+                    aria-label="Next courses"
+                  >
+                    <ChevronRight size={18} />
+                  </button>
+                </div>
+
+                <Link
+                  to="/courses"
+                  className="hidden sm:inline-flex items-center gap-1 text-xs font-bold text-slate-900 hover:text-[#C41E1E] transition-colors"
+                >
+                  <span>All 23 courses</span>
+                  <ArrowRight size={13} />
+                </Link>
+
+              </div>
+
+            </div>
+
+            {/* Category Filter Tabs */}
+            <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-6 no-scrollbar">
+              {CATEGORIES.map((cat) => {
+                const isSelected = activeCategory === cat.id;
+                return (
+                  <button
+                    key={cat.id}
+                    type="button"
+                    onClick={() => handleCategorySelect(cat.id)}
+                    className={`text-xs font-bold px-4 py-2 rounded-full whitespace-nowrap transition-all cursor-pointer ${
+                      isSelected
+                        ? 'bg-[#001752] text-white shadow-2xs'
+                        : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+                    }`}
+                  >
+                    {cat.label}
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Interactive Carousel Track */}
+            <div
+              ref={sliderRef}
+              onMouseDown={onMouseDown}
+              onMouseLeave={onMouseLeaveOrUp}
+              onMouseUp={onMouseLeaveOrUp}
+              onMouseMove={onMouseMove}
+              className="flex gap-5 sm:gap-6 overflow-x-auto pb-6 pt-1 no-scrollbar scroll-smooth snap-x snap-mandatory cursor-grab active:cursor-grabbing select-none"
+            >
+              {filteredCourses.map((course) => (
+                <div
+                  key={course.id}
+                  className="w-[315px] sm:w-[350px] md:w-[370px] shrink-0 snap-start bg-white rounded-2xl border border-[#E5E7EB] hover:border-[#001752]/40 hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden group"
+                >
+                  <div>
+                    {/* Top Urgency Header */}
+                    <div className="px-4 py-2 bg-slate-50/90 border-b border-slate-100 flex items-center justify-between text-[11px]">
+                      <span className="text-slate-600 font-medium truncate">
+                        {course.urgency}
+                      </span>
+                      <span className="inline-flex items-center gap-1 text-[10px] font-bold text-[#C41E1E] bg-[#FCF4F4] border border-[#F8E4E4] px-2 py-0.5 rounded-full shrink-0">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#C41E1E] animate-pulse" />
+                        <span>{course.seatsLeft} seats left</span>
+                      </span>
+                    </div>
+
+                    {/* Image Container with Rounded Top & Floating Badges */}
+                    <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-900">
+                      <img
+                        src={course.image}
+                        alt={course.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).src = '/images/real-lab-classroom.jpg';
+                        }}
+                      />
+                      
+                      {/* Floating Category Badge (Top-Left) */}
+                      <div className="absolute top-3 left-3">
+                        <span className="bg-[#001752]/90 backdrop-blur-xs text-white text-[10px] font-bold tracking-wider uppercase px-2.5 py-1 rounded-md shadow-xs">
+                          {course.category}
+                        </span>
                       </div>
 
-                      {/* Content */}
-                      <div className="p-4 space-y-1.5">
-                        <h3 className="text-sm font-bold text-[#001752] leading-snug line-clamp-2 min-h-[2.5rem]">
-                          <Link to={course.link} className="hover:text-[#C41E1E] transition-colors">
+                      {/* Floating 1:1 PC Badge (Bottom-Left) */}
+                      <div className="absolute bottom-3 left-3">
+                        <span className="bg-white/95 backdrop-blur-xs text-[#001752] text-[10px] font-semibold px-2.5 py-1 rounded-full shadow-xs flex items-center gap-1.5">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                          <span>1 Student : 1 PC</span>
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* 5-Tool Logo Strip */}
+                    <div className="px-4 py-2 bg-slate-50 border-b border-slate-100 flex items-center justify-between">
+                      <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">
+                        Tools Mastered
+                      </span>
+                      <div className="flex items-center gap-1.5">
+                        {course.tools.slice(0, 5).map((tool) => (
+                          <div
+                            key={tool}
+                            title={tool}
+                            className="w-6 h-6 rounded-md bg-white border border-slate-200 flex items-center justify-center p-0.5 shadow-2xs hover:border-[#001752] transition-colors"
+                          >
+                            <ToolLogo name={tool} className="w-3.5 h-3.5" />
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Content Section */}
+                    <div className="p-5 space-y-3">
+                      
+                      <div>
+                        <h3 className="text-base sm:text-lg font-bold text-[#001752] group-hover:text-[#C41E1E] transition-colors leading-snug line-clamp-2 min-h-[3rem]">
+                          <Link to={course.link}>
                             {course.title}
                           </Link>
                         </h3>
-                        <p className="text-[11px] text-slate-500 font-medium">
-                          {course.duration}
+                        <p className="text-xs text-slate-600 line-clamp-2 leading-relaxed mt-1 font-normal">
+                          {course.shortDesc}
                         </p>
                       </div>
-                    </div>
 
-                    {/* Bottom Red Link */}
-                    <div className="p-4 pt-0">
-                      <Link
-                        to={course.link}
-                        className="text-xs font-bold text-[#C41E1E] hover:underline inline-flex items-center gap-1"
-                      >
-                        <span>View details</span>
-                        <ArrowRight size={12} />
-                      </Link>
+                      {/* Key Features Bullets */}
+                      <div className="space-y-1.5 pt-2 border-t border-slate-100 text-xs text-slate-700">
+                        {course.features.map((feat, idx) => (
+                          <div key={idx} className="flex items-center gap-2">
+                            <CheckCircle2 size={13} className="text-[#10b981] shrink-0" />
+                            <span className="truncate">{feat}</span>
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* Duration & Mode Logistics */}
+                      <div className="pt-2 text-[11px] text-slate-500 space-y-1">
+                        <div className="flex items-center gap-1.5">
+                          <Clock size={12} className="text-slate-400 shrink-0" />
+                          <span>{course.duration} ({course.hours})</span>
+                        </div>
+                        <div className="flex items-center gap-1.5">
+                          <Monitor size={12} className="text-slate-400 shrink-0" />
+                          <span>{course.mode}</span>
+                        </div>
+                      </div>
+
+                      {/* Concession / Bonus Offer Tag */}
+                      {course.offerBadge && (
+                        <div className="mt-2 px-2.5 py-1 rounded-md bg-[#FCF4F4] border border-[#F8E4E4] flex items-center justify-between text-[11px] font-semibold text-[#C41E1E]">
+                          <span className="flex items-center gap-1">
+                            <Sparkles size={11} className="shrink-0" />
+                            <span>{course.offerBadge}</span>
+                          </span>
+                          <span className="text-[10px] text-slate-400 font-normal">Virar East</span>
+                        </div>
+                      )}
+
                     </div>
                   </div>
-                ))}
+
+                  {/* Dual Action Buttons Footer */}
+                  <div className="p-4 pt-3 bg-slate-50/70 border-t border-slate-100 flex items-center gap-2">
+                    <Link
+                      to={course.link}
+                      className="flex-1 text-center py-2 px-3 rounded-lg border border-slate-300 hover:border-[#001752] hover:bg-white text-xs font-bold text-slate-800 transition-all cursor-pointer"
+                    >
+                      View Details
+                    </Link>
+
+                    <Link
+                      to={`/contact?course=${course.id}#enquiry`}
+                      className="flex-1 text-center py-2 px-3 rounded-lg bg-[#C41E1E] hover:bg-[#931616] text-white text-xs font-bold transition-all shadow-xs inline-flex items-center justify-center gap-1 active:scale-95 cursor-pointer"
+                    >
+                      <span>Enquire Now</span>
+                      <ArrowRight size={12} />
+                    </Link>
+                  </div>
+
+                </div>
+              ))}
+            </div>
+
+            {/* Bottom Section Footer */}
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-slate-100">
+              <div className="flex items-center gap-2 text-xs text-slate-500 font-medium">
+                <span className="w-2 h-2 rounded-full bg-[#10b981]" />
+                <span>100% Individual Machine Time Guaranteed across all courses</span>
               </div>
 
+              <Link
+                to="/courses"
+                className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#001752] hover:text-[#C41E1E] transition-colors group cursor-pointer"
+              >
+                <span>Explore all 24 courses and full syllabus</span>
+                <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
+              </Link>
             </div>
 
           </div>
