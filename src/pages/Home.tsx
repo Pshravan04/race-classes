@@ -111,18 +111,14 @@ export default function Home() {
         canonical="/"
       />
 
-      {/* Outer Canvas Background */}
-      <div className="bg-[#F6F7F9] min-h-screen text-[#0B0B0B] font-body selection:bg-[#C41E1E] selection:text-white pb-20">
-        
-        <div className="max-w-[1400px] mx-auto px-3 sm:px-6 lg:px-8 pt-4 sm:pt-6 space-y-8 sm:space-y-12">
+      <div className="w-full text-[#0B0B0B] font-body selection:bg-[#C41E1E] selection:text-white">
 
-          {/* ══════════════════════════════════════════════════════════════════════
-              SECTION 01 – HERO (White Rounded Container Matching Mockup)
-              ══════════════════════════════════════════════════════════════════════ */}
-          <section 
-            aria-label="Hero"
-            className="bg-white rounded-[24px] sm:rounded-[32px] p-6 sm:p-10 lg:p-12 border border-[#E5E7EB] shadow-2xs"
-          >
+        {/* ══════════════════════════════════════════════════════════════════════
+            SECTION 01 – HERO (Seamless White Canvas Flowing from Header)
+            ══════════════════════════════════════════════════════════════════════ */}
+        <section aria-label="Hero" className="bg-white pt-8 sm:pt-12 pb-16 sm:pb-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
             {/* Top Red Eyebrow */}
             <div className="mb-4">
               <span className="text-[#C41E1E] text-xs font-bold tracking-wider uppercase">
@@ -203,16 +199,16 @@ export default function Home() {
               <span>Raut Arcade 202, Virar East</span>
             </div>
 
-          </section>
+          </div>
+        </section>
 
 
-          {/* ══════════════════════════════════════════════════════════════════════
-              SECTION 02 – INTRODUCTION & 3 METRIC CARDS
-              ══════════════════════════════════════════════════════════════════════ */}
-          <section 
-            aria-label="Digital Skills Today"
-            className="bg-[#F6F7F9] rounded-[24px] sm:rounded-[32px] p-6 sm:p-10 lg:p-12 border border-[#E5E7EB]"
-          >
+        {/* ══════════════════════════════════════════════════════════════════════
+            SECTION 02 – INTRODUCTION & 3 METRIC CARDS (Full-Width Pale Section)
+            ══════════════════════════════════════════════════════════════════════ */}
+        <section aria-label="Digital Skills Today" className="bg-[#F6F7F9] py-16 sm:py-24 border-y border-slate-200/70">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
             {/* Top Eyebrow */}
             <div className="mb-3">
               <span className="text-[#C41E1E] text-xs font-bold tracking-wider uppercase">
@@ -221,7 +217,7 @@ export default function Home() {
             </div>
 
             {/* Top Text Grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start mb-8 sm:mb-10">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start mb-10 sm:mb-12">
               <div className="lg:col-span-7 space-y-2">
                 <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-[#001752] font-heading leading-tight tracking-tight">
                   Digital skills today.<br />
@@ -287,16 +283,17 @@ export default function Home() {
               </div>
 
             </div>
-          </section>
+
+          </div>
+        </section>
 
 
-          {/* ══════════════════════════════════════════════════════════════════════
-              SECTION 03 – FIND YOUR NEXT STEP (Course Cards)
-              ══════════════════════════════════════════════════════════════════════ */}
-          <section 
-            aria-label="Courses"
-            className="bg-white rounded-[24px] sm:rounded-[32px] p-6 sm:p-10 lg:p-12 border border-[#E5E7EB] shadow-2xs"
-          >
+        {/* ══════════════════════════════════════════════════════════════════════
+            SECTION 03 – FIND YOUR NEXT STEP (Full-Width White Section)
+            ══════════════════════════════════════════════════════════════════════ */}
+        <section aria-label="Courses" className="bg-white py-16 sm:py-24">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
             {/* Top Eyebrow */}
             <div className="mb-4">
               <span className="text-[#C41E1E] text-xs font-bold tracking-wider uppercase">
@@ -399,16 +396,17 @@ export default function Home() {
               </div>
 
             </div>
-          </section>
+
+          </div>
+        </section>
 
 
-          {/* ══════════════════════════════════════════════════════════════════════
-              SECTION 04 – FROM LEARNING TO REAL-WORLD SKILLS (Process Grid)
-              ══════════════════════════════════════════════════════════════════════ */}
-          <section 
-            aria-label="Process"
-            className="bg-[#F6F7F9] rounded-[24px] sm:rounded-[32px] p-6 sm:p-10 lg:p-12 border border-[#E5E7EB]"
-          >
+        {/* ══════════════════════════════════════════════════════════════════════
+            SECTION 04 – FROM LEARNING TO REAL-WORLD SKILLS (Full-Width Pale Section)
+            ══════════════════════════════════════════════════════════════════════ */}
+        <section aria-label="Process" className="bg-[#F6F7F9] py-16 sm:py-24 border-y border-slate-200/70">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
             {/* Top Eyebrow */}
             <div className="mb-3">
               <span className="text-[#C41E1E] text-xs font-bold tracking-wider uppercase">
@@ -417,7 +415,7 @@ export default function Home() {
             </div>
 
             {/* Heading & Subtitle */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8 items-start mb-8 sm:mb-10">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8 items-start mb-10 sm:mb-12">
               <div className="lg:col-span-7">
                 <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-[#001752] font-heading leading-tight tracking-tight">
                   From learning to<br />
@@ -544,16 +542,16 @@ export default function Home() {
               </div>
             </div>
 
-          </section>
+          </div>
+        </section>
 
 
-          {/* ══════════════════════════════════════════════════════════════════════
-              SECTION 05 – THE RACE EXPERIENCE (Bento Image Grid)
-              ══════════════════════════════════════════════════════════════════════ */}
-          <section 
-            aria-label="Gallery"
-            className="bg-white rounded-[24px] sm:rounded-[32px] p-6 sm:p-10 lg:p-12 border border-[#E5E7EB] shadow-2xs"
-          >
+        {/* ══════════════════════════════════════════════════════════════════════
+            SECTION 05 – THE RACE EXPERIENCE (Full-Width White Section)
+            ══════════════════════════════════════════════════════════════════════ */}
+        <section aria-label="Gallery" className="bg-white py-16 sm:py-24">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
             {/* Top Eyebrow */}
             <div className="mb-3">
               <span className="text-[#C41E1E] text-xs font-bold tracking-wider uppercase">
@@ -565,14 +563,14 @@ export default function Home() {
               More than learning.<br />
               Building your future.
             </h2>
-            <p className="text-xs sm:text-sm text-slate-600 font-normal mb-8">
+            <p className="text-xs sm:text-sm text-slate-600 font-normal mb-8 sm:mb-10">
               Inside the classrooms and computer labs of RACE, Virar East.
             </p>
 
             {/* Bento Grid Layout Matching Mockup */}
             <div className="space-y-4">
               
-              {/* Row 1: Lab classroom (wide) + Coding session + Campus Card + 1:1 desk mentoring (tall) */}
+              {/* Row 1 */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-4">
                 
                 {/* Photo 1: Lab Classroom (3 cols) */}
@@ -646,7 +644,7 @@ export default function Home() {
 
               </div>
 
-              {/* Row 2: 4 Photos (Practical lab, Personal workstation, Computer workstations, Job-ready skills) */}
+              {/* Row 2 */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                 
                 {/* Photo 4 */}
@@ -715,88 +713,88 @@ export default function Home() {
               <span>Opposite Virar East subway, Platform 1/2.</span>
             </div>
 
-          </section>
+          </div>
+        </section>
 
 
-          {/* ══════════════════════════════════════════════════════════════════════
-              SECTION 06 – FEATURED CTA (Navy Container + 50% Concession Card)
-              ══════════════════════════════════════════════════════════════════════ */}
-          <section 
-            aria-label="Call to Action"
-            className="bg-[#001752] text-white rounded-[24px] sm:rounded-[32px] p-6 sm:p-10 lg:p-12 shadow-xl border border-[#00113E]"
-          >
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-              
-              {/* Left Column: Headlines & Dual Buttons */}
-              <div className="lg:col-span-8 space-y-4">
-                <span className="text-[11px] font-bold text-[#DF8383] uppercase tracking-wider block">
-                  LIMITED SEATS · ADMISSION OPEN
-                </span>
-
-                <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-bold font-heading text-white tracking-tight leading-tight">
-                  Ready to take the next<br />
-                  step in your career?
-                </h2>
-
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-xl">
-                  Build the practical skills that move your future forward. Enquire today for 50% concession on career diplomas and a free Basic Computer module.
-                </p>
-
-                <div className="flex flex-wrap items-center gap-3 pt-2">
-                  <Link
-                    to="/contact#enquiry"
-                    className="inline-flex items-center gap-1.5 bg-[#C41E1E] hover:bg-[#931616] text-white text-xs sm:text-sm font-bold px-6 py-3 rounded-full transition-all shadow-md active:scale-95"
-                  >
-                    <span>Enquire now</span>
-                    <ArrowRight size={14} />
-                  </Link>
-
-                  <Link
-                    to="/courses"
-                    className="inline-flex items-center gap-1.5 bg-white/10 hover:bg-white/20 text-white border border-white/30 text-xs sm:text-sm font-bold px-6 py-3 rounded-full transition-all"
-                  >
-                    <span>View all courses</span>
-                  </Link>
-                </div>
-              </div>
-
-              {/* Right Column: White 50% Concession Pass Card */}
-              <div className="lg:col-span-4 flex justify-center lg:justify-end">
-                <div className="w-full max-w-xs bg-white text-[#001752] rounded-2xl sm:rounded-3xl p-6 sm:p-8 text-center shadow-xl space-y-2">
-                  <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider block">
-                    SPECIAL CONCESSION PASS
+        {/* ══════════════════════════════════════════════════════════════════════
+            SECTION 06 – FEATURED CTA (Contained Banner on White Canvas)
+            ══════════════════════════════════════════════════════════════════════ */}
+        <section aria-label="Call to Action" className="bg-white py-10 sm:py-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="bg-[#001752] text-white rounded-3xl p-6 sm:p-10 lg:p-12 shadow-xl border border-[#00113E]">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                
+                {/* Left Column */}
+                <div className="lg:col-span-8 space-y-4">
+                  <span className="text-[11px] font-bold text-[#DF8383] uppercase tracking-wider block">
+                    LIMITED SEATS · ADMISSION OPEN
                   </span>
 
-                  <div className="text-5xl sm:text-6xl font-black text-[#C41E1E] font-heading tracking-tight">
-                    50%
-                  </div>
+                  <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-bold font-heading text-white tracking-tight leading-tight">
+                    Ready to take the next<br />
+                    step in your career?
+                  </h2>
 
-                  <span className="text-xs font-black tracking-widest uppercase text-[#001752] block">
-                    CONCESSION
-                  </span>
-
-                  <p className="text-[11px] text-slate-600 leading-tight pt-1">
-                    On all career diploma programs
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-xl">
+                    Build the practical skills that move your future forward. Enquire today for 50% concession on career diplomas and a free Basic Computer module.
                   </p>
 
-                  <div className="pt-3 border-t border-slate-100 text-[10px] text-slate-400 font-medium">
-                    Limited seats available for 2026 batches
+                  <div className="flex flex-wrap items-center gap-3 pt-2">
+                    <Link
+                      to="/contact#enquiry"
+                      className="inline-flex items-center gap-1.5 bg-[#C41E1E] hover:bg-[#931616] text-white text-xs sm:text-sm font-bold px-6 py-3 rounded-full transition-all shadow-md active:scale-95"
+                    >
+                      <span>Enquire now</span>
+                      <ArrowRight size={14} />
+                    </Link>
+
+                    <Link
+                      to="/courses"
+                      className="inline-flex items-center gap-1.5 bg-white/10 hover:bg-white/20 text-white border border-white/30 text-xs sm:text-sm font-bold px-6 py-3 rounded-full transition-all"
+                    >
+                      <span>View all courses</span>
+                    </Link>
                   </div>
                 </div>
+
+                {/* Right Column: 50% Concession Pass Card */}
+                <div className="lg:col-span-4 flex justify-center lg:justify-end">
+                  <div className="w-full max-w-xs bg-white text-[#001752] rounded-2xl sm:rounded-3xl p-6 sm:p-8 text-center shadow-xl space-y-2">
+                    <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider block">
+                      SPECIAL CONCESSION PASS
+                    </span>
+
+                    <div className="text-5xl sm:text-6xl font-black text-[#C41E1E] font-heading tracking-tight">
+                      50%
+                    </div>
+
+                    <span className="text-xs font-black tracking-widest uppercase text-[#001752] block">
+                      CONCESSION
+                    </span>
+
+                    <p className="text-[11px] text-slate-600 leading-tight pt-1">
+                      On all career diploma programs
+                    </p>
+
+                    <div className="pt-3 border-t border-slate-100 text-[10px] text-slate-400 font-medium">
+                      Limited seats available for 2026 batches
+                    </div>
+                  </div>
+                </div>
+
               </div>
-
             </div>
-          </section>
+          </div>
+        </section>
 
 
-          {/* ══════════════════════════════════════════════════════════════════════
-              SECTION 07 – FAQ (Centered Heading + Left Navy Card + Right Accordion)
-              ══════════════════════════════════════════════════════════════════════ */}
-          <section 
-            id="faq"
-            aria-label="Frequently Asked Questions"
-            className="bg-white rounded-[24px] sm:rounded-[32px] p-6 sm:p-10 lg:p-12 border border-[#E5E7EB] shadow-2xs"
-          >
+        {/* ══════════════════════════════════════════════════════════════════════
+            SECTION 07 – FAQ (Full-Width Pale Section)
+            ══════════════════════════════════════════════════════════════════════ */}
+        <section id="faq" aria-label="Frequently Asked Questions" className="bg-[#F6F7F9] py-16 sm:py-24 border-t border-slate-200/70">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
             {/* Top Red Eyebrow */}
             <div className="text-center mb-2">
               <span className="text-[#C41E1E] text-xs font-bold tracking-wider uppercase">
@@ -805,7 +803,7 @@ export default function Home() {
             </div>
 
             {/* Centered Heading & Subtitle */}
-            <div className="text-center max-w-xl mx-auto mb-8 sm:mb-10 space-y-1.5">
+            <div className="text-center max-w-xl mx-auto mb-10 sm:mb-12 space-y-1.5">
               <h2 className="text-3xl sm:text-4xl font-bold text-[#001752] font-heading tracking-tight leading-tight">
                 Frequently asked questions
               </h2>
@@ -892,13 +890,12 @@ export default function Home() {
             </div>
 
             {/* Bottom Centered Subtitle */}
-            <div className="text-center text-xs text-slate-400 pt-4 border-t border-slate-100">
+            <div className="text-center text-xs text-slate-400 pt-6 border-t border-slate-200">
               Raut Arcade 202, 2nd Floor, Opposite Subway / Opposite Virar East Railway Station, Maharashtra 401305.
             </div>
 
-          </section>
-
-        </div>
+          </div>
+        </section>
 
       </div>
     </>
