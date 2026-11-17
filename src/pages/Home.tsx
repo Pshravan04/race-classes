@@ -931,41 +931,75 @@ export default function Home() {
             </div>
 
             {/* Bottom Row: Wide Split Navy Card */}
-            <div className="bg-[#001752] text-white rounded-2xl sm:rounded-3xl overflow-hidden shadow-lg border border-[#00113E] grid grid-cols-1 lg:grid-cols-12">
+            <div className="bg-[#001752] text-white rounded-2xl sm:rounded-3xl overflow-hidden shadow-lg border border-[#00113E] grid grid-cols-1 lg:grid-cols-12 items-stretch">
               {/* Left Content */}
-              <div className="lg:col-span-6 p-6 sm:p-8 lg:p-10 flex flex-col justify-between space-y-6">
+              <div className="lg:col-span-6 p-6 sm:p-8 lg:p-10 flex flex-col justify-center space-y-5">
                 <div>
                   <span className="text-[11px] font-bold text-[#DF8383] uppercase tracking-wider block mb-2">
                     STEP 04 · CAREER ACCELERATION
                   </span>
-                  <h3 className="text-2xl sm:text-3xl font-bold font-heading text-white tracking-tight leading-tight mb-3">
+                  <h3 className="text-2xl sm:text-3xl font-bold font-heading text-white tracking-tight leading-tight mb-2.5">
                     More than a course.<br />
                     A career-ready you.
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-md">
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-md font-normal">
                     Resume workshops, mock interviews, and ISO 9001:2015 certification recognized across Mumbai.
                   </p>
                 </div>
 
-                <div>
+                {/* Key Career Highlights Bullets */}
+                <div className="space-y-2 pt-1 text-xs text-slate-200">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 size={13} className="text-[#10b981] shrink-0" />
+                    <span>Dedicated placement cell & interview scheduling</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 size={13} className="text-[#10b981] shrink-0" />
+                    <span>ISO 9001:2015 accredited course completion certificate</span>
+                  </div>
+                </div>
+
+                <div className="pt-2 flex flex-wrap items-center gap-3">
                   <Link
                     to="/contact#demo"
-                    className="inline-flex items-center gap-1.5 bg-white hover:bg-slate-100 text-[#001752] text-xs sm:text-sm font-bold px-5 py-2.5 rounded-full transition-all shadow-xs"
+                    className="inline-flex items-center gap-1.5 bg-white hover:bg-slate-100 text-[#001752] text-xs sm:text-sm font-bold px-5 py-2.5 rounded-full transition-all shadow-xs active:scale-95 cursor-pointer"
                   >
                     <span>Book a free demo</span>
                     <ArrowRight size={13} />
                   </Link>
+
+                  <Link
+                    to="/placements"
+                    className="inline-flex items-center gap-1.5 text-xs text-slate-300 hover:text-white font-medium transition-colors cursor-pointer"
+                  >
+                    <span>View placement assistance</span>
+                    <ArrowRight size={12} />
+                  </Link>
                 </div>
               </div>
 
-              {/* Right Image */}
-              <div className="lg:col-span-6 relative aspect-[16/9] lg:aspect-auto min-h-[220px] bg-slate-900">
+              {/* Right Image Container - Constrained, landscape cropped, never stretches */}
+              <div className="lg:col-span-6 relative aspect-[16/10] lg:aspect-auto min-h-[220px] sm:min-h-[280px] lg:min-h-full overflow-hidden bg-slate-900">
                 <img
-                  src="/images/real-students-presentation.jpg"
-                  alt="Presentation at RACE lab"
-                  className="w-full h-full object-cover"
+                  src="/images/real-lab-wide.jpg"
+                  alt="Students and practical learning at RACE computer lab Virar East"
+                  className="absolute inset-0 w-full h-full object-cover"
                   loading="lazy"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = '/images/real-lab-classroom.jpg';
+                  }}
                 />
+                
+                {/* Subtle Left Gradient Overlay to blend with navy card on desktop */}
+                <div className="hidden lg:block absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-[#001752] to-transparent pointer-events-none" />
+
+                {/* Floating Badge */}
+                <div className="absolute bottom-4 left-4 sm:bottom-5 sm:left-5 z-10">
+                  <div className="inline-flex items-center gap-2 bg-[#001752]/85 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20 text-white text-[11px] font-medium shadow-md">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#10b981] animate-pulse" />
+                    <span>Individual Workstations · Virar East</span>
+                  </div>
+                </div>
               </div>
             </div>
 
