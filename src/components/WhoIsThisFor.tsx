@@ -12,7 +12,7 @@ export default function WhoIsThisFor() {
       icon: GraduationCap,
       badge: 'College & School',
       filterGoal: 'job',
-      color: 'border-l-4 border-l-[#071B3A]',
+      color: 'border-l-4 border-l-[#0e2340]',
     },
     {
       title: t.whoLadiesTitle,
@@ -29,7 +29,7 @@ export default function WhoIsThisFor() {
       icon: Briefcase,
       badge: 'Career Placement',
       filterGoal: 'job',
-      color: 'border-l-4 border-l-[#C0392B]',
+      color: 'border-l-4 border-l-[#c6383b]',
     },
     {
       title: t.whoBusinessTitle,
@@ -37,7 +37,7 @@ export default function WhoIsThisFor() {
       icon: Store,
       badge: 'GST & Invoicing',
       filterGoal: 'business',
-      color: 'border-l-4 border-l-[#071B3A]',
+      color: 'border-l-4 border-l-[#0e2340]',
     },
     {
       title: t.whoKidsTitle,
@@ -58,7 +58,7 @@ export default function WhoIsThisFor() {
           <div className="station-board mb-3 text-xs">
             TARGET AUDIENCE
           </div>
-          <h2 id="who-heading" className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#071B3A] font-serif-heading mb-3">
+          <h2 id="who-heading" className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0e2340] font-serif-heading mb-3">
             {t.whoHeading}
           </h2>
           <p className="text-sm sm:text-base text-[#4A5568] leading-relaxed">
@@ -79,7 +79,7 @@ export default function WhoIsThisFor() {
               >
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-3">
-                    <span className="w-10 h-10 rounded-lg bg-[#071B3A] text-[#C59B27] flex items-center justify-center shrink-0">
+                    <span className="w-10 h-10 rounded-lg bg-[#0e2340] text-[#C59B27] flex items-center justify-center shrink-0">
                       <Icon size={20} />
                     </span>
                     <span className="text-[11px] font-bold text-[#6B5A24] bg-[#FAF7EE] border border-[#E8E2D5] px-2.5 py-1 rounded-full">
@@ -87,7 +87,7 @@ export default function WhoIsThisFor() {
                     </span>
                   </div>
 
-                  <h3 className="text-base sm:text-lg font-bold text-[#071B3A] mb-2 font-serif-heading">
+                  <h3 className="text-base sm:text-lg font-bold text-[#0e2340] mb-2 font-serif-heading">
                     {persona.title}
                   </h3>
 
@@ -98,7 +98,7 @@ export default function WhoIsThisFor() {
 
                 <Link
                   to={`/courses?goal=${persona.filterGoal}`}
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#071B3A] hover:text-[#C59B27] pt-2 border-t border-[#E8E2D5] transition-colors"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0e2340] hover:text-[#C59B27] pt-2 border-t border-[#E8E2D5] transition-colors"
                 >
                   <span>Explore recommended courses</span>
                   <ArrowRight size={13} />

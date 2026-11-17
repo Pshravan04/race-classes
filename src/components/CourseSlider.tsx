@@ -66,7 +66,7 @@ export default function CourseSlider({ courses }: CourseSliderProps) {
             Showing {courses.length} Courses
           </span>
           <span className="hidden sm:inline-block w-1.5 h-1.5 rounded-full bg-slate-300" />
-          <span className="hidden sm:inline-flex items-center gap-1 text-xs text-[#001752] font-semibold">
+          <span className="hidden sm:inline-flex items-center gap-1 text-xs text-[#0e2340] font-semibold">
             <Sparkles size={12} className="text-[#A2D016]" />
             Slide left &amp; right to explore
           </span>
@@ -80,7 +80,7 @@ export default function CourseSlider({ courses }: CourseSliderProps) {
             disabled={!canScrollLeft}
             className={`w-10 h-10 rounded-full flex items-center justify-center transition-all cursor-pointer ${
               canScrollLeft
-                ? 'bg-[#001752] text-white hover:bg-[#C41E1E] shadow-sm active:scale-95'
+                ? 'bg-[#0e2340] text-white hover:bg-[#c6383b] shadow-sm active:scale-95'
                 : 'bg-slate-100 text-slate-300 cursor-not-allowed'
             }`}
             aria-label="Previous courses"
@@ -94,7 +94,7 @@ export default function CourseSlider({ courses }: CourseSliderProps) {
             disabled={!canScrollRight}
             className={`w-10 h-10 rounded-full flex items-center justify-center transition-all cursor-pointer ${
               canScrollRight
-                ? 'bg-[#001752] text-white hover:bg-[#C41E1E] shadow-sm active:scale-95'
+                ? 'bg-[#0e2340] text-white hover:bg-[#c6383b] shadow-sm active:scale-95'
                 : 'bg-slate-100 text-slate-300 cursor-not-allowed'
             }`}
             aria-label="Next courses"
@@ -136,7 +136,7 @@ export default function CourseSlider({ courses }: CourseSliderProps) {
             }}
             className={`transition-all rounded-full cursor-pointer ${
               i === currentIndex
-                ? 'w-6 h-2 bg-[#001752]'
+                ? 'w-6 h-2 bg-[#0e2340]'
                 : 'w-2 h-2 bg-slate-300 hover:bg-slate-400'
             }`}
             aria-label={`Go to slide ${i + 1}`}

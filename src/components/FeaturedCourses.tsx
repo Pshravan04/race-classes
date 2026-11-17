@@ -38,7 +38,7 @@ export default function FeaturedCourses() {
             <div className="station-board-yellow inline-block mb-3 text-xs font-black">
               POPULAR CHOICES
             </div>
-            <h2 id="featured-heading" className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#071B3A] font-serif-heading">
+            <h2 id="featured-heading" className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0e2340] font-serif-heading">
               Featured Job-Ready Courses
             </h2>
             <p className="text-sm sm:text-base text-[#4A5568] mt-1 max-w-xl">
@@ -48,7 +48,7 @@ export default function FeaturedCourses() {
 
           <Link
             to="/courses"
-            className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#071B3A] hover:text-[#C59B27] py-2 transition-colors shrink-0"
+            className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#0e2340] hover:text-[#C59B27] py-2 transition-colors shrink-0"
           >
             <span>{t.ctaBrowseCourses}</span>
             <ArrowRight size={15} />
@@ -69,7 +69,7 @@ export default function FeaturedCourses() {
         {/* Bottom Banner to Browse All */}
         <div className="mt-10 p-5 bg-[#FAF7EE] rounded-2xl border border-[#E8E2D5] flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
           <div>
-            <strong className="text-sm sm:text-base text-[#071B3A] font-serif-heading block">
+            <strong className="text-sm sm:text-base text-[#0e2340] font-serif-heading block">
               Looking for something else?
             </strong>
             <span className="text-xs text-[#526071]">
@@ -79,7 +79,7 @@ export default function FeaturedCourses() {
 
           <Link
             to="/courses"
-            className="inline-flex items-center gap-2 bg-[#071B3A] hover:bg-[#0E2B5C] text-white text-xs sm:text-sm font-bold px-5 py-2.5 rounded-xl border border-[#C59B27] transition-colors shrink-0"
+            className="inline-flex items-center gap-2 bg-[#0e2340] hover:bg-[#16345c] text-white text-xs sm:text-sm font-bold px-5 py-2.5 rounded-xl border border-[#C59B27] transition-colors shrink-0"
           >
             <span>View All 23 Courses</span>
             <ArrowRight size={14} className="text-[#D8AF3E]" />

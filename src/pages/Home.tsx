@@ -96,7 +96,7 @@ export default function Home() {
       />
 
       {/* ─── 1. HERO SECTION (Split-Screen, Content Left, Real Lab Photo Right) ─── */}
-      <section className="relative w-full bg-[#F8F9FA] text-[#001752] border-b border-slate-200/80 overflow-hidden">
+      <section className="relative w-full bg-[#F8F9FA] text-[#0e2340] border-b border-slate-200/80 overflow-hidden">
         <div className="w-full grid grid-cols-1 lg:grid-cols-12 min-h-[580px] lg:min-h-[660px]">
 
           {/* Left Column: Authentic Copy & Actions (7 cols) */}
@@ -104,25 +104,25 @@ export default function Home() {
             
             {/* Top Badges */}
             <div className="flex flex-wrap items-center gap-2 mb-4">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#C41E1E] text-white text-[11px] font-black uppercase tracking-wider shadow-xs">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#c6383b] text-white text-[11px] font-black uppercase tracking-wider shadow-xs">
                 <Monitor size={12} className="stroke-[2.5]" />
                 100% Practical Training
               </span>
 
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-slate-200 text-[#001752] text-[11px] font-bold shadow-xs">
-                <Sparkles size={12} className="text-[#C41E1E]" />
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-slate-200 text-[#0e2340] text-[11px] font-bold shadow-xs">
+                <Sparkles size={12} className="text-[#c6383b]" />
                 Flat 50% Concession Admissions Open
               </span>
             </div>
 
             {/* Main Headline */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[44px] xl:text-[50px] font-black text-[#001752] tracking-tight leading-[1.14] mb-4">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[44px] xl:text-[50px] font-black text-[#0e2340] tracking-tight leading-[1.14] mb-4">
               Don't Just Learn Computers.{' '}
-              <span className="text-[#C41E1E]">Learn Skills That Matter.</span>
+              <span className="text-[#c6383b]">Learn Skills That Matter.</span>
             </h1>
 
             {/* Subtitle / Lead */}
-            <p className="text-base sm:text-lg text-[#001752] font-semibold max-w-xl leading-snug mb-3">
+            <p className="text-base sm:text-lg text-[#0e2340] font-semibold max-w-xl leading-snug mb-3">
               Get hands-on training in AI, Digital Marketing, Programming and Advanced Computer Technologies at RACE.
             </p>
 
@@ -133,16 +133,16 @@ export default function Home() {
 
             {/* 3 Core Value Pillars */}
             <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 mb-8">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200/90 text-[#001752] text-xs sm:text-sm font-bold shadow-xs hover-lift">
-                <CheckCircle2 size={15} className="text-[#C41E1E] shrink-0" />
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200/90 text-[#0e2340] text-xs sm:text-sm font-bold shadow-xs hover-lift">
+                <CheckCircle2 size={15} className="text-[#c6383b] shrink-0" />
                 <span>Practical-first learning</span>
               </div>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200/90 text-[#001752] text-xs sm:text-sm font-bold shadow-xs hover-lift">
-                <CheckCircle2 size={15} className="text-[#C41E1E] shrink-0" />
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200/90 text-[#0e2340] text-xs sm:text-sm font-bold shadow-xs hover-lift">
+                <CheckCircle2 size={15} className="text-[#c6383b] shrink-0" />
                 <span>Industry-relevant courses</span>
               </div>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200/90 text-[#001752] text-xs sm:text-sm font-bold shadow-xs hover-lift">
-                <CheckCircle2 size={15} className="text-[#C41E1E] shrink-0" />
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200/90 text-[#0e2340] text-xs sm:text-sm font-bold shadow-xs hover-lift">
+                <CheckCircle2 size={15} className="text-[#c6383b] shrink-0" />
                 <span>Personal guidance</span>
               </div>
             </div>
@@ -151,14 +151,14 @@ export default function Home() {
             <div className="flex flex-wrap items-center gap-3.5 mb-10">
               <a
                 href={`tel:${phone}`}
-                className="inline-flex items-center justify-center h-12 sm:h-13 px-8 rounded-full bg-[#C41E1E] hover:bg-[#A81717] text-white font-bold text-sm sm:text-base shadow-lg shadow-[#C41E1E]/25 btn-press transition-all"
+                className="inline-flex items-center justify-center h-12 sm:h-13 px-8 rounded-full bg-[#c6383b] hover:bg-[#a82b2e] text-white font-bold text-sm sm:text-base shadow-lg shadow-[#c6383b]/25 btn-press transition-all"
               >
                 Book a Free Demo
               </a>
 
               <Link
                 to="/courses"
-                className="inline-flex items-center justify-center h-12 sm:h-13 px-7 rounded-full bg-white text-[#001752] border border-[#001752] hover:bg-[#001752] hover:text-white font-bold text-sm sm:text-base btn-press transition-all shadow-xs"
+                className="inline-flex items-center justify-center h-12 sm:h-13 px-7 rounded-full bg-white text-[#0e2340] border border-[#0e2340] hover:bg-[#0e2340] hover:text-white font-bold text-sm sm:text-base btn-press transition-all shadow-xs"
               >
                 Explore All 23 Courses
               </Link>
@@ -215,13 +215,13 @@ export default function Home() {
             {/* Top Right Proximity Tag */}
             <div className="relative z-10 self-end">
               <div className="bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-2xl shadow-xl border border-white/60 flex items-center gap-2.5 text-xs">
-                <span className="bg-[#001752] text-white text-[10px] font-black px-2 py-0.5 rounded uppercase">
+                <span className="bg-[#0e2340] text-white text-[10px] font-black px-2 py-0.5 rounded uppercase">
                   Terminal 202
                 </span>
-                <span className="font-bold text-[#001752]">
+                <span className="font-bold text-[#0e2340]">
                   Station Subway 2 Min
                 </span>
-                <div className="bg-[#C41E1E] text-white text-[10px] font-black px-1.5 py-0.5 rounded-full flex items-center gap-0.5">
+                <div className="bg-[#c6383b] text-white text-[10px] font-black px-1.5 py-0.5 rounded-full flex items-center gap-0.5">
                   <span>4.9</span>
                   <Star size={9} className="fill-white text-white" />
                 </div>
@@ -235,9 +235,9 @@ export default function Home() {
                   <div className="w-5 h-5 rounded-full bg-emerald-500 text-white flex items-center justify-center shrink-0">
                     <Check size={12} strokeWidth={3} />
                   </div>
-                  <span className="text-xs font-bold text-[#001752]">1 Student : 1 Machine Lab</span>
+                  <span className="text-xs font-bold text-[#0e2340]">1 Student : 1 Machine Lab</span>
                 </div>
-                <span className="bg-red-50 text-[#C41E1E] text-[10px] font-black px-2 py-0.5 rounded-full border border-red-200">
+                <span className="bg-red-50 text-[#c6383b] text-[10px] font-black px-2 py-0.5 rounded-full border border-red-200">
                   Confirmed PC
                 </span>
               </div>
@@ -247,7 +247,7 @@ export default function Home() {
               </p>
 
               <div className="mt-3 pt-2.5 border-t border-slate-200/80 flex items-center justify-between text-[11px]">
-                <span className="font-extrabold text-[#C41E1E]">⚡ 50% Concession Available</span>
+                <span className="font-extrabold text-[#c6383b]">⚡ 50% Concession Available</span>
                 <span className="text-slate-500 font-medium">Opp. Station Subway</span>
               </div>
             </div>
@@ -264,11 +264,11 @@ export default function Home() {
             
             {/* Pillar 1 */}
             <div className="flex items-center gap-3.5 px-3">
-              <div className="w-12 h-12 rounded-2xl bg-[#FDF2F2] border border-[#FAD4D4] flex items-center justify-center text-[#C41E1E] shrink-0">
+              <div className="w-12 h-12 rounded-2xl bg-[#fdeaea] border border-[#FAD4D4] flex items-center justify-center text-[#c6383b] shrink-0">
                 <Laptop size={22} strokeWidth={2.2} />
               </div>
               <div>
-                <div className="text-xl sm:text-2xl font-black text-[#001752] tracking-tight leading-tight">
+                <div className="text-xl sm:text-2xl font-black text-[#0e2340] tracking-tight leading-tight">
                   23+ Courses
                 </div>
                 <div className="text-xs font-semibold text-slate-700 mt-0.5">
@@ -286,7 +286,7 @@ export default function Home() {
                 <Monitor size={22} strokeWidth={2.2} />
               </div>
               <div>
-                <div className="text-xl sm:text-2xl font-black text-[#001752] tracking-tight leading-tight">
+                <div className="text-xl sm:text-2xl font-black text-[#0e2340] tracking-tight leading-tight">
                   1 : 1 Machine
                 </div>
                 <div className="text-xs font-semibold text-slate-700 mt-0.5">
@@ -300,11 +300,11 @@ export default function Home() {
 
             {/* Pillar 3 */}
             <div className="flex items-center gap-3.5 px-3">
-              <div className="w-12 h-12 rounded-2xl bg-[#001752]/5 border border-[#001752]/15 flex items-center justify-center text-[#001752] shrink-0">
+              <div className="w-12 h-12 rounded-2xl bg-[#0e2340]/5 border border-[#0e2340]/15 flex items-center justify-center text-[#0e2340] shrink-0">
                 <Clock size={22} strokeWidth={2.2} />
               </div>
               <div>
-                <div className="text-xl sm:text-2xl font-black text-[#001752] tracking-tight leading-tight">
+                <div className="text-xl sm:text-2xl font-black text-[#0e2340] tracking-tight leading-tight">
                   8 AM – 8:30 PM
                 </div>
                 <div className="text-xs font-semibold text-slate-700 mt-0.5">
@@ -322,7 +322,7 @@ export default function Home() {
                 <Award size={22} strokeWidth={2.2} />
               </div>
               <div>
-                <div className="text-xl sm:text-2xl font-black text-[#001752] tracking-tight leading-tight">
+                <div className="text-xl sm:text-2xl font-black text-[#0e2340] tracking-tight leading-tight">
                   Certification
                 </div>
                 <div className="text-xs font-semibold text-slate-700 mt-0.5">
@@ -343,18 +343,18 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8">
             <div>
-              <span className="text-xs text-[#C41E1E] font-extrabold uppercase tracking-widest">
+              <span className="text-xs text-[#c6383b] font-extrabold uppercase tracking-widest">
                 Career &amp; Project-Oriented Pedagogy
               </span>
-              <h2 className="text-3xl sm:text-4xl text-[#001752] font-black tracking-tight mt-1">
-                Explore Our <span className="text-[#C41E1E]">23 Practical Courses</span>
+              <h2 className="text-3xl sm:text-4xl text-[#0e2340] font-black tracking-tight mt-1">
+                Explore Our <span className="text-[#c6383b]">23 Practical Courses</span>
               </h2>
               <p className="text-sm sm:text-base text-slate-600 max-w-2xl mt-1.5 leading-relaxed">
                 Choose from foundational software modules to comprehensive career-track master programs with live capstones.
               </p>
             </div>
             <div className="shrink-0">
-              <span className="text-xs bg-[#F1F4FA] border border-[#D5DFF0] px-3.5 py-1.5 rounded-full text-[#001752] font-bold">
+              <span className="text-xs bg-[#F1F4FA] border border-[#D5DFF0] px-3.5 py-1.5 rounded-full text-[#0e2340] font-bold">
                 1:1 Individual Workstation Guaranteed
               </span>
             </div>
@@ -369,8 +369,8 @@ export default function Home() {
                 onClick={() => setActiveFilter(tab.value as typeof activeFilter)}
                 className={`px-5 py-2 rounded-full text-xs sm:text-sm font-bold shrink-0 transition-all cursor-pointer ${
                   activeFilter === tab.value
-                    ? 'bg-[#001752] text-white shadow-xs'
-                    : 'bg-[#F1F4FA] text-slate-600 hover:text-[#001752] hover:bg-slate-200/70'
+                    ? 'bg-[#0e2340] text-white shadow-xs'
+                    : 'bg-[#F1F4FA] text-slate-600 hover:text-[#0e2340] hover:bg-slate-200/70'
                 }`}
               >
                 {tab.label}
@@ -384,7 +384,7 @@ export default function Home() {
           <div className="mt-10 text-center">
             <Link
               to="/courses"
-              className="inline-flex items-center justify-center h-12 px-8 rounded-full bg-[#001752] hover:bg-[#C41E1E] text-white text-xs sm:text-sm font-bold shadow-md transition-all active:scale-95"
+              className="inline-flex items-center justify-center h-12 px-8 rounded-full bg-[#0e2340] hover:bg-[#c6383b] text-white text-xs sm:text-sm font-bold shadow-md transition-all active:scale-95"
             >
               <span>View All 23 Course Syllabi &amp; Modules</span>
               <ArrowRight size={14} className="ml-2" />
@@ -397,11 +397,11 @@ export default function Home() {
       <section className="bg-[#F8F9FA] py-16 sm:py-20 border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <span className="text-xs text-[#C41E1E] font-extrabold uppercase tracking-widest">
+            <span className="text-xs text-[#c6383b] font-extrabold uppercase tracking-widest">
               Smart Suburban Learning Choice
             </span>
-            <h2 className="text-3xl sm:text-4xl text-[#001752] font-black tracking-tight mt-1">
-              Why Choose RACE Over <span className="text-[#C41E1E]">Traveling to Distant Centers?</span>
+            <h2 className="text-3xl sm:text-4xl text-[#0e2340] font-black tracking-tight mt-1">
+              Why Choose RACE Over <span className="text-[#c6383b]">Traveling to Distant Centers?</span>
             </h2>
             <p className="text-sm sm:text-base text-slate-600 mt-2 leading-relaxed">
               Suburban learners often waste 3+ hours every day in packed local trains to institutes in Andheri, Dadar, or Thane. Here is why studying right beside the railway subway gives you a massive practical edge:
@@ -411,15 +411,15 @@ export default function Home() {
           <div className="overflow-x-auto rounded-3xl border border-slate-200 bg-white shadow-sm">
             <table className="w-full text-left text-xs sm:text-sm border-collapse">
               <thead>
-                <tr className="bg-slate-100 text-[#001752] font-black border-b border-slate-200">
+                <tr className="bg-slate-100 text-[#0e2340] font-black border-b border-slate-200">
                   <th className="p-4 sm:p-5">Key Factor</th>
-                  <th className="p-4 sm:p-5 bg-red-50 text-[#C41E1E] font-black">RACE (Station Subway)</th>
+                  <th className="p-4 sm:p-5 bg-red-50 text-[#c6383b] font-black">RACE (Station Subway)</th>
                   <th className="p-4 sm:p-5 text-slate-500 font-bold">Distant Mumbai Centers (Andheri/Dadar)</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-200 text-slate-700">
                 <tr>
-                  <td className="p-4 sm:p-5 font-bold text-[#001752]">Daily Travel Time</td>
+                  <td className="p-4 sm:p-5 font-bold text-[#0e2340]">Daily Travel Time</td>
                   <td className="p-4 sm:p-5 bg-red-50/50 font-bold text-emerald-700">
                     <span className="inline-flex items-center gap-1.5">
                       <Check size={15} className="text-emerald-600 stroke-[3]" />
@@ -434,10 +434,10 @@ export default function Home() {
                   </td>
                 </tr>
                 <tr>
-                  <td className="p-4 sm:p-5 font-bold text-[#001752]">Workstation Guarantee</td>
-                  <td className="p-4 sm:p-5 bg-red-50/50 font-bold text-[#C41E1E]">
+                  <td className="p-4 sm:p-5 font-bold text-[#0e2340]">Workstation Guarantee</td>
+                  <td className="p-4 sm:p-5 bg-red-50/50 font-bold text-[#c6383b]">
                     <span className="inline-flex items-center gap-1.5">
-                      <Check size={15} className="text-[#C41E1E] stroke-[3]" />
+                      <Check size={15} className="text-[#c6383b] stroke-[3]" />
                       1 Student : 1 PC Guaranteed (Never share machines)
                     </span>
                   </td>
@@ -449,7 +449,7 @@ export default function Home() {
                   </td>
                 </tr>
                 <tr>
-                  <td className="p-4 sm:p-5 font-bold text-[#001752]">Practical Lab Time</td>
+                  <td className="p-4 sm:p-5 font-bold text-[#0e2340]">Practical Lab Time</td>
                   <td className="p-4 sm:p-5 bg-red-50/50 font-bold text-emerald-700">
                     <span className="inline-flex items-center gap-1.5">
                       <Check size={15} className="text-emerald-600 stroke-[3]" />
@@ -464,8 +464,8 @@ export default function Home() {
                   </td>
                 </tr>
                 <tr>
-                  <td className="p-4 sm:p-5 font-bold text-[#001752]">Course Fees &amp; Savings</td>
-                  <td className="p-4 sm:p-5 bg-red-50/50 font-bold text-[#001752]">
+                  <td className="p-4 sm:p-5 font-bold text-[#0e2340]">Course Fees &amp; Savings</td>
+                  <td className="p-4 sm:p-5 bg-red-50/50 font-bold text-[#0e2340]">
                     <span className="inline-flex items-center gap-1.5">
                       <Check size={15} className="text-emerald-600 stroke-[3]" />
                       Flat 50% Concession + FREE Basic Computer Course
@@ -479,8 +479,8 @@ export default function Home() {
                   </td>
                 </tr>
                 <tr>
-                  <td className="p-4 sm:p-5 font-bold text-[#001752]">Faculty Mentorship</td>
-                  <td className="p-4 sm:p-5 bg-red-50/50 font-bold text-[#001752]">
+                  <td className="p-4 sm:p-5 font-bold text-[#0e2340]">Faculty Mentorship</td>
+                  <td className="p-4 sm:p-5 bg-red-50/50 font-bold text-[#0e2340]">
                     <span className="inline-flex items-center gap-1.5">
                       <Check size={15} className="text-emerald-600 stroke-[3]" />
                       Personal 1:1 desk coaching, questions answered face-to-face
@@ -504,11 +504,11 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
             <div>
-              <span className="text-xs text-[#C41E1E] font-extrabold uppercase tracking-widest">
+              <span className="text-xs text-[#c6383b] font-extrabold uppercase tracking-widest">
                 Genuine Campus Facilities
               </span>
-              <h2 className="text-3xl sm:text-4xl text-[#001752] font-black tracking-tight mt-1">
-                Life Inside Our <span className="text-[#C41E1E]">Computer Lab</span>
+              <h2 className="text-3xl sm:text-4xl text-[#0e2340] font-black tracking-tight mt-1">
+                Life Inside Our <span className="text-[#c6383b]">Computer Lab</span>
               </h2>
               <p className="text-sm sm:text-base text-slate-600 max-w-2xl mt-1.5 leading-relaxed">
                 Authentic glimpses of daily sessions at Raut Arcade 202. Dedicated desktop computers, desk-to-desk mentorship, and quiet study booths.
@@ -517,7 +517,7 @@ export default function Home() {
 
             <Link
               to="/gallery"
-              className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#001752] hover:text-[#C41E1E] transition-colors shrink-0"
+              className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#0e2340] hover:text-[#c6383b] transition-colors shrink-0"
             >
               <span>View Full Campus Photo Gallery</span>
               <ArrowRight size={14} />
@@ -536,7 +536,7 @@ export default function Home() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent pointer-events-none" />
               <div className="absolute top-4 left-4">
-                <span className="bg-[#001752] text-white text-[11px] font-bold px-3 py-1 rounded-full shadow-xs">
+                <span className="bg-[#0e2340] text-white text-[11px] font-bold px-3 py-1 rounded-full shadow-xs">
                   Active Practical Session
                 </span>
               </div>
@@ -557,7 +557,7 @@ export default function Home() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent pointer-events-none" />
               <div className="absolute top-4 left-4">
-                <span className="bg-[#C41E1E] text-white text-[11px] font-bold px-3 py-1 rounded-full shadow-xs">
+                <span className="bg-[#c6383b] text-white text-[11px] font-bold px-3 py-1 rounded-full shadow-xs">
                   1-on-1 Desk Coaching
                 </span>
               </div>
@@ -594,7 +594,7 @@ export default function Home() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent pointer-events-none" />
               <div className="absolute top-4 left-4">
-                <span className="bg-[#001752] text-white text-[10.5px] font-bold px-2.5 py-0.5 rounded-full shadow-xs">
+                <span className="bg-[#0e2340] text-white text-[10.5px] font-bold px-2.5 py-0.5 rounded-full shadow-xs">
                   Tally &amp; Excel Lab
                 </span>
               </div>
@@ -616,13 +616,13 @@ export default function Home() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent pointer-events-none" />
               <div className="absolute top-4 left-4">
-                <span className="bg-[#C41E1E] text-white text-[10.5px] font-bold px-2.5 py-0.5 rounded-full shadow-xs flex items-center gap-1">
+                <span className="bg-[#c6383b] text-white text-[10.5px] font-bold px-2.5 py-0.5 rounded-full shadow-xs flex items-center gap-1">
                   <Play size={10} className="fill-current" />
                   <span>Video Tour</span>
                 </span>
               </div>
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-11 h-11 rounded-full bg-white/95 text-[#001752] flex items-center justify-center shadow-lg transition-transform group-hover:scale-110 group-hover:bg-[#A2D016]">
+                <div className="w-11 h-11 rounded-full bg-white/95 text-[#0e2340] flex items-center justify-center shadow-lg transition-transform group-hover:scale-110 group-hover:bg-[#A2D016]">
                   <Play size={18} className="fill-current ml-0.5" />
                 </div>
               </div>
@@ -642,11 +642,11 @@ export default function Home() {
       <section className="bg-[#F8F9FA] py-16 sm:py-20 border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <span className="text-xs text-[#C41E1E] font-extrabold uppercase tracking-widest">
+            <span className="text-xs text-[#c6383b] font-extrabold uppercase tracking-widest">
               Straightforward Enrolment
             </span>
-            <h2 className="text-3xl sm:text-4xl text-[#001752] font-black tracking-tight mt-1">
-              Begin Your Training in <span className="text-[#C41E1E]">3 Simple Steps</span>
+            <h2 className="text-3xl sm:text-4xl text-[#0e2340] font-black tracking-tight mt-1">
+              Begin Your Training in <span className="text-[#c6383b]">3 Simple Steps</span>
             </h2>
             <p className="text-sm sm:text-base text-slate-600 mt-2 leading-relaxed">
               Experience practical computer learning without bureaucratic delays or confusing forms.
@@ -656,47 +656,47 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="p-6 sm:p-7 bg-white rounded-3xl border border-slate-200 shadow-sm flex flex-col justify-between hover-lift">
               <div>
-                <span className="w-12 h-12 rounded-2xl bg-[#001752] text-white text-base font-black flex items-center justify-center mb-5">
+                <span className="w-12 h-12 rounded-2xl bg-[#0e2340] text-white text-base font-black flex items-center justify-center mb-5">
                   01
                 </span>
-                <h3 className="text-lg font-bold text-[#001752] mb-2">
+                <h3 className="text-lg font-bold text-[#0e2340] mb-2">
                   Connect &amp; Free Counseling
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                   Call or WhatsApp our team. Discuss your goals whether you want a corporate job, want to manage family business accounts, or are starting from scratch.
                 </p>
               </div>
-              <div className="mt-5 pt-3 border-t border-slate-100 text-xs font-semibold text-[#001752]">
+              <div className="mt-5 pt-3 border-t border-slate-100 text-xs font-semibold text-[#0e2340]">
                 Instant WhatsApp guidance
               </div>
             </div>
 
-            <div className="p-6 sm:p-7 bg-white rounded-3xl border border-[#C41E1E]/40 shadow-sm flex flex-col justify-between hover-lift relative overflow-hidden">
-              <span className="absolute top-3 right-3 bg-red-50 text-[#C41E1E] text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full border border-red-200">
+            <div className="p-6 sm:p-7 bg-white rounded-3xl border border-[#c6383b]/40 shadow-sm flex flex-col justify-between hover-lift relative overflow-hidden">
+              <span className="absolute top-3 right-3 bg-red-50 text-[#c6383b] text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full border border-red-200">
                 Zero Obligation
               </span>
               <div>
-                <span className="w-12 h-12 rounded-2xl bg-[#C41E1E] text-white text-base font-black flex items-center justify-center mb-5 shadow-md shadow-red-950/20">
+                <span className="w-12 h-12 rounded-2xl bg-[#c6383b] text-white text-base font-black flex items-center justify-center mb-5 shadow-md shadow-red-950/20">
                   02
                 </span>
-                <h3 className="text-lg font-bold text-[#001752] mb-2">
+                <h3 className="text-lg font-bold text-[#0e2340] mb-2">
                   Attend a Free 1:1 Lab Demo
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                   Visit our Raut Arcade lab opposite the subway. Sit at a workstation, experience a practical lesson, and inspect the curriculum firsthand before enrolling.
                 </p>
               </div>
-              <div className="mt-5 pt-3 border-t border-slate-100 text-xs font-semibold text-[#C41E1E]">
+              <div className="mt-5 pt-3 border-t border-slate-100 text-xs font-semibold text-[#c6383b]">
                 1:1 Computer test drive
               </div>
             </div>
 
             <div className="p-6 sm:p-7 bg-white rounded-3xl border border-slate-200 shadow-sm flex flex-col justify-between hover-lift">
               <div>
-                <span className="w-12 h-12 rounded-2xl bg-[#001752] text-white text-base font-black flex items-center justify-center mb-5">
+                <span className="w-12 h-12 rounded-2xl bg-[#0e2340] text-white text-base font-black flex items-center justify-center mb-5">
                   03
                 </span>
-                <h3 className="text-lg font-bold text-[#001752] mb-2">
+                <h3 className="text-lg font-bold text-[#0e2340] mb-2">
                   Allot Workstation &amp; Start
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -714,18 +714,18 @@ export default function Home() {
       {/* ─── 7. CONCESSION OFFER BANNER (Placed at the bottom side) ─── */}
       <section className="bg-[#F8F9FA] py-16 sm:py-20 border-t border-slate-200" id="concession">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#000E33] via-[#001752] to-[#00081C] text-white p-6 sm:p-9 lg:p-11 shadow-2xl border border-[#002B94]">
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#0e2340] via-[#16345c] to-[#071324] text-white p-6 sm:p-9 lg:p-11 shadow-2xl border border-[#16345c]">
             
             {/* Subtle Mesh Ambient Glow */}
-            <div className="absolute -right-20 -top-20 w-[420px] h-[420px] bg-[#C41E1E]/20 rounded-full blur-[110px] pointer-events-none" />
-            <div className="absolute -left-20 -bottom-20 w-[420px] h-[420px] bg-[#002277]/35 rounded-full blur-[120px] pointer-events-none" />
+            <div className="absolute -right-20 -top-20 w-[420px] h-[420px] bg-[#c6383b]/20 rounded-full blur-[110px] pointer-events-none" />
+            <div className="absolute -left-20 -bottom-20 w-[420px] h-[420px] bg-[#16345c]/35 rounded-full blur-[120px] pointer-events-none" />
 
             <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
               
               {/* Left Column: Headlines & Highlights (7 cols) */}
               <div className="lg:col-span-7 flex flex-col justify-center pr-0 lg:pr-4">
                 <div className="flex items-center gap-2 mb-3">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#C41E1E] text-white text-xs font-black uppercase tracking-wider shadow-xs">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#c6383b] text-white text-xs font-black uppercase tracking-wider shadow-xs">
                     <Sparkles size={12} className="text-white" />
                     Limited-Time Admission Offer
                   </span>
@@ -765,7 +765,7 @@ export default function Home() {
                 {/* Trust highlight chips */}
                 <div className="mt-5 pt-4 border-t border-white/10 flex flex-wrap items-center gap-3 text-xs">
                   <div className="bg-white/5 border border-white/10 px-3 py-1.5 rounded-full flex items-center gap-2 text-slate-300">
-                    <span className="w-2 h-2 rounded-full bg-[#C41E1E]" />
+                    <span className="w-2 h-2 rounded-full bg-[#c6383b]" />
                     <span>Free Course Worth ₹3,500</span>
                   </div>
                   <div className="bg-white/5 border border-white/10 px-3 py-1.5 rounded-full flex items-center gap-2 text-slate-300">
@@ -795,7 +795,7 @@ export default function Home() {
                     </div>
 
                     {/* Top-right: 50% Concession Tag */}
-                    <div className="absolute top-3 right-3 bg-[#C41E1E] text-white font-black text-xs px-3 py-1 rounded-full shadow-lg tracking-wider uppercase border border-red-400/40">
+                    <div className="absolute top-3 right-3 bg-[#c6383b] text-white font-black text-xs px-3 py-1 rounded-full shadow-lg tracking-wider uppercase border border-red-400/40">
                       Flat 50% OFF
                     </div>
 
@@ -823,7 +823,7 @@ export default function Home() {
                     href={`${wa}?text=${encodeURIComponent('Hi! I would like to claim the 50% Admission Concession at RACE.')}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 h-11 px-4 rounded-xl bg-[#C41E1E] hover:bg-[#A81717] text-white text-xs sm:text-sm font-bold shadow-lg btn-press cursor-pointer"
+                    className="inline-flex items-center justify-center gap-2 h-11 px-4 rounded-xl bg-[#c6383b] hover:bg-[#a82b2e] text-white text-xs sm:text-sm font-bold shadow-lg btn-press cursor-pointer"
                   >
                     <MessageSquare size={16} />
                     <span>Claim on WhatsApp</span>
@@ -853,11 +853,11 @@ export default function Home() {
       <section className="bg-white py-16 sm:py-20 border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <span className="text-xs text-[#C41E1E] font-extrabold uppercase tracking-widest">
+            <span className="text-xs text-[#c6383b] font-extrabold uppercase tracking-widest">
               Clear Information
             </span>
-            <h2 className="text-3xl sm:text-4xl text-[#001752] font-black tracking-tight mt-1">
-              Frequently Asked <span className="text-[#C41E1E]">Questions</span>
+            <h2 className="text-3xl sm:text-4xl text-[#0e2340] font-black tracking-tight mt-1">
+              Frequently Asked <span className="text-[#c6383b]">Questions</span>
             </h2>
             <p className="text-sm sm:text-base text-slate-600 mt-2">
               Everything you need to know about joining our classes at Raut Arcade.
@@ -877,7 +877,7 @@ export default function Home() {
                     onClick={() => setOpenFaq(isOpen ? null : idx)}
                     className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-3 cursor-pointer hover:bg-slate-100/70 transition-colors"
                   >
-                    <span className="text-xs sm:text-sm font-bold text-[#001752]">
+                    <span className="text-xs sm:text-sm font-bold text-[#0e2340]">
                       {faq.q}
                     </span>
                     <span className="text-slate-400 shrink-0">
@@ -897,8 +897,8 @@ export default function Home() {
 
           <div className="mt-10 p-5 rounded-2xl bg-[#F8F9FA] border border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4 max-w-5xl mx-auto">
             <div className="flex items-center gap-3">
-              <span className="text-[#C41E1E] text-2xl">💬</span>
-              <span className="text-xs sm:text-sm text-[#001752] font-medium">
+              <span className="text-[#c6383b] text-2xl">💬</span>
+              <span className="text-xs sm:text-sm text-[#0e2340] font-medium">
                 Have a specific question not addressed above?
               </span>
             </div>
@@ -906,7 +906,7 @@ export default function Home() {
               href={`${wa}?text=${encodeURIComponent('Hi! I have a question about admissions at RACE.')}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#C41E1E] hover:underline shrink-0"
+              className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#c6383b] hover:underline shrink-0"
             >
               <span>Ask our counsellor on WhatsApp</span>
               <ArrowRight size={14} />
@@ -916,12 +916,12 @@ export default function Home() {
       </section>
 
       {/* ─── 9. FINAL CTA BAND ─── */}
-      <section className="relative bg-gradient-to-r from-[#000E33] via-[#001752] to-[#000E33] text-white py-16 sm:py-20 overflow-hidden border-t border-[#002277]">
+      <section className="relative bg-gradient-to-r from-[#071324] via-[#0e2340] to-[#071324] text-white py-16 sm:py-20 overflow-hidden border-t border-[#16345c]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
             <div className="flex-1 text-center lg:text-left">
               <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white text-xs font-bold uppercase tracking-wider mb-3 border border-white/15">
-                <span className="w-2 h-2 rounded-full bg-[#C41E1E]" />
+                <span className="w-2 h-2 rounded-full bg-[#c6383b]" />
                 Direct Station Subway Access
               </span>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight text-white leading-tight">
@@ -936,7 +936,7 @@ export default function Home() {
                 href={`${wa}?text=${encodeURIComponent('Hi, I would like to visit RACE or enquire about admissions.')}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center px-7 py-3.5 rounded-full bg-[#C41E1E] hover:bg-[#A81717] text-white text-xs sm:text-sm font-bold shadow-xl btn-press"
+                className="w-full sm:w-auto inline-flex items-center justify-center px-7 py-3.5 rounded-full bg-[#c6383b] hover:bg-[#a82b2e] text-white text-xs sm:text-sm font-bold shadow-xl btn-press"
               >
                 <MessageSquare size={16} className="mr-2" />
                 Chat on WhatsApp

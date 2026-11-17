@@ -49,13 +49,13 @@ export default function CourseDrawer({ course, onClose }: CourseDrawerProps) {
 
       <div className="relative w-full max-w-xl bg-[#F8F9FA] min-h-screen sm:min-h-0 sm:max-h-[96vh] sm:my-auto sm:mr-4 sm:rounded-3xl shadow-2xl border-l sm:border border-slate-200 flex flex-col z-10 overflow-hidden">
         {/* Header */}
-        <div className="relative bg-[#001752] text-white p-5 sm:p-6 border-b border-[#002277] flex items-start justify-between gap-4 overflow-hidden">
-          <div className="absolute -right-10 -top-10 w-40 h-40 bg-[#C41E1E]/20 rounded-full blur-2xl pointer-events-none" />
+        <div className="relative bg-[#0e2340] text-white p-5 sm:p-6 border-b border-[#16345c] flex items-start justify-between gap-4 overflow-hidden">
+          <div className="absolute -right-10 -top-10 w-40 h-40 bg-[#c6383b]/20 rounded-full blur-2xl pointer-events-none" />
           <div className="relative z-10">
             <div className="flex flex-wrap items-center gap-2 mb-2">
               <span
                 className={`text-[10px] font-black px-2.5 py-1 rounded-full uppercase tracking-wider ${
-                  isCareer ? 'bg-[#C41E1E] text-white shadow-xs' : 'bg-white/10 text-white border border-white/15'
+                  isCareer ? 'bg-[#c6383b] text-white shadow-xs' : 'bg-white/10 text-white border border-white/15'
                 }`}
               >
                 {course.badge || (isCareer ? 'Career-Objective Course' : 'Short-Term Skill Module')}
@@ -82,9 +82,9 @@ export default function CourseDrawer({ course, onClose }: CourseDrawerProps) {
         </div>
 
         {/* Body */}
-        <div className="p-5 sm:p-6 overflow-y-auto space-y-5 flex-1 text-[#001752]">
+        <div className="p-5 sm:p-6 overflow-y-auto space-y-5 flex-1 text-[#0e2340]">
           <div>
-            <h3 className="text-[11px] font-black uppercase tracking-wider text-[#C41E1E] mb-1.5">
+            <h3 className="text-[11px] font-black uppercase tracking-wider text-[#c6383b] mb-1.5">
               Course Overview
             </h3>
             <p className="text-sm text-slate-600 leading-relaxed">
@@ -95,30 +95,30 @@ export default function CourseDrawer({ course, onClose }: CourseDrawerProps) {
           <div className="grid grid-cols-2 gap-3 bg-white p-4 rounded-2xl border border-slate-200 text-xs">
             <div>
               <span className="text-slate-500 block mb-1 flex items-center gap-1">
-                <Clock size={13} className="text-[#C41E1E]" />
+                <Clock size={13} className="text-[#c6383b]" />
                 Typical Duration
               </span>
-              <strong className="text-[#001752] font-semibold">
+              <strong className="text-[#0e2340] font-semibold">
                 {course.durationPlaceholder}
               </strong>
             </div>
 
             <div>
               <span className="text-slate-500 block mb-1 flex items-center gap-1">
-                <Laptop size={13} className="text-[#C41E1E]" />
+                <Laptop size={13} className="text-[#c6383b]" />
                 Training Mode
               </span>
-              <strong className="text-[#001752] font-semibold">
+              <strong className="text-[#0e2340] font-semibold">
                 100% Practical Lab
               </strong>
             </div>
 
             <div className="col-span-2 pt-3 border-t border-slate-100">
               <span className="text-slate-500 block mb-1 flex items-center gap-1">
-                <Award size={13} className="text-[#C41E1E]" />
+                <Award size={13} className="text-[#c6383b]" />
                 Certification
               </span>
-              <strong className="text-[#001752] font-semibold">
+              <strong className="text-[#0e2340] font-semibold">
                 {course.certificate}
               </strong>
             </div>
@@ -127,15 +127,15 @@ export default function CourseDrawer({ course, onClose }: CourseDrawerProps) {
           {/* Tools Mastered (ITVedant style) */}
           {course.tools && course.tools.length > 0 && (
             <div>
-              <h3 className="text-[11px] font-black uppercase tracking-wider text-[#001752] mb-2 flex items-center gap-1.5">
-                <Layers size={13} className="text-[#C41E1E]" />
+              <h3 className="text-[11px] font-black uppercase tracking-wider text-[#0e2340] mb-2 flex items-center gap-1.5">
+                <Layers size={13} className="text-[#c6383b]" />
                 Tools &amp; Technologies Mastered ({course.tools.length})
               </h3>
               <div className="flex flex-wrap gap-1.5">
                 {course.tools.map((t, idx) => (
                   <span
                     key={idx}
-                    className="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-xs font-semibold text-[#001752]"
+                    className="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-xs font-semibold text-[#0e2340]"
                   >
                     {t}
                   </span>
@@ -147,16 +147,16 @@ export default function CourseDrawer({ course, onClose }: CourseDrawerProps) {
           {/* Capstone Projects (ITVedant style) */}
           {course.projects && course.projects.length > 0 && (
             <div>
-              <h3 className="text-[11px] font-black uppercase tracking-wider text-[#001752] mb-2 flex items-center gap-1.5">
+              <h3 className="text-[11px] font-black uppercase tracking-wider text-[#0e2340] mb-2 flex items-center gap-1.5">
                 <Code2 size={13} className="text-emerald-600" />
                 Featured Industry Projects ({course.projects.length})
               </h3>
               <div className="space-y-2">
                 {course.projects.slice(0, 2).map((p, idx) => (
                   <div key={idx} className="p-3 bg-white rounded-xl border border-slate-200 text-xs">
-                    <strong className="text-[#001752] font-bold block mb-0.5">{p.title}</strong>
+                    <strong className="text-[#0e2340] font-bold block mb-0.5">{p.title}</strong>
                     <p className="text-slate-600 text-[11px] leading-relaxed line-clamp-2">{p.desc}</p>
-                    <span className="text-[10px] font-bold text-[#C41E1E] mt-1.5 inline-block">{p.tech}</span>
+                    <span className="text-[10px] font-bold text-[#c6383b] mt-1.5 inline-block">{p.tech}</span>
                   </div>
                 ))}
               </div>
@@ -164,7 +164,7 @@ export default function CourseDrawer({ course, onClose }: CourseDrawerProps) {
           )}
 
           <div>
-            <h3 className="text-[11px] font-black uppercase tracking-wider text-[#C41E1E] mb-1.5">
+            <h3 className="text-[11px] font-black uppercase tracking-wider text-[#c6383b] mb-1.5">
               Who is this course for?
             </h3>
             <div className="p-4 bg-white rounded-xl border border-slate-200 text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -173,25 +173,25 @@ export default function CourseDrawer({ course, onClose }: CourseDrawerProps) {
           </div>
 
           <div>
-            <h3 className="text-[11px] font-black uppercase tracking-wider text-[#C41E1E] mb-2">
+            <h3 className="text-[11px] font-black uppercase tracking-wider text-[#c6383b] mb-2">
               What You Will Learn (Practical Modules)
             </h3>
             <ul className="space-y-2.5 bg-white p-4 rounded-2xl border border-slate-200">
               {course.topics.slice(0, 5).map((topic, i) => (
                 <li key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600">
-                  <CheckCircle2 size={16} className="text-[#C41E1E] shrink-0 mt-0.5" />
+                  <CheckCircle2 size={16} className="text-[#c6383b] shrink-0 mt-0.5" />
                   <span>{topic}</span>
                 </li>
               ))}
             </ul>
           </div>
 
-          <div className="p-4 bg-[#FDF2F2] rounded-2xl border border-[#FAD4D4] text-xs text-[#001752]">
+          <div className="p-4 bg-[#fdeaea] rounded-2xl border border-[#FAD4D4] text-xs text-[#0e2340]">
             <div className="flex items-center gap-2 mb-1.5">
-              <span className="rounded-full bg-[#C41E1E] px-2.5 py-0.5 text-[10px] font-black text-white">
+              <span className="rounded-full bg-[#c6383b] px-2.5 py-0.5 text-[10px] font-black text-white">
                 {OFFERS_CONFIG.badge}
               </span>
-              <strong className="text-xs font-bold text-[#001752]">
+              <strong className="text-xs font-bold text-[#0e2340]">
                 Concession Eligible
               </strong>
             </div>
@@ -208,7 +208,7 @@ export default function CourseDrawer({ course, onClose }: CourseDrawerProps) {
           <Link
             to={`/courses/${course.id}`}
             onClick={onClose}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 bg-[#001752] hover:bg-[#002277] text-white text-xs sm:text-sm font-bold px-5 py-2.5 rounded-full transition-colors"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 bg-[#0e2340] hover:bg-[#16345c] text-white text-xs sm:text-sm font-bold px-5 py-2.5 rounded-full transition-colors"
           >
             <span>Full Syllabus &amp; Projects</span>
             <ArrowRight size={14} />
@@ -217,9 +217,9 @@ export default function CourseDrawer({ course, onClose }: CourseDrawerProps) {
           <div className="flex items-center gap-2 w-full sm:w-auto justify-end">
             <a
               href={`tel:${SITE_CONFIG.contact.phone}`}
-              className="inline-flex items-center gap-1.5 text-xs font-bold text-[#001752] hover:bg-slate-50 px-3 py-2.5 rounded-full border border-slate-200 transition-colors"
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0e2340] hover:bg-slate-50 px-3 py-2.5 rounded-full border border-slate-200 transition-colors"
             >
-              <Phone size={14} className="text-[#C41E1E]" />
+              <Phone size={14} className="text-[#c6383b]" />
               <span>Call</span>
             </a>
 

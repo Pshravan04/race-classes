@@ -111,7 +111,7 @@ export default function CourseCard({ course, onSelect, seatsLeft, batchHours }: 
             </span>
           </div>
 
-          <div className="border border-red-500/70 text-red-600 font-extrabold text-[10.5px] px-2.5 py-0.5 rounded-full bg-red-50/50 shrink-0">
+          <div className="border border-[#c6383b]/60 text-[#c6383b] font-extrabold text-[10.5px] px-2.5 py-0.5 rounded-full bg-[#fdeaea] shrink-0">
             {displaySeats} seats left
           </div>
         </div>
@@ -134,7 +134,7 @@ export default function CourseCard({ course, onSelect, seatsLeft, batchHours }: 
 
             {/* Top-Left Category Tag */}
             <div className="absolute top-2.5 left-2.5 z-10">
-              <span className="inline-block px-2.5 py-0.5 rounded-md bg-[#001752]/85 backdrop-blur-xs text-white text-[10px] font-bold uppercase tracking-wider border border-white/20 shadow-xs">
+              <span className="inline-block px-2.5 py-0.5 rounded-md bg-[#0e2340]/85 backdrop-blur-xs text-white text-[10px] font-bold uppercase tracking-wider border border-white/20 shadow-xs">
                 {isCareer ? 'Career Diploma' : 'Certificate'}
               </span>
             </div>
@@ -145,7 +145,7 @@ export default function CourseCard({ course, onSelect, seatsLeft, batchHours }: 
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                 100% Practical
               </span>
-              <span className="bg-[#A2D016] text-[#001752] font-black px-2 py-0.5 rounded-sm shadow-xs">
+              <span className="bg-[#A2D016] text-[#0e2340] font-black px-2 py-0.5 rounded-sm shadow-xs">
                 1 Student : 1 PC
               </span>
             </div>
@@ -180,7 +180,7 @@ export default function CourseCard({ course, onSelect, seatsLeft, batchHours }: 
           </div>
 
           {/* Course Title */}
-          <h3 className="text-base sm:text-lg font-black text-[#001752] leading-snug line-clamp-1 group-hover:text-[#C41E1E] transition-colors mb-1.5">
+          <h3 className="text-base sm:text-lg font-black text-[#0e2340] leading-snug line-clamp-1 group-hover:text-[#c6383b] transition-colors mb-1.5">
             <Link to={`/courses/${course.id}`} className="hover:underline decoration-slate-300">
               {course.name}
             </Link>

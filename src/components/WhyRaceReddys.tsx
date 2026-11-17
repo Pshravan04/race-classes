@@ -59,7 +59,7 @@ export default function WhyRace() {
           <div className="station-board-yellow inline-block mb-3 text-xs font-black">
             PROVEN BENEFITS
           </div>
-          <h2 id="why-heading" className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#071B3A] font-serif-heading mb-3">
+          <h2 id="why-heading" className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0e2340] font-serif-heading mb-3">
             {t.whyHeading}
           </h2>
           <p className="text-sm sm:text-base text-[#4A5568] leading-relaxed">
@@ -82,7 +82,7 @@ export default function WhyRace() {
               >
                 <div>
                   <div className="flex items-center justify-between gap-3 mb-3">
-                    <span className="w-10 h-10 rounded-lg bg-[#071B3A] text-[#C59B27] flex items-center justify-center shrink-0">
+                    <span className="w-10 h-10 rounded-lg bg-[#0e2340] text-[#C59B27] flex items-center justify-center shrink-0">
                       <Icon size={20} />
                     </span>
                     <span className="text-[11px] font-bold text-[#6B5A24] bg-[#FAF7EE] border border-[#E8E2D5] px-2.5 py-0.5 rounded-full">
@@ -90,7 +90,7 @@ export default function WhyRace() {
                     </span>
                   </div>
 
-                  <h3 className="text-base sm:text-lg font-bold text-[#071B3A] mb-2 font-serif-heading">
+                  <h3 className="text-base sm:text-lg font-bold text-[#0e2340] mb-2 font-serif-heading">
                     {item.title}
                   </h3>
 

@@ -134,10 +134,10 @@ export default function AdmissionPopupModal() {
       <div className="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl border border-slate-200/90 overflow-hidden z-10 animate-in zoom-in-95 duration-200 my-auto">
         
         {/* Modal Header (Brand Navy & Red Style) */}
-        <div className="relative bg-[#001752] text-white p-5 sm:p-6 overflow-hidden border-b border-[#002277]">
+        <div className="relative bg-[#0e2340] text-white p-5 sm:p-6 overflow-hidden border-b border-[#16345c]">
           {/* Subtle Ambient Glows */}
-          <div className="absolute -right-10 -top-10 w-44 h-44 bg-[#C41E1E]/25 rounded-full blur-2xl pointer-events-none" />
-          <div className="absolute -left-10 -bottom-10 w-40 h-40 bg-[#002580]/40 rounded-full blur-2xl pointer-events-none" />
+          <div className="absolute -right-10 -top-10 w-44 h-44 bg-[#c6383b]/25 rounded-full blur-2xl pointer-events-none" />
+          <div className="absolute -left-10 -bottom-10 w-40 h-40 bg-[#16345c]/40 rounded-full blur-2xl pointer-events-none" />
 
           {/* Close Button */}
           <button
@@ -151,7 +151,7 @@ export default function AdmissionPopupModal() {
 
           <div className="relative z-10 pr-8">
             <div className="flex items-center gap-2 mb-2">
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#C41E1E] text-white text-[10px] font-black uppercase tracking-wider shadow-xs">
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#c6383b] text-white text-[10px] font-black uppercase tracking-wider shadow-xs">
                 <Sparkles size={11} className="fill-white" />
                 Admissions Open · 50% Concession
               </span>
@@ -183,14 +183,14 @@ export default function AdmissionPopupModal() {
                   Admission Inquiry Reserved!
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-600 mt-1.5 max-w-sm mx-auto leading-relaxed">
-                  Thank you, <strong className="text-slate-900">{fullName}</strong>. We have registered your inquiry for <strong className="text-[#C41E1E]">{course}</strong> ({batch}).
+                  Thank you, <strong className="text-slate-900">{fullName}</strong>. We have registered your inquiry for <strong className="text-[#c6383b]">{course}</strong> ({batch}).
                 </p>
               </div>
 
               <div className="p-3 bg-slate-50 rounded-2xl border border-slate-200 text-left text-xs space-y-1.5">
                 <div className="flex items-center justify-between text-slate-600">
                   <span>Concession Status:</span>
-                  <span className="font-bold text-[#C41E1E] bg-[#C41E1E]/10 px-2 py-0.5 rounded-full border border-[#C41E1E]/20">
+                  <span className="font-bold text-[#c6383b] bg-[#c6383b]/10 px-2 py-0.5 rounded-full border border-[#c6383b]/20">
                     50% Discount Applied
                   </span>
                 </div>
@@ -217,11 +217,11 @@ export default function AdmissionPopupModal() {
 
                 <div className="w-full flex flex-wrap items-center justify-center gap-2 pt-1 text-xs">
                   <span className="text-slate-500 font-semibold">Call Admissions:</span>
-                  <a href="tel:8793314239" className="font-bold text-[#001752] hover:text-[#C41E1E]">8793314239</a>
+                  <a href="tel:8793314239" className="font-bold text-[#0e2340] hover:text-[#c6383b]">8793314239</a>
                   <span className="text-slate-400">·</span>
-                  <a href="tel:8482881614" className="font-bold text-[#001752] hover:text-[#C41E1E]">8482881614</a>
+                  <a href="tel:8482881614" className="font-bold text-[#0e2340] hover:text-[#c6383b]">8482881614</a>
                   <span className="text-slate-400">·</span>
-                  <a href="tel:9794323963" className="font-bold text-[#001752] hover:text-[#C41E1E]">9794323963</a>
+                  <a href="tel:9794323963" className="font-bold text-[#0e2340] hover:text-[#c6383b]">9794323963</a>
                 </div>
               </div>
 
@@ -253,7 +253,7 @@ export default function AdmissionPopupModal() {
                     placeholder="e.g. Rahul Patil / Priya Sharma"
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
-                    className="w-full pl-9 pr-3.5 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 focus:outline-hidden focus:border-[#C41E1E] focus:ring-2 focus:ring-[#C41E1E]/20 transition-all"
+                    className="w-full pl-9 pr-3.5 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 focus:outline-hidden focus:border-[#c6383b] focus:ring-2 focus:ring-[#c6383b]/20 transition-all"
                   />
                 </div>
               </div>
@@ -275,7 +275,7 @@ export default function AdmissionPopupModal() {
                     placeholder="98XXXXXXXX"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                    className="w-full px-3.5 py-2.5 rounded-r-xl border border-slate-200 text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 focus:outline-hidden focus:border-[#C41E1E] focus:ring-2 focus:ring-[#C41E1E]/20 transition-all"
+                    className="w-full px-3.5 py-2.5 rounded-r-xl border border-slate-200 text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 focus:outline-hidden focus:border-[#c6383b] focus:ring-2 focus:ring-[#c6383b]/20 transition-all"
                   />
                 </div>
                 {errorMsg && (
@@ -296,7 +296,7 @@ export default function AdmissionPopupModal() {
                     id="popup-course"
                     value={course}
                     onChange={(e) => setCourse(e.target.value)}
-                    className="w-full pl-9 pr-8 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm text-slate-900 bg-white focus:outline-hidden focus:border-[#C41E1E] focus:ring-2 focus:ring-[#C41E1E]/20 transition-all appearance-none cursor-pointer"
+                    className="w-full pl-9 pr-8 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm text-slate-900 bg-white focus:outline-hidden focus:border-[#c6383b] focus:ring-2 focus:ring-[#c6383b]/20 transition-all appearance-none cursor-pointer"
                   >
                     {popularCourses.map((c) => (
                       <option key={c} value={c}>{c}</option>
@@ -321,7 +321,7 @@ export default function AdmissionPopupModal() {
                     id="popup-batch"
                     value={batch}
                     onChange={(e) => setBatch(e.target.value)}
-                    className="w-full pl-9 pr-8 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm text-slate-900 bg-white focus:outline-hidden focus:border-[#C41E1E] focus:ring-2 focus:ring-[#C41E1E]/20 transition-all appearance-none cursor-pointer"
+                    className="w-full pl-9 pr-8 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm text-slate-900 bg-white focus:outline-hidden focus:border-[#c6383b] focus:ring-2 focus:ring-[#c6383b]/20 transition-all appearance-none cursor-pointer"
                   >
                     {batchOptions.map((b) => (
                       <option key={b} value={b}>{b}</option>
@@ -348,7 +348,7 @@ export default function AdmissionPopupModal() {
               {/* Submit CTA Button */}
               <button
                 type="submit"
-                className="w-full flex items-center justify-center gap-2 bg-[#C41E1E] hover:bg-[#A81717] text-white text-xs sm:text-sm font-bold py-3 px-6 rounded-full shadow-md hover:shadow-lg transition-all active:scale-95 cursor-pointer"
+                className="w-full flex items-center justify-center gap-2 bg-[#c6383b] hover:bg-[#a82b2e] text-white text-xs sm:text-sm font-bold py-3 px-6 rounded-full shadow-md hover:shadow-lg transition-all active:scale-95 cursor-pointer"
               >
                 <span>Claim 50% Concession &amp; Book Demo</span>
                 <Send size={14} />
@@ -356,13 +356,13 @@ export default function AdmissionPopupModal() {
 
               <div className="flex flex-wrap items-center justify-between text-[10px] text-slate-500 pt-1 gap-1">
                 <span>Raut Arcade 202 · Opp. Subway</span>
-                <span className="flex items-center gap-1 font-bold text-[#001752]">
+                <span className="flex items-center gap-1 font-bold text-[#0e2340]">
                   <span>Call:</span>
-                  <a href="tel:8793314239" className="hover:text-[#C41E1E]">8793314239</a>
+                  <a href="tel:8793314239" className="hover:text-[#c6383b]">8793314239</a>
                   <span>/</span>
-                  <a href="tel:8482881614" className="hover:text-[#C41E1E]">8482881614</a>
+                  <a href="tel:8482881614" className="hover:text-[#c6383b]">8482881614</a>
                   <span>/</span>
-                  <a href="tel:9794323963" className="hover:text-[#C41E1E]">9794323963</a>
+                  <a href="tel:9794323963" className="hover:text-[#c6383b]">9794323963</a>
                 </span>
               </div>
             </form>

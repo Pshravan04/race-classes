@@ -148,7 +148,7 @@ export default function CourseJourneyCurriculum({ course, onDownloadBrochure }: 
       <div className="grid grid-cols-1 xl:grid-cols-12 gap-6 sm:gap-8 items-start">
         
         {/* ─── Left Column: Deep Blue Overview Card (5 cols on xl) ─── */}
-        <div className="xl:col-span-5 rounded-3xl bg-[#001752] text-white p-6 sm:p-7 shadow-xl border border-navy-900 xl:sticky xl:top-28">
+        <div className="xl:col-span-5 rounded-3xl bg-[#0e2340] text-white p-6 sm:p-7 shadow-xl border border-[#16345c] xl:sticky xl:top-28">
           
           <span className="inline-block px-3 py-1 rounded-full bg-white/10 text-white text-[11px] font-bold uppercase tracking-wider mb-4 border border-white/15">
             Syllabus Blueprint
@@ -166,12 +166,12 @@ export default function CourseJourneyCurriculum({ course, onDownloadBrochure }: 
           <div className="space-y-3.5 mb-6">
             
             {/* Stat 1: Case Studies & Projects */}
-            <div className="bg-white rounded-2xl p-4 flex items-center gap-4 text-[#001752] shadow-sm">
-              <div className="w-12 h-12 rounded-xl bg-blue-50 text-[#001752] flex items-center justify-center shrink-0">
+            <div className="bg-white rounded-2xl p-4 flex items-center gap-4 text-[#0e2340] shadow-sm">
+              <div className="w-12 h-12 rounded-xl bg-blue-50 text-[#0e2340] flex items-center justify-center shrink-0">
                 <BookOpen size={22} className="stroke-[2.2]" />
               </div>
               <div>
-                <strong className="block text-xl sm:text-2xl font-black text-[#001752] leading-none mb-1">
+                <strong className="block text-xl sm:text-2xl font-black text-[#0e2340] leading-none mb-1">
                   {projectsCount}
                 </strong>
                 <span className="text-xs font-semibold text-slate-600 block">
@@ -181,12 +181,12 @@ export default function CourseJourneyCurriculum({ course, onDownloadBrochure }: 
             </div>
 
             {/* Stat 2: Languages & Tools */}
-            <div className="bg-white rounded-2xl p-4 flex items-center gap-4 text-[#001752] shadow-sm">
-              <div className="w-12 h-12 rounded-xl bg-blue-50 text-[#001752] flex items-center justify-center shrink-0">
+            <div className="bg-white rounded-2xl p-4 flex items-center gap-4 text-[#0e2340] shadow-sm">
+              <div className="w-12 h-12 rounded-xl bg-blue-50 text-[#0e2340] flex items-center justify-center shrink-0">
                 <Wrench size={22} className="stroke-[2.2]" />
               </div>
               <div>
-                <strong className="block text-xl sm:text-2xl font-black text-[#001752] leading-none mb-1">
+                <strong className="block text-xl sm:text-2xl font-black text-[#0e2340] leading-none mb-1">
                   {toolsCount}
                 </strong>
                 <span className="text-xs font-semibold text-slate-600 block">
@@ -196,12 +196,12 @@ export default function CourseJourneyCurriculum({ course, onDownloadBrochure }: 
             </div>
 
             {/* Stat 3: Live Sessions Hours */}
-            <div className="bg-white rounded-2xl p-4 flex items-center gap-4 text-[#001752] shadow-sm">
-              <div className="w-12 h-12 rounded-xl bg-blue-50 text-[#001752] flex items-center justify-center shrink-0">
+            <div className="bg-white rounded-2xl p-4 flex items-center gap-4 text-[#0e2340] shadow-sm">
+              <div className="w-12 h-12 rounded-xl bg-blue-50 text-[#0e2340] flex items-center justify-center shrink-0">
                 <Laptop size={22} className="stroke-[2.2]" />
               </div>
               <div>
-                <strong className="block text-xl sm:text-2xl font-black text-[#001752] leading-none mb-1">
+                <strong className="block text-xl sm:text-2xl font-black text-[#0e2340] leading-none mb-1">
                   {hoursCount}
                 </strong>
                 <span className="text-xs font-semibold text-slate-600 block">
@@ -241,7 +241,7 @@ export default function CourseJourneyCurriculum({ course, onDownloadBrochure }: 
               <button
                 type="button"
                 onClick={expandAll}
-                className="text-[#001752] hover:text-[#C41E1E] transition-colors cursor-pointer"
+                className="text-[#0e2340] hover:text-[#c6383b] transition-colors cursor-pointer"
               >
                 Expand All
               </button>
@@ -249,7 +249,7 @@ export default function CourseJourneyCurriculum({ course, onDownloadBrochure }: 
               <button
                 type="button"
                 onClick={collapseAll}
-                className="text-slate-500 hover:text-[#001752] transition-colors cursor-pointer"
+                className="text-slate-500 hover:text-[#0e2340] transition-colors cursor-pointer"
               >
                 Collapse All
               </button>
@@ -364,7 +364,7 @@ export default function CourseJourneyCurriculum({ course, onDownloadBrochure }: 
           {/* Bottom Fast Action Prompt */}
           <div className="mt-8 p-4 sm:p-5 rounded-2xl bg-slate-50 border border-slate-200/80 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div>
-              <span className="text-xs sm:text-sm font-bold text-[#001752] block">
+              <span className="text-xs sm:text-sm font-bold text-[#0e2340] block">
                 Want to customize modules or request weekend-only timing?
               </span>
               <span className="text-[11px] text-slate-500 block">
@@ -374,7 +374,7 @@ export default function CourseJourneyCurriculum({ course, onDownloadBrochure }: 
 
             <a
               href={`tel:${SITE_CONFIG.contact.phone}`}
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#001752] hover:bg-[#C41E1E] text-white text-xs font-bold transition-colors shrink-0"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#0e2340] hover:bg-[#c6383b] text-white text-xs font-bold transition-colors shrink-0"
             >
               <span>Call Admissions Desk</span>
             </a>

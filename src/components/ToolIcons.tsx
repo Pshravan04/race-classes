@@ -340,7 +340,7 @@ export function ToolLogo({ name, className = 'w-5 h-5' }: ToolLogoProps) {
   // Default tech chip
   return (
     <svg className={className} viewBox="0 0 24 24">
-      <rect width="24" height="24" rx="4" fill="#001752" />
+      <rect width="24" height="24" rx="4" fill="#0e2340" />
       <text x="12" y="16" textAnchor="middle" fill="#FFFFFF" fontSize="10" fontWeight="bold" fontFamily="sans-serif">
         {name.substring(0, 2).toUpperCase()}
       </text>

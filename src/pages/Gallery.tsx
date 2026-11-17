@@ -202,9 +202,9 @@ export default function Gallery() {
       />
 
       {/* ─── Minimal Header (No Content Bloat) ─── */}
-      <section className="bg-[#001752] text-white pt-10 pb-12 sm:pt-14 sm:pb-16 relative overflow-hidden">
+      <section className="bg-[#0e2340] text-white pt-10 pb-12 sm:pt-14 sm:pb-16 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(#ffffff0a_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
-        <div className="absolute -right-20 -top-20 w-80 h-80 bg-[#C41E1E]/15 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -right-20 -top-20 w-80 h-80 bg-[#c6383b]/15 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
@@ -228,7 +228,7 @@ export default function Gallery() {
                 onClick={() => setFilter('all')}
                 className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                   filter === 'all'
-                    ? 'bg-[#A2D016] text-[#001752] shadow-md'
+                    ? 'bg-[#A2D016] text-[#0e2340] shadow-md'
                     : 'text-white/80 hover:text-white hover:bg-white/10'
                 }`}
               >
@@ -239,7 +239,7 @@ export default function Gallery() {
                 onClick={() => setFilter('image')}
                 className={`flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                   filter === 'image'
-                    ? 'bg-[#A2D016] text-[#001752] shadow-md'
+                    ? 'bg-[#A2D016] text-[#0e2340] shadow-md'
                     : 'text-white/80 hover:text-white hover:bg-white/10'
                 }`}
               >
@@ -251,7 +251,7 @@ export default function Gallery() {
                 onClick={() => setFilter('video')}
                 className={`flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                   filter === 'video'
-                    ? 'bg-[#A2D016] text-[#001752] shadow-md'
+                    ? 'bg-[#A2D016] text-[#0e2340] shadow-md'
                     : 'text-white/80 hover:text-white hover:bg-white/10'
                 }`}
               >
@@ -301,8 +301,8 @@ export default function Gallery() {
                     <span
                       className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold shadow-xs ${
                         isVideo
-                          ? 'bg-[#C41E1E] text-white'
-                          : 'bg-[#001752]/90 text-white backdrop-blur-xs'
+                          ? 'bg-[#c6383b] text-white'
+                          : 'bg-[#0e2340]/90 text-white backdrop-blur-xs'
                       }`}
                     >
                       {isVideo ? <VideoIcon size={10} /> : <ImageIcon size={10} />}
@@ -313,7 +313,7 @@ export default function Gallery() {
                   {/* Centered Play Button (For Videos) */}
                   {isVideo ? (
                     <div className="absolute inset-0 flex items-center justify-center z-10">
-                      <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white/95 text-[#001752] flex items-center justify-center shadow-2xl transition-all duration-300 group-hover:scale-110 group-hover:bg-[#A2D016] group-hover:text-[#001752]">
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white/95 text-[#0e2340] flex items-center justify-center shadow-2xl transition-all duration-300 group-hover:scale-110 group-hover:bg-[#A2D016] group-hover:text-[#0e2340]">
                         <Play size={20} className="fill-current ml-0.5" />
                       </div>
                     </div>
@@ -347,7 +347,7 @@ export default function Gallery() {
           {/* Minimalist Bottom Bar (No Text Clutter) */}
           <div className="mt-12 pt-8 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
             <div>
-              <h3 className="text-sm font-bold text-[#001752]">
+              <h3 className="text-sm font-bold text-[#0e2340]">
                 Want to experience our lab in person?
               </h3>
               <p className="text-xs text-slate-500 mt-0.5">
@@ -357,11 +357,11 @@ export default function Gallery() {
 
             <div className="flex flex-wrap items-center justify-center sm:justify-end gap-2 text-xs">
               <span className="text-slate-500 font-semibold">Call:</span>
-              <a href="tel:8793314239" className="font-bold text-[#001752] hover:text-[#C41E1E]">8793314239</a>
+              <a href="tel:8793314239" className="font-bold text-[#0e2340] hover:text-[#c6383b]">8793314239</a>
               <span className="text-slate-300">/</span>
-              <a href="tel:8482881614" className="font-bold text-[#001752] hover:text-[#C41E1E]">8482881614</a>
+              <a href="tel:8482881614" className="font-bold text-[#0e2340] hover:text-[#c6383b]">8482881614</a>
               <span className="text-slate-300">/</span>
-              <a href="tel:9794323963" className="font-bold text-[#001752] hover:text-[#C41E1E]">9794323963</a>
+              <a href="tel:9794323963" className="font-bold text-[#0e2340] hover:text-[#c6383b]">9794323963</a>
 
               <a
                 href={`${SITE_CONFIG.contact.whatsapp}?text=${encodeURIComponent(
@@ -430,7 +430,7 @@ export default function Gallery() {
 
                   {/* Centered Glowing Play Action */}
                   <div className="relative z-10 flex flex-col items-center gap-3">
-                    <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-[#A2D016] text-[#001752] flex items-center justify-center shadow-2xl transition-transform hover:scale-110 cursor-pointer">
+                    <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-[#A2D016] text-[#0e2340] flex items-center justify-center shadow-2xl transition-transform hover:scale-110 cursor-pointer">
                       <Play size={28} className="fill-current ml-1" />
                     </div>
                     <span className="text-white text-xs sm:text-sm font-bold bg-black/60 backdrop-blur-md px-3 py-1 rounded-full border border-white/15">

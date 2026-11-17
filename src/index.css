@@ -1,71 +1,102 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-navy: #001752;
-  --color-brand-navy-dark: #000E33;
-  --color-brand-red: #C41E1E;
-  --color-brand-red-dark: #A81717;
-  --color-brand-red-light: #FDF2F2;
+  --color-brand-navy: #0e2340;
+  --color-brand-navy-dark: #071324;
+  --color-brand-navy-light: #16345c;
+  --color-brand-red: #c6383b;
+  --color-brand-red-dark: #a82b2e;
+  --color-brand-red-light: #fdeaea;
+  --font-heading: 'Helvetica', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-body: 'Poppins', system-ui, -apple-system, sans-serif;
 }
 
-/* ─── RACE DESIGN SYSTEM TOKENS ─── */
+/* ─── RACE OFFICIAL DESIGN SYSTEM TOKENS (design.md) ─── */
 :root {
-  /* Brand Core Colors (#001752 Navy & #C41E1E Red) */
-  --brand-navy: #001752;
-  --brand-navy-dark: #000E33;
-  --brand-red: #C41E1E;
-  --brand-red-dark: #A81717;
-  --brand-red-light: #FDF2F2;
+  /* Brand Core Colors (#0e2340 RACE Blue & #c6383b RACE Red) */
+  --brand-navy: #0e2340;
+  --brand-navy-dark: #071324;
+  --brand-red: #c6383b;
+  --brand-red-dark: #a82b2e;
+  --brand-red-light: #fdeaea;
 
-  /* Brand Primary Navy */
-  --navy-950: #000E33;
-  --navy-900: #001752;
-  --navy-800: #002580;
-  --navy-700: #0036B8;
-  
-  /* Brand Sparing Warm Gold Accent */
-  --gold-500: #C59B27;
-  --gold-600: #A8811C;
-  --gold-400: #D8AF3E;
-  --gold-100: #FBF4E4;
-  --gold-50:  #FDFBF5;
+  /* Brand Primary: RACE Blue Scale */
+  --race-blue-900: #0e2340;
+  --race-blue-700: #16345c;
+  --race-blue-500: #2e5b8a;
+  --race-blue-300: #7ba3c7;
+  --race-blue-100: #e6f0f8;
 
-  /* Paper / Modern Canvas Base */
-  --paper-bg:     #F8F9FA;
+  /* Brand Accent: RACE Red Scale */
+  --race-red-900: #c6383b;
+  --race-red-700: #d9740f;
+  --race-red-500: #e76b6b;
+  --race-red-300: #f4a7a7;
+  --race-red-100: #fdeaea;
+
+  /* Neutrals */
+  --race-neutral-900: #0b0b0b;
+  --race-neutral-700: #374151;
+  --race-neutral-500: #6b7280;
+  --race-neutral-300: #cbd5e1;
+  --race-neutral-100: #f8fafc;
+
+  /* Functional UI */
+  --race-success: #10b981;
+  --race-warning: #f59e0b;
+  --race-error: #ef4444;
+  --race-info: #3b82f6;
+  --race-border: #e5e7eb;
+
+  /* Legacy compatibility aliases mapped to new tokens */
+  --navy-950: #071324;
+  --navy-900: #0e2340;
+  --navy-800: #16345c;
+  --navy-700: #2e5b8a;
+  --train-red: #c6383b;
+  --train-red-light: #fdeaea;
+  --train-yellow: #f59e0b;
+  --train-yellow-light: #fef3c7;
+
+  /* Paper / Canvas Base */
+  --paper-bg:     #F8FAFC;
   --paper-card:   #FFFFFF;
-  --paper-subtle: #F1F4F9;
+  --paper-subtle: #F1F5F9;
   --paper-border: #E2E8F0;
   --paper-border-dark: #CBD5E1;
 
-  /* Brand Red Accents */
-  --train-red:    #C41E1E;
-  --train-red-light: #FDF2F2;
-  --train-yellow: #F5BE4F;
-  --train-yellow-light: #FEF9E7;
-
   /* Text & Readability */
-  --text-main:    #0A142F;
-  --text-muted:   #4A5568;
-  --text-light:   #718096;
+  --text-main:    #0B0B0B;
+  --text-muted:   #374151;
+  --text-light:   #6B7280;
 
   /* Typography */
-  --font-serif: 'Faustina', Georgia, 'Times New Roman', serif;
-  --font-sans:  'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Helvetica', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-sans:  'Poppins', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Helvetica', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-body:  'Poppins', system-ui, -apple-system, sans-serif;
   --font-deva:  'Noto Sans Devanagari', 'Hind', system-ui, sans-serif;
 }
 
 /* ─── Typography Utility Classes ─── */
-.font-serif-heading {
-  font-family: var(--font-serif);
+.font-serif-heading,
+.font-heading {
+  font-family: var(--font-heading);
   letter-spacing: -0.015em;
 }
 
-.font-sans-body {
-  font-family: var(--font-sans);
+.font-sans-body,
+.font-body {
+  font-family: var(--font-body);
 }
 
 .font-devanagari {
   font-family: var(--font-deva);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.02em;
 }
 
 /* ─── Base Styles ─── */
@@ -158,7 +189,7 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background-color: #071B3A;
+  background-color: #0e2340;
   color: #FFFFFF;
   border: 1.5px solid #C59B27;
   border-radius: 4px;
@@ -167,7 +198,7 @@ body {
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  box-shadow: 0 1px 3px rgba(7, 27, 58, 0.12);
+  box-shadow: 0 1px 3px rgba(14, 35, 64, 0.12);
 }
 
 .station-board-yellow {
@@ -261,7 +292,78 @@ body {
 .tactile-card:hover {
   transform: translateY(-2px);
   border-color: #C59B27;
-  box-shadow: 0 8px 20px -4px rgba(7, 27, 58, 0.08);
+  box-shadow: 0 8px 20px -4px rgba(14, 35, 64, 0.08);
+}
+
+/* ─── RACE OFFICIAL BUTTONS & GRADIENTS (from UI Kit) ─── */
+.gradient-race-blue {
+  background: linear-gradient(135deg, #0e2340 0%, #16345c 100%);
+}
+
+.gradient-race-red {
+  background: linear-gradient(135deg, #c6383b 0%, #d9740f 100%);
+}
+
+.btn-race-blue {
+  background-color: #0e2340;
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-weight: 600;
+  border-radius: 9999px;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-race-blue:hover {
+  background-color: #16345c;
+  box-shadow: 0 10px 20px -5px rgba(14, 35, 64, 0.35);
+  transform: translateY(-1px);
+}
+.btn-race-blue:active {
+  transform: scale(0.97);
+}
+
+.btn-race-red {
+  background-color: #c6383b;
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-weight: 600;
+  border-radius: 9999px;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-race-red:hover {
+  background-color: #a82b2e;
+  box-shadow: 0 10px 20px -5px rgba(198, 56, 59, 0.35);
+  transform: translateY(-1px);
+}
+.btn-race-red:active {
+  transform: scale(0.97);
+}
+
+.btn-race-outline-blue {
+  background-color: transparent;
+  color: #0e2340;
+  border: 1.5px solid #0e2340;
+  font-family: var(--font-body);
+  font-weight: 600;
+  border-radius: 9999px;
+  transition: all 0.2s ease;
+}
+.btn-race-outline-blue:hover {
+  background-color: #e6f0f8;
+  border-color: #0e2340;
+}
+
+.btn-race-outline-red {
+  background-color: transparent;
+  color: #c6383b;
+  border: 1.5px solid #c6383b;
+  font-family: var(--font-body);
+  font-weight: 600;
+  border-radius: 9999px;
+  transition: all 0.2s ease;
+}
+.btn-race-outline-red:hover {
+  background-color: #fdeaea;
+  border-color: #c6383b;
 }
 
 /* ─── TASTESKILL 2.5.1 DESIGN SYSTEM & MICRO-INTERACTIONS ─── */
@@ -271,7 +373,7 @@ body {
 
 .hover-lift:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 28px -6px rgba(0, 23, 82, 0.09), 0 4px 10px -2px rgba(0, 23, 82, 0.04);
+  box-shadow: 0 12px 28px -6px rgba(14, 35, 64, 0.09), 0 4px 10px -2px rgba(14, 35, 64, 0.04);
 }
 
 .img-frame {
@@ -304,7 +406,7 @@ body {
   left: 0;
   right: 0;
   z-index: 50;
-  background-color: rgba(7, 27, 58, 0.98);
+  background-color: rgba(14, 35, 64, 0.98);
   backdrop-filter: blur(8px);
   border-top: 1px solid rgba(197, 155, 39, 0.3);
   padding: 0.65rem 1rem;

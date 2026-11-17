@@ -2,6 +2,7 @@ import { MessageSquare, Clock, MapPin, CheckCircle } from 'lucide-react';
 import { SITE_CONFIG, OFFERS_CONFIG } from '../data/config';
 import { useLanguage } from '../context/useLanguage';
 import { Link } from 'react-router-dom';
+import BrandSpeedStripes from './BrandSpeedStripes';
 
 export default function HeroSection() {
   const { t } = useLanguage();
@@ -16,26 +17,27 @@ export default function HeroSection() {
           {/* Left Column: Local Headline & Direct CTAs */}
           <div className="lg:col-span-7">
             
-            {/* Practical Lab Badge */}
-            <div className="inline-flex items-center gap-2 mb-4">
+            {/* Practical Lab Badge with Signature Speed Stripes */}
+            <div className="inline-flex items-center gap-2.5 mb-4">
+              <BrandSpeedStripes size="xs" />
               <span className="station-board-yellow text-[11px] font-black uppercase tracking-wider px-2.5 py-1">
                 PRACTICAL TRAINING
               </span>
-              <span className="text-xs font-bold text-[#071B3A] tracking-wide">
+              <span className="text-xs font-bold text-[#0e2340] tracking-wide">
                 1 Student : 1 PC Guaranteed
               </span>
             </div>
 
             {/* Vasai-Virar Headline */}
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#001752] font-serif-heading leading-[1.15] mb-4">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0e2340] font-serif-heading leading-[1.15] mb-4">
               Don't Just Learn Computers.{' '}
-              <span className="text-[#C41E1E]">
+              <span className="text-[#c6383b]">
                 Learn Skills That Matter.
               </span>
             </h1>
 
             {/* Friendly, Teacher-Like Subheading */}
-            <p className="text-base sm:text-lg text-[#001752] font-semibold leading-relaxed mb-3">
+            <p className="text-base sm:text-lg text-[#0e2340] font-semibold leading-relaxed mb-3">
               Get hands-on training in AI, Digital Marketing, Programming and Advanced Computer Technologies at RACE, Vasai-Virar.
             </p>
 
@@ -46,15 +48,15 @@ export default function HeroSection() {
             {/* Key Selling Points Checklist */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 mb-8 text-xs sm:text-sm text-[#1A2332] font-medium">
               <div className="flex items-center gap-2 bg-white/80 border border-[#E8E2D5] px-3 py-2 rounded-lg">
-                <CheckCircle size={16} className="text-[#C41E1E] shrink-0" />
+                <CheckCircle size={16} className="text-[#c6383b] shrink-0" />
                 <span>Practical-first learning</span>
               </div>
               <div className="flex items-center gap-2 bg-white/80 border border-[#E8E2D5] px-3 py-2 rounded-lg">
-                <CheckCircle size={16} className="text-[#C41E1E] shrink-0" />
+                <CheckCircle size={16} className="text-[#c6383b] shrink-0" />
                 <span>Industry-relevant courses</span>
               </div>
               <div className="flex items-center gap-2 bg-white/80 border border-[#E8E2D5] px-3 py-2 rounded-lg">
-                <CheckCircle size={16} className="text-[#C41E1E] shrink-0" />
+                <CheckCircle size={16} className="text-[#c6383b] shrink-0" />
                 <span>Personal guidance</span>
               </div>
             </div>
@@ -77,7 +79,7 @@ export default function HeroSection() {
               {/* Book Free Demo Class CTA */}
               <Link
                 to="/contact#demo"
-                className="inline-flex items-center gap-2 bg-[#071B3A] hover:bg-[#0E2B5C] text-white font-bold text-sm sm:text-base px-5 py-3 rounded-xl border border-[#C59B27] shadow-sm hover:shadow transition-all active:scale-95"
+                className="inline-flex items-center gap-2 bg-[#0e2340] hover:bg-[#16345c] text-white font-bold text-sm sm:text-base px-5 py-3 rounded-xl border border-[#C59B27] shadow-sm hover:shadow transition-all active:scale-95"
               >
                 <Clock size={18} className="text-[#D8AF3E]" />
                 <span>{t.ctaDemo}</span>
@@ -86,7 +88,7 @@ export default function HeroSection() {
 
             {/* Location Subtext */}
             <div className="flex items-center gap-2 mt-4 text-xs text-gray-500">
-              <MapPin size={14} className="text-[#C0392B] shrink-0" />
+              <MapPin size={14} className="text-[#c6383b] shrink-0" />
               <span>{t.heroAddressHint}</span>
             </div>
 
@@ -97,7 +99,7 @@ export default function HeroSection() {
             <div className="bg-white rounded-2xl border border-[#E8E2D5] p-4 sm:p-5 shadow-sm relative">
               
               {/* Authentic Photo Container */}
-              <div className="relative rounded-xl overflow-hidden aspect-[4/3] bg-[#071B3A] mb-4">
+              <div className="relative rounded-xl overflow-hidden aspect-[4/3] bg-[#0e2340] mb-4">
                 <img
                   src="/hero-lab.jpg"
                   alt="Students practicing in computer laboratory at RACE Virar East"
@@ -110,7 +112,7 @@ export default function HeroSection() {
                 />
                 
                 {/* Station Tag Overlay */}
-                <div className="absolute bottom-3 left-3 right-3 bg-[#071B3A]/90 backdrop-blur-xs text-white p-2.5 rounded-lg border border-[#C59B27]/40 text-xs flex items-center justify-between">
+                <div className="absolute bottom-3 left-3 right-3 bg-[#0e2340]/90 backdrop-blur-xs text-white p-2.5 rounded-lg border border-[#C59B27]/40 text-xs flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-[#25D366] animate-pulse" />
                     <span className="font-bold">Live Lab Sessions</span>
@@ -124,11 +126,11 @@ export default function HeroSection() {
               {/* Compact Local Trust Bar */}
               <div className="p-3 bg-[#FAF7EE] rounded-xl border border-[#E8E2D5] flex items-center justify-between gap-3">
                 <div className="flex items-center gap-2.5">
-                  <div className="w-9 h-9 rounded-lg bg-[#071B3A] text-[#C59B27] flex items-center justify-center font-black text-sm shrink-0">
+                  <div className="w-9 h-9 rounded-lg bg-[#0e2340] text-[#C59B27] flex items-center justify-center font-black text-sm shrink-0">
                     RR
                   </div>
                   <div className="leading-tight">
-                    <span className="text-xs font-bold text-[#071B3A] block">
+                    <span className="text-xs font-bold text-[#0e2340] block">
                       Individual Machine Guarantee
                     </span>
                     <span className="text-[11px] text-[#4A5568]">
@@ -138,7 +140,7 @@ export default function HeroSection() {
                 </div>
 
                 <div className="text-right">
-                  <span className="text-xs font-black text-[#C0392B] uppercase block">
+                  <span className="text-xs font-black text-[#c6383b] uppercase block">
                     {OFFERS_CONFIG.badge}
                   </span>
                   <span className="text-[10px] text-gray-500 block">

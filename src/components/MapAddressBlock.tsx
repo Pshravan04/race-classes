@@ -11,7 +11,7 @@ export default function MapAddressBlock() {
           <div className="station-board mb-3 text-xs">
             LOCATION &amp; TIMINGS
           </div>
-          <h2 id="location-heading" className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#071B3A] font-serif-heading mb-2">
+          <h2 id="location-heading" className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0e2340] font-serif-heading mb-2">
             Right Opposite Virar East Railway Station
           </h2>
           <p className="text-sm sm:text-base text-[#4A5568]">
@@ -26,14 +26,14 @@ export default function MapAddressBlock() {
           <div className="lg:col-span-5 bg-white p-6 sm:p-7 rounded-2xl border border-[#E8E2D5] shadow-xs space-y-6">
             
             <div className="flex items-start gap-3.5">
-              <div className="w-10 h-10 rounded-xl bg-[#071B3A] text-[#C59B27] flex items-center justify-center shrink-0">
+              <div className="w-10 h-10 rounded-xl bg-[#0e2340] text-[#C59B27] flex items-center justify-center shrink-0">
                 <MapPin size={20} />
               </div>
               <div>
                 <span className="text-[11px] font-bold text-gray-500 uppercase tracking-wider block">
                   Campus Address
                 </span>
-                <strong className="text-base text-[#071B3A] font-bold block mt-0.5">
+                <strong className="text-base text-[#0e2340] font-bold block mt-0.5">
                   {SITE_CONFIG.address.line1}
                 </strong>
                 <span className="text-xs text-[#4A5568] block mt-0.5 leading-relaxed">
@@ -46,14 +46,14 @@ export default function MapAddressBlock() {
             </div>
 
             <div className="pt-4 border-t border-[#E8E2D5] flex items-start gap-3.5">
-              <div className="w-10 h-10 rounded-xl bg-[#FAF7EE] text-[#C0392B] flex items-center justify-center shrink-0 border border-[#E8E2D5]">
+              <div className="w-10 h-10 rounded-xl bg-[#FAF7EE] text-[#c6383b] flex items-center justify-center shrink-0 border border-[#E8E2D5]">
                 <Clock size={19} />
               </div>
               <div>
                 <span className="text-[11px] font-bold text-gray-500 uppercase tracking-wider block">
                   Open Hours
                 </span>
-                <strong className="text-xs sm:text-sm text-[#071B3A] font-bold block mt-0.5">
+                <strong className="text-xs sm:text-sm text-[#0e2340] font-bold block mt-0.5">
                   Monday to Saturday: 9:00 AM – 7:00 PM
                 </strong>
                 <span className="text-xs text-gray-500 block">
@@ -65,16 +65,16 @@ export default function MapAddressBlock() {
             <div className="pt-3 border-t border-[#E8E2D5] space-y-2">
               <div className="text-[11px] font-bold text-gray-500 uppercase tracking-wider flex items-center justify-between">
                 <span>Direct Helpline Numbers</span>
-                <span className="text-[#C41E1E] font-medium">Tap to call</span>
+                <span className="text-[#c6383b] font-medium">Tap to call</span>
               </div>
-              <div className="flex flex-wrap items-center justify-between gap-1 text-xs font-bold text-[#071B3A]">
-                <a href="tel:8793314239" className="hover:text-[#C41E1E] bg-[#F8F9FA] px-2 py-1 rounded border border-slate-200">
+              <div className="flex flex-wrap items-center justify-between gap-1 text-xs font-bold text-[#0e2340]">
+                <a href="tel:8793314239" className="hover:text-[#c6383b] bg-[#F8F9FA] px-2 py-1 rounded border border-slate-200">
                   📞 8793314239
                 </a>
-                <a href="tel:8482881614" className="hover:text-[#C41E1E] bg-[#F8F9FA] px-2 py-1 rounded border border-slate-200">
+                <a href="tel:8482881614" className="hover:text-[#c6383b] bg-[#F8F9FA] px-2 py-1 rounded border border-slate-200">
                   📞 8482881614
                 </a>
-                <a href="tel:9794323963" className="hover:text-[#C41E1E] bg-[#F8F9FA] px-2 py-1 rounded border border-slate-200">
+                <a href="tel:9794323963" className="hover:text-[#c6383b] bg-[#F8F9FA] px-2 py-1 rounded border border-slate-200">
                   📞 9794323963
                 </a>
               </div>
@@ -83,7 +83,7 @@ export default function MapAddressBlock() {
             <div className="pt-3 border-t border-[#E8E2D5] grid grid-cols-2 gap-3">
               <a
                 href={`tel:${SITE_CONFIG.contact.phone}`}
-                className="flex items-center justify-center gap-2 bg-[#071B3A] hover:bg-[#0E2B5C] text-white py-2.5 px-3 rounded-lg text-xs font-bold transition-colors"
+                className="flex items-center justify-center gap-2 bg-[#0e2340] hover:bg-[#16345c] text-white py-2.5 px-3 rounded-lg text-xs font-bold transition-colors"
               >
                 <Phone size={14} className="text-[#D8AF3E]" />
                 <span>Call Admissions</span>
@@ -120,7 +120,7 @@ export default function MapAddressBlock() {
                 href={SITE_CONFIG.address.googleMapsDirectLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#071B3A] font-bold underline hover:text-[#C59B27] inline-flex items-center gap-1"
+                className="text-[#0e2340] font-bold underline hover:text-[#C59B27] inline-flex items-center gap-1"
               >
                 <span>Open in Google Maps App for turn-by-turn walking directions</span>
                 <ArrowUpRight size={13} />

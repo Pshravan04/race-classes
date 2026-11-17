@@ -38,7 +38,7 @@ export default function AdmissionSteps() {
           <div className="station-board mb-3 text-xs">
             ADMISSION PROCESS
           </div>
-          <h2 id="steps-heading" className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#071B3A] font-serif-heading mb-3">
+          <h2 id="steps-heading" className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0e2340] font-serif-heading mb-3">
             {t.stepsHeading}
           </h2>
           <p className="text-sm sm:text-base text-[#4A5568] leading-relaxed">
@@ -60,13 +60,13 @@ export default function AdmissionSteps() {
                     <span className="font-serif-heading font-black text-3xl sm:text-4xl text-[#C59B27]/50">
                       {step.num}
                     </span>
-                    <span className="inline-flex items-center gap-1.5 text-[11px] font-bold text-[#071B3A] bg-[#FAF7EE] border border-[#E8E2D5] px-2.5 py-1 rounded-full">
+                    <span className="inline-flex items-center gap-1.5 text-[11px] font-bold text-[#0e2340] bg-[#FAF7EE] border border-[#E8E2D5] px-2.5 py-1 rounded-full">
                       <Icon size={13} className="text-[#C59B27]" />
                       <span>{step.badge}</span>
                     </span>
                   </div>
 
-                  <h3 className="text-lg font-bold text-[#071B3A] mb-2 font-serif-heading">
+                  <h3 className="text-lg font-bold text-[#0e2340] mb-2 font-serif-heading">
                     {step.title}
                   </h3>
 
@@ -76,7 +76,7 @@ export default function AdmissionSteps() {
                 </div>
 
                 <div className="pt-3 border-t border-[#E8E2D5] flex items-center justify-between">
-                  <span className="text-xs font-semibold text-[#071B3A]">
+                  <span className="text-xs font-semibold text-[#0e2340]">
                     {idx === 0 && 'No pre-registration fee'}
                     {idx === 1 && '100% Free Demo Session'}
                     {idx === 2 && '50% Concession Applied'}
@@ -91,11 +91,11 @@ export default function AdmissionSteps() {
         {/* Bottom Quick Action Strip */}
         <div className="mt-8 p-4 sm:p-5 bg-white rounded-xl border border-[#E8E2D5] flex flex-wrap items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <span className="w-9 h-9 rounded-full bg-[#071B3A] text-white flex items-center justify-center text-sm font-bold shrink-0">
+            <span className="w-9 h-9 rounded-full bg-[#0e2340] text-white flex items-center justify-center text-sm font-bold shrink-0">
               ?
             </span>
             <div className="text-xs sm:text-sm">
-              <strong className="text-[#071B3A] block">Have questions about syllabus or batches?</strong>
+              <strong className="text-[#0e2340] block">Have questions about syllabus or batches?</strong>
               <span className="text-[#4A5568]">Our teachers are available on call or WhatsApp from 9:00 AM to 7:00 PM.</span>
             </div>
           </div>

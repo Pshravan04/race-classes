@@ -18,12 +18,12 @@ export default function RailwayTrackDivider({ label, badge, className = '' }: Ra
         {/* Center Station Badge or Label */}
         {label ? (
           <div className="relative z-10 bg-[#FBF9F5] px-4 py-1 flex items-center gap-2 border border-[#E8E2D5] rounded-full shadow-xs">
-            <span className="w-2 h-2 rounded-full bg-[#C0392B] animate-pulse" />
-            <span className="text-xs font-bold text-[#071B3A] tracking-wider uppercase font-serif-heading">
+            <span className="w-2 h-2 rounded-full bg-[#c6383b] animate-pulse" />
+            <span className="text-xs font-bold text-[#0e2340] tracking-wider uppercase font-serif-heading">
               {label}
             </span>
             {badge && (
-              <span className="text-[10px] font-black bg-[#C59B27] text-[#071B3A] px-2 py-0.5 rounded-full">
+              <span className="text-[10px] font-black bg-[#C59B27] text-[#0e2340] px-2 py-0.5 rounded-full">
                 {badge}
               </span>
             )}

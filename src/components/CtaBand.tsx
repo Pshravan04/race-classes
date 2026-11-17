@@ -19,19 +19,19 @@ export default function CtaBand({
   const phone = SITE_CONFIG.contact.phone;
 
   return (
-    <section className="relative bg-gradient-to-r from-[#001752] via-[#000E33] to-[#001752] text-white py-16 lg:py-20 overflow-hidden border-t border-[#002277]">
+    <section className="relative bg-gradient-to-r from-[#0e2340] via-[#071324] to-[#0e2340] text-white py-16 lg:py-20 overflow-hidden border-t border-[#16345c]">
       <div
         className="absolute inset-0 opacity-10 pointer-events-none"
         style={{ backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)', backgroundSize: '20px 20px' }}
       />
-      <div className="absolute -right-20 top-0 w-80 h-80 bg-[#C41E1E]/20 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute -left-20 bottom-0 w-80 h-80 bg-[#002580]/30 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute -right-20 top-0 w-80 h-80 bg-[#c6383b]/20 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute -left-20 bottom-0 w-80 h-80 bg-[#16345c]/30 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
           <div className="flex-1 text-center lg:text-left">
             <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white text-xs font-bold uppercase tracking-wider mb-3 border border-white/15">
-              <span className="w-2 h-2 rounded-full bg-[#C41E1E]" />
+              <span className="w-2 h-2 rounded-full bg-[#c6383b]" />
               {eyebrow}
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">
@@ -49,7 +49,7 @@ export default function CtaBand({
                   href={`${wa}?text=${encodeURIComponent('Hi, I would like to enquire about admissions at RACE.')}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-[#C41E1E] hover:bg-[#A81717] text-white text-sm font-bold shadow-xl active:scale-95 transition-all"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-[#c6383b] hover:bg-[#a82b2e] text-white text-sm font-bold shadow-xl active:scale-95 transition-all"
                 >
                   <MessageSquare size={16} />
                   <span>Chat on WhatsApp</span>

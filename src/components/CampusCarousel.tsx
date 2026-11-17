@@ -17,7 +17,7 @@ const SLIDES: Slide[] = [
     id: 1,
     image: '/images/real-lab-classroom.jpg',
     badge: 'Modern Computer Lab · Terminal 202',
-    badgeColor: 'bg-[#F5BE4F] text-[#001752]',
+    badgeColor: 'bg-[#F5BE4F] text-[#0e2340]',
     title: '100% Practical Machine Time for Every Learner',
     description: 'Every student learns directly on their own confirmed desktop workstation with uninterrupted power and high-speed internet. Zero screen sharing or theory-only lectures.',
     stats: [
@@ -30,7 +30,7 @@ const SLIDES: Slide[] = [
     id: 2,
     image: '/images/real-instructor-mentoring.jpg',
     badge: 'Desk-to-Desk 1-on-1 Mentorship',
-    badgeColor: 'bg-[#C41E1E] text-white',
+    badgeColor: 'bg-[#c6383b] text-white',
     title: 'Personalized Coaching at Your Individual PC',
     description: 'Experienced trainers sit directly beside you to resolve doubts, guide mouse navigation and keyboard placement, and walk through real practical exercises step by step.',
     stats: [
@@ -56,7 +56,7 @@ const SLIDES: Slide[] = [
     id: 4,
     image: '/images/real-data-chart-session.jpg',
     badge: 'TallyPrime, Excel & Data Analytics',
-    badgeColor: 'bg-[#001752] text-white',
+    badgeColor: 'bg-[#0e2340] text-white',
     title: 'Live Business Data, Financial Reports & Chart Analysis',
     description: 'Master live company accounts, GST return filing, MIS reports, dynamic charts, and automated Excel workbooks for immediate career employability.',
     stats: [
@@ -69,7 +69,7 @@ const SLIDES: Slide[] = [
     id: 5,
     image: '/images/real-lab-wide.jpg',
     badge: 'Direct Railway Station Access',
-    badgeColor: 'bg-[#001752] text-white',
+    badgeColor: 'bg-[#0e2340] text-white',
     title: 'Modern Lab Infrastructure · 5,000+ Alumni Since 2014',
     description: 'High-speed broadband, uninterrupted power backup, ergonomic seating, and licensed software. Eliminate exhausting travel to distant cities.',
     stats: [
@@ -133,7 +133,7 @@ export default function CampusCarousel() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
           <div>
             <div className="flex items-center gap-2 mb-2.5">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#C41E1E]/10 text-[#C41E1E] text-xs font-bold uppercase tracking-wider border border-[#C41E1E]/20">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#c6383b]/10 text-[#c6383b] text-xs font-bold uppercase tracking-wider border border-[#c6383b]/20">
                 <Sparkles size={13} />
                 Live Campus Experience
               </span>
@@ -142,8 +142,8 @@ export default function CampusCarousel() {
               </span>
             </div>
             
-            <h2 className="text-3xl sm:text-4xl font-black text-[#001752] tracking-tight leading-tight">
-              Life Inside Our <span className="text-[#C41E1E]">Practical IT Lab</span>
+            <h2 className="text-3xl sm:text-4xl font-black text-[#0e2340] tracking-tight leading-tight">
+              Life Inside Our <span className="text-[#c6383b]">Practical IT Lab</span>
             </h2>
             <p className="text-sm sm:text-base text-slate-600 mt-2 max-w-2xl leading-relaxed">
               Explore authentic daily sessions at Raut Arcade 202. Experience individual computer workstations, patient teaching, and job-ready practical learning.
@@ -155,7 +155,7 @@ export default function CampusCarousel() {
             <button
               type="button"
               onClick={prevSlide}
-              className="w-11 h-11 rounded-full bg-slate-100 hover:bg-slate-200 text-[#001752] flex items-center justify-center transition-all shadow-xs active:scale-95 cursor-pointer"
+              className="w-11 h-11 rounded-full bg-slate-100 hover:bg-slate-200 text-[#0e2340] flex items-center justify-center transition-all shadow-xs active:scale-95 cursor-pointer"
               aria-label="Previous slide"
             >
               <ChevronLeft size={20} />
@@ -163,7 +163,7 @@ export default function CampusCarousel() {
             <button
               type="button"
               onClick={nextSlide}
-              className="w-11 h-11 rounded-full bg-[#001752] hover:bg-[#C41E1E] text-white flex items-center justify-center transition-all shadow-md active:scale-95 cursor-pointer"
+              className="w-11 h-11 rounded-full bg-[#0e2340] hover:bg-[#c6383b] text-white flex items-center justify-center transition-all shadow-md active:scale-95 cursor-pointer"
               aria-label="Next slide"
             >
               <ChevronRight size={20} />
@@ -237,7 +237,7 @@ export default function CampusCarousel() {
               <div className="flex flex-wrap items-center gap-3">
                 <Link
                   to="/contact#demo"
-                  className="inline-flex items-center justify-center bg-[#C41E1E] hover:bg-[#A81717] text-white text-xs sm:text-sm font-bold px-6 py-2.5 rounded-full shadow-md transition-all active:scale-95"
+                  className="inline-flex items-center justify-center bg-[#c6383b] hover:bg-[#a82b2e] text-white text-xs sm:text-sm font-bold px-6 py-2.5 rounded-full shadow-md transition-all active:scale-95"
                 >
                   Book Free Demo Visit
                 </Link>
@@ -263,7 +263,7 @@ export default function CampusCarousel() {
                 onClick={() => goToSlide(i)}
                 className={`transition-all rounded-full ${
                   i === currentIndex
-                    ? 'w-6 h-2 bg-[#C41E1E]'
+                    ? 'w-6 h-2 bg-[#c6383b]'
                     : 'w-2 h-2 bg-white/50 hover:bg-white'
                 }`}
                 aria-label={`Go to slide ${i + 1}`}

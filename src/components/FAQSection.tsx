@@ -19,7 +19,7 @@ export default function FAQSection() {
             FREQUENTLY ASKED QUESTIONS
           </div>
           
-          <h2 id="faq-heading" className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#071B3A] font-serif-heading mb-3">
+          <h2 id="faq-heading" className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0e2340] font-serif-heading mb-3">
             Clear Answers for First-Time Students &amp; Parents
           </h2>
 
@@ -43,10 +43,10 @@ export default function FAQSection() {
                   onClick={() => toggle(idx)}
                   aria-expanded={isOpen}
                   aria-controls={contentId}
-                  className="w-full flex items-center justify-between text-left gap-4 font-bold text-[#071B3A] text-sm sm:text-base hover:text-[#C59B27] transition-colors cursor-pointer font-serif-heading"
+                  className="w-full flex items-center justify-between text-left gap-4 font-bold text-[#0e2340] text-sm sm:text-base hover:text-[#C59B27] transition-colors cursor-pointer font-serif-heading"
                 >
                   <span className="pr-2">{faq.question}</span>
-                  <span className="w-7 h-7 rounded-full bg-[#FAF7EE] text-[#071B3A] border border-[#E8E2D5] flex items-center justify-center shrink-0">
+                  <span className="w-7 h-7 rounded-full bg-[#FAF7EE] text-[#0e2340] border border-[#E8E2D5] flex items-center justify-center shrink-0">
                     {isOpen ? <ChevronUp size={15} /> : <ChevronDown size={15} />}
                   </span>
                 </button>
@@ -75,7 +75,7 @@ export default function FAQSection() {
             )}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#071B3A] font-bold underline hover:text-[#C59B27] ml-1"
+            className="text-[#0e2340] font-bold underline hover:text-[#C59B27] ml-1"
           >
             Ask directly on WhatsApp →
           </a>

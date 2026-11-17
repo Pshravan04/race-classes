@@ -2,14 +2,15 @@ import { Link } from 'react-router-dom';
 import { Phone, MessageSquare, Clock, ArrowUpRight, MapPin } from 'lucide-react';
 import { SITE_CONFIG } from '../data/config';
 import { useLanguage } from '../context/useLanguage';
+import BrandSpeedStripes from './BrandSpeedStripes';
 
 export default function Footer() {
   const { t } = useLanguage();
 
   return (
-    <footer className="relative bg-[#001752] text-white border-t border-[#002277] pt-14 pb-24 md:pb-12 text-xs sm:text-sm overflow-hidden">
-      <div className="absolute -right-24 top-0 w-80 h-80 bg-[#C41E1E]/15 rounded-full blur-[110px] pointer-events-none" />
-      <div className="absolute -left-24 bottom-0 w-80 h-80 bg-[#002B94]/25 rounded-full blur-[110px] pointer-events-none" />
+    <footer className="relative bg-[#0e2340] text-white border-t border-[#16345c] pt-14 pb-24 md:pb-12 text-xs sm:text-sm overflow-hidden">
+      <div className="absolute -right-24 top-0 w-80 h-80 bg-[#c6383b]/15 rounded-full blur-[110px] pointer-events-none" />
+      <div className="absolute -left-24 bottom-0 w-80 h-80 bg-[#16345c]/40 rounded-full blur-[110px] pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/10">
@@ -30,11 +31,12 @@ export default function Footer() {
               recognized certification, and personal mentoring right opposite the railway station subway.
             </p>
 
-            <div className="flex items-center gap-2">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#C41E1E] px-3 py-1 text-[10px] font-black uppercase tracking-wider text-white">
+            <div className="flex items-center gap-3">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#c6383b] px-3 py-1 text-[10px] font-black uppercase tracking-wider text-white">
                 <MapPin size={11} />
                 Virar Fast
               </span>
+              <BrandSpeedStripes size="xs" />
               <span className="text-slate-300 text-[11px]">{t.stationTagline}</span>
             </div>
           </div>
@@ -146,7 +148,7 @@ export default function Footer() {
 
             <div className="pt-1 space-y-2.5">
               <div className="flex items-start gap-2">
-                <Phone size={14} className="text-[#C41E1E] mt-1 shrink-0" />
+                <Phone size={14} className="text-[#c6383b] mt-1 shrink-0" />
                 <div className="space-y-1 text-xs">
                   <div className="text-[11px] text-slate-400 font-medium">Helpline &amp; Admissions:</div>
                   <div className="flex flex-wrap items-center gap-x-2 gap-y-1 font-bold">
@@ -217,6 +219,12 @@ export default function Footer() {
             </a>
           </div>
         </div>
+      </div>
+
+      {/* Signature RACE Dual Speed Stripes Accent Bar */}
+      <div className="w-full h-1.5 flex mt-8" aria-hidden="true">
+        <div className="w-2/3 bg-[#16345c]" />
+        <div className="w-1/3 bg-[#c6383b]" />
       </div>
     </footer>
   );

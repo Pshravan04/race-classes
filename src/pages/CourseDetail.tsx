@@ -172,7 +172,7 @@ Please send syllabus details.`;
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between text-xs">
           <Link
             to="/courses"
-            className="inline-flex items-center gap-1.5 font-bold text-[#001752] hover:text-[#C41E1E] transition-colors"
+            className="inline-flex items-center gap-1.5 font-bold text-[#0e2340] hover:text-[#c6383b] transition-colors"
           >
             <ArrowLeft size={14} />
             <span>Back to All Courses</span>
@@ -180,7 +180,7 @@ Please send syllabus details.`;
           <div className="flex items-center gap-2 text-slate-500 text-[11px] font-medium">
             <span className="hidden sm:inline">Raut Arcade 202</span>
             <span className="hidden sm:inline">•</span>
-            <span className="text-[#001752] font-semibold">Opp. Virar East Station Subway</span>
+            <span className="text-[#0e2340] font-semibold">Opp. Virar East Station Subway</span>
           </div>
         </div>
       </div>
@@ -194,13 +194,13 @@ Please send syllabus details.`;
             <div className="lg:col-span-7 flex flex-col items-start">
               
               {/* Category Pill */}
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-[#001752] text-xs font-bold uppercase tracking-wider mb-4 border border-slate-200">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-[#0e2340] text-xs font-bold uppercase tracking-wider mb-4 border border-slate-200">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#A2D016]" />
                 <span>{isCareer ? "Career Master Program" : "Professional Certificate"}</span>
               </div>
 
               {/* Main Course Title */}
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#001752] tracking-tight leading-[1.14] mb-4">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0e2340] tracking-tight leading-[1.14] mb-4">
                 {course.name}
               </h1>
 
@@ -212,7 +212,7 @@ Please send syllabus details.`;
               {/* Minimal Quick-Facts Row */}
               <div className="flex flex-wrap items-center gap-y-2 gap-x-5 text-xs text-slate-700 font-semibold mb-8 pt-1">
                 <div className="flex items-center gap-1.5">
-                  <Clock size={15} className="text-[#001752]" />
+                  <Clock size={15} className="text-[#0e2340]" />
                   <span>{course.durationPlaceholder.split('(')[0].trim()}</span>
                 </div>
                 <div className="flex items-center gap-1.5">
@@ -230,7 +230,7 @@ Please send syllabus details.`;
                 <button
                   type="button"
                   onClick={() => openModal('demo')}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 h-12 px-7 rounded-xl bg-[#001752] hover:bg-[#002277] text-white font-bold text-sm shadow-md transition-all active:scale-95 cursor-pointer"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 h-12 px-7 rounded-xl bg-[#0e2340] hover:bg-[#16345c] text-white font-bold text-sm shadow-md transition-all active:scale-95 cursor-pointer"
                 >
                   <Sparkles size={16} className="text-[#A2D016]" />
                   <span>Book Free 1:1 Lab Demo</span>
@@ -285,12 +285,12 @@ Please send syllabus details.`;
                 </div>
 
                 {/* Floating Bottom Card */}
-                <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md p-3.5 rounded-2xl border border-white/60 shadow-lg text-[#001752] flex items-center justify-between text-xs">
+                <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md p-3.5 rounded-2xl border border-white/60 shadow-lg text-[#0e2340] flex items-center justify-between text-xs">
                   <div>
                     <strong className="block font-bold">100% Practical Sessions</strong>
                     <span className="text-[11px] text-slate-500">Dedicated desktop for every student</span>
                   </div>
-                  <span className="bg-[#A2D016] text-[#001752] font-black text-[10.5px] px-2.5 py-1 rounded-md">
+                  <span className="bg-[#A2D016] text-[#0e2340] font-black text-[10.5px] px-2.5 py-1 rounded-md">
                     1:1 PC
                   </span>
                 </div>
@@ -307,41 +307,41 @@ Please send syllabus details.`;
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-4 lg:divide-x divide-slate-200">
             
             <div className="flex items-center gap-3 px-2">
-              <div className="w-10 h-10 rounded-xl bg-white border border-slate-200 text-[#001752] flex items-center justify-center shrink-0 shadow-xs">
+              <div className="w-10 h-10 rounded-xl bg-white border border-slate-200 text-[#0e2340] flex items-center justify-center shrink-0 shadow-xs">
                 <Monitor size={18} />
               </div>
               <div>
-                <strong className="block text-xs sm:text-sm font-bold text-[#001752]">1:1 Dedicated PC</strong>
+                <strong className="block text-xs sm:text-sm font-bold text-[#0e2340]">1:1 Dedicated PC</strong>
                 <span className="text-[11px] text-slate-500">Zero machine sharing</span>
               </div>
             </div>
 
             <div className="flex items-center gap-3 px-2">
-              <div className="w-10 h-10 rounded-xl bg-white border border-slate-200 text-[#001752] flex items-center justify-center shrink-0 shadow-xs">
+              <div className="w-10 h-10 rounded-xl bg-white border border-slate-200 text-[#0e2340] flex items-center justify-center shrink-0 shadow-xs">
                 <Sparkles size={18} className="text-[#A2D016]" />
               </div>
               <div>
-                <strong className="block text-xs sm:text-sm font-bold text-[#001752]">Flat 50% Concession</strong>
+                <strong className="block text-xs sm:text-sm font-bold text-[#0e2340]">Flat 50% Concession</strong>
                 <span className="text-[11px] text-slate-500">+ Free Basic Computer course</span>
               </div>
             </div>
 
             <div className="flex items-center gap-3 px-2">
-              <div className="w-10 h-10 rounded-xl bg-white border border-slate-200 text-[#001752] flex items-center justify-center shrink-0 shadow-xs">
+              <div className="w-10 h-10 rounded-xl bg-white border border-slate-200 text-[#0e2340] flex items-center justify-center shrink-0 shadow-xs">
                 <Clock size={18} />
               </div>
               <div>
-                <strong className="block text-xs sm:text-sm font-bold text-[#001752]">Flexible Daily Slots</strong>
+                <strong className="block text-xs sm:text-sm font-bold text-[#0e2340]">Flexible Daily Slots</strong>
                 <span className="text-[11px] text-slate-500">Morning, Ladies &amp; Evening</span>
               </div>
             </div>
 
             <div className="flex items-center gap-3 px-2">
-              <div className="w-10 h-10 rounded-xl bg-white border border-slate-200 text-[#001752] flex items-center justify-center shrink-0 shadow-xs">
+              <div className="w-10 h-10 rounded-xl bg-white border border-slate-200 text-[#0e2340] flex items-center justify-center shrink-0 shadow-xs">
                 <MapPin size={18} />
               </div>
               <div>
-                <strong className="block text-xs sm:text-sm font-bold text-[#001752]">Station Subway 2-Min</strong>
+                <strong className="block text-xs sm:text-sm font-bold text-[#0e2340]">Station Subway 2-Min</strong>
                 <span className="text-[11px] text-slate-500">No commute to Mumbai</span>
               </div>
             </div>
@@ -366,7 +366,7 @@ Please send syllabus details.`;
               <span className="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-1">
                 Practical Software Stack
               </span>
-              <h2 className="text-2xl sm:text-3xl font-black text-[#001752] tracking-tight">
+              <h2 className="text-2xl sm:text-3xl font-black text-[#0e2340] tracking-tight">
                 Tools &amp; Technologies You Will Master
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
@@ -383,7 +383,7 @@ Please send syllabus details.`;
                   <div className="w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center mb-2.5 group-hover:scale-110 transition-transform">
                     <ToolLogo name={tool} className="w-6 h-6 object-contain" />
                   </div>
-                  <strong className="text-xs font-bold text-[#001752] line-clamp-1 w-full">
+                  <strong className="text-xs font-bold text-[#0e2340] line-clamp-1 w-full">
                     {tool}
                   </strong>
                 </div>
@@ -401,7 +401,7 @@ Please send syllabus details.`;
               <span className="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-1">
                 Portfolio Ready
               </span>
-              <h2 className="text-2xl sm:text-3xl font-black text-[#001752] tracking-tight">
+              <h2 className="text-2xl sm:text-3xl font-black text-[#0e2340] tracking-tight">
                 Live Capstone Projects You Build
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
@@ -419,7 +419,7 @@ Please send syllabus details.`;
                     <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider block mb-2">
                       Project 0{idx + 1}
                     </span>
-                    <h3 className="text-base font-bold text-[#001752] mb-2 leading-snug">
+                    <h3 className="text-base font-bold text-[#0e2340] mb-2 leading-snug">
                       {proj.title}
                     </h3>
                     <p className="text-xs text-slate-600 leading-relaxed font-sans mb-4">
@@ -450,7 +450,7 @@ Please send syllabus details.`;
               <span className="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-1">
                 Employment Outcomes
               </span>
-              <h2 className="text-2xl sm:text-3xl font-black text-[#001752] tracking-tight">
+              <h2 className="text-2xl sm:text-3xl font-black text-[#0e2340] tracking-tight">
                 Target Roles &amp; Industry Placement
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
@@ -463,9 +463,9 @@ Please send syllabus details.`;
               {course.careerRoles.map((role, idx) => (
                 <span
                   key={idx}
-                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white border border-slate-200 text-xs font-bold text-[#001752] shadow-2xs"
+                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white border border-slate-200 text-xs font-bold text-[#0e2340] shadow-2xs"
                 >
-                  <Briefcase size={12} className="text-[#001752]" />
+                  <Briefcase size={12} className="text-[#0e2340]" />
                   <span>{role}</span>
                 </span>
               ))}
@@ -477,7 +477,7 @@ Please send syllabus details.`;
                 <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-1">
                   Fresher / Entry Role
                 </span>
-                <strong className="text-xl font-black text-[#001752] block">
+                <strong className="text-xl font-black text-[#0e2340] block">
                   ₹4.0 LPA – ₹6.0 LPA
                 </strong>
                 <span className="text-xs text-slate-500 mt-2 block">
@@ -485,11 +485,11 @@ Please send syllabus details.`;
                 </span>
               </div>
 
-              <div className="bg-white rounded-2xl p-5 border-2 border-[#001752] shadow-xs relative">
-                <span className="text-[11px] font-bold text-[#001752] uppercase tracking-wider block mb-1">
+              <div className="bg-white rounded-2xl p-5 border-2 border-[#0e2340] shadow-xs relative">
+                <span className="text-[11px] font-bold text-[#0e2340] uppercase tracking-wider block mb-1">
                   Mid-Level (2–4 Years)
                 </span>
-                <strong className="text-xl font-black text-[#001752] block">
+                <strong className="text-xl font-black text-[#0e2340] block">
                   ₹7.5 LPA – ₹12.0 LPA
                 </strong>
                 <span className="text-xs text-slate-500 mt-2 block">
@@ -501,7 +501,7 @@ Please send syllabus details.`;
                 <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-1">
                   Senior Specialist
                 </span>
-                <strong className="text-xl font-black text-[#001752] block">
+                <strong className="text-xl font-black text-[#0e2340] block">
                   ₹14.0 LPA – ₹22.0+ LPA
                 </strong>
                 <span className="text-xs text-slate-500 mt-2 block">
@@ -520,7 +520,7 @@ Please send syllabus details.`;
             <span className="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-1">
               Station Proximity Edge
             </span>
-            <h2 className="text-2xl sm:text-3xl font-black text-[#001752] tracking-tight">
+            <h2 className="text-2xl sm:text-3xl font-black text-[#0e2340] tracking-tight">
               Why Learn at Raut Arcade Opposite the Station?
             </h2>
             <p className="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
@@ -530,10 +530,10 @@ Please send syllabus details.`;
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="bg-[#FAF9F6] p-6 rounded-3xl border border-slate-200/90 shadow-2xs">
-              <div className="w-10 h-10 rounded-xl bg-white border border-slate-200 text-[#001752] flex items-center justify-center font-bold text-sm mb-4 shadow-2xs">
+              <div className="w-10 h-10 rounded-xl bg-white border border-slate-200 text-[#0e2340] flex items-center justify-center font-bold text-sm mb-4 shadow-2xs">
                 01
               </div>
-              <h3 className="text-base font-bold text-[#001752] mb-2">
+              <h3 className="text-base font-bold text-[#0e2340] mb-2">
                 Zero Train Commute Fatigue
               </h3>
               <p className="text-xs text-slate-600 leading-relaxed font-sans">
@@ -542,10 +542,10 @@ Please send syllabus details.`;
             </div>
 
             <div className="bg-[#FAF9F6] p-6 rounded-3xl border border-slate-200/90 shadow-2xs">
-              <div className="w-10 h-10 rounded-xl bg-white border border-slate-200 text-[#001752] flex items-center justify-center font-bold text-sm mb-4 shadow-2xs">
+              <div className="w-10 h-10 rounded-xl bg-white border border-slate-200 text-[#0e2340] flex items-center justify-center font-bold text-sm mb-4 shadow-2xs">
                 02
               </div>
-              <h3 className="text-base font-bold text-[#001752] mb-2">
+              <h3 className="text-base font-bold text-[#0e2340] mb-2">
                 Guaranteed 1:1 Workstation
               </h3>
               <p className="text-xs text-slate-600 leading-relaxed font-sans">
@@ -554,10 +554,10 @@ Please send syllabus details.`;
             </div>
 
             <div className="bg-[#FAF9F6] p-6 rounded-3xl border border-slate-200/90 shadow-2xs">
-              <div className="w-10 h-10 rounded-xl bg-white border border-slate-200 text-[#001752] flex items-center justify-center font-bold text-sm mb-4 shadow-2xs">
+              <div className="w-10 h-10 rounded-xl bg-white border border-slate-200 text-[#0e2340] flex items-center justify-center font-bold text-sm mb-4 shadow-2xs">
                 03
               </div>
-              <h3 className="text-base font-bold text-[#001752] mb-2">
+              <h3 className="text-base font-bold text-[#0e2340] mb-2">
                 Special Ladies &amp; Flexible Batches
               </h3>
               <p className="text-xs text-slate-600 leading-relaxed font-sans">
@@ -575,7 +575,7 @@ Please send syllabus details.`;
             <span className="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-1">
               Course Questions
             </span>
-            <h2 className="text-2xl sm:text-3xl font-black text-[#001752] tracking-tight">
+            <h2 className="text-2xl sm:text-3xl font-black text-[#0e2340] tracking-tight">
               Frequently Asked Questions
             </h2>
           </div>
@@ -593,7 +593,7 @@ Please send syllabus details.`;
                     onClick={() => setOpenFaq(isOpen ? null : idx)}
                     className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-slate-50/70"
                   >
-                    <span className="text-xs sm:text-sm font-bold text-[#001752] pr-2">
+                    <span className="text-xs sm:text-sm font-bold text-[#0e2340] pr-2">
                       {faq.q}
                     </span>
                     <span className="w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center shrink-0 text-slate-600">
@@ -616,10 +616,10 @@ Please send syllabus details.`;
       {/* ─── 10. Bottom Action Banner ─── */}
       <section className="bg-white py-14 sm:py-18">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="inline-block px-3 py-1 rounded-full bg-slate-100 text-[#001752] text-xs font-bold uppercase tracking-wider mb-3">
+          <span className="inline-block px-3 py-1 rounded-full bg-slate-100 text-[#0e2340] text-xs font-bold uppercase tracking-wider mb-3">
             Admissions Open
           </span>
-          <h2 className="text-2xl sm:text-3xl font-black text-[#001752] tracking-tight mb-3">
+          <h2 className="text-2xl sm:text-3xl font-black text-[#0e2340] tracking-tight mb-3">
             Ready to Begin Practical Computer Training?
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 max-w-xl mx-auto leading-relaxed mb-6">
@@ -630,7 +630,7 @@ Please send syllabus details.`;
             <button
               type="button"
               onClick={() => openModal('demo')}
-              className="inline-flex items-center gap-2 h-11 px-6 rounded-xl bg-[#001752] hover:bg-[#002277] text-white font-bold text-xs sm:text-sm shadow-md transition-all active:scale-95 cursor-pointer"
+              className="inline-flex items-center gap-2 h-11 px-6 rounded-xl bg-[#0e2340] hover:bg-[#16345c] text-white font-bold text-xs sm:text-sm shadow-md transition-all active:scale-95 cursor-pointer"
             >
               <Sparkles size={14} className="text-[#A2D016]" />
               <span>Book Free 1:1 Lab Demo</span>
@@ -650,18 +650,18 @@ Please send syllabus details.`;
               href={`tel:${SITE_CONFIG.contact.phone}`}
               className="inline-flex items-center gap-2 h-11 px-5 rounded-xl bg-white border border-slate-300 hover:bg-slate-50 text-slate-800 font-bold text-xs sm:text-sm shadow-2xs transition-all"
             >
-              <Phone size={14} className="text-[#001752]" />
+              <Phone size={14} className="text-[#0e2340]" />
               <span>Call Helpline</span>
             </a>
           </div>
 
           <div className="mt-4 flex flex-wrap items-center justify-center gap-2 text-xs text-slate-500">
             <span className="font-semibold text-slate-700">Direct Helplines:</span>
-            <a href="tel:8793314239" className="font-bold text-[#001752] hover:underline">8793314239</a>
+            <a href="tel:8793314239" className="font-bold text-[#0e2340] hover:underline">8793314239</a>
             <span>·</span>
-            <a href="tel:8482881614" className="font-bold text-[#001752] hover:underline">8482881614</a>
+            <a href="tel:8482881614" className="font-bold text-[#0e2340] hover:underline">8482881614</a>
             <span>·</span>
-            <a href="tel:9794323963" className="font-bold text-[#001752] hover:underline">9794323963</a>
+            <a href="tel:9794323963" className="font-bold text-[#0e2340] hover:underline">9794323963</a>
           </div>
         </div>
       </section>
@@ -675,13 +675,13 @@ Please send syllabus details.`;
                 <span className="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-1">
                   Related Curriculums
                 </span>
-                <h2 className="text-2xl font-black text-[#001752] tracking-tight">
+                <h2 className="text-2xl font-black text-[#0e2340] tracking-tight">
                   Explore Other Career Tracks
                 </h2>
               </div>
               <Link
                 to="/courses"
-                className="inline-flex items-center gap-1.5 text-xs font-bold text-[#001752] hover:text-[#C41E1E] transition-colors"
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0e2340] hover:text-[#c6383b] transition-colors"
               >
                 <span>View all 23 courses</span>
                 <ArrowRight size={13} />
@@ -699,16 +699,16 @@ Please send syllabus details.`;
                     <span className="text-[10px] font-bold text-[#A2D016] uppercase tracking-wider block mb-1.5">
                       {rel.type === 'career' ? 'Career Diploma' : 'Certificate'}
                     </span>
-                    <h3 className="text-base font-bold text-[#001752] group-hover:text-[#C41E1E] transition-colors mb-2 leading-snug">
+                    <h3 className="text-base font-bold text-[#0e2340] group-hover:text-[#c6383b] transition-colors mb-2 leading-snug">
                       {rel.name}
                     </h3>
                     <p className="text-xs text-slate-600 line-clamp-2 leading-relaxed">
                       {rel.shortDesc}
                     </p>
                   </div>
-                  <div className="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-[#001752]">
+                  <div className="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-[#0e2340]">
                     <span>{rel.durationPlaceholder.split('(')[0].trim()}</span>
-                    <span className="flex items-center gap-1 group-hover:translate-x-0.5 transition-transform text-[#001752] font-bold">
+                    <span className="flex items-center gap-1 group-hover:translate-x-0.5 transition-transform text-[#0e2340] font-bold">
                       <span>View Course</span>
                       <ArrowRight size={12} />
                     </span>
@@ -724,7 +724,7 @@ Please send syllabus details.`;
       <button
         type="button"
         onClick={() => openModal('demo')}
-        className="fixed bottom-22 right-4 sm:right-6 z-40 flex items-center gap-2.5 bg-[#001752] hover:bg-[#002277] text-white px-4 py-3 rounded-full shadow-2xl border-2 border-white text-xs sm:text-sm font-bold transition-all hover:scale-105 active:scale-95 cursor-pointer group"
+        className="fixed bottom-22 right-4 sm:right-6 z-40 flex items-center gap-2.5 bg-[#0e2340] hover:bg-[#16345c] text-white px-4 py-3 rounded-full shadow-2xl border-2 border-white text-xs sm:text-sm font-bold transition-all hover:scale-105 active:scale-95 cursor-pointer group"
         aria-label="Open Course Enquiry & Demo Form"
       >
         <span className="relative flex h-2.5 w-2.5">
@@ -742,7 +742,7 @@ Please send syllabus details.`;
           role="dialog"
           aria-modal="true"
         >
-          <div className="relative w-full max-w-md bg-white rounded-3xl p-6 sm:p-7 shadow-2xl border border-slate-200 text-[#001752]">
+          <div className="relative w-full max-w-md bg-white rounded-3xl p-6 sm:p-7 shadow-2xl border border-slate-200 text-[#0e2340]">
             
             {/* Close Button */}
             <button
@@ -761,7 +761,7 @@ Please send syllabus details.`;
                 onClick={() => setModalMode('demo')}
                 className={`flex-1 py-1.5 px-3 rounded-lg text-xs font-bold transition-all cursor-pointer ${
                   modalMode === 'demo'
-                    ? 'bg-white text-[#001752] shadow-xs'
+                    ? 'bg-white text-[#0e2340] shadow-xs'
                     : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
@@ -772,7 +772,7 @@ Please send syllabus details.`;
                 onClick={() => setModalMode('syllabus')}
                 className={`flex-1 py-1.5 px-3 rounded-lg text-xs font-bold transition-all cursor-pointer ${
                   modalMode === 'syllabus'
-                    ? 'bg-white text-[#001752] shadow-xs'
+                    ? 'bg-white text-[#0e2340] shadow-xs'
                     : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
@@ -781,10 +781,10 @@ Please send syllabus details.`;
             </div>
 
             <div className="mb-5">
-              <span className="text-[10.5px] font-bold text-[#001752] uppercase tracking-wider block mb-1">
+              <span className="text-[10.5px] font-bold text-[#0e2340] uppercase tracking-wider block mb-1">
                 {modalMode === 'syllabus' ? 'Official Syllabus PDF' : 'Free 1:1 Lab Session'}
               </span>
-              <h3 className="text-xl font-black text-[#001752] leading-tight">
+              <h3 className="text-xl font-black text-[#0e2340] leading-tight">
                 {modalMode === 'syllabus' ? 'Download Course Syllabus' : 'Book a 1:1 Workstation Demo'}
               </h3>
               <p className="text-xs text-slate-500 mt-1 font-sans">
@@ -796,7 +796,7 @@ Please send syllabus details.`;
 
             <form onSubmit={handleModalSubmit} className="space-y-3.5">
               <div>
-                <label className="block text-xs font-bold text-[#001752] mb-1">
+                <label className="block text-xs font-bold text-[#0e2340] mb-1">
                   Your Full Name <span className="text-rose-500">*</span>
                 </label>
                 <input
@@ -805,12 +805,12 @@ Please send syllabus details.`;
                   value={candidateName}
                   onChange={(e) => setCandidateName(e.target.value)}
                   placeholder="e.g. Rahul Patil / Priya Sharma"
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm focus:outline-hidden focus:ring-2 focus:ring-[#001752]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm focus:outline-hidden focus:ring-2 focus:ring-[#0e2340]"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-[#001752] mb-1">
+                <label className="block text-xs font-bold text-[#0e2340] mb-1">
                   10-Digit Mobile Number <span className="text-rose-500">*</span>
                 </label>
                 <div className="relative">
@@ -824,19 +824,19 @@ Please send syllabus details.`;
                     value={candidatePhone}
                     onChange={(e) => setCandidatePhone(e.target.value)}
                     placeholder="9794323963"
-                    className="w-full pl-11 pr-3.5 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm font-mono focus:outline-hidden focus:ring-2 focus:ring-[#001752]"
+                    className="w-full pl-11 pr-3.5 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm font-mono focus:outline-hidden focus:ring-2 focus:ring-[#0e2340]"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-[#001752] mb-1">
+                <label className="block text-xs font-bold text-[#0e2340] mb-1">
                   Preferred Batch Timing
                 </label>
                 <select
                   value={candidateBatch}
                   onChange={(e) => setCandidateBatch(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm focus:outline-hidden focus:ring-2 focus:ring-[#001752] cursor-pointer"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm focus:outline-hidden focus:ring-2 focus:ring-[#0e2340] cursor-pointer"
                 >
                   <option value="Morning Batch (8 AM – 11 AM)">Morning Batch (8:00 AM – 11:00 AM)</option>
                   <option value="Special Ladies Batch (1 PM – 3 PM)">Special Ladies Batch (1:00 PM – 3:00 PM)</option>
@@ -847,7 +847,7 @@ Please send syllabus details.`;
 
               <button
                 type="submit"
-                className="w-full py-3 px-4 rounded-xl bg-[#001752] hover:bg-[#002277] text-white font-bold text-xs sm:text-sm shadow-md transition-all active:scale-95 flex items-center justify-center gap-2 cursor-pointer mt-2"
+                className="w-full py-3 px-4 rounded-xl bg-[#0e2340] hover:bg-[#16345c] text-white font-bold text-xs sm:text-sm shadow-md transition-all active:scale-95 flex items-center justify-center gap-2 cursor-pointer mt-2"
               >
                 <Send size={14} />
                 <span>Submit &amp; Open on WhatsApp</span>

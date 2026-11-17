@@ -44,12 +44,12 @@ export default function BatchesAndFees() {
         title="Batch Schedules & Transparent Fee Counseling"
         description="Open Monday to Saturday from 9:00 AM to 7:00 PM. Designed to fit around college lectures, office commutes on the Western Railway, and household schedules."
         aside={
-          <div className="relative overflow-hidden rounded-3xl border border-[#002B94] bg-gradient-to-br from-[#001752] via-[#000F36] to-[#00081C] p-6 sm:p-7 text-white shadow-2xl">
-            <div className="absolute -right-12 -top-12 h-48 w-48 rounded-full bg-[#C41E1E]/20 blur-[80px] pointer-events-none" />
-            <div className="absolute -left-12 -bottom-12 h-48 w-48 rounded-full bg-[#002277]/30 blur-[80px] pointer-events-none" />
+          <div className="relative overflow-hidden rounded-3xl border border-[#16345c] bg-gradient-to-br from-[#0e2340] via-[#16345c] to-[#071324] p-6 sm:p-7 text-white shadow-2xl">
+            <div className="absolute -right-12 -top-12 h-48 w-48 rounded-full bg-[#c6383b]/20 blur-[80px] pointer-events-none" />
+            <div className="absolute -left-12 -bottom-12 h-48 w-48 rounded-full bg-[#16345c]/30 blur-[80px] pointer-events-none" />
 
             <div className="relative z-10">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#C41E1E] px-3 py-1 text-[10px] font-black uppercase tracking-wider text-white shadow-xs">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#c6383b] px-3 py-1 text-[10px] font-black uppercase tracking-wider text-white shadow-xs">
                 <CalendarClock size={12} />
                 Daily lab timetable
               </span>
@@ -83,7 +83,7 @@ export default function BatchesAndFees() {
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#C41E1E] hover:bg-[#A81717] px-5 py-3 text-xs sm:text-sm font-bold text-white transition-all shadow-md active:scale-95"
+                className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#c6383b] hover:bg-[#a82b2e] px-5 py-3 text-xs sm:text-sm font-bold text-white transition-all shadow-md active:scale-95"
               >
                 <MessageSquare size={15} />
                 <span>Check seat availability</span>
@@ -97,9 +97,9 @@ export default function BatchesAndFees() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Timetable */}
           <div className="mx-auto mb-12 max-w-5xl overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
-            <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#002277] bg-[#001752] p-5 text-white sm:p-6">
+            <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#16345c] bg-[#0e2340] p-5 text-white sm:p-6">
               <div>
-                <span className="inline-flex items-center rounded-full bg-[#C41E1E] px-2.5 py-0.5 text-[10px] font-black uppercase tracking-wider text-white">
+                <span className="inline-flex items-center rounded-full bg-[#c6383b] px-2.5 py-0.5 text-[10px] font-black uppercase tracking-wider text-white">
                   Lab Timetable
                 </span>
                 <h2 className="mt-2 text-xl sm:text-2xl font-bold tracking-tight text-white">
@@ -119,18 +119,18 @@ export default function BatchesAndFees() {
                   key={index}
                   className={`flex flex-col justify-between gap-4 p-4 transition-colors sm:flex-row sm:items-center sm:p-5 ${
                     slot.highlight
-                      ? 'border-l-4 border-[#C41E1E] bg-[#FDF2F2]'
+                      ? 'border-l-4 border-[#c6383b] bg-[#fdeaea]'
                       : 'hover:bg-[#F8F9FA]'
                   }`}
                 >
                   <div className="space-y-1">
                     <div className="flex flex-wrap items-center gap-2">
-                      <strong className="text-sm font-bold text-[#001752] sm:text-base">
+                      <strong className="text-sm font-bold text-[#0e2340] sm:text-base">
                         {slot.name}
                       </strong>
 
                       {slot.highlight && (
-                        <span className="inline-flex items-center gap-1 rounded-full bg-[#C41E1E] px-2 py-0.5 text-[10px] font-black text-white">
+                        <span className="inline-flex items-center gap-1 rounded-full bg-[#c6383b] px-2 py-0.5 text-[10px] font-black text-white">
                           <Heart size={10} className="fill-white" />
                           Ladies &amp; Students Priority
                         </span>
@@ -144,7 +144,7 @@ export default function BatchesAndFees() {
                   </div>
 
                   <div className="flex shrink-0 items-center justify-between gap-4 sm:justify-end">
-                    <span className="rounded-lg border border-slate-200 bg-[#F1F4FA] px-3 py-1.5 font-mono text-xs font-bold text-[#001752] sm:text-sm">
+                    <span className="rounded-lg border border-slate-200 bg-[#F1F4FA] px-3 py-1.5 font-mono text-xs font-bold text-[#0e2340] sm:text-sm">
                       {slot.timing}
                     </span>
 
@@ -186,10 +186,10 @@ export default function BatchesAndFees() {
               ))}
             </div>
 
-            <div className="mt-7 flex flex-col items-center justify-between gap-4 rounded-2xl bg-[#001752] p-5 text-white sm:flex-row sm:p-6 border border-[#002277]">
+            <div className="mt-7 flex flex-col items-center justify-between gap-4 rounded-2xl bg-[#0e2340] p-5 text-white sm:flex-row sm:p-6 border border-[#16345c]">
               <div>
                 <div className="mb-1 flex items-center gap-2">
-                  <Sparkles size={14} className="text-[#C41E1E]" />
+                  <Sparkles size={14} className="text-[#c6383b]" />
                   <h3 className="text-base font-bold tracking-tight text-white">
                     Need Exact Fee Quote for Your Chosen Course?
                   </h3>
@@ -206,7 +206,7 @@ export default function BatchesAndFees() {
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex shrink-0 items-center gap-2 rounded-full bg-[#C41E1E] hover:bg-[#A81717] px-6 py-3 text-xs font-bold text-white shadow-md transition-all active:scale-95 sm:text-sm"
+                className="inline-flex shrink-0 items-center gap-2 rounded-full bg-[#c6383b] hover:bg-[#a82b2e] px-6 py-3 text-xs font-bold text-white shadow-md transition-all active:scale-95 sm:text-sm"
               >
                 <MessageSquare size={16} />
                 <span>Ask for Fee Details (WhatsApp)</span>

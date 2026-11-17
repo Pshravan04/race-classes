@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, MessageSquare } from 'lucide-react';
 import { SITE_CONFIG } from '../data/config';
 import { useLanguage } from '../context/useLanguage';
+import BrandSpeedStripes from './BrandSpeedStripes';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -33,13 +34,14 @@ export default function Header() {
       {/* ─── Sleek Top Announcement Ticker ─── */}
       <aside
         aria-label="Campus Notice"
-        className="bg-[#001752] text-slate-200 text-[11px] py-1.5 px-4 border-b border-[#002277] select-none"
+        className="bg-[#0e2340] text-slate-200 text-[11px] py-1.5 px-4 border-b border-[#16345c] select-none"
       >
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-3">
           
           {/* Station location indicator */}
           <div className="flex items-center gap-2 shrink-0">
-            <span className="bg-[#C41E1E] text-white font-black text-[9px] px-1.5 py-0.5 rounded uppercase tracking-wider">
+            <BrandSpeedStripes size="xs" />
+            <span className="bg-[#c6383b] text-white font-black text-[9px] px-1.5 py-0.5 rounded uppercase tracking-wider">
               1:1 LAB
             </span>
             <span className="font-medium text-slate-200 text-[11px] hidden sm:inline">
@@ -100,13 +102,13 @@ export default function Header() {
                   to={link.to}
                   className={`px-3 py-1.5 rounded-full transition-all whitespace-nowrap flex items-center gap-1.5 ${
                     isActive
-                      ? 'text-[#001752] font-bold bg-[#F1F4FA] border border-[#D5DFF0]'
-                      : 'hover:text-[#001752] hover:bg-slate-50'
+                      ? 'text-[#0e2340] font-bold bg-[#e6f0f8] border border-[#7ba3c7]/40'
+                      : 'hover:text-[#0e2340] hover:bg-slate-50'
                   }`}
                 >
                   <span>{link.label}</span>
                   {link.badge && (
-                    <span className="px-1.5 py-0.2 bg-[#C41E1E] text-white text-[10px] font-black rounded-full">
+                    <span className="px-1.5 py-0.2 bg-[#c6383b] text-white text-[10px] font-black rounded-full">
                       {link.badge}
                     </span>
                   )}
@@ -133,7 +135,7 @@ export default function Header() {
             {/* Signature Brand Red Pill CTA */}
             <Link
               to="/contact#demo"
-              className="inline-flex items-center justify-center bg-[#C41E1E] hover:bg-[#A81717] text-white text-xs sm:text-sm font-bold px-5 sm:px-6 py-2.5 rounded-full shadow-md hover:shadow-lg transition-all active:scale-95 whitespace-nowrap btn-press"
+              className="inline-flex items-center justify-center bg-[#c6383b] hover:bg-[#a82b2e] text-white text-xs sm:text-sm font-bold px-5 sm:px-6 py-2.5 rounded-full shadow-md hover:shadow-lg transition-all active:scale-95 whitespace-nowrap btn-press"
             >
               Book a Free Demo
             </Link>
@@ -155,7 +157,7 @@ export default function Header() {
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-[#001752] hover:bg-slate-100 rounded-lg transition-colors"
+              className="p-2 text-[#0e2340] hover:bg-slate-100 rounded-lg transition-colors"
               aria-expanded={mobileMenuOpen}
               aria-label="Toggle navigation menu"
             >
@@ -169,8 +171,8 @@ export default function Header() {
         {mobileMenuOpen && (
           <div className="lg:hidden border-t border-slate-200 bg-white px-4 pt-4 pb-6 shadow-2xl animate-in slide-in-from-top-2">
             <div className="mb-3 px-3 py-2 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between text-xs font-medium text-slate-700">
-              <span className="font-bold text-[#C41E1E]">🔥 50% Concession on Career Diplomas</span>
-              <span className="bg-[#001752] text-white font-bold text-[9px] px-1.5 py-0.5 rounded">VIRAR</span>
+              <span className="font-bold text-[#c6383b]">🔥 50% Concession on Career Diplomas</span>
+              <span className="bg-[#0e2340] text-white font-bold text-[9px] px-1.5 py-0.5 rounded">VIRAR</span>
             </div>
 
             <nav className="flex flex-col gap-1 mb-4" aria-label="Mobile Navigation">
@@ -183,14 +185,14 @@ export default function Header() {
                     onClick={() => setMobileMenuOpen(false)}
                     className={`px-3 py-2.5 rounded-lg text-sm font-semibold flex items-center justify-between transition-colors ${
                       isActive
-                        ? 'bg-[#F1F4FA] text-[#001752] font-bold border-l-4 border-[#C41E1E]'
+                        ? 'bg-[#e6f0f8] text-[#0e2340] font-bold border-l-4 border-[#c6383b]'
                         : 'text-slate-700 hover:bg-slate-50'
                     }`}
                   >
                     <div className="flex items-center gap-2">
                       <span>{link.label}</span>
                       {link.badge && (
-                        <span className="px-1.5 py-0.2 bg-[#C41E1E] text-white text-[9px] font-black rounded-full">
+                        <span className="px-1.5 py-0.2 bg-[#c6383b] text-white text-[9px] font-black rounded-full">
                           {link.badge}
                         </span>
                       )}
@@ -211,7 +213,7 @@ export default function Header() {
                   <a
                     key={p.number}
                     href={`tel:${p.number}`}
-                    className="flex flex-col items-center justify-center p-2 rounded-xl bg-slate-50 border border-slate-200 text-[#001752] hover:bg-slate-100 transition-colors text-center"
+                    className="flex flex-col items-center justify-center p-2 rounded-xl bg-slate-50 border border-slate-200 text-[#0e2340] hover:bg-slate-100 transition-colors text-center"
                   >
                     <span className="text-[9px] text-slate-500 font-medium">{p.label}</span>
                     <span className="text-[11px] font-bold mt-0.5">{p.number}</span>
@@ -234,7 +236,7 @@ export default function Header() {
             <Link
               to="/contact#demo"
               onClick={() => setMobileMenuOpen(false)}
-              className="mt-2 w-full flex items-center justify-center bg-[#C41E1E] hover:bg-[#A81717] text-white text-xs font-bold py-3 rounded-xl shadow-md transition-all"
+              className="mt-2 w-full flex items-center justify-center bg-[#c6383b] hover:bg-[#a82b2e] text-white text-xs font-bold py-3 rounded-xl shadow-md transition-all"
             >
               Book a demo
             </Link>
