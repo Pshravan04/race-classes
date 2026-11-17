@@ -37,7 +37,7 @@ Message: ${message || 'I would like to enquire about admissions and batch availa
     <>
       <SEO
         title="Contact &amp; Visit Us | RACE"
-        description="Visit RACE at 202, Raut Arcade, opposite railway station subway. Mon-Sat 9 AM - 7 PM. Call/WhatsApp 9794323963 or submit an enquiry."
+        description="Visit RACE at 202, Raut Arcade, opposite railway station subway. Mon-Sat 9 AM - 7 PM. Call 8793314239 / 8482881614 or WhatsApp 9794323963."
         canonical="/contact"
       />
 
@@ -63,17 +63,24 @@ Message: ${message || 'I would like to enquire about admissions and batch availa
                 Message our counselors directly for batch schedules, syllabus brochures, and fee concession details.
               </p>
 
-              <div className="mt-5 space-y-2.5">
-                <a
-                  href={`tel:${SITE_CONFIG.contact.phone}`}
-                  className="flex items-center justify-between p-3 rounded-2xl bg-white/5 border border-white/10 text-xs hover:bg-white/10 transition"
-                >
-                  <span className="flex items-center gap-2 text-slate-300">
-                    <Phone size={14} className="text-[#C41E1E]" />
-                    <span>Direct Calling:</span>
-                  </span>
-                  <strong className="text-white font-bold">{SITE_CONFIG.contact.phone}</strong>
-                </a>
+              <div className="mt-5 space-y-2">
+                <div className="text-[11px] font-bold text-slate-300 uppercase tracking-wider">
+                  Direct Phone Calling (Tap to Call):
+                </div>
+
+                {SITE_CONFIG.contact.phones.map((p) => (
+                  <a
+                    key={p.number}
+                    href={`tel:${p.number}`}
+                    className="flex items-center justify-between p-2.5 rounded-2xl bg-white/5 border border-white/10 text-xs hover:bg-white/10 transition"
+                  >
+                    <span className="flex items-center gap-2 text-slate-300">
+                      <Phone size={13} className="text-[#F5BE4F]" />
+                      <span>{p.label}:</span>
+                    </span>
+                    <strong className="text-white font-bold">{p.number}</strong>
+                  </a>
+                ))}
 
                 <a
                   href={`${SITE_CONFIG.contact.whatsapp}?text=${encodeURIComponent(
@@ -81,13 +88,13 @@ Message: ${message || 'I would like to enquire about admissions and batch availa
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-between p-3 rounded-2xl bg-[#C41E1E]/20 border border-[#C41E1E]/40 text-xs text-white hover:bg-[#C41E1E]/30 transition"
+                  className="flex items-center justify-between p-3 rounded-2xl bg-[#25D366]/20 border border-[#25D366]/40 text-xs text-white hover:bg-[#25D366]/30 transition mt-3"
                 >
                   <span className="flex items-center gap-2 text-slate-200">
-                    <MessageSquare size={14} className="text-[#F5BE4F]" />
-                    <span>WhatsApp Chat:</span>
+                    <MessageSquare size={14} className="text-[#25D366]" />
+                    <span>WhatsApp Chat (9794323963):</span>
                   </span>
-                  <strong className="text-white font-bold">Start Chat ↗</strong>
+                  <strong className="text-[#4ADE80] font-bold">Start Chat ↗</strong>
                 </a>
               </div>
             </div>
@@ -130,11 +137,16 @@ Message: ${message || 'I would like to enquire about admissions and batch availa
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3">
                   Call or message for admission counseling, syllabus PDFs, and fee concession details:
                 </p>
-                <div className="space-y-1 text-xs">
-                  <a href={`tel:${SITE_CONFIG.contact.phone}`} className="font-bold text-[#001752] block hover:text-[#C41E1E]">
-                    📞 {SITE_CONFIG.contact.phone}
-                  </a>
-                  <span className="text-slate-500 block">WhatsApp: {SITE_CONFIG.contact.phoneDisplay}</span>
+                <div className="space-y-1.5 text-xs">
+                  {SITE_CONFIG.contact.phones.map((p) => (
+                    <div key={p.number} className="flex items-center justify-between">
+                      <span className="text-slate-500">{p.label}:</span>
+                      <a href={`tel:${p.number}`} className="font-bold text-[#001752] hover:text-[#C41E1E]">
+                        📞 {p.number}
+                      </a>
+                    </div>
+                  ))}
+                  <div className="pt-1 text-slate-500">WhatsApp: 9794323963</div>
                 </div>
               </div>
               <a
@@ -143,7 +155,7 @@ Message: ${message || 'I would like to enquire about admissions and batch availa
                 rel="noopener noreferrer"
                 className="mt-4 inline-flex items-center gap-1.5 text-xs font-bold text-emerald-600 hover:underline"
               >
-                <span>Chat on WhatsApp</span>
+                <span>Chat on WhatsApp (9794323963)</span>
                 <ArrowRight size={13} />
               </a>
             </div>
@@ -397,7 +409,7 @@ Message: ${message || 'I would like to enquire about admissions and batch availa
 
       <CtaBand
         title="Prefer to talk directly to an instructor?"
-        description="Call 9794323963 or walk directly into our lab at 202, Raut Arcade, right across the railway station subway. We are happy to help."
+        description="Call 8793314239 / 8482881614 / 9794323963 or walk directly into our lab at 202, Raut Arcade, right across the railway station subway. We are happy to help."
       />
     </>
   );

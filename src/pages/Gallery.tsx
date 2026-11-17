@@ -8,7 +8,6 @@ import {
   ChevronRight,
   Maximize2,
   Sparkles,
-  Phone,
   MessageCircle,
   Eye,
 } from 'lucide-react';
@@ -356,14 +355,13 @@ export default function Gallery() {
               </p>
             </div>
 
-            <div className="flex items-center gap-3">
-              <a
-                href={`tel:${SITE_CONFIG.contact.phone}`}
-                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-slate-300 text-xs font-bold text-[#001752] hover:bg-slate-50 transition-colors"
-              >
-                <Phone size={13} className="text-[#C41E1E]" />
-                <span>{SITE_CONFIG.contact.phone}</span>
-              </a>
+            <div className="flex flex-wrap items-center justify-center sm:justify-end gap-2 text-xs">
+              <span className="text-slate-500 font-semibold">Call:</span>
+              <a href="tel:8793314239" className="font-bold text-[#001752] hover:text-[#C41E1E]">8793314239</a>
+              <span className="text-slate-300">/</span>
+              <a href="tel:8482881614" className="font-bold text-[#001752] hover:text-[#C41E1E]">8482881614</a>
+              <span className="text-slate-300">/</span>
+              <a href="tel:9794323963" className="font-bold text-[#001752] hover:text-[#C41E1E]">9794323963</a>
 
               <a
                 href={`${SITE_CONFIG.contact.whatsapp}?text=${encodeURIComponent(
@@ -371,7 +369,7 @@ export default function Gallery() {
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#25D366] hover:bg-[#20BA5A] text-white text-xs font-bold shadow-xs transition-colors"
+                className="ml-2 inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#25D366] hover:bg-[#20BA5A] text-white text-xs font-bold shadow-xs transition-colors"
               >
                 <MessageCircle size={14} />
                 <span>WhatsApp Demo</span>

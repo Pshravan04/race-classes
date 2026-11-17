@@ -279,7 +279,7 @@ export default function About() {
                 <div className="mt-4 flex flex-wrap items-center gap-4 text-xs font-semibold text-slate-700">
                   <span>📍 202, Raut Arcade, Virar East</span>
                   <span>⏰ Mon–Sat: 9:00 AM – 7:00 PM</span>
-                  <span>📞 Phone: {SITE_CONFIG.contact.phone}</span>
+                  <span>📞 Phone: {SITE_CONFIG.contact.phonesDisplayInline}</span>
                 </div>
               </div>
 

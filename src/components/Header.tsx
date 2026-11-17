@@ -47,19 +47,27 @@ export default function Header() {
             </span>
           </div>
 
-          {/* Offer highlight & Direct phone */}
-          <div className="flex items-center gap-4">
-            <span className="hidden md:inline font-bold text-[#F5BE4F] text-[11px]">
-              🔥 Flat 50% Concession on Career Diplomas · Limited Seats
+          {/* Offer highlight & Direct phones */}
+          <div className="flex items-center gap-3 sm:gap-4">
+            <span className="hidden lg:inline font-bold text-[#F5BE4F] text-[11px]">
+              🔥 Flat 50% Concession on Career Diplomas
             </span>
 
-            <a
-              href={`tel:${SITE_CONFIG.contact.phone}`}
-              className="flex items-center gap-1.5 text-slate-200 hover:text-white transition-colors text-xs font-semibold"
-            >
-              <Phone size={11} className="text-[#F5BE4F]" />
-              <span>Call: {SITE_CONFIG.contact.phone}</span>
-            </a>
+            <div className="flex items-center gap-1.5 sm:gap-2 text-slate-200 text-[11px] font-semibold">
+              <Phone size={11} className="text-[#F5BE4F] shrink-0" />
+              <span className="text-slate-400 hidden sm:inline">Call:</span>
+              <a href="tel:8793314239" className="hover:text-[#F5BE4F] transition-colors">
+                8793314239
+              </a>
+              <span className="text-slate-500 font-normal">/</span>
+              <a href="tel:8482881614" className="hover:text-[#F5BE4F] transition-colors">
+                8482881614
+              </a>
+              <span className="text-slate-500 font-normal">/</span>
+              <a href="tel:9794323963" className="hover:text-[#F5BE4F] transition-colors">
+                9794323963
+              </a>
+            </div>
           </div>
 
         </div>
@@ -194,24 +202,32 @@ export default function Header() {
             </nav>
 
             {/* Mobile Contact & Demo Buttons */}
-            <div className="grid grid-cols-2 gap-2 pt-3 border-t border-slate-200">
-              <a
-                href={`tel:${SITE_CONFIG.contact.phone}`}
-                className="flex items-center justify-center gap-1.5 bg-slate-50 border border-slate-200 text-[#001752] text-xs font-bold py-2.5 rounded-xl hover:bg-slate-100 transition-colors"
-              >
-                <Phone size={13} className="text-[#C41E1E]" />
-                <span>Call Us</span>
-              </a>
+            <div className="space-y-2 pt-3 border-t border-slate-200">
+              <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wider px-1">
+                Direct Helpdesk (Tap to Call)
+              </div>
+              <div className="grid grid-cols-3 gap-1.5">
+                {SITE_CONFIG.contact.phones.map((p) => (
+                  <a
+                    key={p.number}
+                    href={`tel:${p.number}`}
+                    className="flex flex-col items-center justify-center p-2 rounded-xl bg-slate-50 border border-slate-200 text-[#001752] hover:bg-slate-100 transition-colors text-center"
+                  >
+                    <span className="text-[9px] text-slate-500 font-medium">{p.label}</span>
+                    <span className="text-[11px] font-bold mt-0.5">{p.number}</span>
+                  </a>
+                ))}
+              </div>
               <a
                 href={`${SITE_CONFIG.contact.whatsapp}?text=${encodeURIComponent(
                   'Hello! I want to enquire about computer courses at RACE Virar East.'
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-1.5 bg-[#25D366] text-white text-xs font-bold py-2.5 rounded-xl hover:bg-[#20BA5A] transition-colors shadow-xs"
+                className="w-full flex items-center justify-center gap-1.5 bg-[#25D366] text-white text-xs font-bold py-2.5 rounded-xl hover:bg-[#20BA5A] transition-colors shadow-xs"
               >
                 <MessageSquare size={13} />
-                <span>WhatsApp</span>
+                <span>WhatsApp (9794323963)</span>
               </a>
             </div>
 

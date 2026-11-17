@@ -86,7 +86,7 @@ export default function Privacy() {
                 <p>{SITE_CONFIG.address.line1}, {SITE_CONFIG.address.line2}</p>
                 <p>{SITE_CONFIG.address.city}, {SITE_CONFIG.address.state} - {SITE_CONFIG.address.pin}</p>
                 <p className="pt-1">
-                  Direct Phone: <a href={`tel:${SITE_CONFIG.contact.phoneRaw}`} className="text-[#C41E1E] font-bold hover:underline">{SITE_CONFIG.contact.phoneDisplay}</a>
+                  Direct Phones: <a href="tel:8793314239" className="text-[#C41E1E] font-bold hover:underline">8793314239</a> · <a href="tel:8482881614" className="text-[#C41E1E] font-bold hover:underline">8482881614</a> · <a href="tel:9794323963" className="text-[#C41E1E] font-bold hover:underline">9794323963</a>
                 </p>
               </div>
             </div>

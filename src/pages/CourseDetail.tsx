@@ -651,8 +651,17 @@ Please send syllabus details.`;
               className="inline-flex items-center gap-2 h-11 px-5 rounded-xl bg-white border border-slate-300 hover:bg-slate-50 text-slate-800 font-bold text-xs sm:text-sm shadow-2xs transition-all"
             >
               <Phone size={14} className="text-[#001752]" />
-              <span>Call {SITE_CONFIG.contact.phone}</span>
+              <span>Call Helpline</span>
             </a>
+          </div>
+
+          <div className="mt-4 flex flex-wrap items-center justify-center gap-2 text-xs text-slate-500">
+            <span className="font-semibold text-slate-700">Direct Helplines:</span>
+            <a href="tel:8793314239" className="font-bold text-[#001752] hover:underline">8793314239</a>
+            <span>·</span>
+            <a href="tel:8482881614" className="font-bold text-[#001752] hover:underline">8482881614</a>
+            <span>·</span>
+            <a href="tel:9794323963" className="font-bold text-[#001752] hover:underline">9794323963</a>
           </div>
         </div>
       </section>

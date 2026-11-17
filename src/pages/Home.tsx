@@ -64,7 +64,7 @@ const FAQS = [
   },
   {
     q: 'How can I obtain the current fee structure?',
-    a: 'Please call our admissions desk at 9794323963 or send us a WhatsApp message. Our counselors share the exact syllabus breakdown and installment fee options transparently with zero hidden costs.',
+    a: 'Please call our admissions desk at 8793314239 / 8482881614 / 9794323963 or send us a WhatsApp message. Our counselors share the exact syllabus breakdown and installment fee options transparently with zero hidden costs.',
   },
   {
     q: 'Where is the institute located and how close is the station?',

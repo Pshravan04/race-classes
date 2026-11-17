@@ -13,9 +13,16 @@ export const SITE_CONFIG = {
     'Hands-on computer training institute opposite Virar East railway station. 100% practical lab training, certification, placement assistance, flexible morning/evening batches, and special batches for ladies & students.',
 
   contact: {
-    phone: '9794323963',
-    phoneRaw: '+919794323963',
-    phoneDisplay: '+91 97943 23963',
+    phone: '8793314239',
+    phoneRaw: '+918793314239',
+    phoneDisplay: '+91 87933 14239',
+    phones: [
+      { number: '8793314239', raw: '+918793314239', display: '87933 14239', label: 'Admissions' },
+      { number: '8482881614', raw: '+918482881614', display: '84828 81614', label: 'Counseling' },
+      { number: '9794323963', raw: '+919794323963', display: '97943 23963', label: 'Direct Desk / WhatsApp' },
+    ],
+    phoneNumbers: ['8793314239', '8482881614', '9794323963'],
+    phonesDisplayInline: '8793314239 · 8482881614 · 9794323963',
     whatsapp: 'https://wa.me/919794323963',
     whatsappNumber: '919794323963',
     whatsappDefaultMessage: encodeURIComponent('Hello! I am interested in admissions at RACE.'),

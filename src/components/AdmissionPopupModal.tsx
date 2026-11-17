@@ -3,7 +3,6 @@ import {
   X, 
   Sparkles, 
   CheckCircle2, 
-  Phone, 
   MessageSquare, 
   Laptop, 
   Clock, 
@@ -216,13 +215,14 @@ export default function AdmissionPopupModal() {
                   <span>Open WhatsApp to Confirm</span>
                 </a>
 
-                <a
-                  href={`tel:${SITE_CONFIG.contact.phone}`}
-                  className="inline-flex items-center justify-center gap-1.5 h-11 px-5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-900 text-xs sm:text-sm font-semibold transition-all active:scale-95"
-                >
-                  <Phone size={14} className="text-[#C41E1E]" />
-                  <span>Call {SITE_CONFIG.contact.phone}</span>
-                </a>
+                <div className="w-full flex flex-wrap items-center justify-center gap-2 pt-1 text-xs">
+                  <span className="text-slate-500 font-semibold">Call Admissions:</span>
+                  <a href="tel:8793314239" className="font-bold text-[#001752] hover:text-[#C41E1E]">8793314239</a>
+                  <span className="text-slate-400">·</span>
+                  <a href="tel:8482881614" className="font-bold text-[#001752] hover:text-[#C41E1E]">8482881614</a>
+                  <span className="text-slate-400">·</span>
+                  <a href="tel:9794323963" className="font-bold text-[#001752] hover:text-[#C41E1E]">9794323963</a>
+                </div>
               </div>
 
               <button
@@ -354,14 +354,16 @@ export default function AdmissionPopupModal() {
                 <Send size={14} />
               </button>
 
-              <div className="flex items-center justify-between text-[10px] text-slate-400 pt-1">
-                <span>Raut Arcade 202 · Opp. Subway, Virar East</span>
-                <a
-                  href={`tel:${SITE_CONFIG.contact.phone}`}
-                  className="font-bold text-[#001752] hover:text-[#C41E1E]"
-                >
-                  Call: {SITE_CONFIG.contact.phone}
-                </a>
+              <div className="flex flex-wrap items-center justify-between text-[10px] text-slate-500 pt-1 gap-1">
+                <span>Raut Arcade 202 · Opp. Subway</span>
+                <span className="flex items-center gap-1 font-bold text-[#001752]">
+                  <span>Call:</span>
+                  <a href="tel:8793314239" className="hover:text-[#C41E1E]">8793314239</a>
+                  <span>/</span>
+                  <a href="tel:8482881614" className="hover:text-[#C41E1E]">8482881614</a>
+                  <span>/</span>
+                  <a href="tel:9794323963" className="hover:text-[#C41E1E]">9794323963</a>
+                </span>
               </div>
             </form>
           )}

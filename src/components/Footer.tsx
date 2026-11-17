@@ -144,28 +144,41 @@ export default function Footer() {
               Virar East, Maharashtra 401305.
             </p>
 
-            <div className="pt-1 space-y-2">
-              <div className="flex items-center gap-2">
-                <Phone size={14} className="text-[#C41E1E]" />
-                <a href={`tel:${SITE_CONFIG.contact.phone}`} className="hover:text-white font-bold">
-                  {SITE_CONFIG.contact.phoneDisplay}
-                </a>
+            <div className="pt-1 space-y-2.5">
+              <div className="flex items-start gap-2">
+                <Phone size={14} className="text-[#C41E1E] mt-1 shrink-0" />
+                <div className="space-y-1 text-xs">
+                  <div className="text-[11px] text-slate-400 font-medium">Helpline &amp; Admissions:</div>
+                  <div className="flex flex-wrap items-center gap-x-2 gap-y-1 font-bold">
+                    <a href="tel:8793314239" className="hover:text-white transition-colors">
+                      8793314239
+                    </a>
+                    <span className="text-slate-600 font-normal">/</span>
+                    <a href="tel:8482881614" className="hover:text-white transition-colors">
+                      8482881614
+                    </a>
+                    <span className="text-slate-600 font-normal">/</span>
+                    <a href="tel:9794323963" className="hover:text-white transition-colors">
+                      9794323963
+                    </a>
+                  </div>
+                </div>
               </div>
 
               <div className="flex items-center gap-2">
-                <MessageSquare size={14} className="text-[#25D366]" />
+                <MessageSquare size={14} className="text-[#25D366] shrink-0" />
                 <a
                   href={SITE_CONFIG.contact.whatsapp}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-white font-semibold text-[#4ADE80]"
+                  className="hover:text-white font-semibold text-[#4ADE80] text-xs"
                 >
                   WhatsApp: 9794323963
                 </a>
               </div>
 
-              <div className="flex items-center gap-2 text-slate-400">
-                <Clock size={14} className="text-[#F5BE4F]" />
+              <div className="flex items-center gap-2 text-slate-400 text-xs">
+                <Clock size={14} className="text-[#F5BE4F] shrink-0" />
                 <span>Mon–Sat: 9:00 AM – 7:00 PM</span>
               </div>
             </div>

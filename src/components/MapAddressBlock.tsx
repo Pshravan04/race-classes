@@ -62,13 +62,31 @@ export default function MapAddressBlock() {
               </div>
             </div>
 
-            <div className="pt-4 border-t border-[#E8E2D5] grid grid-cols-2 gap-3">
+            <div className="pt-3 border-t border-[#E8E2D5] space-y-2">
+              <div className="text-[11px] font-bold text-gray-500 uppercase tracking-wider flex items-center justify-between">
+                <span>Direct Helpline Numbers</span>
+                <span className="text-[#C41E1E] font-medium">Tap to call</span>
+              </div>
+              <div className="flex flex-wrap items-center justify-between gap-1 text-xs font-bold text-[#071B3A]">
+                <a href="tel:8793314239" className="hover:text-[#C41E1E] bg-[#F8F9FA] px-2 py-1 rounded border border-slate-200">
+                  📞 8793314239
+                </a>
+                <a href="tel:8482881614" className="hover:text-[#C41E1E] bg-[#F8F9FA] px-2 py-1 rounded border border-slate-200">
+                  📞 8482881614
+                </a>
+                <a href="tel:9794323963" className="hover:text-[#C41E1E] bg-[#F8F9FA] px-2 py-1 rounded border border-slate-200">
+                  📞 9794323963
+                </a>
+              </div>
+            </div>
+
+            <div className="pt-3 border-t border-[#E8E2D5] grid grid-cols-2 gap-3">
               <a
                 href={`tel:${SITE_CONFIG.contact.phone}`}
                 className="flex items-center justify-center gap-2 bg-[#071B3A] hover:bg-[#0E2B5C] text-white py-2.5 px-3 rounded-lg text-xs font-bold transition-colors"
               >
                 <Phone size={14} className="text-[#D8AF3E]" />
-                <span>Call {SITE_CONFIG.contact.phone}</span>
+                <span>Call Admissions</span>
               </a>
 
               <a
