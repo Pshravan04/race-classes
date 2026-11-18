@@ -62,15 +62,8 @@ export default function Header() {
           })}
         </nav>
 
-        {/* Desktop Right Actions: Student Login + Red Enquire Now CTA */}
-        <div className="hidden sm:flex items-center gap-4 shrink-0">
-          <Link
-            to="/contact#login"
-            className="text-xs font-semibold text-slate-700 hover:text-[#001752] transition-colors px-2 py-1"
-          >
-            Student Login
-          </Link>
-
+        {/* Desktop Right Actions: Red Enquire Now CTA */}
+        <div className="hidden sm:flex items-center gap-3 shrink-0">
           <Link
             to="/contact#enquiry"
             className="inline-flex items-center justify-center bg-[#C41E1E] hover:bg-[#931616] text-white text-xs sm:text-[13px] font-bold px-5 sm:px-6 py-2.5 rounded-full shadow-sm hover:shadow transition-all active:scale-95 whitespace-nowrap cursor-pointer"

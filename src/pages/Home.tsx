@@ -105,7 +105,7 @@ const FEATURED_COURSES: FeaturedCourse[] = [
     link: '/courses/advanced-tally-with-gst',
     shortDesc: 'Corporate bookkeeping, real voucher entries, GST returns filing, E-way bills, TDS, and payroll management.',
     urgency: 'Morning & Afternoon Batches',
-    seatsLeft: 2,
+    seatsLeft: 2, 
     tools: ['TallyPrime', 'GST', 'Excel', 'E-Way Bill', 'Income Tax'],
     features: ['Live GST Portal Simulation', 'Bank & Accounts Reconciliation', 'Govt. Recognized Certification'],
     offerBadge: 'Free Basic Computer Included',
