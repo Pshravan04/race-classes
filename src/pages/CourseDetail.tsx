@@ -13,7 +13,9 @@ import {
   ChevronDown, 
   ChevronUp, 
   CheckCircle2,
-  Send
+  Send,
+  Train,
+  ArrowUpRight
 } from 'lucide-react';
 import SEO from '../components/SEO';
 import CourseJourneyCurriculum from '../components/CourseJourneyCurriculum';
@@ -643,59 +645,201 @@ Institute Location: Opposite Virar East Railway Station Subway.`;
 
 
         {/* ══════════════════════════════════════════════════════════════════════
-            SECTION 07 – WHY RACE VIRAR EAST (White Canvas)
+            SECTION 07 – WHY RACE VIRAR EAST (Attractive Visuals & Ribbons)
             ══════════════════════════════════════════════════════════════════════ */}
-        <section aria-label="Station Advantage" className="bg-white py-14 sm:py-18 border-b border-slate-200/70">
+        <section aria-label="Station Advantage" className="bg-white py-14 sm:py-20 border-b border-slate-200/70 relative">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl mb-10">
-              <span className="text-[#C41E1E] text-xs font-bold tracking-wider uppercase block mb-1">
-                STATION PROXIMITY EDGE
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-bold font-heading text-[#001752] tracking-tight">
+            <div className="max-w-3xl mb-12">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FCF4F4] border border-[#F8E4E4] text-[#C41E1E] text-xs font-bold tracking-wider uppercase mb-3">
+                <Sparkles size={13} className="text-[#C41E1E]" />
+                <span>Station Proximity Edge</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-[#001752] tracking-tight">
                 Why Learn at Raut Arcade Opposite the Station?
               </h2>
-              <p className="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
-                Suburban learners waste 3 to 4 hours daily commuting to Andheri or Dadar. Here is why studying next to the Virar East station subway gives you an edge:
+              <p className="text-xs sm:text-sm text-slate-600 mt-2.5 leading-relaxed">
+                Suburban learners waste 3 to 4 hours daily commuting to Dadar, Andheri, or Borivali. Here is why studying next to the Virar East railway subway gives you a distinct practical edge:
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-[#F6F7F9] p-6 rounded-2xl border border-slate-200 shadow-2xs">
-                <div className="w-10 h-10 rounded-xl bg-[#001752] text-white flex items-center justify-center font-bold text-sm mb-4">
-                  01
+            {/* 3 Visual Advantage Cards with Photography & Ribbons */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-10">
+              
+              {/* Card 01 - Zero Train Commute */}
+              <div className="bg-[#F6F7F9] rounded-3xl border border-slate-200/80 overflow-hidden shadow-2xs hover:shadow-md hover:border-slate-300 transition-all flex flex-col justify-between relative group">
+                {/* Floating Ribbon Tag */}
+                <div className="absolute top-4 left-4 z-10 bg-gradient-to-r from-[#C41E1E] to-[#931616] text-white text-[10.5px] font-extrabold tracking-wider uppercase px-3 py-1 rounded-full shadow-md flex items-center gap-1.5 border border-white/20">
+                  <Train size={12} className="text-white" />
+                  <span>3+ Hours Saved Daily</span>
                 </div>
-                <h3 className="text-base font-bold text-[#001752] mb-2">
-                  Zero Train Commute Fatigue
-                </h3>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  Walk 2 minutes from Platform 1/2 subway exit. Invest your saved 3 hours into practical coding assignments and extra lab practice.
-                </p>
+
+                {/* Card Top Image */}
+                <div className="relative h-48 w-full overflow-hidden bg-slate-100">
+                  <img
+                    src="/images/hero-lab.jpg"
+                    alt="Students practicing in computer lab next to Virar railway station"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#001752]/75 via-transparent to-transparent" />
+                  <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between text-white text-xs font-semibold">
+                    <span className="flex items-center gap-1.5 bg-black/40 backdrop-blur-xs px-2.5 py-1 rounded-md text-[11px]">
+                      <MapPin size={11} className="text-[#DF8383]" />
+                      <span>2-Min from Platform 1/2 Subway</span>
+                    </span>
+                    <span className="text-[11px] font-mono font-bold bg-white/20 backdrop-blur-xs px-2 py-0.5 rounded">
+                      01
+                    </span>
+                  </div>
+                </div>
+
+                {/* Card Content */}
+                <div className="p-6 flex-1 flex flex-col justify-between">
+                  <div>
+                    <h3 className="text-lg font-bold text-[#001752] mb-2 leading-snug">
+                      Zero Train Commute Fatigue
+                    </h3>
+                    <p className="text-xs text-slate-600 leading-relaxed mb-4">
+                      Walk directly into our air-conditioned computer lab from the railway subway. Invest your saved commute energy into live coding projects and doubt-solving.
+                    </p>
+                  </div>
+
+                  <div className="pt-3 border-t border-slate-200/80 flex items-center gap-2 text-xs font-semibold text-[#001752]">
+                    <CheckCircle2 size={14} className="text-[#C41E1E] shrink-0" />
+                    <span>No auto-rickshaw required (200 steps)</span>
+                  </div>
+                </div>
               </div>
 
-              <div className="bg-[#F6F7F9] p-6 rounded-2xl border border-slate-200 shadow-2xs">
-                <div className="w-10 h-10 rounded-xl bg-[#001752] text-white flex items-center justify-center font-bold text-sm mb-4">
-                  02
+              {/* Card 02 - Guaranteed 1:1 Workstation (Featured with Diagonal Corner Ribbon) */}
+              <div className="bg-white rounded-3xl border-2 border-[#001752] overflow-hidden shadow-md hover:shadow-lg transition-all flex flex-col justify-between relative group">
+                {/* Diagonal Corner Ribbon */}
+                <div className="absolute top-0 right-0 overflow-hidden w-28 h-28 pointer-events-none z-20">
+                  <div className="absolute transform rotate-45 bg-[#C41E1E] text-white text-[9.5px] font-black uppercase py-1 right-[-32px] top-[18px] w-[125px] text-center shadow-md tracking-wider">
+                    ★ GUARANTEED
+                  </div>
                 </div>
-                <h3 className="text-base font-bold text-[#001752] mb-2">
-                  Guaranteed 1:1 Workstation
-                </h3>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  Every student has their own dedicated desktop computer. Zero machine sharing. Practice at your own pace without feeling rushed.
-                </p>
+
+                {/* Floating Top Ribbon */}
+                <div className="absolute top-4 left-4 z-10 bg-[#001752] text-white text-[10.5px] font-extrabold tracking-wider uppercase px-3 py-1 rounded-full shadow-md flex items-center gap-1.5 border border-white/20">
+                  <Monitor size={12} className="text-sky-300" />
+                  <span>1 Student : 1 PC Policy</span>
+                </div>
+
+                {/* Card Top Image */}
+                <div className="relative h-48 w-full overflow-hidden bg-slate-100">
+                  <img
+                    src="/images/real-lab-wide.jpg"
+                    alt="1:1 Dedicated Computer Workstations at RACE Virar East"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#001752]/75 via-transparent to-transparent" />
+                  <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between text-white text-xs font-semibold">
+                    <span className="flex items-center gap-1.5 bg-black/40 backdrop-blur-xs px-2.5 py-1 rounded-md text-[11px]">
+                      <Award size={11} className="text-amber-300" />
+                      <span>Dedicated Terminal · Zero Sharing</span>
+                    </span>
+                    <span className="text-[11px] font-mono font-bold bg-[#C41E1E] px-2 py-0.5 rounded">
+                      02
+                    </span>
+                  </div>
+                </div>
+
+                {/* Card Content */}
+                <div className="p-6 flex-1 flex flex-col justify-between bg-white">
+                  <div>
+                    <h3 className="text-lg font-bold text-[#001752] mb-2 leading-snug">
+                      Guaranteed 1:1 Personal Workstation
+                    </h3>
+                    <p className="text-xs text-slate-600 leading-relaxed mb-4">
+                      Every student is assigned an independent high-speed desktop terminal throughout the batch. Zero machine sharing means you practice every single command yourself.
+                    </p>
+                  </div>
+
+                  <div className="pt-3 border-t border-slate-100 flex items-center gap-2 text-xs font-semibold text-[#001752]">
+                    <CheckCircle2 size={14} className="text-[#10b981] shrink-0" />
+                    <span>Free extra lab practice hours included</span>
+                  </div>
+                </div>
               </div>
 
-              <div className="bg-[#F6F7F9] p-6 rounded-2xl border border-slate-200 shadow-2xs">
-                <div className="w-10 h-10 rounded-xl bg-[#001752] text-white flex items-center justify-center font-bold text-sm mb-4">
-                  03
+              {/* Card 03 - Flexible Daily Slots */}
+              <div className="bg-[#F6F7F9] rounded-3xl border border-slate-200/80 overflow-hidden shadow-2xs hover:shadow-md hover:border-slate-300 transition-all flex flex-col justify-between relative group">
+                {/* Floating Ribbon Tag */}
+                <div className="absolute top-4 left-4 z-10 bg-gradient-to-r from-[#059669] to-[#047857] text-white text-[10.5px] font-extrabold tracking-wider uppercase px-3 py-1 rounded-full shadow-md flex items-center gap-1.5 border border-white/20">
+                  <Clock size={12} className="text-emerald-100" />
+                  <span>Ladies &amp; Evening Batches</span>
                 </div>
-                <h3 className="text-base font-bold text-[#001752] mb-2">
-                  Flexible Daily Slots
-                </h3>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  Dedicated 12:30 PM – 3:00 PM slot for homemakers and women, plus early morning and evening batches for working clerks and students.
-                </p>
+
+                {/* Card Top Image */}
+                <div className="relative h-48 w-full overflow-hidden bg-slate-100">
+                  <img
+                    src="/images/ladies-guidance.jpg"
+                    alt="Comfortable classroom guidance for ladies and students in Virar East"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#001752]/75 via-transparent to-transparent" />
+                  <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between text-white text-xs font-semibold">
+                    <span className="flex items-center gap-1.5 bg-black/40 backdrop-blur-xs px-2.5 py-1 rounded-md text-[11px]">
+                      <Clock size={11} className="text-emerald-300" />
+                      <span>Dedicated 12:30 PM Ladies Slot</span>
+                    </span>
+                    <span className="text-[11px] font-mono font-bold bg-white/20 backdrop-blur-xs px-2 py-0.5 rounded">
+                      03
+                    </span>
+                  </div>
+                </div>
+
+                {/* Card Content */}
+                <div className="p-6 flex-1 flex flex-col justify-between">
+                  <div>
+                    <h3 className="text-lg font-bold text-[#001752] mb-2 leading-snug">
+                      Flexible Daily Timing Slots
+                    </h3>
+                    <p className="text-xs text-slate-600 leading-relaxed mb-4">
+                      Comfortable batch options for college students (morning), homemakers (exclusive 12:30 PM afternoon slot), and working professionals (evening).
+                    </p>
+                  </div>
+
+                  <div className="pt-3 border-t border-slate-200/80 flex items-center gap-2 text-xs font-semibold text-[#001752]">
+                    <CheckCircle2 size={14} className="text-[#C41E1E] shrink-0" />
+                    <span>Batch timing swap facility available</span>
+                  </div>
+                </div>
               </div>
+
             </div>
+
+            {/* Bottom Station Proximity Banner Strip */}
+            <div className="bg-[#001752] rounded-2xl p-5 sm:p-6 text-white flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm border border-[#001752]">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center shrink-0 text-[#DF8383]">
+                  <MapPin size={24} />
+                </div>
+                <div>
+                  <div className="flex items-center gap-2 text-xs font-bold text-[#DF8383] uppercase tracking-wider mb-0.5">
+                    <span className="w-2 h-2 rounded-full bg-[#10b981] animate-pulse" />
+                    <span>Raut Arcade 202 · Directly Opposite Subway</span>
+                  </div>
+                  <p className="text-xs sm:text-sm text-slate-200 font-medium">
+                    Exit Platform 1/2 subway towards Station Road East. Raut Arcade is right in front of you.
+                  </p>
+                </div>
+              </div>
+
+              <a
+                href={SITE_CONFIG.address.googleMapsDirectLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#C41E1E] hover:bg-[#931616] text-white text-xs font-bold transition-all shadow-sm active:scale-95 shrink-0 cursor-pointer"
+              >
+                <span>Open in Google Maps</span>
+                <ArrowUpRight size={14} />
+              </a>
+            </div>
+
           </div>
         </section>
 
