@@ -212,11 +212,11 @@ export default function CourseJourneyCurriculum({ course, onDownloadBrochure }: 
 
           </div>
 
-          {/* Download Brochure Button (Signature Vibrant Lime-Green) */}
+          {/* Download Brochure Button (Brand Red Pill) */}
           <button
             type="button"
             onClick={handleBrochureClick}
-            className="w-full py-3.5 px-5 rounded-xl bg-[#A2D016] hover:bg-[#8FB812] text-[#122302] font-black text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md transition-all active:scale-95 cursor-pointer"
+            className="w-full py-3.5 px-5 rounded-full bg-[#C41E1E] hover:bg-[#931616] text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md transition-all active:scale-95 cursor-pointer"
           >
             <Download size={16} strokeWidth={2.5} />
             <span>Download Curriculum Brochure</span>
@@ -306,7 +306,7 @@ export default function CourseJourneyCurriculum({ course, onDownloadBrochure }: 
                           {cleanedTitle}
                         </h3>
 
-                        <span className="inline-block px-2.5 py-0.5 rounded-full bg-[#EAF7C3] text-[#3B6306] border border-[#D5EFA0] text-[11px] font-semibold shrink-0">
+                        <span className="inline-block px-2.5 py-0.5 rounded-full bg-[#F2F3F6] text-[#001752] border border-slate-200 text-[11px] font-semibold shrink-0">
                           {tag}
                         </span>
                       </div>
@@ -364,7 +364,7 @@ export default function CourseJourneyCurriculum({ course, onDownloadBrochure }: 
           {/* Bottom Fast Action Prompt */}
           <div className="mt-8 p-4 sm:p-5 rounded-2xl bg-slate-50 border border-slate-200/80 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div>
-              <span className="text-xs sm:text-sm font-bold text-[#0e2340] block">
+              <span className="text-xs sm:text-sm font-bold text-[#001752] block">
                 Want to customize modules or request weekend-only timing?
               </span>
               <span className="text-[11px] text-slate-500 block">
@@ -374,7 +374,7 @@ export default function CourseJourneyCurriculum({ course, onDownloadBrochure }: 
 
             <a
               href={`tel:${SITE_CONFIG.contact.phone}`}
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#0e2340] hover:bg-[#c6383b] text-white text-xs font-bold transition-colors shrink-0"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#001752] hover:bg-[#C41E1E] text-white text-xs font-bold transition-colors shrink-0"
             >
               <span>Call Admissions Desk</span>
             </a>
