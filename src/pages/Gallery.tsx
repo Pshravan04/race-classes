@@ -322,8 +322,8 @@ export default function Gallery() {
                   loading="lazy"
                 />
 
-                {/* Dark Vignette Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#001752]/90 via-[#001752]/25 to-transparent pointer-events-none" />
+                {/* Subtle Hover Overlay */}
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/25 transition-colors duration-300 pointer-events-none" />
 
                 {/* Top Floating Tag */}
                 <div className="absolute top-3.5 left-3.5 z-10">
@@ -333,10 +333,10 @@ export default function Gallery() {
                   </span>
                 </div>
 
-                {/* Top Right Expand Icon on Hover */}
-                <div className="absolute top-3.5 right-3.5 opacity-0 group-hover:opacity-100 transition-opacity z-10">
-                  <span className="w-8 h-8 rounded-full bg-black/60 backdrop-blur-xs text-white flex items-center justify-center shadow-md">
-                    <Maximize2 size={13} />
+                {/* Center / Top-Right Expand Icon on Hover */}
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 pointer-events-none">
+                  <span className="w-11 h-11 rounded-full bg-[#001752]/85 text-white flex items-center justify-center shadow-lg backdrop-blur-xs">
+                    <Maximize2 size={16} />
                   </span>
                 </div>
 
@@ -349,16 +349,6 @@ export default function Gallery() {
                     </span>
                   </div>
                 )}
-
-                {/* Bottom Content Overlay */}
-                <div className="absolute bottom-4 left-4 right-4 z-10 text-white">
-                  <h3 className="font-bold text-sm sm:text-base leading-snug drop-shadow-sm mb-1 group-hover:text-[#DF8383] transition-colors line-clamp-1">
-                    {item.title}
-                  </h3>
-                  <p className="text-[11px] sm:text-xs text-slate-200/90 leading-relaxed line-clamp-2">
-                    {item.description}
-                  </p>
-                </div>
               </div>
             ))}
           </div>
