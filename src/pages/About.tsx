@@ -3,6 +3,7 @@ import {
   ArrowRight, 
   MapPin, 
   Clock, 
+  Phone,
   CheckCircle2, 
   Monitor, 
   Users, 
@@ -617,102 +618,133 @@ export default function About() {
 
 
         {/* ══════════════════════════════════════════════════════════════════════
-            SECTION 06 – FEATURED WALK-IN CALLOUT (Large Navy Banner)
+            SECTION 06 – FEATURED WALK-IN CALLOUT (Floating Navy Banner on White)
             ══════════════════════════════════════════════════════════════════════ */}
-        <section aria-label="Visit RACE" className="bg-[#001752] text-white py-16 sm:py-24 relative overflow-hidden">
-          {/* Subtle Red/Navy Brand Gradient Accents */}
-          <div className="absolute -right-20 -top-20 w-80 h-80 rounded-full bg-[#C41E1E]/20 blur-[100px] pointer-events-none" />
-          <div className="absolute -left-20 -bottom-20 w-80 h-80 rounded-full bg-[#263A6C]/40 blur-[100px] pointer-events-none" />
+        <section aria-label="Visit RACE" className="bg-white py-12 sm:py-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="bg-[#001752] text-white rounded-3xl p-6 sm:p-10 lg:p-14 shadow-2xl border border-[#00113E] relative overflow-hidden">
+              {/* Subtle Red/Navy Brand Gradient Accents */}
+              <div className="absolute -right-20 -top-20 w-80 h-80 rounded-full bg-[#C41E1E]/20 blur-[100px] pointer-events-none" />
+              <div className="absolute -left-20 -bottom-20 w-80 h-80 rounded-full bg-[#263A6C]/40 blur-[100px] pointer-events-none" />
 
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-              
-              {/* Left Column: Heading, Subtitle & Buttons */}
-              <div className="lg:col-span-7 space-y-4">
-                <span className="text-[#DF8383] text-xs font-bold tracking-wider uppercase block">
-                  WALK IN &amp; EXPERIENCE RACE
-                </span>
+              <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                
+                {/* Left Column: Heading, Subtitle & Buttons */}
+                <div className="lg:col-span-7 space-y-4">
+                  <span className="text-[#DF8383] text-xs font-bold tracking-wider uppercase block">
+                    WALK IN &amp; EXPERIENCE RACE
+                  </span>
 
-                <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-bold text-white font-heading leading-tight tracking-tight">
-                  Ready to inspect our computer lab in person?
-                </h2>
+                  <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-bold text-white font-heading leading-tight tracking-tight">
+                    Ready to inspect our computer lab in person?
+                  </h2>
 
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal max-w-lg">
-                  Walk in anytime between 9:00 AM and 7:00 PM, Monday to Saturday. Take a seat, experience a free practical demo, and inspect our computers yourself.
-                </p>
-
-                {/* Direct Helplines Grid */}
-                <div className="pt-2">
-                  <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2">
-                    Direct Institute Helplines
-                  </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
-                    {SITE_CONFIG.contact.phones.map((p) => (
-                      <a
-                        key={p.number}
-                        href={`tel:${p.number}`}
-                        className="p-2.5 rounded-xl bg-white/10 hover:bg-white/15 border border-white/10 transition-colors flex flex-col"
-                      >
-                        <span className="text-[10px] text-slate-400 font-medium">{p.label}</span>
-                        <span className="text-xs font-bold text-white mt-0.5">{p.number}</span>
-                      </a>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Action Buttons */}
-                <div className="flex flex-wrap items-center gap-3 pt-3">
-                  <Link
-                    to="/contact#demo"
-                    className="inline-flex items-center gap-1.5 bg-[#C41E1E] hover:bg-[#931616] text-white text-xs sm:text-sm font-bold px-6 py-3 rounded-full transition-all shadow-md active:scale-95 cursor-pointer"
-                  >
-                    <span>Book a free demo</span>
-                    <ArrowRight size={14} />
-                  </Link>
-
-                  <a
-                    href={SITE_CONFIG.address.googleMapsDirectLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 bg-white/10 hover:bg-white/20 text-white border border-white/20 text-xs sm:text-sm font-bold px-6 py-3 rounded-full transition-all active:scale-95 cursor-pointer"
-                  >
-                    <MapPin size={14} className="text-[#DF8383]" />
-                    <span>Open in Google Maps</span>
-                  </a>
-                </div>
-              </div>
-
-              {/* Right Column: Station Subway Location Box */}
-              <div className="lg:col-span-5">
-                <div className="bg-white/5 border border-white/15 rounded-3xl p-6 sm:p-8 backdrop-blur-xs space-y-4">
-                  <div className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#10b981] animate-pulse" />
-                    <span className="text-xs font-bold text-white uppercase tracking-wider">
-                      Prime Station Location
-                    </span>
-                  </div>
-
-                  <h3 className="text-xl sm:text-2xl font-bold text-white font-heading">
-                    2 Minutes on Foot from Virar Railway Station
-                  </h3>
-
-                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
-                    Located on the 2nd Floor of Raut Arcade, directly facing the railway subway stairs on Station Road East. You can walk straight in after getting off the train without needing an auto-rickshaw.
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal max-w-lg">
+                    Walk in anytime between 9:00 AM and 7:00 PM, Monday to Saturday. Take a seat, experience a free practical demo, and inspect our computers yourself.
                   </p>
 
-                  <div className="pt-3 border-t border-white/10 space-y-2 text-xs text-slate-300">
-                    <div className="flex items-center gap-2">
-                      <MapPin size={13} className="text-[#DF8383] shrink-0" />
-                      <span>202, Raut Arcade, Station Road, Virar East</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Clock size={13} className="text-[#DF8383] shrink-0" />
-                      <span>Mon–Sat: 9:00 AM – 7:00 PM (Sunday Closed)</span>
+                  {/* Direct Helplines Pills */}
+                  <div className="pt-2">
+                    <span className="text-slate-400 text-[11px] font-semibold uppercase tracking-wider block mb-2">
+                      Direct Institute Helplines:
+                    </span>
+                    <div className="flex flex-wrap items-center gap-2">
+                      <a
+                        href="tel:8793314239"
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 text-white text-xs font-semibold transition-colors"
+                      >
+                        <Phone size={12} className="text-[#DF8383]" />
+                        <span>8793314239</span>
+                      </a>
+                      <a
+                        href="tel:8482881614"
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 text-white text-xs font-semibold transition-colors"
+                      >
+                        <Phone size={12} className="text-[#DF8383]" />
+                        <span>8482881614</span>
+                      </a>
+                      <a
+                        href={SITE_CONFIG.contact.whatsapp}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-400/30 text-emerald-300 text-xs font-semibold transition-colors"
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                        <span>WhatsApp: 9794323963</span>
+                      </a>
                     </div>
                   </div>
-                </div>
-              </div>
 
+                  {/* Action Buttons */}
+                  <div className="flex flex-wrap items-center gap-3 pt-3">
+                    <Link
+                      to="/contact#demo"
+                      className="inline-flex items-center gap-1.5 bg-[#C41E1E] hover:bg-[#931616] text-white text-xs sm:text-sm font-bold px-6 py-3 rounded-full transition-all shadow-md active:scale-95 cursor-pointer"
+                    >
+                      <span>Book a free demo</span>
+                      <ArrowRight size={14} />
+                    </Link>
+
+                    <a
+                      href={SITE_CONFIG.address.googleMapsDirectLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 bg-white/10 hover:bg-white/20 text-white border border-white/20 text-xs sm:text-sm font-bold px-6 py-3 rounded-full transition-all active:scale-95 cursor-pointer"
+                    >
+                      <MapPin size={14} className="text-[#DF8383]" />
+                      <span>Open in Google Maps</span>
+                    </a>
+                  </div>
+                </div>
+
+                {/* Right Column: Crisp White Card inside Navy Container */}
+                <div className="lg:col-span-5 flex justify-center lg:justify-end">
+                  <div className="w-full max-w-sm bg-white text-[#001752] rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-xl space-y-4">
+                    
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">
+                        PRIME STATION LOCATION
+                      </span>
+                      <span className="inline-flex items-center gap-1.5 text-[10px] font-bold text-[#10b981] bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-100">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#10b981] animate-pulse" />
+                        <span>Open Mon–Sat</span>
+                      </span>
+                    </div>
+
+                    <div>
+                      <h3 className="text-xl sm:text-2xl font-bold font-heading text-[#001752] leading-tight">
+                        2 Minutes on Foot from Virar Station
+                      </h3>
+                      <p className="text-xs text-slate-600 leading-relaxed font-normal mt-2">
+                        Directly facing the Platform 1/2 subway exit stairs at Raut Arcade 202. Zero auto-rickshaw fare.
+                      </p>
+                    </div>
+
+                    <div className="pt-3 border-t border-slate-100 space-y-2 text-xs text-slate-600">
+                      <div className="flex items-center gap-2">
+                        <MapPin size={13} className="text-[#C41E1E] shrink-0" />
+                        <span className="font-medium text-slate-800">202, Raut Arcade, Station Road East</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Clock size={13} className="text-[#001752] shrink-0" />
+                        <span>9:00 AM – 7:00 PM (Daily Rolling Batches)</span>
+                      </div>
+                    </div>
+
+                    <div className="pt-2">
+                      <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between">
+                        <div>
+                          <span className="text-[10px] text-slate-500 uppercase font-bold block">1:1 Workstation Demo</span>
+                          <strong className="text-xs font-bold text-[#001752]">Free 30-Min Practical Session</strong>
+                        </div>
+                        <span className="text-xs font-bold text-[#C41E1E]">FREE</span>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+              </div>
             </div>
           </div>
         </section>
