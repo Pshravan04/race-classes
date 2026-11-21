@@ -21,7 +21,7 @@ export default function Header() {
     { to: '/about', label: 'About Us' },
     { to: '/courses', label: 'Courses' },
     { to: '/batches', label: 'Programs' },
-    { to: '/gallery', label: 'Placements' },
+    { to: '/gallery', label: 'Gallery' },
     { to: '/contact', label: 'Contact' },
   ];
 
