@@ -4,7 +4,7 @@ import { SITE_CONFIG } from '../data/config';
 
 export default function Footer() {
   return (
-    <footer className="relative bg-[#001752] text-white pt-16 pb-12 text-xs sm:text-sm overflow-hidden select-none">
+    <footer className="relative bg-[#001752] text-white pt-16 pb-0 text-xs sm:text-sm overflow-hidden select-none">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Top 4 Columns */}
@@ -163,18 +163,8 @@ export default function Footer() {
           </a>
         </div>
 
-        {/* Subtle Giant Watermark Area */}
-        <div className="pt-10 pb-6 text-center relative overflow-hidden select-none pointer-events-none">
-          <span className="text-[10px] font-mono tracking-[0.25em] uppercase text-slate-400 block mb-2">
-            LEARN. PRACTICE. PROGRESS.
-          </span>
-          <div className="text-[80px] sm:text-[140px] md:text-[180px] lg:text-[220px] font-black text-white/[0.04] leading-none font-heading tracking-tighter">
-            RACE
-          </div>
-        </div>
-
         {/* Bottom Copyright Bar */}
-        <div className="pt-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-400">
+        <div className="py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-400">
           <div>
             © 2026 RACE – Reddys Advanced Computer Education. All rights reserved.
           </div>
@@ -189,6 +179,16 @@ export default function Footer() {
           </div>
         </div>
 
+      </div>
+
+      {/* Giant Watermark Touching the Very Bottom Edge */}
+      <div className="w-full text-center overflow-hidden select-none pointer-events-none pt-4 -mb-3 sm:-mb-6 md:-mb-8 lg:-mb-10">
+        <span className="text-[10px] sm:text-[11px] font-mono tracking-[0.28em] uppercase text-slate-400/80 block mb-1">
+          LEARN. PRACTICE. PROGRESS.
+        </span>
+        <div className="text-[110px] sm:text-[170px] md:text-[230px] lg:text-[290px] xl:text-[340px] font-black text-white/[0.06] leading-[0.8] font-heading tracking-tight select-none">
+          RACE
+        </div>
       </div>
     </footer>
   );
