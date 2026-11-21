@@ -4,15 +4,15 @@ import { Link } from 'react-router-dom';
 
 export default function MobileStickyBar() {
   return (
-    <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#0e2340]/98 backdrop-blur-md border-t border-[#16345c] px-3 py-2 shadow-2xl">
+    <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#001752]/95 backdrop-blur-md border-t border-white/10 px-3 pt-2 pb-[max(0.5rem,env(safe-area-inset-bottom))] shadow-2xl">
       <div className="grid grid-cols-3 gap-2 max-w-md mx-auto">
         <a
           href={`tel:${SITE_CONFIG.contact.phone}`}
-          className="flex flex-col items-center justify-center min-h-[48px] bg-white/5 hover:bg-white/10 text-white rounded-xl px-2 py-1 text-center transition-colors border border-white/10 active:scale-95"
+          className="flex flex-col items-center justify-center min-h-[46px] bg-white/10 hover:bg-white/15 text-white rounded-xl px-2 py-1 text-center transition-colors border border-white/15 active:scale-95"
           aria-label={`Call ${SITE_CONFIG.contact.phoneDisplay}`}
         >
-          <Phone size={18} className="text-[#c6383b] mb-0.5" />
-          <span className="text-[11px] font-bold leading-tight">Call Us</span>
+          <Phone size={16} className="text-[#DF8383] mb-0.5" />
+          <span className="text-[11px] font-bold leading-tight">Call Desk</span>
         </a>
 
         <a
@@ -21,19 +21,19 @@ export default function MobileStickyBar() {
           )}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex flex-col items-center justify-center min-h-[48px] bg-[#25D366] hover:bg-[#20BA5A] text-white rounded-xl px-2 py-1 text-center transition-colors active:scale-95 shadow-xs"
+          className="flex flex-col items-center justify-center min-h-[46px] bg-[#25D366] hover:bg-[#20BA5A] text-white rounded-xl px-2 py-1 text-center transition-colors active:scale-95 shadow-xs"
           aria-label="Chat on WhatsApp"
         >
-          <MessageSquare size={18} className="text-white mb-0.5" />
+          <MessageSquare size={16} className="text-white mb-0.5" />
           <span className="text-[11px] font-bold leading-tight">WhatsApp</span>
         </a>
 
         <Link
-          to="/contact#demo"
-          className="flex flex-col items-center justify-center min-h-[48px] bg-[#c6383b] hover:bg-[#a82b2e] text-white rounded-xl px-2 py-1 text-center font-bold transition-colors active:scale-95 shadow-xs"
+          to="/contact#enquiry"
+          className="flex flex-col items-center justify-center min-h-[46px] bg-[#C41E1E] hover:bg-[#931616] text-white rounded-xl px-2 py-1 text-center font-bold transition-colors active:scale-95 shadow-xs"
           aria-label="Book Free Demo Class"
         >
-          <Clock size={18} className="text-white mb-0.5" />
+          <Clock size={16} className="text-white mb-0.5" />
           <span className="text-[11px] font-bold leading-tight">Free Demo</span>
         </Link>
       </div>

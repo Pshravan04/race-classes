@@ -420,7 +420,7 @@ export default function Home() {
               
               {/* Left Column: Two-line Headline + Subtitle */}
               <div className="lg:col-span-7 space-y-3">
-                <h1 className="text-4xl sm:text-5xl lg:text-[62px] font-bold text-[#001752] font-heading leading-[1.08] tracking-tight">
+                <h1 className="text-3xl sm:text-5xl lg:text-[62px] font-bold text-[#001752] font-heading leading-[1.08] tracking-tight">
                   Build skills.<br />
                   Shape your future.
                 </h1>
@@ -690,7 +690,7 @@ export default function Home() {
               {filteredCourses.map((course) => (
                 <div
                   key={course.id}
-                  className="w-[315px] sm:w-[350px] md:w-[370px] shrink-0 snap-start bg-white rounded-2xl border border-[#E5E7EB] hover:border-[#001752]/40 hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden group"
+                  className="w-[280px] sm:w-[350px] md:w-[370px] max-w-[85vw] shrink-0 snap-start bg-white rounded-2xl border border-[#E5E7EB] hover:border-[#001752]/40 hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden group"
                 >
                   <div>
                     {/* Top Urgency Header */}
