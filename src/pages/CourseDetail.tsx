@@ -414,7 +414,7 @@ Institute Location: Opposite Virar East Railway Station Subway.`;
             ══════════════════════════════════════════════════════════════════════ */}
         <section aria-label="Course Standards" className="bg-[#F6F7F9] py-8 border-b border-slate-200/70">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4" data-gsap="stagger-cards">
               
               <div className="bg-white rounded-2xl p-4 border border-[#E5E7EB] flex items-center gap-3">
                 <div className="w-10 h-10 rounded-xl bg-[#001752] text-white flex items-center justify-center shrink-0">
@@ -495,7 +495,7 @@ Institute Location: Opposite Virar East Railway Station Subway.`;
                 </p>
               </div>
 
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4" data-gsap="stagger-cards">
                 {tools.map((tool, idx) => (
                   <div
                     key={idx}
@@ -536,7 +536,7 @@ Institute Location: Opposite Virar East Railway Station Subway.`;
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6" data-gsap="stagger-cards">
                 {course.projects.map((proj, idx) => (
                   <div
                     key={idx}
@@ -663,7 +663,7 @@ Institute Location: Opposite Virar East Railway Station Subway.`;
             </div>
 
             {/* 3 Visual Advantage Cards with Photography & Ribbons */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-10">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-10" data-gsap="stagger-cards">
               
               {/* Card 01 - Zero Train Commute */}
               <div className="bg-[#F6F7F9] rounded-3xl border border-slate-200/80 overflow-hidden shadow-2xs hover:shadow-md hover:border-slate-300 transition-all flex flex-col justify-between relative group">

@@ -419,7 +419,7 @@ export default function Home() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start mb-8 sm:mb-10">
               
               {/* Left Column: Two-line Headline + Subtitle */}
-              <div className="lg:col-span-7 space-y-3">
+              <div className="lg:col-span-7 space-y-3" data-gsap="hero">
                 <h1 className="text-3xl sm:text-5xl lg:text-[62px] font-bold text-[#001752] font-heading leading-[1.08] tracking-tight">
                   Build skills.<br />
                   Shape your future.
@@ -430,7 +430,7 @@ export default function Home() {
               </div>
 
               {/* Right Column: Workstation Note, Dual Buttons, Subway Note */}
-              <div className="lg:col-span-5 flex flex-col lg:items-end space-y-4 pt-1 lg:pt-2">
+              <div className="lg:col-span-5 flex flex-col lg:items-end space-y-4 pt-1 lg:pt-2" data-gsap="hero">
                 <p className="text-xs sm:text-sm text-slate-600 lg:text-right max-w-sm">
                   100% individual workstation time, certification, and flexible batches.
                 </p>
@@ -462,7 +462,7 @@ export default function Home() {
             </div>
 
             {/* Dominant Hero Image Container with Rounded Corners */}
-            <div className="relative w-full rounded-2xl sm:rounded-3xl overflow-hidden aspect-[16/9] sm:aspect-[21/9] lg:aspect-[2.35/1] bg-slate-900 border border-slate-200">
+            <div className="relative w-full rounded-2xl sm:rounded-3xl overflow-hidden aspect-[16/9] sm:aspect-[21/9] lg:aspect-[2.35/1] bg-slate-900 border border-slate-200" data-gsap="scale-in">
               <img
                 src="/hero-lab.jpg"
                 alt="Students practicing in computer lab at RACE Virar East"
@@ -506,7 +506,7 @@ export default function Home() {
             </div>
 
             {/* Top Text Grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start mb-10 sm:mb-12">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start mb-10 sm:mb-12" data-gsap="fade-up">
               <div className="lg:col-span-7 space-y-2">
                 <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-[#001752] font-heading leading-tight tracking-tight">
                   Digital skills today.<br />
@@ -524,7 +524,7 @@ export default function Home() {
             </div>
 
             {/* Three White Metric Cards with Subtle Red Bottom Borders */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6" data-gsap="stagger-cards">
               
               {/* Card 1 */}
               <div className="bg-white rounded-2xl p-6 sm:p-8 border border-[#E5E7EB] border-b-2 border-b-[#C41E1E] shadow-2xs flex flex-col justify-between">
@@ -842,7 +842,7 @@ export default function Home() {
             </div>
 
             {/* Heading & Subtitle */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8 items-start mb-10 sm:mb-12">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8 items-start mb-10 sm:mb-12" data-gsap="fade-up">
               <div className="lg:col-span-7">
                 <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-[#001752] font-heading leading-tight tracking-tight">
                   From learning to<br />
@@ -857,7 +857,7 @@ export default function Home() {
             </div>
 
             {/* Top Row: 3 White Step Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 mb-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 mb-6" data-gsap="stagger-cards">
               
               {/* Step 01 */}
               <div className="bg-white rounded-2xl p-5 sm:p-6 border border-[#E5E7EB] shadow-2xs flex flex-col justify-between">
@@ -1020,19 +1020,21 @@ export default function Home() {
               </span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-[#001752] font-heading leading-tight tracking-tight mb-2">
-              More than learning.<br />
-              Building your future.
-            </h2>
-            <p className="text-xs sm:text-sm text-slate-600 font-normal mb-8 sm:mb-10">
-              Inside the classrooms and computer labs of RACE, Virar East.
-            </p>
+            <div data-gsap="fade-up">
+              <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-[#001752] font-heading leading-tight tracking-tight mb-2">
+                More than learning.<br />
+                Building your future.
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-600 font-normal mb-8 sm:mb-10">
+                Inside the classrooms and computer labs of RACE, Virar East.
+              </p>
+            </div>
 
             {/* Bento Grid Layout Matching Mockup */}
             <div className="space-y-4">
               
               {/* Row 1 */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-4" data-gsap="stagger-cards">
                 
                 {/* Photo 1: Lab Classroom (3 cols) */}
                 <div className="lg:col-span-3 relative rounded-2xl overflow-hidden aspect-[4/3] bg-slate-900 group">
@@ -1183,7 +1185,7 @@ export default function Home() {
             ══════════════════════════════════════════════════════════════════════ */}
         <section aria-label="Call to Action" className="bg-white py-10 sm:py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="bg-[#001752] text-white rounded-3xl p-6 sm:p-10 lg:p-12 shadow-xl border border-[#00113E]">
+            <div className="bg-[#001752] text-white rounded-3xl p-6 sm:p-10 lg:p-12 shadow-xl border border-[#00113E]" data-gsap="fade-up">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 
                 {/* Left Column */}

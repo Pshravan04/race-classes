@@ -167,7 +167,7 @@ ${message ? `*Notes:* ${message.trim()}` : ''}
           ══════════════════════════════════════════════════════════════════════ */}
       <section aria-label="Direct Channels" className="bg-[#F6F7F9] py-10 sm:py-14 border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6" data-gsap="stagger-cards">
             
             {/* Card 1: Telephone Lines */}
             <div className="bg-white p-6 sm:p-7 rounded-3xl border border-slate-200/80 shadow-2xs hover:shadow-md transition-all flex flex-col justify-between">
@@ -276,7 +276,7 @@ ${message ? `*Notes:* ${message.trim()}` : ''}
           ══════════════════════════════════════════════════════════════════════ */}
       <section className="py-14 sm:py-20 bg-white border-b border-slate-200/70" id="enquiry">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start" data-gsap="fade-up">
             
             {/* Left Column: Station Subway Walking Route & Live Photo */}
             <div className="lg:col-span-5 space-y-6">

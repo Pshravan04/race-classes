@@ -230,7 +230,7 @@ export default function Gallery() {
             <span className="hidden sm:inline text-slate-400">Raut Arcade 202, Opp. Virar East Railway Station</span>
           </nav>
 
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8" data-gsap="hero">
             <div className="max-w-3xl">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-xs font-bold tracking-wider uppercase mb-4 text-[#DF8383]">
                 <Sparkles size={13} />
@@ -274,7 +274,7 @@ export default function Gallery() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Interactive Filter Pills */}
-          <div className="flex flex-wrap items-center justify-between gap-4 mb-10 pb-6 border-b border-slate-200/80">
+          <div className="flex flex-wrap items-center justify-between gap-4 mb-10 pb-6 border-b border-slate-200/80" data-gsap="fade-up">
             <div className="flex flex-wrap gap-2">
               {CATEGORIES.map((cat) => (
                 <button
@@ -298,7 +298,7 @@ export default function Gallery() {
           </div>
 
           {/* Bento Grid Container */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 auto-rows-[220px] sm:auto-rows-[240px] gap-4 sm:gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 auto-rows-[220px] sm:auto-rows-[240px] gap-4 sm:gap-5" data-gsap="stagger-cards">
             {filteredItems.map((item) => (
               <div
                 key={item.id}

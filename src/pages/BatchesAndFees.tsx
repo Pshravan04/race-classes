@@ -136,7 +136,7 @@ export default function BatchesAndFees() {
             <span className="hidden sm:inline text-slate-400">Raut Arcade 202, Opp Virar Station Subway</span>
           </nav>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center" data-gsap="hero">
             
             {/* Left Column – Timetable Overview & Highlights */}
             <div className="lg:col-span-7">
@@ -334,7 +334,7 @@ export default function BatchesAndFees() {
           ══════════════════════════════════════════════════════════════════════ */}
       <section aria-label="Key Advantages" className="bg-[#F6F7F9] py-8 border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6" data-gsap="stagger-cards">
             <div className="flex items-center gap-3 bg-white p-4 rounded-2xl border border-slate-200 shadow-2xs">
               <div className="w-10 h-10 rounded-xl bg-[#FCF4F4] text-[#C41E1E] flex items-center justify-center shrink-0">
                 <Monitor size={20} />
@@ -434,7 +434,7 @@ export default function BatchesAndFees() {
           </div>
 
           {/* Batches Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5" data-gsap="stagger-cards">
             {filteredBatches.map((slot, index) => {
               const isLadies = slot.highlight;
               const isFillingFast = slot.status === 'Filling Fast';
