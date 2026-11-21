@@ -6,6 +6,95 @@ interface ToolLogoProps {
 export function ToolLogo({ name, className = 'w-5 h-5' }: ToolLogoProps) {
   const n = name.toLowerCase().trim();
 
+  // Windows 11 / Windows OS
+  if (n.includes('windows') || n.includes('win11') || n.includes('win 11')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24" fill="none">
+        <rect x="2" y="2" width="9.4" height="9.4" rx="1" fill="#0078D4" />
+        <rect x="12.6" y="2" width="9.4" height="9.4" rx="1" fill="#0078D4" />
+        <rect x="2" y="12.6" width="9.4" height="9.4" rx="1" fill="#0078D4" />
+        <rect x="12.6" y="12.6" width="9.4" height="9.4" rx="1" fill="#0078D4" />
+      </svg>
+    );
+  }
+
+  // MS Paint
+  if (n.includes('paint') || n.includes('mspaint')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24" fill="none">
+        <path
+          d="M12 2C6.48 2 2 6.48 2 12c0 3.31 1.61 6.24 4.1 8.04.53.39 1.25.13 1.44-.48.24-.76.71-2.28 1.96-2.28h1.5c2.76 0 5-2.24 5-5 0-.46-.07-.9-.19-1.32.74-.26 1.44-.68 2.05-1.24 2.52-2.34 2.37-6.04-.3-8.18C15.93 2.58 14.03 2 12 2z"
+          fill="#FAF8F5"
+          stroke="#CBD5E1"
+          strokeWidth="0.8"
+        />
+        <circle cx="6.5" cy="8" r="1.5" fill="#EF4444" />
+        <circle cx="10" cy="5.5" r="1.5" fill="#F59E0B" />
+        <circle cx="14.5" cy="6" r="1.5" fill="#10B981" />
+        <circle cx="6" cy="12.5" r="1.5" fill="#3B82F6" />
+        <circle cx="9.5" cy="14" r="1.4" fill="#8B5CF6" />
+        <ellipse cx="14" cy="13.5" rx="1.5" ry="1.2" fill="#E2E8F0" />
+        <path d="M19.5 4.5l-4 4 1.5 1.5 4-4a1 1 0 000-1.4l-.1-.1a1 1 0 00-1.4 0z" fill="#C2410C" />
+        <path d="M15.5 8.5l-1 1 .5.5 1-1-.5-.5z" fill="#94A3B8" />
+        <path d="M14.5 9.5c-.5.5-1.2 1.5-1 2 .5.2 1.5-.5 2-1l-1-1z" fill="#3B82F6" />
+      </svg>
+    );
+  }
+
+  // Typing / Typing Master / GCC-TBC / Speed / Accuracy
+  if (n.includes('typing') || n.includes('tbc') || n.includes('wpm') || n.includes('accuracy') || n.includes('keyboard')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24" fill="none">
+        <rect x="2" y="4" width="20" height="16" rx="3" fill="#001752" />
+        {/* Row 1 */}
+        <rect x="4" y="6" width="2.2" height="2.2" rx="0.5" fill="#FFFFFF" fillOpacity="0.85" />
+        <rect x="7.2" y="6" width="2.2" height="2.2" rx="0.5" fill="#FFFFFF" fillOpacity="0.85" />
+        <rect x="10.4" y="6" width="2.2" height="2.2" rx="0.5" fill="#FFFFFF" fillOpacity="0.85" />
+        <rect x="13.6" y="6" width="2.2" height="2.2" rx="0.5" fill="#FFFFFF" fillOpacity="0.85" />
+        <rect x="16.8" y="6" width="3.2" height="2.2" rx="0.5" fill="#C41E1E" />
+        {/* Row 2 - Home Row */}
+        <rect x="4" y="9.5" width="2.5" height="2.2" rx="0.5" fill="#FFFFFF" fillOpacity="0.85" />
+        <rect x="7.5" y="9.5" width="2.2" height="2.2" rx="0.5" fill="#38BDF8" />
+        <rect x="10.7" y="9.5" width="2.2" height="2.2" rx="0.5" fill="#38BDF8" />
+        <rect x="13.9" y="9.5" width="2.2" height="2.2" rx="0.5" fill="#FFFFFF" fillOpacity="0.85" />
+        <rect x="17.1" y="9.5" width="2.9" height="2.2" rx="0.5" fill="#FFFFFF" fillOpacity="0.85" />
+        {/* Row 3 - Spacebar */}
+        <rect x="4" y="13" width="3.2" height="2.2" rx="0.5" fill="#FFFFFF" fillOpacity="0.85" />
+        <rect x="8.2" y="13" width="7.6" height="2.2" rx="0.5" fill="#F59E0B" />
+        <rect x="16.8" y="13" width="3.2" height="2.2" rx="0.5" fill="#FFFFFF" fillOpacity="0.85" />
+        {/* Base border */}
+        <path d="M4 17.5h16" stroke="#FFFFFF" strokeOpacity="0.3" strokeWidth="1" strokeLinecap="round" />
+      </svg>
+    );
+  }
+
+  // Internet / Chrome / Browser
+  if (n.includes('internet') || n.includes('chrome') || n.includes('browser')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="12" r="10" fill="#FFFFFF" />
+        <path d="M12 2A10 10 0 0 0 3.34 7.03L7.67 14.5A5 5 0 0 1 12 7h9.54A10 10 0 0 0 12 2z" fill="#EA4335" />
+        <path d="M3.34 7.03A10 10 0 0 0 12 22l4.33-7.5A5 5 0 0 1 7.67 14.5L3.34 7.03z" fill="#34A853" />
+        <path d="M21.54 7H12a5 5 0 0 1 4.33 7.5L12 22a10 10 0 0 0 9.54-15z" fill="#FBBC05" />
+        <circle cx="12" cy="12" r="5" fill="#FFFFFF" />
+        <circle cx="12" cy="12" r="3.8" fill="#4285F4" />
+      </svg>
+    );
+  }
+
+  // Gmail / Email
+  if (n.includes('gmail') || n.includes('email') || n.includes('mail')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24" fill="none">
+        <path d="M4 19V7.8a1.5 1.5 0 0 1 2.4-1.2L12 11l5.6-4.4A1.5 1.5 0 0 1 20 7.8V19a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 19z" fill="#FFFFFF" />
+        <path d="M4 19V8l5 4v7.5H5.5A1.5 1.5 0 0 1 4 19z" fill="#4285F4" />
+        <path d="M20 19V8l-5 4v7.5h3.5a1.5 1.5 0 0 0 1.5-1.5z" fill="#34A853" />
+        <path d="M4 8l8 6 8-6v-1a1.5 1.5 0 0 0-2.4-1.2L12 10.2 6.4 5.8A1.5 1.5 0 0 0 4 7v1z" fill="#EA4335" />
+        <path d="M17.6 5.8l-5.6 4.4L6.4 5.8A1.5 1.5 0 0 1 8.5 4.5l3.5 2.8 3.5-2.8a1.5 1.5 0 0 1 2.1 1.3z" fill="#FBBC05" />
+      </svg>
+    );
+  }
+
   // Python
   if (n.includes('python')) {
     return (
@@ -55,12 +144,76 @@ export function ToolLogo({ name, className = 'w-5 h-5' }: ToolLogoProps) {
     );
   }
 
-  // Excel
+  // Excel / Advanced Excel
   if (n.includes('excel')) {
     return (
       <svg className={className} viewBox="0 0 24 24">
         <rect x="3" y="3" width="18" height="18" rx="3" fill="#107C41" />
         <path d="M7 7l4.5 5L7 17h2.5l3.2-3.8L16 17h2.5l-4.5-5 4.5-5H16l-3.3 3.8L9.5 7H7z" fill="#FFFFFF" />
+      </svg>
+    );
+  }
+
+  // Word / MS Word
+  if (n.includes('word')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24">
+        <rect width="24" height="24" rx="3" fill="#2B579A" />
+        <path d="M6 6.5l3 11 3-9 3 9 3-11h-2.2l-1.9 8-2.9-8h-2l-2.9 8-1.9-8H6z" fill="#FFFFFF" />
+      </svg>
+    );
+  }
+
+  // PowerPoint
+  if (n.includes('powerpoint') || n.includes('ppt')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24">
+        <rect width="24" height="24" rx="3" fill="#D24726" />
+        <path d="M8 6h5c2.5 0 4 1.5 4 3.5s-1.5 3.5-4 3.5h-2.5V18H8V6zm2.5 5h2c1.2 0 1.8-.6 1.8-1.5s-.6-1.5-1.8-1.5h-2V11z" fill="#FFFFFF" />
+      </svg>
+    );
+  }
+
+  // Outlook
+  if (n.includes('outlook')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24" fill="none">
+        <rect x="2" y="4" width="20" height="16" rx="3" fill="#0078D4" />
+        <path d="M2 7l10 7 10-7" stroke="#FFFFFF" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+        <circle cx="8" cy="12" r="4.5" fill="#004C8C" />
+        <text x="8" y="15" textAnchor="middle" fill="#FFFFFF" fontSize="9" fontWeight="bold" fontFamily="sans-serif">O</text>
+      </svg>
+    );
+  }
+
+  // OneDrive
+  if (n.includes('onedrive') || n.includes('drive')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24" fill="none">
+        <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z" fill="#0078D4" />
+      </svg>
+    );
+  }
+
+  // Power BI
+  if (n.includes('power bi') || n.includes('powerbi')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24" fill="none">
+        <rect x="3" y="13" width="4.5" height="8" rx="1.5" fill="#F2C811" />
+        <rect x="9.75" y="8" width="4.5" height="13" rx="1.5" fill="#E8B20B" />
+        <rect x="16.5" y="3" width="4.5" height="18" rx="1.5" fill="#D39700" />
+      </svg>
+    );
+  }
+
+  // Pandas
+  if (n.includes('pandas')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24" fill="none">
+        <rect width="24" height="24" rx="4" fill="#150458" />
+        <rect x="5" y="7" width="3" height="10" rx="1" fill="#FF4D5A" />
+        <rect x="10.5" y="5" width="3" height="14" rx="1" fill="#FFDE59" />
+        <rect x="16" y="9" width="3" height="8" rx="1" fill="#00D2B4" />
       </svg>
     );
   }
@@ -97,6 +250,27 @@ export function ToolLogo({ name, className = 'w-5 h-5' }: ToolLogoProps) {
     );
   }
 
+  // React
+  if (n.includes('react')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24" fill="#00D8FF">
+        <ellipse cx="12" cy="12" rx="3.5" ry="9" transform="rotate(30 12 12)" fill="none" stroke="#00D8FF" strokeWidth="1.2" />
+        <ellipse cx="12" cy="12" rx="3.5" ry="9" transform="rotate(90 12 12)" fill="none" stroke="#00D8FF" strokeWidth="1.2" />
+        <ellipse cx="12" cy="12" rx="3.5" ry="9" transform="rotate(150 12 12)" fill="none" stroke="#00D8FF" strokeWidth="1.2" />
+        <circle cx="12" cy="12" r="1.8" fill="#00D8FF" />
+      </svg>
+    );
+  }
+
+  // Node.js
+  if (n.includes('node')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24" fill="#339933">
+        <path d="M12 2l9 5.2v10.4l-9 5.2-9-5.2V7.2L12 2zm0 2.3L4.8 8.5v7l7.2 4.2 7.2-4.2v-7L12 4.3z" />
+      </svg>
+    );
+  }
+
   // CSS
   if (n.includes('css')) {
     return (
@@ -115,6 +289,46 @@ export function ToolLogo({ name, className = 'w-5 h-5' }: ToolLogoProps) {
         <path d="M3 2l1.8 18.5L12 23l7.2-2.5L21 2H3z" fill="#E44D26" />
         <path d="M12 3.7v17.4l5.6-1.9L19.2 3.7H12z" fill="#F16529" />
         <path d="M7 6.5h10l-.9 10.2-4.1 1.2-4.1-1.2-.3-3.5h2.2l.1 1.7 2.1.6 2.1-.6.3-3.7H7.4L7 6.5z" fill="#FFFFFF" />
+      </svg>
+    );
+  }
+
+  // SQL / Database / MongoDB / PostgreSQL / MySQL
+  if (n.includes('sql') || n.includes('database') || n.includes('postgres') || n.includes('mysql') || n.includes('mongo')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24" fill="none">
+        <ellipse cx="12" cy="5" rx="8" ry="3" fill="#336791" />
+        <path d="M4 5v5c0 1.66 3.58 3 8 3s8-1.34 8-3V5" stroke="#1D4060" strokeWidth="1.2" fill="#336791" fillOpacity="0.85" />
+        <path d="M4 10v5c0 1.66 3.58 3 8 3s8-1.34 8-3v-5" stroke="#1D4060" strokeWidth="1.2" fill="#336791" fillOpacity="0.9" />
+        <path d="M4 15v4c0 1.66 3.58 3 8 3s8-1.34 8-3v-4" stroke="#1D4060" strokeWidth="1.2" fill="#336791" />
+      </svg>
+    );
+  }
+
+  // Git / GitHub
+  if (n.includes('git')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24" fill="#F05032">
+        <path d="M21.6 10.6L13.4 2.4a1.8 1.8 0 00-2.6 0L8.7 4.5l3.3 3.3a2.1 2.1 0 012.7 2.7l3.2 3.2a2.1 2.1 0 012-1.3c.7 0 1.4.3 1.9.8.9.9.9 2.5 0 3.4a2.4 2.4 0 01-3.4 0 2.4 2.4 0 01-.6-2.5l-3-3v4.6a2.1 2.1 0 01.6 1.5c0 1.2-1 2.2-2.2 2.2s-2.2-1-2.2-2.2c0-.6.3-1.2.7-1.6V8.9a2.1 2.1 0 01-.7-1.6c0-.8.4-1.5 1-1.9L8.4 2.1 2.4 8.1a1.8 1.8 0 000 2.6l8.2 8.2a1.8 1.8 0 002.6 0l8.4-8.3a1.8 1.8 0 000-2.6z" />
+      </svg>
+    );
+  }
+
+  // Docker
+  if (n.includes('docker')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24" fill="#2496ED">
+        <path d="M22.5 10.5c-.3-.2-1.3-.4-2-.2-.5-1.1-1.3-1.6-1.4-1.7l-.4.3c.5.8.5 2 .4 2.4-1.2.8-3 .7-4.4.7H2.8C2 13.3 2 15 3.3 16.8c2 2.6 5.3 3.2 8.7 3.2 5.5 0 9.7-2.6 10.7-7.4v-.3c0-.9-.2-1.5-.2-1.8zm-9.3-4.8h1.8v1.8h-1.8V5.7zm-2.4 0h1.8v1.8h-1.8V5.7zm-2.4 0h1.8v1.8H8.4V5.7zm4.8 2.4h1.8v1.8h-1.8V8.1zm-2.4 0h1.8v1.8h-1.8V8.1zm-2.4 0h1.8v1.8H8.4V8.1zm-2.4 0H8v1.8H6V8.1z" />
+      </svg>
+    );
+  }
+
+  // Kubernetes
+  if (n.includes('k8s') || n.includes('kubernetes')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24" fill="#326CE5">
+        <circle cx="12" cy="12" r="10" fill="#326CE5" />
+        <path d="M12 5l5 3v6l-5 3-5-3V8l5-3zm0 2.2L8.5 9.2v4.6l3.5 2 3.5-2V9.2L12 7.2z" fill="#FFFFFF" />
       </svg>
     );
   }
@@ -160,69 +374,53 @@ export function ToolLogo({ name, className = 'w-5 h-5' }: ToolLogoProps) {
     );
   }
 
-  // Docker
-  if (n.includes('docker')) {
-    return (
-      <svg className={className} viewBox="0 0 24 24" fill="#2496ED">
-        <path d="M22.5 10.5c-.3-.2-1.3-.4-2-.2-.5-1.1-1.3-1.6-1.4-1.7l-.4.3c.5.8.5 2 .4 2.4-1.2.8-3 .7-4.4.7H2.8C2 13.3 2 15 3.3 16.8c2 2.6 5.3 3.2 8.7 3.2 5.5 0 9.7-2.6 10.7-7.4v-.3c0-.9-.2-1.5-.2-1.8zm-9.3-4.8h1.8v1.8h-1.8V5.7zm-2.4 0h1.8v1.8h-1.8V5.7zm-2.4 0h1.8v1.8H8.4V5.7zm4.8 2.4h1.8v1.8h-1.8V8.1zm-2.4 0h1.8v1.8h-1.8V8.1zm-2.4 0h1.8v1.8H8.4V8.1zm-2.4 0H8v1.8H6V8.1z" />
-      </svg>
-    );
-  }
-
   // Tally / TallyPrime
   if (n.includes('tally')) {
     return (
-      <svg className={className} viewBox="0 0 24 24">
-        <circle cx="12" cy="12" r="10" fill="#E51B24" />
-        <text x="12" y="16.5" textAnchor="middle" fill="#FFFFFF" fontSize="13" fontWeight="900" fontFamily="sans-serif">T</text>
+      <svg className={className} viewBox="0 0 24 24" fill="none">
+        <rect width="24" height="24" rx="4" fill="#001752" />
+        <path d="M4 6h16v3.5H14.5V18h-4.5V9.5H4V6z" fill="#FFE052" />
+        <circle cx="18" cy="16" r="2.5" fill="#C41E1E" />
       </svg>
     );
   }
 
-  // GST
+  // GST / GST Portal
   if (n.includes('gst')) {
     return (
       <svg className={className} viewBox="0 0 24 24">
         <rect width="24" height="24" rx="4" fill="#1A365D" />
-        <text x="12" y="16" textAnchor="middle" fill="#F5BE4F" fontSize="9" fontWeight="900" fontFamily="sans-serif">GST</text>
+        <circle cx="12" cy="12" r="8.5" stroke="#F5BE4F" strokeWidth="1.2" fill="none" />
+        <text x="12" y="15.5" textAnchor="middle" fill="#F5BE4F" fontSize="8" fontWeight="900" fontFamily="sans-serif">GST</text>
       </svg>
     );
   }
 
-  // Word
-  if (n.includes('word')) {
+  // E-Way Bill
+  if (n.includes('e-way') || n.includes('eway') || n.includes('bill')) {
     return (
-      <svg className={className} viewBox="0 0 24 24">
-        <rect width="24" height="24" rx="3" fill="#2B579A" />
-        <path d="M6 6.5l3 11 3-9 3 9 3-11h-2.2l-1.9 8-2.9-8h-2l-2.9 8-1.9-8H6z" fill="#FFFFFF" />
+      <svg className={className} viewBox="0 0 24 24" fill="none">
+        <rect width="24" height="24" rx="4" fill="#0D9488" />
+        <path d="M4 14h9V8H4v6zm9 0h3l3 3v2h-1a2 2 0 01-4 0h-3v-2a2 2 0 01-4 0H6" stroke="#FFFFFF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        <circle cx="8" cy="17" r="1.5" fill="#FFFFFF" />
+        <circle cx="16" cy="17" r="1.5" fill="#FFFFFF" />
       </svg>
     );
   }
 
-  // PowerPoint
-  if (n.includes('powerpoint')) {
+  // Income Tax / TDS Software
+  if (n.includes('tax') || n.includes('tds') || n.includes('payroll')) {
     return (
-      <svg className={className} viewBox="0 0 24 24">
-        <rect width="24" height="24" rx="3" fill="#D24726" />
-        <path d="M8 6h5c2.5 0 4 1.5 4 3.5s-1.5 3.5-4 3.5h-2.5V18H8V6zm2.5 5h2c1.2 0 1.8-.6 1.8-1.5s-.6-1.5-1.8-1.5h-2V11z" fill="#FFFFFF" />
+      <svg className={className} viewBox="0 0 24 24" fill="none">
+        <rect width="24" height="24" rx="4" fill="#1E3A8A" />
+        <path d="M6 5h12v14H6V5z" stroke="#F59E0B" strokeWidth="1.5" />
+        <path d="M9 9h6M9 13h6M9 16h4" stroke="#FFFFFF" strokeWidth="1.5" strokeLinecap="round" />
       </svg>
     );
   }
 
-  // React
-  if (n.includes('react')) {
-    return (
-      <svg className={className} viewBox="0 0 24 24" fill="#00D8FF">
-        <ellipse cx="12" cy="12" rx="3.5" ry="9" transform="rotate(30 12 12)" fill="none" stroke="#00D8FF" strokeWidth="1.2" />
-        <ellipse cx="12" cy="12" rx="3.5" ry="9" transform="rotate(90 12 12)" fill="none" stroke="#00D8FF" strokeWidth="1.2" />
-        <ellipse cx="12" cy="12" rx="3.5" ry="9" transform="rotate(150 12 12)" fill="none" stroke="#00D8FF" strokeWidth="1.2" />
-        <circle cx="12" cy="12" r="1.8" fill="#00D8FF" />
-      </svg>
-    );
-  }
-
-  // Google Ads / Analytics
-  if (n.includes('google') || n.includes('seo') || n.includes('ads')) {
+  // Google Ads / Search Console / Analytics
+  if (n.includes('google') || n.includes('ads') || n.includes('console')) {
     return (
       <svg className={className} viewBox="0 0 24 24">
         <path d="M12 4.5c2.1 0 3.8.7 5.1 1.9l3.8-3.8C18.6 1 15.6 0 12 0 7.3 0 3.3 2.7 1.4 6.7l4.4 3.4C6.9 7.2 9.2 4.5 12 4.5z" fill="#EA4335" />
@@ -233,11 +431,44 @@ export function ToolLogo({ name, className = 'w-5 h-5' }: ToolLogoProps) {
     );
   }
 
-  // Meta / Facebook
-  if (n.includes('meta')) {
+  // Meta / Facebook Ads
+  if (n.includes('meta') || n.includes('facebook')) {
     return (
       <svg className={className} viewBox="0 0 24 24" fill="#0668E1">
         <path d="M12 14.5c-1.5-1.7-2.6-3.3-3.6-4.5C6.7 7.9 4.7 7 2.8 8.4 1 9.8.5 12.3 1.4 14.3c1 2.2 3.2 3.4 5.3 2.7 1.7-.6 3.1-2 5.3-2.5zm0 0c1.5-1.7 2.6-3.3 3.6-4.5 1.7-2.1 3.7-3 5.6-1.6 1.8 1.4 2.3 3.9 1.4 5.9-1 2.2-3.2 3.4-5.3 2.7-1.7-.6-3.1-2-5.3-2.5z" />
+      </svg>
+    );
+  }
+
+  // GA4 / Google Analytics
+  if (n.includes('ga4') || n.includes('analytics')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24" fill="none">
+        <rect width="24" height="24" rx="4" fill="#F9AB00" />
+        <rect x="5" y="14" width="3" height="5" rx="1" fill="#FFFFFF" />
+        <rect x="10.5" y="9" width="3" height="10" rx="1" fill="#FFFFFF" />
+        <rect x="16" y="5" width="3" height="14" rx="1" fill="#FFFFFF" />
+      </svg>
+    );
+  }
+
+  // SEO / Search Optimization
+  if (n.includes('seo')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24" fill="none">
+        <circle cx="10" cy="10" r="6" stroke="#2563EB" strokeWidth="2.5" />
+        <path d="M15 15l5 5" stroke="#2563EB" strokeWidth="2.5" strokeLinecap="round" />
+        <path d="M7 11l2-2 2 2 3-3" stroke="#10B981" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    );
+  }
+
+  // Canva
+  if (n.includes('canva')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="12" r="10" fill="#00C4CC" />
+        <path d="M15.5 9.5c-.8-1-2.2-1.3-3.6-.8-2 .7-3.3 2.9-2.9 5 .3 1.6 1.8 2.6 3.4 2.1 1.2-.4 1.9-1.3 2.3-2.2.3-.6-.2-1.1-.8-.9-.5.2-1 .5-1.7.6-1 .2-1.8-.4-2-1.3-.2-1.1.5-2.2 1.6-2.6.8-.3 1.6-.1 2 .4.3.4.9.4 1.1-.1.1-.3.1-.6-.4-.8z" fill="#FFFFFF" />
       </svg>
     );
   }
@@ -264,20 +495,183 @@ export function ToolLogo({ name, className = 'w-5 h-5' }: ToolLogoProps) {
     );
   }
 
-  // Linux / Kali
-  if (n.includes('linux')) {
+  // CorelDRAW
+  if (n.includes('corel')) {
     return (
-      <svg className={className} viewBox="0 0 24 24" fill="#FCC624">
-        <path d="M12 2c-3.1 0-4.5 2.2-4.5 4.8 0 1.2.4 2.5 1 3.4-.6 1.1-1.5 2.8-1.5 4.8 0 3.2 2.2 5 5 5s5-1.8 5-5c0-2-1-3.7-1.5-4.8.6-.9 1-2.2 1-3.4C16.5 4.2 15.1 2 12 2z" />
+      <svg className={className} viewBox="0 0 24 24" fill="none">
+        <rect width="24" height="24" rx="4" fill="#00A550" />
+        <path d="M12 4c-3.5 0-6 2.5-6 6 0 3.8 3.5 7.5 6 9.5 2.5-2 6-5.7 6-9.5 0-3.5-2.5-6-6-6zm0 9.5c-1.9 0-3.5-1.6-3.5-3.5S10.1 6.5 12 6.5s3.5 1.6 3.5 3.5-1.6 3.5-3.5 3.5z" fill="#FFFFFF" />
+        <circle cx="12" cy="10" r="2" fill="#FFCC00" />
       </svg>
     );
   }
 
-  // Wireshark / Security
+  // InDesign
+  if (n.includes('indesign')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24">
+        <rect width="24" height="24" rx="4" fill="#49021F" />
+        <text x="6" y="16.5" fill="#FF3366" fontSize="11" fontWeight="bold" fontFamily="sans-serif">I</text>
+        <text x="12" y="16.5" fill="#FF3366" fontSize="11" fontWeight="bold" fontFamily="sans-serif">d</text>
+      </svg>
+    );
+  }
+
+  // Behance
+  if (n.includes('behance')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24" fill="#053EFF">
+        <rect width="24" height="24" rx="4" />
+        <text x="12" y="16.5" textAnchor="middle" fill="#FFFFFF" fontSize="12" fontWeight="bold" fontFamily="sans-serif">Bē</text>
+      </svg>
+    );
+  }
+
+  // Linux / Kali Linux
+  if (n.includes('linux') || n.includes('kali') || n.includes('bash')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24" fill="#FCC624">
+        <circle cx="12" cy="12" r="10" fill="#24292E" />
+        <path d="M12 4c-2.8 0-4 2-4 4.3 0 1.1.4 2.2.9 3-.5 1-1.3 2.5-1.3 4.3 0 2.8 2 4.4 4.4 4.4s4.4-1.6 4.4-4.4c0-1.8-.8-3.3-1.3-4.3.5-.8.9-1.9.9-3C16 6 14.8 4 12 4z" fill="#FFFFFF" />
+        <circle cx="10.5" cy="7.5" r="1" fill="#000000" />
+        <circle cx="13.5" cy="7.5" r="1" fill="#000000" />
+        <path d="M11 9.5h2l-1 1.5-1-1.5z" fill="#FFA500" />
+      </svg>
+    );
+  }
+
+  // Wireshark / Network Security / Nmap
   if (n.includes('wire') || n.includes('security') || n.includes('nmap')) {
     return (
       <svg className={className} viewBox="0 0 24 24" fill="#1679A7">
         <path d="M12 2L4 5v6.1c0 5 3.4 9.7 8 10.9 4.6-1.2 8-5.9 8-10.9V5l-8-3zm0 2.2l6 2.3v4.6c0 4-2.6 7.7-6 8.7-3.4-1-6-4.7-6-8.7V6.5l6-2.3z" />
+      </svg>
+    );
+  }
+
+  // Metasploit
+  if (n.includes('metasploit')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24" fill="none">
+        <rect width="24" height="24" rx="4" fill="#132B45" />
+        <path d="M6 18V6l6 8 6-8v12h-3v-6.5l-3 4-3-4V18H6z" fill="#00A4E4" />
+      </svg>
+    );
+  }
+
+  // Burp Suite
+  if (n.includes('burp')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24" fill="none">
+        <rect width="24" height="24" rx="4" fill="#FF6633" />
+        <text x="12" y="16.5" textAnchor="middle" fill="#FFFFFF" fontSize="11" fontWeight="bold" fontFamily="sans-serif">B</text>
+      </svg>
+    );
+  }
+
+  // Selenium
+  if (n.includes('selenium')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24">
+        <rect width="24" height="24" rx="4" fill="#43B02A" />
+        <text x="6" y="16.5" fill="#FFFFFF" fontSize="11" fontWeight="bold" fontFamily="sans-serif">Se</text>
+      </svg>
+    );
+  }
+
+  // Jira
+  if (n.includes('jira')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24" fill="#0052CC">
+        <path d="M11.5 2.5C6.5 7.5 6.5 15.5 11.5 20.5l1-1C8 15 8 8 12.5 3.5l-1-1z" />
+        <path d="M16 7c-3.5 3.5-3.5 9.5 0 13l1-1c-3-3-3-8 0-11l-1-1z" fill="#2684FF" />
+      </svg>
+    );
+  }
+
+  // Postman
+  if (n.includes('postman')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24" fill="#FF6C37">
+        <circle cx="12" cy="12" r="10" />
+        <path d="M17 12l-6-4v3H7v2h4v3l6-4z" fill="#FFFFFF" />
+      </svg>
+    );
+  }
+
+  // ChatGPT / OpenAI
+  if (n.includes('chatgpt') || n.includes('openai') || n.includes('gpt')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24" fill="none">
+        <rect width="24" height="24" rx="4" fill="#10A37F" />
+        <circle cx="12" cy="12" r="6" stroke="#FFFFFF" strokeWidth="2" />
+        <circle cx="12" cy="12" r="2.5" fill="#FFFFFF" />
+      </svg>
+    );
+  }
+
+  // Claude
+  if (n.includes('claude')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24" fill="none">
+        <rect width="24" height="24" rx="4" fill="#D97757" />
+        <path d="M12 5v14M5 12h14" stroke="#FFFFFF" strokeWidth="2.5" strokeLinecap="round" />
+      </svg>
+    );
+  }
+
+  // Gemini
+  if (n.includes('gemini')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24" fill="none">
+        <rect width="24" height="24" rx="4" fill="#1B73E8" />
+        <path d="M12 4C12 8.4 8.4 12 4 12c4.4 0 8 3.6 8 8 0-4.4 3.6-8 8-8-4.4 0-8-3.6-8-8z" fill="#FFFFFF" />
+      </svg>
+    );
+  }
+
+  // Midjourney / DALL-E
+  if (n.includes('midjourney') || n.includes('dall-e') || n.includes('dalle')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24" fill="none">
+        <rect width="24" height="24" rx="4" fill="#1E1B4B" />
+        <polygon points="12,3 21,19 3,19" stroke="#A855F7" strokeWidth="2" fill="none" />
+        <circle cx="12" cy="14" r="2" fill="#E879F9" />
+      </svg>
+    );
+  }
+
+  // Tesseract OCR / OCR
+  if (n.includes('ocr') || n.includes('tesseract')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24" fill="none">
+        <rect width="24" height="24" rx="4" fill="#4F46E5" />
+        <rect x="5" y="5" width="14" height="14" rx="2" stroke="#FFFFFF" strokeWidth="1.5" />
+        <path d="M8 12h8M12 8v8" stroke="#38BDF8" strokeWidth="1.5" strokeLinecap="round" />
+      </svg>
+    );
+  }
+
+  // FinModel / Valuation / M&A / Finance
+  if (n.includes('model') || n.includes('valuation') || n.includes('m&a') || n.includes('finance')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24" fill="none">
+        <rect width="24" height="24" rx="4" fill="#047857" />
+        <path d="M5 16l4-5 4 3 6-7" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M15 7h4v4" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    );
+  }
+
+  // Hardware / PC Assembly / Motherboard / Troubleshooting
+  if (n.includes('hardware') || n.includes('assembly') || n.includes('motherboard') || n.includes('bios') || n.includes('cabling')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24" fill="none">
+        <rect width="24" height="24" rx="4" fill="#334155" />
+        <rect x="5" y="5" width="14" height="14" rx="2" stroke="#38BDF8" strokeWidth="1.5" />
+        <circle cx="9" cy="9" r="1.5" fill="#F59E0B" />
+        <circle cx="15" cy="9" r="1.5" fill="#10B981" />
+        <rect x="8" y="13" width="8" height="3" rx="0.5" fill="#FFFFFF" />
       </svg>
     );
   }
@@ -332,17 +726,18 @@ export function ToolLogo({ name, className = 'w-5 h-5' }: ToolLogoProps) {
         <rect width="24" height="24" rx="4" fill="#15803D" />
         <path d="M16 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" stroke="#FFFFFF" strokeWidth="1.8" strokeLinecap="round" />
         <circle cx="10" cy="7" r="4" stroke="#FFFFFF" strokeWidth="1.8" />
-        <path d="M16 11l2 2 4-4" stroke="#A2D016" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M16 11l2 2 4-4" stroke="#FFE052" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     );
   }
 
-  // Default tech chip
+  // Default tech chip - polished with brand navy and red border
   return (
-    <svg className={className} viewBox="0 0 24 24">
-      <rect width="24" height="24" rx="4" fill="#0e2340" />
-      <text x="12" y="16" textAnchor="middle" fill="#FFFFFF" fontSize="10" fontWeight="bold" fontFamily="sans-serif">
-        {name.substring(0, 2).toUpperCase()}
+    <svg className={className} viewBox="0 0 24 24" fill="none">
+      <rect width="24" height="24" rx="4" fill="#001752" />
+      <rect x="0.5" y="0.5" width="23" height="23" rx="3.5" stroke="#C41E1E" strokeWidth="1" strokeOpacity="0.4" />
+      <text x="12" y="15.5" textAnchor="middle" fill="#FFFFFF" fontSize="9" fontWeight="900" fontFamily="sans-serif">
+        {name.substring(0, 3).toUpperCase()}
       </text>
     </svg>
   );
@@ -390,6 +785,12 @@ export function getCuratedToolsForCourse(courseId: string, courseName: string, e
   }
   if (id.includes('graphic') || id.includes('photoshop') || id.includes('illustrator')) {
     return ['Photoshop', 'Illustrator', 'CorelDRAW', 'InDesign', 'Canva'];
+  }
+  if (id.includes('prompt') || id.includes('ai-prompt') || name.includes('prompt')) {
+    return ['ChatGPT', 'Claude', 'Google Gemini', 'Midjourney', 'Canva'];
+  }
+  if (id.includes('hardware') || id.includes('a-plus') || id.includes('n-plus')) {
+    return ['PC Assembly', 'Motherboard', 'BIOS Setup', 'Troubleshooting', 'LAN Cabling'];
   }
 
   if (existingTools && existingTools.length >= 3) {

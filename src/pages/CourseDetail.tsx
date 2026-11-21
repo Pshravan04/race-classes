@@ -499,12 +499,15 @@ Institute Location: Opposite Virar East Railway Station Subway.`;
                     key={idx}
                     className="bg-white rounded-2xl p-5 border border-[#E5E7EB] shadow-2xs hover:border-[#001752]/40 hover:shadow-md transition-all flex flex-col items-center justify-center text-center group"
                   >
-                    <div className="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
-                      <ToolLogo name={tool} className="w-7 h-7 object-contain" />
+                    <div className="w-14 h-14 rounded-2xl bg-[#F6F7F9] border border-slate-200/60 flex items-center justify-center mb-3 group-hover:scale-110 group-hover:border-[#001752]/20 transition-all shadow-2xs">
+                      <ToolLogo name={tool} className="w-8 h-8 object-contain" />
                     </div>
-                    <strong className="text-xs font-bold text-[#001752] line-clamp-1 w-full">
+                    <strong className="text-xs sm:text-sm font-bold text-[#001752] line-clamp-1 w-full">
                       {tool}
                     </strong>
+                    <span className="text-[10px] text-slate-400 font-medium mt-1">
+                      Hands-on Lab
+                    </span>
                   </div>
                 ))}
               </div>
