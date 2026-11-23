@@ -70,11 +70,11 @@ const SLIDES: Slide[] = [
     image: '/images/real-lab-wide.jpg',
     badge: 'Direct Railway Station Access',
     badgeColor: 'bg-[#0e2340] text-white',
-    title: 'Modern Lab Infrastructure · 5,000+ Alumni Since 2014',
+    title: 'Modern Lab Infrastructure · 500+ Alumni Since 2014',
     description: 'High-speed broadband, uninterrupted power backup, ergonomic seating, and licensed software. Eliminate exhausting travel to distant cities.',
     stats: [
       { label: 'Walk from Station', value: '2 Minutes Flat' },
-      { label: 'Alumni Network', value: '5,000+ Trained' },
+      { label: 'Alumni Network', value: '500+ Trained' },
       { label: 'Support', value: 'Free Lifetime Doubts' }
     ]
   }

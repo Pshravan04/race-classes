@@ -18,6 +18,7 @@ import {
 } from 'lucide-react';
 import SEO from '../components/SEO';
 import { SITE_CONFIG, COURSES } from '../data/config';
+import { submitToGoogleSheets } from '../services/googleSheets';
 
 const CONTACT_FAQS = [
   {
@@ -69,6 +70,17 @@ export default function Contact() {
     const goalLabel = 
       inquiryGoal === 'demo' ? 'Book Free 1:1 Demo Class' :
       inquiryGoal === 'fees' ? 'Fee Breakdown & 50% Concession' : 'Career Counseling';
+
+    // Submit lead directly to Google Sheets
+    submitToGoogleSheets({
+      name: fullName,
+      phone,
+      course,
+      batch: preferredBatch,
+      goal: goalLabel,
+      message,
+      formSource: 'Contact Page Inquiry Form',
+    });
 
     const text = `Hello RACE Computer Education! I want to submit an enquiry.
 *Name:* ${fullName.trim()}

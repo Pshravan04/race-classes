@@ -21,6 +21,7 @@ import SEO from '../components/SEO';
 import CourseJourneyCurriculum from '../components/CourseJourneyCurriculum';
 import { ToolLogo, getCuratedToolsForCourse } from '../components/ToolIcons';
 import { COURSES, SITE_CONFIG } from '../data/config';
+import { submitToGoogleSheets } from '../services/googleSheets';
 
 const COURSE_IMAGES: Record<string, string> = {
   'data-science-and-ai': '/images/real-data-chart-session.jpg',
@@ -100,6 +101,16 @@ export default function CourseDetail() {
         : candidateGoal === 'fees'
         ? 'Get Complete Syllabus & 50% Concession Fee Details'
         : 'Request Counseling Call';
+
+    // Submit lead directly to Google Sheets
+    submitToGoogleSheets({
+      name: candidateName,
+      phone: candidatePhone,
+      course: course.name,
+      batch: candidateBatch,
+      goal: goalText,
+      formSource: `Course Detail (${course.name})`,
+    });
 
     const text = `Hello RACE! I would like to ${goalText} for ${course.name}.
 Name: ${candidateName.trim()}

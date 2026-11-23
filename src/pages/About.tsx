@@ -199,7 +199,7 @@ export default function About() {
               <div className="bg-white rounded-2xl p-6 sm:p-8 border border-[#E5E7EB] border-b-2 border-b-[#C41E1E] shadow-2xs flex flex-col justify-between">
                 <div>
                   <span className="text-4xl sm:text-5xl font-black text-[#001752] font-heading block tracking-tight">
-                    5,000+
+                    500+
                   </span>
                   <h3 className="text-sm font-bold text-slate-800 mt-2">
                     Students trained

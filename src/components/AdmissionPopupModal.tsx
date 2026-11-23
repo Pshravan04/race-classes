@@ -12,6 +12,7 @@ import {
   Star
 } from 'lucide-react';
 import { SITE_CONFIG } from '../data/config';
+import { submitToGoogleSheets } from '../services/googleSheets';
 
 const POPUP_DISMISS_KEY = 'race_admission_popup_dismissed_v1';
 
@@ -96,6 +97,16 @@ export default function AdmissionPopupModal() {
 
     setSubmitted(true);
     sessionStorage.setItem(POPUP_DISMISS_KEY, 'true');
+
+    // Submit lead directly to Google Sheets
+    submitToGoogleSheets({
+      name: fullName,
+      phone: cleanPhone,
+      course,
+      batch,
+      goal: '50% Concession & Demo Booking',
+      formSource: 'Admission Popup Modal',
+    });
 
     // Build prefilled WhatsApp message
     const message = `Hello RACE! My name is ${fullName.trim()}. I would like to apply for admission in *${course}* (${batch}). Please share the syllabus, 50% concession fee breakdown, and reserve my demo machine.`;
@@ -341,7 +352,7 @@ export default function AdmissionPopupModal() {
                 </span>
                 <span className="flex items-center gap-1">
                   <Star size={13} className="fill-amber-400 text-amber-400" />
-                  4.9 Rated (5,000+ Alumni)
+                  4.9 Rated (500+ Alumni)
                 </span>
               </div>
 

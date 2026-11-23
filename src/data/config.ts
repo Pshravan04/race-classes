@@ -49,6 +49,10 @@ export const SITE_CONFIG = {
     canonicalBase: 'https://racereddys.com',
     ogImage: '/final-logo-1.png',
   },
+
+  // Google Sheets Web App Endpoint for capturing all student enquiries
+  // Set your Google Apps Script Web App URL here or in .env as VITE_GOOGLE_SHEETS_URL
+  googleSheetsUrl: '',
 };
 
 // ============================================================

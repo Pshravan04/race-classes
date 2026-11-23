@@ -21,6 +21,7 @@ import {
 } from 'lucide-react';
 import SEO from '../components/SEO';
 import { BATCHES_SCHEDULE, SITE_CONFIG, COURSES } from '../data/config';
+import { submitToGoogleSheets } from '../services/googleSheets';
 
 interface BatchFilter {
   id: string;
@@ -97,6 +98,16 @@ export default function BatchesAndFees() {
       alert('Please enter your full name and a valid 10-digit mobile number.');
       return;
     }
+
+    // Submit lead directly to Google Sheets
+    submitToGoogleSheets({
+      name: studentName,
+      phone: studentPhone,
+      course: selectedCourse,
+      batch: selectedBatchSlot,
+      goal: 'Seat Availability & Demo Booking',
+      formSource: 'Batches & Fees Page',
+    });
 
     const message = `Hello RACE Institute! I want to check seat availability & book a demo.
 *Name:* ${studentName.trim()}
